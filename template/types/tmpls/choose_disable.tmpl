@@ -1,0 +1,19 @@
+{{define "choose_disable"}}
+    <script>
+        $("select.{{.Field}}").on("select2:select", function (e) {
+            if (e.params.data.text === {{.Value}} || e.params.data.id === {{.Value}}) {
+                {{range $key, $fields := .ChooseFields}}
+
+                $(".{{$fields}}").prop('disabled', true);
+
+                {{end}}
+            } else {
+                {{range $key, $fields := .ChooseFields}}
+
+                $(".{{$fields}}").prop('disabled', false);
+
+                {{end}}
+            }
+        });
+    </script>
+{{end}}
