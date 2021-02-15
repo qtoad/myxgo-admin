@@ -9,10 +9,10 @@ import (
 	"path/filepath"
 	"strconv"
 
-	"github.com/GoAdminGroup/go-admin/context"
-	"github.com/GoAdminGroup/go-admin/modules/utils"
 	"github.com/mgutz/ansi"
 	"github.com/natefinch/lumberjack"
+	"github.com/qtoad/xgo-admin/context"
+	"github.com/qtoad/xgo-admin/modules/utils"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )

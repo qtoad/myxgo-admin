@@ -4,10 +4,10 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/GoAdminGroup/go-admin/modules/auth"
-	"github.com/GoAdminGroup/go-admin/modules/db"
-	"github.com/GoAdminGroup/go-admin/modules/db/dialect"
-	"gopkg.in/ini.v1"
+	"github.com/qtoad/xgo-admin/modules/auth"
+	"github.com/qtoad/xgo-admin/modules/db"
+	"github.com/qtoad/xgo-admin/modules/db/dialect"
+	"github.com/qtoad/xgo-plusplus/ini"
 )
 
 func addUser(cfgFile string) {

@@ -6,14 +6,14 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/GoAdminGroup/go-admin/context"
-	"github.com/GoAdminGroup/go-admin/modules/config"
-	"github.com/GoAdminGroup/go-admin/modules/constant"
-	"github.com/GoAdminGroup/go-admin/modules/language"
-	"github.com/GoAdminGroup/go-admin/modules/utils"
-	template2 "github.com/GoAdminGroup/go-admin/template"
-	"github.com/GoAdminGroup/go-admin/template/icon"
-	"github.com/GoAdminGroup/go-admin/template/types"
+	"github.com/qtoad/xgo-admin/context"
+	"github.com/qtoad/xgo-admin/modules/config"
+	"github.com/qtoad/xgo-admin/modules/constant"
+	"github.com/qtoad/xgo-admin/modules/language"
+	"github.com/qtoad/xgo-admin/modules/utils"
+	template2 "github.com/qtoad/xgo-admin/template"
+	"github.com/qtoad/xgo-admin/template/icon"
+	"github.com/qtoad/xgo-admin/template/types"
 )
 
 type PopUpAction struct {

@@ -3,8 +3,8 @@ package main
 import (
 	"testing"
 
-	"github.com/GoAdminGroup/go-admin/modules/system"
 	"github.com/magiconair/properties/assert"
+	"github.com/qtoad/xgo-admin/modules/system"
 )
 
 func TestGetLatestVersion(t *testing.T) {

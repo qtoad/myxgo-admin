@@ -1,12 +1,12 @@
 package admin
 
 import (
-	"github.com/GoAdminGroup/go-admin/context"
-	"github.com/GoAdminGroup/go-admin/modules/auth"
-	"github.com/GoAdminGroup/go-admin/modules/config"
-	"github.com/GoAdminGroup/go-admin/modules/utils"
-	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/response"
-	"github.com/GoAdminGroup/go-admin/template"
+	"github.com/qtoad/xgo-admin/context"
+	"github.com/qtoad/xgo-admin/modules/auth"
+	"github.com/qtoad/xgo-admin/modules/config"
+	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/plugins/admin/modules/response"
+	"github.com/qtoad/xgo-admin/template"
 )
 
 // initRouter initialize the router and return the context.

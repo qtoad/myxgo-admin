@@ -5,8 +5,8 @@ import (
 	"database/sql"
 	"net/http"
 
-	"github.com/GoAdminGroup/go-admin/context"
-	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/response"
+	"github.com/qtoad/xgo-admin/context"
+	"github.com/qtoad/xgo-admin/plugins/admin/modules/response"
 )
 
 // ShowInstall show install page.

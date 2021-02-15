@@ -1,7 +1,7 @@
 package table
 
 import (
-	"github.com/GoAdminGroup/go-admin/modules/db"
+	"github.com/qtoad/xgo-admin/modules/db"
 )
 
 type Config struct {

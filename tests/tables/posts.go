@@ -1,13 +1,13 @@
 package tables
 
 import (
-	"github.com/GoAdminGroup/go-admin/context"
-	"github.com/GoAdminGroup/go-admin/modules/db"
-	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/table"
-	"github.com/GoAdminGroup/go-admin/template"
-	"github.com/GoAdminGroup/go-admin/template/types"
-	"github.com/GoAdminGroup/go-admin/template/types/form"
-	editType "github.com/GoAdminGroup/go-admin/template/types/table"
+	"github.com/qtoad/xgo-admin/context"
+	"github.com/qtoad/xgo-admin/modules/db"
+	"github.com/qtoad/xgo-admin/plugins/admin/modules/table"
+	"github.com/qtoad/xgo-admin/template"
+	"github.com/qtoad/xgo-admin/template/types"
+	"github.com/qtoad/xgo-admin/template/types/form"
+	editType "github.com/qtoad/xgo-admin/template/types/table"
 )
 
 // GetPostsTable return the model of table posts.

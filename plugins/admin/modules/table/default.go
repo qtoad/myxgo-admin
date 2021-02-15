@@ -11,19 +11,19 @@ import (
 	"strings"
 	"time"
 
-	"github.com/GoAdminGroup/go-admin/modules/config"
+	"github.com/qtoad/xgo-admin/modules/config"
 
-	"github.com/GoAdminGroup/go-admin/modules/db"
-	"github.com/GoAdminGroup/go-admin/modules/db/dialect"
-	errs "github.com/GoAdminGroup/go-admin/modules/errors"
-	"github.com/GoAdminGroup/go-admin/modules/language"
-	"github.com/GoAdminGroup/go-admin/modules/logger"
-	"github.com/GoAdminGroup/go-admin/plugins/admin/modules"
-	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/constant"
-	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/form"
-	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/paginator"
-	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/parameter"
-	"github.com/GoAdminGroup/go-admin/template/types"
+	"github.com/qtoad/xgo-admin/modules/db"
+	"github.com/qtoad/xgo-admin/modules/db/dialect"
+	errs "github.com/qtoad/xgo-admin/modules/errors"
+	"github.com/qtoad/xgo-admin/modules/language"
+	"github.com/qtoad/xgo-admin/modules/logger"
+	"github.com/qtoad/xgo-admin/plugins/admin/modules"
+	"github.com/qtoad/xgo-admin/plugins/admin/modules/constant"
+	"github.com/qtoad/xgo-admin/plugins/admin/modules/form"
+	"github.com/qtoad/xgo-admin/plugins/admin/modules/paginator"
+	"github.com/qtoad/xgo-admin/plugins/admin/modules/parameter"
+	"github.com/qtoad/xgo-admin/template/types"
 )
 
 type DefaultTable struct {

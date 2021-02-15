@@ -7,15 +7,15 @@ import (
 	"{{.ModulePath}}/controller"
 	"{{.ModulePath}}/guard"
 	language2 "{{.ModulePath}}/modules/language"
-	"github.com/GoAdminGroup/go-admin/context"
-	"github.com/GoAdminGroup/go-admin/modules/config"
-	"github.com/GoAdminGroup/go-admin/modules/language"
-	"github.com/GoAdminGroup/go-admin/modules/service"
-	"github.com/GoAdminGroup/go-admin/modules/utils"
-	"github.com/GoAdminGroup/go-admin/plugins"
-	form2 "github.com/GoAdminGroup/go-admin/plugins/admin/modules/form"
-	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/table"
-	"github.com/GoAdminGroup/go-admin/template/types"
+	"github.com/qtoad/xgo-admin/context"
+	"github.com/qtoad/xgo-admin/modules/config"
+	"github.com/qtoad/xgo-admin/modules/language"
+	"github.com/qtoad/xgo-admin/modules/service"
+	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/plugins"
+	form2 "github.com/qtoad/xgo-admin/plugins/admin/modules/form"
+	"github.com/qtoad/xgo-admin/plugins/admin/modules/table"
+	"github.com/qtoad/xgo-admin/template/types"
 )
 
 type {{.PluginTitle}} struct {
@@ -124,9 +124,9 @@ func (plug *{{.PluginTitle}}) GetSettingPage() table.Generator {
 	"controller": `package controller
 
 import (
-	"github.com/GoAdminGroup/go-admin/context"
-	"github.com/GoAdminGroup/go-admin/template"
-	"github.com/GoAdminGroup/go-admin/template/types"
+	"github.com/qtoad/xgo-admin/context"
+	"github.com/qtoad/xgo-admin/template"
+	"github.com/qtoad/xgo-admin/template/types"
 )
 
 type Handler struct {
@@ -146,8 +146,8 @@ func (h *Handler) Update(/*...*/) {
 	"controller_example": `package controller
 
 import (
-	"github.com/GoAdminGroup/go-admin/context"
-	"github.com/GoAdminGroup/go-admin/template/types"
+	"github.com/qtoad/xgo-admin/context"
+	"github.com/qtoad/xgo-admin/template/types"
 	"html/template"
 	"{{.ModulePath}}/guard"
 )
@@ -164,7 +164,7 @@ func (h *Handler) Example(ctx *context.Context) {
 	"guard": `package guard
 
 import (
-	"github.com/GoAdminGroup/go-admin/modules/db"
+	"github.com/qtoad/xgo-admin/modules/db"
 )
 
 type Guardian struct {
@@ -183,7 +183,7 @@ func (g *Guardian) Update(/*...*/) {
 	"guard_example": `package guard
 
 import (
-	"github.com/GoAdminGroup/go-admin/context"
+	"github.com/qtoad/xgo-admin/context"
 )
 
 type ExampleParam struct {
@@ -215,9 +215,9 @@ test:
 	"router": `package {{.PluginName}}
 
 import (
-	"github.com/GoAdminGroup/go-admin/context"
-	"github.com/GoAdminGroup/go-admin/modules/auth"
-	"github.com/GoAdminGroup/go-admin/modules/service"
+	"github.com/qtoad/xgo-admin/context"
+	"github.com/qtoad/xgo-admin/modules/auth"
+	"github.com/qtoad/xgo-admin/modules/service"
 )
 
 func (plug *{{.PluginTitle}}) initRouter(srv service.List) *context.App {
@@ -232,7 +232,7 @@ func (plug *{{.PluginTitle}}) initRouter(srv service.List) *context.App {
 	"language": `package language
 
 import (
-	"github.com/GoAdminGroup/go-admin/modules/language"
+	"github.com/qtoad/xgo-admin/modules/language"
 	"html/template"
 )
 
@@ -245,14 +245,14 @@ func GetHTML(key string) template.HTML {
 }`,
 	"language_cn": `package language
 
-import "github.com/GoAdminGroup/go-admin/modules/language"
+import "github.com/qtoad/xgo-admin/modules/language"
 
 var CN = language.LangSet{
 	"{{.PluginName}}.aaa": "aaa",
 }`,
 	"language_en": `package language
 
-import "github.com/GoAdminGroup/go-admin/modules/language"
+import "github.com/qtoad/xgo-admin/modules/language"
 
 var EN = language.LangSet{
 	"{{.PluginName}}.aaa": "aaa",

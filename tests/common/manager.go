@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/GoAdminGroup/go-admin/modules/config"
-	"github.com/GoAdminGroup/go-admin/modules/errors"
-	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/constant"
-	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/form"
 	"github.com/gavv/httpexpect"
+	"github.com/qtoad/xgo-admin/modules/config"
+	"github.com/qtoad/xgo-admin/modules/errors"
+	"github.com/qtoad/xgo-admin/plugins/admin/modules/constant"
+	"github.com/qtoad/xgo-admin/plugins/admin/modules/form"
 )
 
 func managerTest(e *httpexpect.Expect, sesID *http.Cookie) {

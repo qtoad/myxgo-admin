@@ -7,9 +7,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/GoAdminGroup/go-admin/modules/config"
-	_ "github.com/GoAdminGroup/go-admin/modules/db/drivers/mysql"
 	"github.com/magiconair/properties/assert"
+	"github.com/qtoad/xgo-admin/modules/config"
+	_ "github.com/qtoad/xgo-admin/modules/db/drivers/mysql"
 )
 
 const (

@@ -3,9 +3,9 @@ package guard
 import (
 	"strings"
 
-	"github.com/GoAdminGroup/go-admin/context"
-	"github.com/GoAdminGroup/go-admin/modules/errors"
-	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/table"
+	"github.com/qtoad/xgo-admin/context"
+	"github.com/qtoad/xgo-admin/modules/errors"
+	"github.com/qtoad/xgo-admin/plugins/admin/modules/table"
 )
 
 type ExportParam struct {

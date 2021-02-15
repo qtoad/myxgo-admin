@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/GoAdminGroup/go-admin/tests/common"
 	"github.com/gavv/httpexpect"
+	"github.com/qtoad/xgo-admin/tests/common"
 )
 
 func TestGin(t *testing.T) {

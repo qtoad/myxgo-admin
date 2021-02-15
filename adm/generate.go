@@ -11,12 +11,12 @@ import (
 
 	"github.com/AlecAivazis/survey/v2"
 	"github.com/AlecAivazis/survey/v2/core"
-	"github.com/GoAdminGroup/go-admin/modules/db"
-	"github.com/GoAdminGroup/go-admin/plugins/admin/modules"
-	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/tools"
 	"github.com/mgutz/ansi"
+	"github.com/qtoad/xgo-admin/modules/db"
+	"github.com/qtoad/xgo-admin/plugins/admin/modules"
+	"github.com/qtoad/xgo-admin/plugins/admin/modules/tools"
+	"github.com/qtoad/xgo-plusplus/ini"
 	"github.com/schollz/progressbar"
-	"gopkg.in/ini.v1"
 )
 
 var systemGoAdminTables = []string{

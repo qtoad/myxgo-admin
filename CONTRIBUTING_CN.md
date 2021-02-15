@@ -9,7 +9,7 @@
 * 寻找安全问题
 * 主题和插件
 
-在这里：[功能规划](https://github.com/GoAdminGroup/go-admin/projects/3) 可以获得更多信息。
+在这里：[功能规划](https://github.com/qtoad/xgo-admin/projects/3) 可以获得更多信息。
 
 你也可以看一下所有开放的issues，从这里去入手：
 
@@ -80,5 +80,5 @@ git commit
 如果你已经是GoAdmin的官方开发组成员：
 
 * [Discussions](http://forum.go-admin.cn)
-* [Tasks](https://github.com/GoAdminGroup/go-admin/projects)
+* [Tasks](https://github.com/qtoad/xgo-admin/projects)
 * [Chat](https://t.me/joinchat/NlyH6Bch2QARZkArithKvg)

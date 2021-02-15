@@ -2,15 +2,15 @@ package gin
 
 import (
 	// add gin adapter
-	ada "github.com/GoAdminGroup/go-admin/adapter/gin"
+	ada "github.com/qtoad/xgo-admin/adapter/gin"
 	// add mysql driver
-	_ "github.com/GoAdminGroup/go-admin/modules/db/drivers/mysql"
+	_ "github.com/qtoad/xgo-admin/modules/db/drivers/mysql"
 	// add postgresql driver
-	_ "github.com/GoAdminGroup/go-admin/modules/db/drivers/postgres"
+	_ "github.com/qtoad/xgo-admin/modules/db/drivers/postgres"
 	// add sqlite driver
-	_ "github.com/GoAdminGroup/go-admin/modules/db/drivers/sqlite"
+	_ "github.com/qtoad/xgo-admin/modules/db/drivers/sqlite"
 	// add mssql driver
-	_ "github.com/GoAdminGroup/go-admin/modules/db/drivers/mssql"
+	_ "github.com/qtoad/xgo-admin/modules/db/drivers/mssql"
 	// add adminlte ui theme
 	_ "github.com/GoAdminGroup/themes/adminlte"
 
@@ -18,15 +18,15 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/GoAdminGroup/go-admin/engine"
-	"github.com/GoAdminGroup/go-admin/modules/config"
-	"github.com/GoAdminGroup/go-admin/modules/language"
-	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/table"
-	"github.com/GoAdminGroup/go-admin/template"
-	"github.com/GoAdminGroup/go-admin/template/chartjs"
-	"github.com/GoAdminGroup/go-admin/tests/tables"
 	"github.com/GoAdminGroup/themes/adminlte"
 	"github.com/gin-gonic/gin"
+	"github.com/qtoad/xgo-admin/engine"
+	"github.com/qtoad/xgo-admin/modules/config"
+	"github.com/qtoad/xgo-admin/modules/language"
+	"github.com/qtoad/xgo-admin/plugins/admin/modules/table"
+	"github.com/qtoad/xgo-admin/template"
+	"github.com/qtoad/xgo-admin/template/chartjs"
+	"github.com/qtoad/xgo-admin/tests/tables"
 )
 
 func newHandler() http.Handler {
