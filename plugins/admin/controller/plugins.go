@@ -17,9 +17,9 @@ import (
 
 	"github.com/qtoad/xgo-admin/modules/config"
 
-	"github.com/GoAdminGroup/html"
 	"github.com/gin-gonic/gin"
 	"github.com/qtoad/xgo-admin/context"
+	"github.com/qtoad/xgo-admin/html"
 	"github.com/qtoad/xgo-admin/modules/auth"
 	"github.com/qtoad/xgo-admin/modules/language"
 	"github.com/qtoad/xgo-admin/modules/remote_server"

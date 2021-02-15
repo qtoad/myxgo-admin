@@ -2,11 +2,11 @@ package echo
 
 import (
 	// add echo adapter
-	"github.com/GoAdminGroup/themes/adminlte"
 	_ "github.com/qtoad/xgo-admin/adapter/echo"
 	"github.com/qtoad/xgo-admin/modules/config"
 	"github.com/qtoad/xgo-admin/modules/language"
 	"github.com/qtoad/xgo-admin/plugins/admin/modules/table"
+	"github.com/qtoad/xgo-admin/themes/adminlte"
 
 	// add mysql driver
 	_ "github.com/qtoad/xgo-admin/modules/db/drivers/mysql"

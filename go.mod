@@ -17,6 +17,7 @@ require (
 	github.com/natefinch/lumberjack v2.0.0+incompatible
 	github.com/qtoad/xgo-plusplus v0.0.0-20210215102637-e1a6ea0e64f5
 	github.com/satori/go.uuid v1.2.0
+	github.com/sclevine/agouti v3.0.0+incompatible
 	go.uber.org/zap v1.14.1
 	golang.org/x/crypto v0.0.0-20200820211705-5c72a883971a
 	golang.org/x/text v0.3.3

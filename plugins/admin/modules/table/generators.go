@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/GoAdminGroup/html"
 	"github.com/qtoad/xgo-admin/context"
+	"github.com/qtoad/xgo-admin/html"
 	"github.com/qtoad/xgo-admin/modules/collection"
 	"github.com/qtoad/xgo-admin/modules/config"
 	"github.com/qtoad/xgo-admin/modules/db"

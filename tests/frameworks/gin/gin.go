@@ -12,7 +12,7 @@ import (
 	// add mssql driver
 	_ "github.com/qtoad/xgo-admin/modules/db/drivers/mssql"
 	// add adminlte ui theme
-	_ "github.com/GoAdminGroup/themes/adminlte"
+	_ "github.com/qtoad/xgo-admin/themes/adminlte"
 
 	"io/ioutil"
 	"net/http"
