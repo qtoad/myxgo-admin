@@ -30,7 +30,7 @@ import (
 	"github.com/qtoad/xgo-admin/template/types"
 	"github.com/qtoad/xgo-admin/template/types/action"
 	"github.com/qtoad/xgo-admin/template/types/form"
-	selection "github.com/qtoad/xgo-admin/template/types/form/select"
+	selection "github.com/qtoad/xgo-admin/template/types/selection"
 	"golang.org/x/crypto/bcrypt"
 )
 
