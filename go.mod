@@ -9,9 +9,12 @@ require (
 	github.com/GoAdminGroup/themes v0.0.42
 	github.com/NebulousLabs/fastrand v0.0.0-20181203155948-6fb6489aac4e
 	github.com/denisenkom/go-mssqldb v0.0.0-20200206145737-bbfc9a55622e
+	github.com/gin-gonic/gin v1.6.3
 	github.com/go-chi/chi v1.5.2
 	github.com/go-sql-driver/mysql v1.5.0
 	github.com/go-xorm/xorm v0.7.9
+	github.com/gobuffalo/packr v1.30.1
+	github.com/gobuffalo/packr/v2 v2.8.1
 	github.com/labstack/echo/v4 v4.2.0
 	github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d
 	github.com/natefinch/lumberjack v2.0.0+incompatible

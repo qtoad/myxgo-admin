@@ -3,18 +3,18 @@ package example
 import (
 	"html/template"
 
-	"github.com//qtoad/xgo-admin/themes/adminlte/components/chart_legend"
-	"github.com//qtoad/xgo-admin/themes/adminlte/components/description"
-	"github.com//qtoad/xgo-admin/themes/adminlte/components/infobox"
-	"github.com/qtoad/xgo-admin/themes/adminlte/components/productlist"
-	"github.com/qtoad/xgo-admin/themes/adminlte/components/progress_group"
-	"github.com/qtoad/xgo-admin/themes/adminlte/components/smallbox"
 	"github.com/qtoad/xgo-admin/context"
 	"github.com/qtoad/xgo-admin/modules/auth"
 	"github.com/qtoad/xgo-admin/modules/page"
 	template2 "github.com/qtoad/xgo-admin/template"
 	"github.com/qtoad/xgo-admin/template/chartjs"
 	"github.com/qtoad/xgo-admin/template/types"
+	"github.com/qtoad/xgo-admin/themes/adminlte/components/chart_legend"
+	"github.com/qtoad/xgo-admin/themes/adminlte/components/description"
+	"github.com/qtoad/xgo-admin/themes/adminlte/components/infobox"
+	"github.com/qtoad/xgo-admin/themes/adminlte/components/productlist"
+	"github.com/qtoad/xgo-admin/themes/adminlte/components/progress_group"
+	"github.com/qtoad/xgo-admin/themes/adminlte/components/smallbox"
 )
 
 func (e *Example) TestHandler(ctx *context.Context) {

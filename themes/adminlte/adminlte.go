@@ -1,9 +1,9 @@
 package adminlte
 
 import (
+	"github.com/gobuffalo/packr/v2"
 	"strings"
 
-	"github.com/gobuffalo/packr/v2"
 	adminTemplate "github.com/qtoad/xgo-admin/template"
 	"github.com/qtoad/xgo-admin/template/components"
 	"github.com/qtoad/xgo-admin/template/types"

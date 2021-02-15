@@ -43,4 +43,4 @@ before_script:
   - cd /home/travis/gopath/src/github.com/GoAdminGroup/go-admin && go get github.com/GoAdminGroup/themes@master
 
 script:
-  - cd /home/travis/gopath/src/github.com/GoAdminGroup/go-admin && make test
+  - cd /home/travis/gopath/src/github.com/qtoad/xgo-admin && make test
