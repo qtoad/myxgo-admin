@@ -7,6 +7,11 @@ package config
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/qtoad/xgo-admin/modules/logger"
+	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/plugins/admin/modules/form"
+	"github.com/qtoad/xgo-plusplus/ini"
+	"github.com/qtoad/xgo-plusplus/yaml"
 	"html/template"
 	"io/ioutil"
 	"path/filepath"
@@ -15,12 +20,6 @@ import (
 	"strings"
 	"sync"
 	"sync/atomic"
-
-	"github.com/qtoad/xgo-admin/modules/logger"
-	"github.com/qtoad/xgo-admin/modules/utils"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/form"
-	"github.com/qtoad/xgo-plusplus/ini"
-	"github.com/qtoad/xgo-plusplus/yaml"
 )
 
 // Database is a type of database connection config.

@@ -3,8 +3,8 @@ package separation
 import (
 	"io/ioutil"
 
-	adminTemplate "github.com/qtoad/xgo-admin/emplate"
 	"github.com/qtoad/xgo-admin/modules/config"
+	adminTemplate "github.com/qtoad/xgo-admin/template"
 	"github.com/qtoad/xgo-admin/template/components"
 	"github.com/qtoad/xgo-admin/template/types"
 	"github.com/qtoad/xgo-admin/themes/adminlte/resource"

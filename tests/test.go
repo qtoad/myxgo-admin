@@ -11,8 +11,6 @@ import (
 	"github.com/qtoad/xgo-admin/modules/db/dialect"
 	"github.com/qtoad/xgo-admin/plugins/admin/modules/table"
 	"github.com/qtoad/xgo-admin/tests/common"
-	"github.com/qtoad/xgo-admin/tests/frameworks/fasthttp"
-	fasthttp2 "github.com/valyala/fasthttp"
 )
 
 func Cleaner(config config.DatabaseList) {
@@ -132,8 +130,8 @@ func Cleaner(config config.DatabaseList) {
 	}
 }
 
-func BlackBoxTestSuitOfBuiltInTables(t *testing.T, fn HandlerGenFn, config config.DatabaseList, isFasthttp ...bool) {
-	BlackBoxTestSuit(t, fn, config, nil, Cleaner, common.Test, isFasthttp...)
+func BlackBoxTestSuitOfBuiltInTables(t *testing.T, fn HandlerGenFn, config config.DatabaseList) {
+	BlackBoxTestSuit(t, fn, config, nil, Cleaner, common.Test)
 }
 
 func checkErr(_ interface{}, err error) {
@@ -146,30 +144,20 @@ func BlackBoxTestSuit(t *testing.T, fn HandlerGenFn,
 	config config.DatabaseList,
 	gens table.GeneratorList,
 	cleaner DataCleaner,
-	tester Tester, isFasthttp ...bool) {
+	tester Tester) {
 	// Clean Data
 	cleaner(config)
 	// Test
-	if len(isFasthttp) > 0 && isFasthttp[0] {
-		tester(httpexpect.WithConfig(httpexpect.Config{
-			Client: &http.Client{
-				Transport: httpexpect.NewFastBinder(fasthttp.NewHandler(config, gens)),
-				Jar:       httpexpect.NewJar(),
-			},
-			Reporter: httpexpect.NewAssertReporter(t),
-		}))
-	} else {
-		tester(httpexpect.WithConfig(httpexpect.Config{
-			Client: &http.Client{
-				Transport: httpexpect.NewBinder(fn(config, gens)),
-				Jar:       httpexpect.NewJar(),
-			},
-			Reporter: httpexpect.NewAssertReporter(t),
-		}))
-	}
+	tester(httpexpect.WithConfig(httpexpect.Config{
+		Client: &http.Client{
+			Transport: httpexpect.NewBinder(fn(config, gens)),
+			Jar:       httpexpect.NewJar(),
+		},
+		Reporter: httpexpect.NewAssertReporter(t),
+	}))
+
 }
 
 type Tester func(e *httpexpect.Expect)
 type DataCleaner func(config config.DatabaseList)
 type HandlerGenFn func(config config.DatabaseList, gens table.GeneratorList) http.Handler
-type FasthttpHandlerGenFn func(config config.DatabaseList, gens table.GeneratorList) fasthttp2.RequestHandler

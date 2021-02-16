@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
@@ -34,10 +35,10 @@ func main() {
 		Databases: config.DatabaseList{
 			"default": {
 				Host:       "127.0.0.1",
-				Port:       "3306",
+				Port:       "8889",
 				User:       "root",
 				Pwd:        "root",
-				Name:       "godmin",
+				Name:       "goadmin",
 				MaxIdleCon: 50,
 				MaxOpenCon: 150,
 				Driver:     config.DriverMysql,
@@ -103,6 +104,7 @@ func main() {
 
 	go func() {
 		_ = r.Run(":9033")
+		fmt.Println("server port: 9033")
 	}()
 
 	quit := make(chan os.Signal, 1)

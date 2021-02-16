@@ -271,6 +271,7 @@ func (db *Mssql) InitDB(cfgs map[string]config.Database) Connection {
 			db.DbList[conn] = sqlDB
 
 			if err := sqlDB.Ping(); err != nil {
+				fmt.Println("Failed to connect to mssql, err:" + err.Error())
 				panic(err)
 			}
 		}

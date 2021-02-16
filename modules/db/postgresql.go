@@ -6,6 +6,7 @@ package db
 
 import (
 	"database/sql"
+	"fmt"
 	"strconv"
 	"strings"
 
@@ -110,6 +111,7 @@ func (db *Postgresql) InitDB(cfgList map[string]config.Database) Connection {
 			db.DbList[conn] = sqlDB
 
 			if err := sqlDB.Ping(); err != nil {
+				fmt.Println("Failed to connect to pgsql, err:" + err.Error())
 				panic(err)
 			}
 		}

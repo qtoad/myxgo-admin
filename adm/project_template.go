@@ -12,7 +12,7 @@ import (
 
 	_ "github.com/qtoad/xgo-admin/adapter/gin"                    // web framework adapter
 	_ "github.com/qtoad/xgo-admin/modules/db/drivers/{{.DriverModule}}" // sql driver
-	_ "github.com/GoAdminGroup/themes/{{.Theme}}"                       // ui theme
+	_ "github.com/qtoad/xgo-admin/themes/{{.Theme}}"                       // ui theme
 
 	"github.com/qtoad/xgo-admin/engine"
 	"github.com/qtoad/xgo-admin/template"
@@ -63,130 +63,6 @@ func startServer() {
 }
 {{end}}`,
 
-	"beego": `{{define "project"}}
-package main
-
-import (
-	"log"
-	"os"
-	"os/signal"
-
-	_ "github.com/qtoad/xgo-admin/adapter/beego"                   // web framework adapter
-	_ "github.com/qtoad/xgo-admin/modules/db/drivers/{{.DriverModule}}"  // sql driver
-	_ "github.com/GoAdminGroup/themes/{{.Theme}}"                        // ui theme
-
-	"github.com/qtoad/xgo-admin/engine"
-	"github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/template/chartjs"
-	"github.com/astaxie/beego"
-
-	"{{.Module}}/pages"
-	"{{.Module}}/tables"
-	{{if ne .Orm ""}}"{{.Module}}/models"{{end}}
-)
-
-func main() {
-	startServer()
-}
-
-func startServer() {
-	app := beego.NewApp()
-
-	template.AddComp(chartjs.NewChart())
-
-	eng := engine.Default()
-
-	beego.SetStaticPath("/uploads", "uploads")
-
-	if err := eng.AddConfigFromJSON("./config.json").
-		AddGenerators(tables.Generators).
-		Use(app); err != nil {
-		panic(err)
-	}
-
-	eng.HTML("GET", "/{{.Prefix}}", pages.GetDashBoard)
-	eng.HTMLFile("GET", "/{{.Prefix}}/hello", "./html/hello.tmpl", map[string]interface{}{
-		"msg": "Hello world",
-	})
-
-	{{if ne .Orm ""}}models.Init(eng.{{title .Driver}}Connection()){{end}}
-
-	beego.BConfig.Listen.HTTPAddr = "127.0.0.1"
-	beego.BConfig.Listen.HTTPPort = {{.Port}}
-	go app.Run()
-
-	quit := make(chan os.Signal, 1)
-	signal.Notify(quit, os.Interrupt)
-	<-quit
-	log.Print("closing database connection")
-	eng.{{title .Driver}}Connection().Close()
-}
-{{end}}`,
-
-	"buffalo": `{{define "project"}}
-package main
-
-import (
-	"log"
-	"net/http"
-	"os"
-	"os/signal"
-
-	_ "github.com/qtoad/xgo-admin/adapter/buffalo"                 // web framework adapter
-	_ "github.com/qtoad/xgo-admin/modules/db/drivers/{{.DriverModule}}"  // sql driver
-	_ "github.com/GoAdminGroup/themes/{{.Theme}}"                        // ui theme
-
-	"github.com/qtoad/xgo-admin/engine"
-	"github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/template/chartjs"
-	"github.com/gobuffalo/buffalo"	
-
-	"{{.Module}}/pages"
-	"{{.Module}}/tables"
-	{{if ne .Orm ""}}"{{.Module}}/models"{{end}}
-)
-
-func main() {
-	startServer()
-}
-
-func startServer() {
-	bu := buffalo.New(buffalo.Options{
-		Env:  "test",
-		Addr: "127.0.0.1:{{.Port}}",
-	})
-
-	template.AddComp(chartjs.NewChart())
-
-	eng := engine.Default()
-
-	if err := eng.AddConfigFromJSON("./config.json").
-		AddGenerators(tables.Generators).
-		Use(bu); err != nil {
-		panic(err)
-	}
-
-	eng.HTML("GET", "/{{.Prefix}}", pages.GetDashBoard)
-	eng.HTMLFile("GET", "/{{.Prefix}}/hello", "./html/hello.tmpl", map[string]interface{}{
-		"msg": "Hello world",
-	})
-
-	{{if ne .Orm ""}}models.Init(eng.{{title .Driver}}Connection()){{end}}
-
-	bu.ServeFiles("/uploads", http.Dir("./uploads"))
-
-	go func() {
-		_ = bu.Serve()
-	}()
-
-	quit := make(chan os.Signal, 1)
-	signal.Notify(quit, os.Interrupt)
-	<-quit
-	log.Print("closing database connection")
-	eng.{{title .Driver}}Connection().Close()
-}
-{{end}}`,
-
 	"chi": `{{define "project"}}
 package main
 
@@ -200,7 +76,7 @@ import (
 
 	_ "github.com/qtoad/xgo-admin/adapter/chi"                 // web framework adapter
 	_ "github.com/qtoad/xgo-admin/modules/db/drivers/{{.DriverModule}}"  // sql driver
-	_ "github.com/GoAdminGroup/themes/{{.Theme}}"                        // ui theme
+	_ "github.com/qtoad/xgo-admin/themes/{{.Theme}}"                        // ui theme
 
 	"github.com/qtoad/xgo-admin/engine"
 	"github.com/qtoad/xgo-admin/template"
@@ -283,7 +159,7 @@ import (
 
 	_ "github.com/qtoad/xgo-admin/adapter/echo"                 // web framework adapter
 	_ "github.com/qtoad/xgo-admin/modules/db/drivers/{{.DriverModule}}"  // sql driver
-	_ "github.com/GoAdminGroup/themes/{{.Theme}}"                        // ui theme
+	_ "github.com/qtoad/xgo-admin/themes/{{.Theme}}"                        // ui theme
 
 	"github.com/qtoad/xgo-admin/engine"
 	"github.com/qtoad/xgo-admin/template"
@@ -330,251 +206,6 @@ func startServer() {
 	eng.{{title .Driver}}Connection().Close()
 }
 {{end}}`,
-
-	"fasthttp": `{{define "project"}}
-package main
-
-import (
-	"log"
-	"os"
-	"os/signal"
-
-	_ "github.com/qtoad/xgo-admin/adapter/fasthttp"                 // web framework adapter
-	_ "github.com/qtoad/xgo-admin/modules/db/drivers/{{.DriverModule}}"  // sql driver
-	_ "github.com/GoAdminGroup/themes/{{.Theme}}"                        // ui theme
-
-	"github.com/qtoad/xgo-admin/engine"
-	"github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/template/chartjs"
-	"github.com/buaazp/fasthttprouter"
-	"github.com/valyala/fasthttp"
-
-	"{{.Module}}/pages"
-	"{{.Module}}/tables"
-	{{if ne .Orm ""}}"{{.Module}}/models"{{end}}
-)
-
-func main() {
-	startServer()
-}
-
-func startServer() {
-	router := fasthttprouter.New()
-
-	template.AddComp(chartjs.NewChart())
-
-	eng := engine.Default()
-
-	if err := eng.AddConfigFromJSON("./config.json").
-		AddGenerators(tables.Generators).
-		Use(router); err != nil {
-		panic(err)
-	}
-
-	eng.HTML("GET", "/{{.Prefix}}", pages.GetDashBoard)
-	eng.HTMLFile("GET", "/{{.Prefix}}/hello", "./html/hello.tmpl", map[string]interface{}{
-		"msg": "Hello world",
-	})
-
-	{{if ne .Orm ""}}models.Init(eng.{{title .Driver}}Connection()){{end}}
-
-	router.ServeFiles("/uploads/*filepath", "./uploads")
-
-	go func() {
-		_ = fasthttp.ListenAndServe(":{{.Port}}", router.Handler)
-	}()
-
-	quit := make(chan os.Signal, 1)
-	signal.Notify(quit, os.Interrupt)
-	<-quit
-	log.Print("closing database connection")
-	eng.{{title .Driver}}Connection().Close()
-}
-{{end}}`,
-
-	"gf": `{{define "project"}}
-package main
-
-import (
-	"log"
-	"os"
-	"os/signal"
-
-	_ "github.com/qtoad/xgo-admin/adapter/gf"                 // web framework adapter
-	_ "github.com/qtoad/xgo-admin/modules/db/drivers/{{.DriverModule}}"  // sql driver
-	_ "github.com/GoAdminGroup/themes/{{.Theme}}"                        // ui theme
-
-	"github.com/qtoad/xgo-admin/engine"
-	"github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/template/chartjs"
-	"github.com/gogf/gf/frame/g"
-
-	"{{.Module}}/pages"
-	"{{.Module}}/tables"
-	{{if ne .Orm ""}}"{{.Module}}/models"{{end}}
-)
-
-func main() {
-	startServer()
-}
-
-func startServer() {
-	s := g.Server()
-
-	template.AddComp(chartjs.NewChart())
-
-	eng := engine.Default()
-
-	if err := eng.AddConfigFromJSON("./config.json").
-		AddGenerators(tables.Generators).
-		Use(s); err != nil {
-		panic(err)
-	}
-
-	eng.HTML("GET", "/{{.Prefix}}", pages.GetDashBoard)
-	eng.HTMLFile("GET", "/{{.Prefix}}/hello", "./html/hello.tmpl", map[string]interface{}{
-		"msg": "Hello world",
-	})
-
-	{{if ne .Orm ""}}models.Init(eng.{{title .Driver}}Connection()){{end}}
-
-	s.AddStaticPath("/uploads", "./uploads")
-
-	s.SetPort({{.Port}})
-	go s.Run()
-
-	quit := make(chan os.Signal, 1)
-	signal.Notify(quit, os.Interrupt)
-	<-quit
-	log.Print("closing database connection")
-	eng.{{title .Driver}}Connection().Close()
-}
-{{end}}`,
-
-	"gorilla": `{{define "project"}}
-package main
-
-import (
-	"log"
-	"net/http"
-	"os"
-	"os/signal"
-
-	_ "github.com/qtoad/xgo-admin/adapter/gorilla"                 // web framework adapter
-	_ "github.com/qtoad/xgo-admin/modules/db/drivers/{{.DriverModule}}"  // sql driver
-	_ "github.com/GoAdminGroup/themes/{{.Theme}}"                        // ui theme
-
-	"github.com/qtoad/xgo-admin/engine"
-	"github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/template/chartjs"
-	"github.com/gorilla/mux"
-
-	"{{.Module}}/pages"
-	"{{.Module}}/tables"
-	{{if ne .Orm ""}}"{{.Module}}/models"{{end}}
-)
-
-func main() {
-	startServer()
-}
-
-func startServer() {
-	app := mux.NewRouter()
-
-	template.AddComp(chartjs.NewChart())
-
-	eng := engine.Default()
-
-	if err := eng.AddConfigFromJSON("./config.json").
-		AddGenerators(tables.Generators).
-		Use(app); err != nil {
-		panic(err)
-	}
-
-	eng.HTML("GET", "/{{.Prefix}}", pages.GetDashBoard)
-	eng.HTMLFile("GET", "/{{.Prefix}}/hello", "./html/hello.tmpl", map[string]interface{}{
-		"msg": "Hello world",
-	})
-
-	{{if ne .Orm ""}}models.Init(eng.{{title .Driver}}Connection()){{end}}
-
-	app.PathPrefix("/uploads/").Handler(http.StripPrefix("/uploads/", http.FileServer(http.Dir("./uploads"))))
-
-	go func() {
-		_ = http.ListenAndServe(":{{.Port}}", app)
-	}()
-
-	quit := make(chan os.Signal, 1)
-	signal.Notify(quit, os.Interrupt)
-	<-quit
-	log.Print("closing database connection")
-	eng.{{title .Driver}}Connection().Close()
-}
-{{end}}`,
-
-	"iris": `{{define "project"}}
-package main
-
-import (
-	"log"
-	"os"
-	"os/signal"
-
-	_ "github.com/qtoad/xgo-admin/adapter/iris"                 // web framework adapter
-	_ "github.com/qtoad/xgo-admin/modules/db/drivers/{{.DriverModule}}"  // sql driver
-	_ "github.com/GoAdminGroup/themes/{{.Theme}}"                        // ui theme
-
-	"github.com/qtoad/xgo-admin/engine"
-	"github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/template/chartjs"
-	"github.com/kataras/iris/v12"
-
-	"{{.Module}}/pages"
-	"{{.Module}}/tables"
-	{{if ne .Orm ""}}"{{.Module}}/models"{{end}}
-)
-
-func main() {
-	startServer()
-}
-
-func startServer() {
-	app := iris.Default()
-
-	template.AddComp(chartjs.NewChart())
-
-	eng := engine.Default()
-
-	if err := eng.AddConfigFromJSON("./config.json").
-		AddGenerators(tables.Generators).
-		Use(app); err != nil {
-		panic(err)
-	}
-
-	eng.HTML("GET", "/{{.Prefix}}", pages.GetDashBoard)
-	eng.HTMLFile("GET", "/{{.Prefix}}/hello", "./html/hello.tmpl", map[string]interface{}{
-		"msg": "Hello world",
-	})
-
-	{{if ne .Orm ""}}models.Init(eng.{{title .Driver}}Connection()){{end}}
-
-	app.HandleDir("/uploads", "./uploads", iris.DirOptions{
-		IndexName: "/index.html",
-		Gzip:      false,
-		ShowList:  false,
-	})
-
-	go func() {
-		_ = app.Run(iris.Addr(":{{.Port}}"))
-	}()
-
-	quit := make(chan os.Signal, 1)
-	signal.Notify(quit, os.Interrupt)
-	<-quit
-	log.Print("closing database connection")
-	eng.{{title .Driver}}Connection().Close()
-}
-{{end}}`,
 }
 
 var swordIndexPage = []byte(`package pages
@@ -585,10 +216,10 @@ import (
 	template2 "github.com/qtoad/xgo-admin/template"
 	"github.com/qtoad/xgo-admin/template/chartjs"
 	"github.com/qtoad/xgo-admin/template/types"
-	"github.com/GoAdminGroup/themes/sword/components/card"
-	"github.com/GoAdminGroup/themes/sword/components/chart_legend"
-	"github.com/GoAdminGroup/themes/sword/components/description"
-	"github.com/GoAdminGroup/themes/sword/components/progress_group"
+	"github.com/qtoad/xgo-admin/themes/sword/components/card"
+	"github.com/qtoad/xgo-admin/themes/sword/components/chart_legend"
+	"github.com/qtoad/xgo-admin/themes/sword/components/description"
+	"github.com/qtoad/xgo-admin/themes/sword/components/progress_group"
 	"html/template"
 )
 
@@ -858,12 +489,12 @@ import (
 	"github.com/qtoad/xgo-admin/template/chartjs"
 	"github.com/qtoad/xgo-admin/template/icon"
 	"github.com/qtoad/xgo-admin/template/types"
-	"github.com/GoAdminGroup/themes/adminlte/components/chart_legend"
-	"github.com/GoAdminGroup/themes/adminlte/components/description"
-	"github.com/GoAdminGroup/themes/adminlte/components/infobox"
-	"github.com/GoAdminGroup/themes/adminlte/components/productlist"
-	"github.com/GoAdminGroup/themes/adminlte/components/progress_group"
-	"github.com/GoAdminGroup/themes/adminlte/components/smallbox"
+	"github.com/qtoad/xgo-admin/themes/adminlte/components/chart_legend"
+	"github.com/qtoad/xgo-admin/themes/adminlte/components/description"
+	"github.com/qtoad/xgo-admin/themes/adminlte/components/infobox"
+	"github.com/qtoad/xgo-admin/themes/adminlte/components/productlist"
+	"github.com/qtoad/xgo-admin/themes/adminlte/components/progress_group"
+	"github.com/qtoad/xgo-admin/themes/adminlte/components/smallbox"
 	"html/template"
 )
 

@@ -1,9 +1,9 @@
 package main
 
 import (
+	"github.com/AlecAivazis/survey/v2"
 	"strings"
 
-	"github.com/AlecAivazis/survey/v2"
 	"github.com/qtoad/xgo-admin/modules/config"
 	"github.com/qtoad/xgo-admin/modules/db"
 	"github.com/qtoad/xgo-plusplus/ini"

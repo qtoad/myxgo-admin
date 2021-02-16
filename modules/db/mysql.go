@@ -6,6 +6,8 @@ package db
 
 import (
 	"database/sql"
+	"fmt"
+	"time"
 
 	"github.com/qtoad/xgo-admin/modules/config"
 )
@@ -65,12 +67,14 @@ func (db *Mysql) InitDB(cfgs map[string]config.Database) Connection {
 			}
 
 			// Largest set up the database connection reduce time wait
+			sqlDB.SetConnMaxLifetime(time.Duration(480) * time.Second)
 			sqlDB.SetMaxIdleConns(cfg.MaxIdleCon)
 			sqlDB.SetMaxOpenConns(cfg.MaxOpenCon)
 
 			db.DbList[conn] = sqlDB
 
 			if err := sqlDB.Ping(); err != nil {
+				fmt.Println("Failed to connect to mysql, err:" + err.Error())
 				panic(err)
 			}
 		}

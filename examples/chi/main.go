@@ -32,10 +32,10 @@ func main() {
 		Databases: config.DatabaseList{
 			"default": {
 				Host:       "127.0.0.1",
-				Port:       "3306",
+				Port:       "8889",
 				User:       "root",
 				Pwd:        "root",
-				Name:       "godmin",
+				Name:       "goadmin",
 				MaxIdleCon: 50,
 				MaxOpenCon: 150,
 				Driver:     config.DriverMysql,
@@ -94,7 +94,7 @@ func main() {
 	eng.HTML("GET", "/admin", datamodel.GetContent)
 
 	go func() {
-		_ = http.ListenAndServe(":3333", r)
+		_ = http.ListenAndServe(":9033", r)
 	}()
 
 	quit := make(chan os.Signal, 1)

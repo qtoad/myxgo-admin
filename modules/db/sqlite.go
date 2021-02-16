@@ -6,6 +6,7 @@ package db
 
 import (
 	"database/sql"
+	"fmt"
 
 	"github.com/qtoad/xgo-admin/modules/config"
 )
@@ -95,6 +96,7 @@ func (db *Sqlite) InitDB(cfgList map[string]config.Database) Connection {
 			db.DbList[conn] = sqlDB
 
 			if err := sqlDB.Ping(); err != nil {
+				fmt.Println("Failed to connect to sqlite, err:" + err.Error())
 				panic(err)
 			}
 		}

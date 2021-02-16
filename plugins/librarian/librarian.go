@@ -31,7 +31,6 @@ import (
 	"github.com/qtoad/xgo-admin/template/icon"
 	"github.com/qtoad/xgo-admin/template/types"
 	"github.com/qtoad/xgo-admin/template/types/form"
-	"github.com/qtoad/xgo-plusplus/yaml"
 )
 
 type Librarian struct {

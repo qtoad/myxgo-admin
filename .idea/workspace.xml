@@ -2,260 +2,67 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f87f7eec-bcf0-4769-b80c-59cfa65914da" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/$CACHE_FILE$" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/xgo-admin.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/echarts/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/echarts/assets.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/echarts/assets/china.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/echarts/assets/echarts-gl.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/echarts/assets/echarts-liquidfill.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/echarts/assets/echarts.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/echarts/assets_list.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/echarts/chart.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/echarts/coordinates.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/echarts/map_filename.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/echarts/template.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/README_CN.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/captcha.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/login.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme1/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme1/assets.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme1/assets/login/dist/all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme1/assets/login/dist/all.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme1/assets/login/dist/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme1/assets/login/dist/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme1/assets/login/dist/respond.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme1/assets/src/css/0_font.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme1/assets/src/css/1_bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme1/assets/src/css/2_AdminLTE.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme1/assets/src/js/combine/1_jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme1/assets/src/js/respond.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme1/assets_list.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme1/template.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme1/theme1.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme1/theme1.tmpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme2/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme2/assets.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme2/assets/login/dist/all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme2/assets/login/dist/all.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme2/assets/login/dist/respond.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme2/assets/src/css/0_font.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme2/assets/src/css/1_bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme2/assets/src/css/2_animate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme2/assets/src/css/3_style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme2/assets/src/js/combine/1_jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme2/assets/src/js/combine/2_bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme2/assets/src/js/combine/3_jquery.placeholder.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme2/assets/src/js/combine/4_jquery.waypoints.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme2/assets/src/js/combine/5_particles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme2/assets/src/js/combine/6_main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme2/assets/src/js/respond.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme2/assets_list.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme2/login.tmpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme2/template.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme2/theme2.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme3/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme3/assets.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme3/assets/login/dist/all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme3/assets/login/dist/all.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme3/assets/login/dist/img/bd.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme3/assets/login/dist/respond.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme3/assets/src/css/0_bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme3/assets/src/css/1_style.default.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme3/assets/src/js/combine/1_jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme3/assets/src/js/combine/2_bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme3/assets/src/js/combine/3_jquery.validate.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme3/assets/src/js/respond.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme3/assets_list.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme3/login.tmpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme3/template.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/login/theme3/theme3.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/README_CN.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/adm_config.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/admin.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/bootstrap.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/deploy/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/deploy/apache.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/deploy/nginx.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/html/hello.tmpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/main_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/models/base.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/models/statistics.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/pages/form.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/pages/index.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/pages/table.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/tables/authors.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/tables/external.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/tables/posts.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/tables/profile.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/tables/tables.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/tables/users.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo123/vendor/vendor.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plugins/filemanager/example/picture/landscape/a.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plugins/librarian/cli/librarian.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/controller/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/controller/common.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/controller/delete.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/controller/delete.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/controller/download.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/controller/download.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/controller/files.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/controller/files.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/controller/move.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/controller/move.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/controller/preview.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/controller/preview.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/controller/rename.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/controller/rename.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/controller/upload.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/controller/upload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/example/admin.db" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/example/admin.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/example/book/fiction/a.txt" beforeDir="false" afterPath="$PROJECT_DIR$/demo123/logs/.gitkeep" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/example/book/funny/a.txt" beforeDir="false" afterPath="$PROJECT_DIR$/demo123/uploads/a.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/example/book/funny/dir_dir1/a.txt" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/example/book/fiction/a.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/example/book/robot.gif" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/example/book/robot.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/example/book/suspense/a.txt" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/example/book/funny/a.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/example/book/tech/a.txt" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/example/book/funny/dir_dir1/a.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/example/book/tech/dir_dir1/a.txt" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/example/book/suspense/a.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/example/code/golang/a.txt" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/example/book/tech/a.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/example/code/golang/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/example/code/golang/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/example/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/example/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/example/picture/animal/cat/111.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/example/picture/animal/cat/111.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/example/picture/landscape/a.txt" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/example/book/tech/dir_dir1/a.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/filemanager.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/filemanager.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/guard/delete.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/guard/delete.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/guard/files.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/guard/files.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/guard/guard.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/guard/guard.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/guard/move.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/guard/move.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/guard/preview.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/guard/preview.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/guard/rename.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/guard/rename.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/guard/upload.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/guard/upload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/installation.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/installation.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/models/file.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/models/file.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/modules/constant/constant.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/modules/constant/constant.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/modules/error/error.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/modules/error/error.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/modules/language/cn.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/modules/language/cn.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/modules/language/en.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/modules/language/en.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/modules/language/language.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/modules/language/language.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/modules/permission/permission.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/modules/permission/permission.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/modules/root/root.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/modules/root/root.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/modules/util/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/modules/util/util.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/previewer/code.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/previewer/code.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/previewer/image.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/previewer/image.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/previewer/pdf.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/previewer/pdf.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/previewer/previewer.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/previewer/previewer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/tests/admin.db" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/tests/admin.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filemanager/tests/common_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/tests/common_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/admin.mysql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapter/buffalo/buffalo.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adm/add.go" beforeDir="false" afterPath="$PROJECT_DIR$/adm/add.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adm/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/adm/db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adm/project_template.go" beforeDir="false" afterPath="$PROJECT_DIR$/adm/project_template.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/admin.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/README_CN.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/adm_config.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/admin.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/bootstrap.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/deploy/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/deploy/apache.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/deploy/nginx.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/html/hello.tmpl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/logs/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/main_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/models/base.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/models/statistics.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/pages/form.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/pages/index.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/pages/table.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/tables/authors.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/tables/external.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/tables/posts.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/tables/profile.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/tables/tables.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/tables/users.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/uploads/a.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo123/vendor/vendor.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/buffalo/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/chi/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/chi/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/datamodel/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/datamodel/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/echo/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/echo/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/gin/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/gin/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/README_CN.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/README_CN.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/admin/auth.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/admin/auth.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/admin/cdn.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/admin/cdn.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/admin/cli.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/admin/cli.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/admin/file.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/admin/file.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/admin/form/basic.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/admin/form/basic.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/admin/form/components.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/admin/form/components.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/admin/menus.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/admin/menus.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/admin/module.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/admin/module.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/admin/rbac.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/admin/rbac.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/admin/table/basic.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/admin/table/basic.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/admin/table/column_usage.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/admin/table/column_usage.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/admin/theme.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/admin/theme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/architecture/introduction.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/architecture/introduction.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/components/chartjs.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/components/chartjs.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/components/components.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/components/components.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/components/infobox.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/components/infobox.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/components/progressbar.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/components/progressbar.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/development/adapter.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/development/adapter.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/development/code_style.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/development/code_style.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/development/plugins.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/development/plugins.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/development/template/components.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/development/template/components.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/development/template/form.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/development/template/form.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/development/template/template.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/development/template/template.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/installation.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/installation.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/monitor/monitor.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/monitor/monitor.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/nav.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/nav.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/pages/components.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/pages/components.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/pages/login.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/pages/login.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/pages/modules.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/pages/modules.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/pages/pages.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/pages/pages.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/plan.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/plan.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/plugins/admin.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/plugins/admin.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/plugins/plugins.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/plugins/plugins.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/quick_start.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/quick_start.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/docs/tests/ci.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/docs/tests/ci.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/librarian.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/example/code/golang/a.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/cli/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/cli/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/controller/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/controller/common.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/controller/view.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/controller/view.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/controller/write.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/controller/write.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/admin.db" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/admin.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/admin/auth.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/admin/auth.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/admin/cdn.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/admin/cdn.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/admin/cli.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/admin/cli.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/admin/file.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/admin/file.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/admin/form/basic.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/admin/form/basic.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/admin/form/components.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/admin/form/components.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/admin/menus.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/admin/menus.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/admin/module.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/admin/module.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/admin/rbac.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/admin/rbac.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/admin/table/basic.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/admin/table/basic.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/admin/table/column_usage.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/admin/table/column_usage.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/admin/theme.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/admin/theme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/architecture/introduction.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/architecture/introduction.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/components/chartjs.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/components/chartjs.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/components/components.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/components/components.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/components/infobox.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/components/infobox.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/components/progressbar.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/components/progressbar.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/development/adapter.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/development/adapter.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/development/code_style.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/development/code_style.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/development/plugins.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/development/plugins.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/development/template/components.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/development/template/components.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/development/template/form.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/development/template/form.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/development/template/template.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/development/template/template.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/install.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/install.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/monitor/monitor.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/monitor/monitor.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/nav.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/nav.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/pages/components.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/pages/components.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/pages/login.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/pages/login.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/pages/modules.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/pages/modules.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/pages/pages.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/pages/pages.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/plan.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/plan.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/plugins/admin.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/plugins/admin.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/plugins/plugins.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/plugins/plugins.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/quick_start.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/quick_start.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/docs/tests/ci.md" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/docs/tests/ci.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/example/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/example/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/guard/guard.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/guard/guard.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/guard/view.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/guard/view.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/librarian.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/librarian.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/modules/constant/constant.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/modules/constant/constant.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/modules/error/error.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/modules/error/error.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/modules/language/cn.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/modules/language/cn.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/modules/language/en.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/modules/language/en.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/modules/language/language.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/modules/language/language.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/modules/permission/permission.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/modules/permission/permission.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/modules/root/root.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/modules/root/root.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/modules/theme/default.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/modules/theme/default.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/modules/theme/github.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/modules/theme/github.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/modules/theme/theme.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/modules/theme/theme.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/modules/util/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/modules/util/util.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/tests/admin.db" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/tests/admin.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/librarian/tests/common_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/tests/common_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/element.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/html_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/db/mssql.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/db/mssql.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/db/mysql.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/db/mysql.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/db/postgresql.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/db/postgresql.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/db/sqlite.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/db/sqlite.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/admin/controller/plugins.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/admin/controller/plugins.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/admin/controller/show.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/admin/controller/show.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/admin/modules/table/default.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/admin/modules/table/default.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/admin/modules/table/generators.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/admin/modules/table/generators.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/admin/modules/tools/generator.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/admin/modules/tools/generator.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/librarian/librarian.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/librarian.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/adminlte/separation/adminlte.go" beforeDir="false" afterPath="$PROJECT_DIR$/themes/adminlte/separation/adminlte.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,11 +77,15 @@
     <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="1oVSCTlfhxREU0JjeOBDucobqum" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="GO_FMT" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -285,19 +96,29 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="go.vgo" />
+    <property name="settings.editor.selected.configurable" value="preferences.updates" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/template/types" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build github.com/qtoad/xgo-admin">
-    <configuration name="go build github.com/qtoad/xgo-admin" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Build.go build github.com/qtoad/xgo-admin/examples/echo">
+    <configuration name="go build github.com/qtoad/xgo-admin/examples/chi" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="xgo-admin" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="github.com/qtoad/xgo-admin" />
+      <filePath value="$PROJECT_DIR$/examples/chi/main.go" />
+      <package value="github.com/qtoad/xgo-admin/examples/chi" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build github.com/qtoad/xgo-admin/examples/echo" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="xgo-admin" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/examples/echo/main.go" />
+      <package value="github.com/qtoad/xgo-admin/examples/echo" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
@@ -310,21 +131,12 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="go build github.com/qtoad/xgo-admin/plugins/filemanager/example" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build main.go (1)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="xgo-admin" />
-      <working_directory value="$PROJECT_DIR$/plugins/filemanager/example" />
-      <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/plugins/filemanager/example/main.go" />
-      <package value="github.com/qtoad/xgo-admin/plugins/filemanager/example" />
-      <directory value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build github.com/qtoad/xgo-admin/plugins/filemanager/example/code/golang" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="xgo-admin" />
-      <working_directory value="$PROJECT_DIR$/filemanager/example" />
-      <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/filemanager/example/code/golang/main.go" />
-      <package value="github.com/qtoad/xgo-admin/plugins/filemanager/example/code/golang" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/examples/chi/main.go" />
+      <package value="github.com/qtoad/xgo-admin" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
@@ -332,18 +144,25 @@
       <module name="xgo-admin" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/examples/gin/main.go" />
+      <filePath value="$PROJECT_DIR$/examples/buffalo/main.go" />
       <package value="github.com/qtoad/xgo-admin" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Go Build.go build github.com/qtoad/xgo-admin/examples/gin" />
+      <item itemvalue="Go Build.go build main.go" />
+      <item itemvalue="Go Build.go build github.com/qtoad/xgo-admin/examples/chi" />
+      <item itemvalue="Go Build.go build github.com/qtoad/xgo-admin/examples/echo" />
+      <item itemvalue="Go Build.go build main.go (1)" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build github.com/qtoad/xgo-admin" />
-        <item itemvalue="Go Build.go build github.com/qtoad/xgo-admin/plugins/filemanager/example/code/golang" />
-        <item itemvalue="Go Build.go build github.com/qtoad/xgo-admin/plugins/filemanager/example" />
-        <item itemvalue="Go Build.go build main.go" />
+        <item itemvalue="Go Build.go build github.com/qtoad/xgo-admin/examples/echo" />
+        <item itemvalue="Go Build.go build github.com/qtoad/xgo-admin/examples/chi" />
+        <item itemvalue="Go Build.go build main.go (1)" />
         <item itemvalue="Go Build.go build github.com/qtoad/xgo-admin/examples/gin" />
+        <item itemvalue="Go Build.go build main.go" />
       </list>
     </recent_temporary>
   </component>
@@ -352,6 +171,7 @@
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="added by wang 2021-02-15" />
     <option name="LAST_COMMIT_MESSAGE" value="added by wang 2021-02-15" />
   </component>
@@ -364,42 +184,87 @@
     </environment>
   </component>
   <component name="WindowStateProjectService">
-    <state x="254" y="23" width="846" height="828" key="CommitChangelistDialog2" timestamp="1613394761882">
+    <state x="184" y="99" width="1071" height="701" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1613456252028">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state x="254" y="23" width="846" height="828" key="CommitChangelistDialog2/0.23.1440.828@0.23.1440.828" timestamp="1613394761882" />
+    <state x="184" y="99" width="1071" height="701" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.828@0.23.1440.828" timestamp="1613456252028" />
+    <state x="424" y="246" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1613399163658">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state x="424" y="246" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.828@0.23.1440.828" timestamp="1613399163658" />
+    <state x="254" y="23" width="846" height="828" key="CommitChangelistDialog2" timestamp="1613398092212">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state x="254" y="23" width="846" height="828" key="CommitChangelistDialog2/0.23.1440.828@0.23.1440.828" timestamp="1613398092211" />
     <state x="612" y="286" key="EnvironmentVariablesDialog" timestamp="1613390072077">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state x="612" y="286" key="EnvironmentVariablesDialog/0.23.1440.828@0.23.1440.828" timestamp="1613390072077" />
-    <state width="1358" height="270" key="GridCell.Tab.0.bottom" timestamp="1613394684369">
+    <state width="1473" height="188" key="GridCell.Tab.0.bottom" timestamp="1613468826404">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1358" height="270" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1613394684369" />
-    <state width="1358" height="270" key="GridCell.Tab.0.center" timestamp="1613394684364">
+    <state width="1473" height="188" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1613468826404" />
+    <state width="1473" height="188" key="GridCell.Tab.0.center" timestamp="1613468826403">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1358" height="270" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1613394684364" />
-    <state width="1358" height="270" key="GridCell.Tab.0.left" timestamp="1613394684362">
+    <state width="1473" height="188" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1613468826403" />
+    <state width="1473" height="188" key="GridCell.Tab.0.left" timestamp="1613468826402">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1358" height="270" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1613394684362" />
-    <state width="1358" height="270" key="GridCell.Tab.0.right" timestamp="1613394684367">
+    <state width="1473" height="188" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1613468826402" />
+    <state width="1473" height="188" key="GridCell.Tab.0.right" timestamp="1613468826403">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1358" height="270" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1613394684367" />
-    <state x="223" y="56" key="SettingsEditor" timestamp="1613390075186">
+    <state width="1473" height="188" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1613468826403" />
+    <state width="1473" height="188" key="GridCell.Tab.1.bottom" timestamp="1613468826405">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state x="223" y="56" key="SettingsEditor/0.23.1440.828@0.23.1440.828" timestamp="1613390075186" />
-    <state x="322" y="157" key="Vcs.Push.Dialog.v2" timestamp="1613395208994">
+    <state width="1473" height="188" key="GridCell.Tab.1.bottom/0.23.1440.828@0.23.1440.828" timestamp="1613468826405" />
+    <state width="1473" height="188" key="GridCell.Tab.1.center" timestamp="1613468826404">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state x="322" y="157" key="Vcs.Push.Dialog.v2/0.23.1440.828@0.23.1440.828" timestamp="1613395208993" />
-    <state x="553" y="27" width="689" height="735" key="find.popup" timestamp="1613393354764">
+    <state width="1473" height="188" key="GridCell.Tab.1.center/0.23.1440.828@0.23.1440.828" timestamp="1613468826404" />
+    <state width="1473" height="188" key="GridCell.Tab.1.left" timestamp="1613468826404">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state x="553" y="27" width="689" height="735" key="find.popup/0.23.1440.828@0.23.1440.828" timestamp="1613393354764" />
+    <state width="1473" height="188" key="GridCell.Tab.1.left/0.23.1440.828@0.23.1440.828" timestamp="1613468826404" />
+    <state width="1473" height="188" key="GridCell.Tab.1.right" timestamp="1613468826405">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state width="1473" height="188" key="GridCell.Tab.1.right/0.23.1440.828@0.23.1440.828" timestamp="1613468826405" />
+    <state x="223" y="56" key="SettingsEditor" timestamp="1613468681507">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state x="223" y="56" key="SettingsEditor/0.23.1440.828@0.23.1440.828" timestamp="1613468681507" />
+    <state x="322" y="157" key="Vcs.Push.Dialog.v2" timestamp="1613398184541">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state x="322" y="157" key="Vcs.Push.Dialog.v2/0.23.1440.828@0.23.1440.828" timestamp="1613398184541" />
+    <state x="553" y="27" width="689" height="735" key="find.popup" timestamp="1613464093831">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state x="553" y="27" width="689" height="735" key="find.popup/0.23.1440.828@0.23.1440.828" timestamp="1613464093831" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/examples/gin/main.go</url>
+          <line>105</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/examples/gin/main.go</url>
+          <line>106</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="GoApplicationRunConfiguration">
+        <watch expression="cfg.GetDSN()" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/xgo_admin$go_test_xgo_admin.out" NAME="go test xgo-admin Coverage Results" MODIFIED="1613388566211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
