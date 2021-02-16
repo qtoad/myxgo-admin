@@ -8,7 +8,7 @@ import (
 	"github.com/qtoad/xgo-admin/modules/db"
 	"github.com/qtoad/xgo-admin/modules/language"
 	"github.com/qtoad/xgo-admin/modules/service"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 	"github.com/qtoad/xgo-admin/plugins"
 	"github.com/qtoad/xgo-admin/plugins/filemanager/controller"
 	"github.com/qtoad/xgo-admin/plugins/filemanager/guard"
@@ -195,8 +195,8 @@ var info = plugins.Info{
 	Uuid:        "DDN7VxZDTHTeaF8HUU",
 	Name:        "filemanager",
 	ModulePath:  "github.com/GoAdminGroup/filemanager",
-	CreateDate:  utils.ParseTime("2020-04-05"),
-	UpdateDate:  utils.ParseTime("2020-08-03"),
+	CreateDate:  util.ParseTime("2020-04-05"),
+	UpdateDate:  util.ParseTime("2020-08-03"),
 }
 
 type Table struct {

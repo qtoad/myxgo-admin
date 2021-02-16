@@ -15,7 +15,7 @@ import (
 	"github.com/qtoad/xgo-admin/modules/config"
 	"github.com/qtoad/xgo-admin/modules/menu"
 	"github.com/qtoad/xgo-admin/modules/system"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 	"github.com/qtoad/xgo-admin/plugins/admin/models"
 )
 
@@ -321,7 +321,7 @@ window.setTimeout(function(){
 	}
 
 	if compress {
-		utils.CompressedContent(&p.Content)
+		util.CompressedContent(&p.Content)
 	}
 
 	return p

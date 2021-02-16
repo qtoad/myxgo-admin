@@ -16,7 +16,7 @@ import (
 	"github.com/qtoad/xgo-admin/modules/errors"
 	"github.com/qtoad/xgo-admin/modules/language"
 	"github.com/qtoad/xgo-admin/modules/logger"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 	"github.com/qtoad/xgo-admin/plugins/admin/modules"
 	"github.com/qtoad/xgo-admin/plugins/admin/modules/parameter"
 	"github.com/qtoad/xgo-admin/template/types/form"
@@ -502,7 +502,7 @@ func (j Join) GetTableName(delimiter ...string) string {
 	return j.Table
 }
 
-var JoinFieldValueDelimiter = utils.Uuid(8)
+var JoinFieldValueDelimiter = util.Uuid(8)
 
 type TabGroups [][]string
 
@@ -1367,7 +1367,7 @@ func (i *InfoPanel) FieldFilterOnChoose(val, field string, value template.HTML) 
 }
 
 func (i *InfoPanel) OperationURL(id string) string {
-	return config.Url("/operation/" + utils.WrapURL(id))
+	return config.Url("/operation/" + util.WrapURL(id))
 }
 
 func (i *InfoPanel) FieldFilterOnChooseAjax(field, url string, handler Handler) *InfoPanel {

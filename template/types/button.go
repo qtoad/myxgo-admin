@@ -5,7 +5,7 @@ import (
 	"net/url"
 
 	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 	"github.com/qtoad/xgo-admin/plugins/admin/models"
 )
 
@@ -128,7 +128,7 @@ func GetActionButton(title template.HTML, action Action, ids ...string) *ActionB
 	if len(ids) > 0 {
 		id = ids[0]
 	} else {
-		id = "action-info-btn-" + utils.Uuid(10)
+		id = "action-info-btn-" + util.Uuid(10)
 	}
 
 	action.SetBtnId("." + id)
@@ -162,7 +162,7 @@ func GetActionIconButton(icon string, action Action, ids ...string) *ActionIconB
 	if len(ids) > 0 {
 		id = ids[0]
 	} else {
-		id = "action-info-btn-" + utils.Uuid(10)
+		id = "action-info-btn-" + util.Uuid(10)
 	}
 
 	action.SetBtnId("." + id)
@@ -423,7 +423,7 @@ func (n *NavDropDownButton) Content() (template.HTML, template.JS) {
 		js += j
 	}
 
-	did := utils.Uuid(10)
+	did := util.Uuid(10)
 
 	h := template.HTML(`<li class="dropdown" id="` + template.HTML(did) + `">
     <a class="` + template.HTML(n.Id) + ` dropdown-toggle" data-toggle="dropdown" style="cursor:pointer;">

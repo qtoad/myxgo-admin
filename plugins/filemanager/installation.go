@@ -14,7 +14,7 @@ import (
 	"github.com/qtoad/xgo-admin/context"
 	"github.com/qtoad/xgo-admin/modules/config"
 	"github.com/qtoad/xgo-admin/modules/db"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 	"github.com/qtoad/xgo-admin/plugins/admin/modules/table"
 	errors "github.com/qtoad/xgo-admin/plugins/filemanager/modules/error"
 	language2 "github.com/qtoad/xgo-admin/plugins/filemanager/modules/language"

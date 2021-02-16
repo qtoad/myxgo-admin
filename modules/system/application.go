@@ -7,7 +7,7 @@ import (
 
 	"github.com/qtoad/xgo-admin/modules/config"
 	"github.com/qtoad/xgo-admin/modules/language"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 )
 
 var (
@@ -57,37 +57,37 @@ type AppStatus struct {
 
 func GetAppStatus() AppStatus {
 	var app AppStatus
-	app.Uptime = utils.TimeSincePro(startTime, language.Lang[config.GetLanguage()])
+	app.Uptime = util.TimeSincePro(startTime, language.Lang[config.GetLanguage()])
 
 	m := new(runtime.MemStats)
 	runtime.ReadMemStats(m)
 	app.NumGoroutine = runtime.NumGoroutine()
 
-	app.MemAllocated = utils.FileSize(m.Alloc)
-	app.MemTotal = utils.FileSize(m.TotalAlloc)
-	app.MemSys = utils.FileSize(m.Sys)
+	app.MemAllocated = util.FileSize(m.Alloc)
+	app.MemTotal = util.FileSize(m.TotalAlloc)
+	app.MemSys = util.FileSize(m.Sys)
 	app.Lookups = m.Lookups
 	app.MemMallocs = m.Mallocs
 	app.MemFrees = m.Frees
 
-	app.HeapAlloc = utils.FileSize(m.HeapAlloc)
-	app.HeapSys = utils.FileSize(m.HeapSys)
-	app.HeapIdle = utils.FileSize(m.HeapIdle)
-	app.HeapInuse = utils.FileSize(m.HeapInuse)
-	app.HeapReleased = utils.FileSize(m.HeapReleased)
+	app.HeapAlloc = util.FileSize(m.HeapAlloc)
+	app.HeapSys = util.FileSize(m.HeapSys)
+	app.HeapIdle = util.FileSize(m.HeapIdle)
+	app.HeapInuse = util.FileSize(m.HeapInuse)
+	app.HeapReleased = util.FileSize(m.HeapReleased)
 	app.HeapObjects = m.HeapObjects
 
-	app.StackInuse = utils.FileSize(m.StackInuse)
-	app.StackSys = utils.FileSize(m.StackSys)
-	app.MSpanInuse = utils.FileSize(m.MSpanInuse)
-	app.MSpanSys = utils.FileSize(m.MSpanSys)
-	app.MCacheInuse = utils.FileSize(m.MCacheInuse)
-	app.MCacheSys = utils.FileSize(m.MCacheSys)
-	app.BuckHashSys = utils.FileSize(m.BuckHashSys)
-	app.GCSys = utils.FileSize(m.GCSys)
-	app.OtherSys = utils.FileSize(m.OtherSys)
+	app.StackInuse = util.FileSize(m.StackInuse)
+	app.StackSys = util.FileSize(m.StackSys)
+	app.MSpanInuse = util.FileSize(m.MSpanInuse)
+	app.MSpanSys = util.FileSize(m.MSpanSys)
+	app.MCacheInuse = util.FileSize(m.MCacheInuse)
+	app.MCacheSys = util.FileSize(m.MCacheSys)
+	app.BuckHashSys = util.FileSize(m.BuckHashSys)
+	app.GCSys = util.FileSize(m.GCSys)
+	app.OtherSys = util.FileSize(m.OtherSys)
 
-	app.NextGC = utils.FileSize(m.NextGC)
+	app.NextGC = util.FileSize(m.NextGC)
 	app.LastGC = fmt.Sprintf("%.1fs", float64(time.Now().UnixNano()-int64(m.LastGC))/1000/1000/1000)
 	app.PauseTotalNs = fmt.Sprintf("%.1fs", float64(m.PauseTotalNs)/1000/1000/1000)
 	app.PauseNs = fmt.Sprintf("%.3fs", float64(m.PauseNs[(m.NumGC+255)%256])/1000/1000/1000)

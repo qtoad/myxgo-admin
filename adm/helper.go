@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"github.com/mgutz/ansi"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 
 	"github.com/qtoad/xgo-admin/modules/system"
 )
@@ -54,7 +54,7 @@ func getLatestVersion() string {
 
 func compareVersion(srcVersion string) string {
 	toCompareVersion := getLatestVersion()
-	if utils.CompareVersion(srcVersion, toCompareVersion) {
+	if util.CompareVersion(srcVersion, toCompareVersion) {
 		return ", the latest version is " + toCompareVersion + " now."
 	}
 	return ""

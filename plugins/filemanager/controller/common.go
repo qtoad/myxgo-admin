@@ -8,7 +8,6 @@ import (
 	"time"
 
 	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/html"
 	"github.com/qtoad/xgo-admin/modules/config"
 	"github.com/qtoad/xgo-admin/plugins/admin/modules/paginator"
 	"github.com/qtoad/xgo-admin/plugins/admin/modules/parameter"
@@ -22,6 +21,7 @@ import (
 	"github.com/qtoad/xgo-admin/template/icon"
 	"github.com/qtoad/xgo-admin/template/types"
 	"github.com/qtoad/xgo-admin/template/types/action"
+	"github.com/qtoad/xgo-plusplus/html"
 )
 
 type Handler struct {

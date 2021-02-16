@@ -12,7 +12,6 @@ import (
 	"time"
 
 	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/html"
 	"github.com/qtoad/xgo-admin/modules/collection"
 	"github.com/qtoad/xgo-admin/modules/config"
 	"github.com/qtoad/xgo-admin/modules/db"
@@ -21,7 +20,7 @@ import (
 	"github.com/qtoad/xgo-admin/modules/language"
 	"github.com/qtoad/xgo-admin/modules/logger"
 	"github.com/qtoad/xgo-admin/modules/ui"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 	"github.com/qtoad/xgo-admin/plugins/admin/models"
 	form2 "github.com/qtoad/xgo-admin/plugins/admin/modules/form"
 	"github.com/qtoad/xgo-admin/plugins/admin/modules/parameter"
@@ -31,6 +30,7 @@ import (
 	"github.com/qtoad/xgo-admin/template/types/action"
 	"github.com/qtoad/xgo-admin/template/types/form"
 	selection "github.com/qtoad/xgo-admin/template/types/selection"
+	"github.com/qtoad/xgo-plusplus/html"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -1444,7 +1444,7 @@ func (s *SystemTable) GetGenerateForm(ctx *context.Context) (generateTool Table)
 				}
 
 				return true, "ok", [][]string{headName, fieldName, dbTypeList, formTypeList}
-			}, template.HTML(utils.ParseText("choose_table_ajax", tmpls["choose_table_ajax"], nil)),
+			}, template.HTML(util.ParseText("choose_table_ajax", tmpls["choose_table_ajax"], nil)),
 			`"conn":$('.conn').val(),`)
 	formList.AddField(lgWithScore("package", "tool"), "package", db.Varchar, form.Text).FieldDefault("tables")
 	formList.AddField(lgWithScore("primarykey", "tool"), "pk", db.Varchar, form.Text).FieldDefault("id")
@@ -1818,7 +1818,7 @@ func (s *SystemTable) GetGenerateForm(ctx *context.Context) (generateTool Table)
 		DisableJump:  true,
 	})
 
-	formList.SetFooterHtml(utils.ParseHTML("generator", tmpls["generator"], map[string]string{
+	formList.SetFooterHtml(util.ParseHTML("generator", tmpls["generator"], map[string]string{
 		"prefix": "go_admin_" + config.GetAppID() + "_generator_",
 	}))
 
@@ -1899,7 +1899,7 @@ func escape(s string) string {
 
 func checkJSON(values form2.Values, key string) error {
 	v := values.Get(key)
-	if v != "" && !utils.IsJSON(v) {
+	if v != "" && !util.IsJSON(v) {
 		return errors.New("wrong " + key)
 	}
 	return nil

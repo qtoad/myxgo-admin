@@ -6,8 +6,8 @@ import (
 	"path/filepath"
 
 	"github.com/h2non/filetype"
-	"github.com/qtoad/xgo-admin/html"
 	"github.com/qtoad/xgo-admin/plugins/filemanager/modules/language"
+	"github.com/qtoad/xgo-plusplus/html"
 )
 
 type Previewer interface {

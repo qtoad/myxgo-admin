@@ -20,7 +20,7 @@ import (
 	"github.com/qtoad/xgo-admin/modules/logger"
 	"github.com/qtoad/xgo-admin/modules/menu"
 	"github.com/qtoad/xgo-admin/modules/system"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 	"github.com/qtoad/xgo-admin/plugins/admin/models"
 	"github.com/qtoad/xgo-admin/template/login"
 	"github.com/qtoad/xgo-admin/template/types"
@@ -173,7 +173,7 @@ func CheckRequirements() (bool, bool) {
 		return false, true
 	}
 	// The theme which is not in the default official themes will be ignored.
-	if !utils.InArray(DefaultThemeNames, Default().Name()) {
+	if !util.InArray(DefaultThemeNames, Default().Name()) {
 		return true, true
 	}
 	return true, VersionCompare(Default().GetVersion(), system.RequireThemeVersion()[Default().Name()])
@@ -185,7 +185,7 @@ func CheckThemeRequirements() bool {
 
 func VersionCompare(toCompare string, versions []string) bool {
 	for _, v := range versions {
-		if v == toCompare || utils.CompareVersion(v, toCompare) {
+		if v == toCompare || util.CompareVersion(v, toCompare) {
 			return true
 		}
 	}

@@ -11,7 +11,7 @@ import (
 	"github.com/dchest/captcha"
 	"github.com/qtoad/xgo-admin/components/login/theme1"
 	"github.com/qtoad/xgo-admin/modules/logger"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 	captcha2 "github.com/qtoad/xgo-admin/plugins/admin/modules/captcha"
 	template2 "github.com/qtoad/xgo-admin/template"
 	"github.com/qtoad/xgo-admin/template/login"
@@ -91,7 +91,7 @@ func byteToStr(b []byte) string {
 func (l *Login) GetTemplate() (*template.Template, string) {
 
 	if l.CaptchaDigits != 0 {
-		id := utils.Uuid(10)
+		id := util.Uuid(10)
 		digitByte := captcha.RandomDigits(l.CaptchaDigits)
 		captchaData[id] = CaptchaDataItem{
 			Data: byteToStr(digitByte),

@@ -5,7 +5,7 @@ import (
 	"html/template"
 
 	"github.com/qtoad/xgo-admin/modules/language"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 	"github.com/qtoad/xgo-admin/template/icon"
 	"github.com/qtoad/xgo-admin/template/types"
 )
@@ -122,7 +122,7 @@ func (compo *ButtonAttribute) GetContent() template.HTML {
 	}
 
 	if compo.ID == "" {
-		compo.ID = utils.Uuid(15) + "_btn"
+		compo.ID = util.Uuid(15) + "_btn"
 	}
 
 	return ComposeHtml(compo.TemplateList, compo.Separation, *compo, "button")

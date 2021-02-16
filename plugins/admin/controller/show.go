@@ -14,7 +14,6 @@ import (
 
 	"github.com/360EntSecGroup-Skylar/excelize"
 	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/html"
 	"github.com/qtoad/xgo-admin/modules/auth"
 	"github.com/qtoad/xgo-admin/modules/errors"
 	"github.com/qtoad/xgo-admin/modules/language"
@@ -30,6 +29,7 @@ import (
 	"github.com/qtoad/xgo-admin/template/icon"
 	"github.com/qtoad/xgo-admin/template/types"
 	"github.com/qtoad/xgo-admin/template/types/action"
+	"github.com/qtoad/xgo-plusplus/html"
 )
 
 // ShowInfo show info page.

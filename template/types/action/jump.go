@@ -4,7 +4,7 @@ import (
 	"html/template"
 
 	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 )
 
 type JumpAction struct {
@@ -16,7 +16,7 @@ type JumpAction struct {
 }
 
 func Jump(url string, ext ...template.HTML) *JumpAction {
-	url = utils.ReplaceAll(url, "{%id}", "{{.Id}}", "{%ids}", "{{.Ids}}")
+	url = util.ReplaceAll(url, "{%id}", "{{.Id}}", "{%ids}", "{{.Ids}}")
 	if len(ext) > 0 {
 		return &JumpAction{Url: url, Ext: ext[0]}
 	}
@@ -24,7 +24,7 @@ func Jump(url string, ext ...template.HTML) *JumpAction {
 }
 
 func JumpInNewTab(url, title string, ext ...template.HTML) *JumpAction {
-	url = utils.ReplaceAll(url, "{%id}", "{{.Id}}", "{%ids}", "{{.Ids}}")
+	url = util.ReplaceAll(url, "{%id}", "{{.Id}}", "{%ids}", "{{.Ids}}")
 	if len(ext) > 0 {
 		return &JumpAction{Url: url, NewTabTitle: title, Ext: ext[0]}
 	}
@@ -32,7 +32,7 @@ func JumpInNewTab(url, title string, ext ...template.HTML) *JumpAction {
 }
 
 func JumpWithTarget(url, target string, ext ...template.HTML) *JumpAction {
-	url = utils.ReplaceAll(url, "{%id}", "{{.Id}}", "{%ids}", "{{.Ids}}")
+	url = util.ReplaceAll(url, "{%id}", "{{.Id}}", "{%ids}", "{{.Ids}}")
 	if len(ext) > 0 {
 		return &JumpAction{Url: url, Target: target, Ext: ext[0]}
 	}

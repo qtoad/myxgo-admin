@@ -5,8 +5,8 @@ import (
 	"html/template"
 
 	"github.com/h2non/filetype"
-	"github.com/qtoad/xgo-admin/html"
 	template2 "github.com/qtoad/xgo-admin/template"
+	"github.com/qtoad/xgo-plusplus/html"
 )
 
 type Image struct{}

@@ -14,7 +14,7 @@ import (
 	"github.com/qtoad/xgo-admin/modules/language"
 
 	"github.com/qtoad/xgo-admin/modules/db"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 	"github.com/qtoad/xgo-admin/template/types/form"
 )
 
@@ -103,7 +103,7 @@ type Config struct {
 }
 
 func fixedTable(table string) string {
-	if utils.InArray(keyWords, table) {
+	if util.InArray(keyWords, table) {
 		return table + "_"
 	}
 	return table
@@ -152,10 +152,10 @@ func NewParam(cfg Config) *Param {
 		Output:                   cfg.Output,
 		ExtraImport:              cfg.ExtraImport,
 		ExtraCode:                cfg.ExtraCode,
-		TablePageTitle:           utils.SetDefault(cfg.TableTitle, "", tt),
-		TableDescription:         utils.SetDefault(cfg.TableDescription, "", tt),
-		FormTitle:                utils.SetDefault(cfg.FormTitle, "", tt),
-		FormDescription:          utils.SetDefault(cfg.FormDescription, "", tt),
+		TablePageTitle:           util.SetDefault(cfg.TableTitle, "", tt),
+		TableDescription:         util.SetDefault(cfg.TableDescription, "", tt),
+		FormTitle:                util.SetDefault(cfg.FormTitle, "", tt),
+		FormDescription:          util.SetDefault(cfg.FormDescription, "", tt),
 	}
 }
 
@@ -207,12 +207,12 @@ func NewParamWithFields(cfg Config, fields ...Fields) *Param {
 		Output:                   cfg.Output,
 		ExtraImport:              cfg.ExtraImport,
 		ExtraCode:                cfg.ExtraCode,
-		TablePageTitle:           utils.SetDefault(cfg.TableTitle, "", tt),
-		TableDescription:         utils.SetDefault(cfg.TableDescription, "", tt),
-		FormTitle:                utils.SetDefault(cfg.FormTitle, "", tt),
-		FormDescription:          utils.SetDefault(cfg.FormDescription, "", tt),
-		DetailTitle:              utils.SetDefault(cfg.DetailTitle, "", tt),
-		DetailDescription:        utils.SetDefault(cfg.DetailDescription, "", tt),
+		TablePageTitle:           util.SetDefault(cfg.TableTitle, "", tt),
+		TableDescription:         util.SetDefault(cfg.TableDescription, "", tt),
+		FormTitle:                util.SetDefault(cfg.FormTitle, "", tt),
+		FormDescription:          util.SetDefault(cfg.FormDescription, "", tt),
+		DetailTitle:              util.SetDefault(cfg.DetailTitle, "", tt),
+		DetailDescription:        util.SetDefault(cfg.DetailDescription, "", tt),
 	}
 }
 
@@ -265,7 +265,7 @@ func GenerateTables(outputPath, packageName string, tables []string, new bool) e
 	}
 
 	outputPath = filepath.FromSlash(outputPath)
-	fileExist := utils.FileExist(outputPath + "/tables.go")
+	fileExist := util.FileExist(outputPath + "/tables.go")
 
 	if !new && !fileExist {
 		return nil

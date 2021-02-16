@@ -5,7 +5,7 @@ import (
 	"github.com/qtoad/xgo-admin/modules/config"
 	"github.com/qtoad/xgo-admin/modules/service"
 	"github.com/qtoad/xgo-admin/modules/system"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 	"github.com/qtoad/xgo-admin/plugins"
 	"github.com/qtoad/xgo-admin/plugins/admin/controller"
 	"github.com/qtoad/xgo-admin/plugins/admin/modules/guard"
@@ -75,8 +75,8 @@ func (admin *Admin) GetInfo() plugins.Info {
 		Description: "A built-in plugins of GoAdmin which help you to build a crud manager platform quickly.",
 		Author:      "official",
 		Version:     system.Version(),
-		CreateDate:  utils.ParseTime("2018-07-08 00:00:00"),
-		UpdateDate:  utils.ParseTime("2020-06-28 00:00:00"),
+		CreateDate:  util.ParseTime("2018-07-08 00:00:00"),
+		UpdateDate:  util.ParseTime("2020-06-28 00:00:00"),
 	}
 }
 

@@ -6,7 +6,7 @@ import (
 
 	"github.com/qtoad/xgo-admin/modules/config"
 	"github.com/qtoad/xgo-admin/modules/logger"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 	template2 "github.com/qtoad/xgo-admin/template"
 )
 
@@ -43,7 +43,7 @@ func ComposeHtml(temList map[string]string, separation bool, compo interface{}, 
 	}
 	buf := new(bytes.Buffer)
 
-	defineName := utils.ReplaceAll(templateName[0], "table/", "", "form/", "")
+	defineName := util.ReplaceAll(templateName[0], "table/", "", "form/", "")
 
 	err = tmpl.ExecuteTemplate(buf, defineName, compo)
 	if err != nil {

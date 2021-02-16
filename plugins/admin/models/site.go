@@ -3,7 +3,7 @@ package models
 import (
 	"database/sql"
 
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 
 	"github.com/qtoad/xgo-admin/modules/collection"
 	"github.com/qtoad/xgo-admin/modules/db"
@@ -120,7 +120,7 @@ var allowEmptyKeys = []string{
 
 func (t SiteModel) Update(v form.Values) error {
 	for key, vv := range v {
-		if len(vv) > 0 && (vv[0] != "" || utils.InArray(allowEmptyKeys, key)) {
+		if len(vv) > 0 && (vv[0] != "" || util.InArray(allowEmptyKeys, key)) {
 			_, err := t.Table(t.TableName).Where("key", "=", key).Update(dialect.H{
 				"value": vv[0],
 			})

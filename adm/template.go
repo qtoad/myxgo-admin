@@ -10,7 +10,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 )
 
 func getThemeTemplate(moduleName, themeName string) {
@@ -125,7 +125,7 @@ func replaceContents(fileDir, moduleName, themeName string) {
 			checkError(err)
 			content := string(buf)
 
-			newContent := utils.ReplaceAll(content, "github.com/GoAdminGroup/themes/adminlte", moduleName,
+			newContent := util.ReplaceAll(content, "github.com/GoAdminGroup/themes/adminlte", moduleName,
 				"adminlte", themeName, "Adminlte", strings.Title(themeName))
 
 			checkError(ioutil.WriteFile(path, []byte(newContent), 0))

@@ -11,7 +11,7 @@ import (
 	"github.com/qtoad/xgo-admin/modules/config"
 	"github.com/qtoad/xgo-admin/modules/language"
 	"github.com/qtoad/xgo-admin/modules/service"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 	"github.com/qtoad/xgo-admin/plugins"
 	form2 "github.com/qtoad/xgo-admin/plugins/admin/modules/form"
 	"github.com/qtoad/xgo-admin/plugins/admin/modules/table"
@@ -79,8 +79,8 @@ var info = plugins.Info{
 	Uuid:        "",
 	Name:        "",
 	ModulePath:  "",
-	CreateDate:  utils.ParseTime("2000-01-11"),
-	UpdateDate:  utils.ParseTime("2000-01-11"),
+	CreateDate:  util.ParseTime("2000-01-11"),
+	UpdateDate:  util.ParseTime("2000-01-11"),
 }
 
 func (plug *{{.PluginTitle}}) GetSettingPage() table.Generator {

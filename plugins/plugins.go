@@ -26,7 +26,7 @@ import (
 	"github.com/qtoad/xgo-admin/modules/remote_server"
 	"github.com/qtoad/xgo-admin/modules/service"
 	"github.com/qtoad/xgo-admin/modules/ui"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 	"github.com/qtoad/xgo-admin/plugins/admin/models"
 	"github.com/qtoad/xgo-admin/plugins/admin/modules/table"
 	"github.com/qtoad/xgo-admin/template"
@@ -437,7 +437,7 @@ func GetAll(req remote_server.GetOnlineReq, token string) (Plugins, Page) {
 		for key, value := range pluginList {
 			if value.Name() == p.Name() {
 				info := pluginList[key].GetInfo()
-				info.CanUpdate = utils.CompareVersion(info.Version, plugs[index].GetInfo().Version)
+				info.CanUpdate = util.CompareVersion(info.Version, plugs[index].GetInfo().Version)
 				info.OldVersion = info.Version
 				info.Downloaded = true
 				info.Description = language.GetWithScope(info.Description, info.Name)

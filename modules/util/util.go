@@ -1,4 +1,4 @@
-package utils
+package util
 
 import (
 	"archive/zip"
@@ -9,6 +9,7 @@ import (
 	"html/template"
 	"io"
 	"math"
+	"math/rand"
 	"net/http"
 	"net/url"
 	"os"
@@ -19,8 +20,6 @@ import (
 	"strings"
 	textTmpl "text/template"
 	"time"
-
-	"github.com/NebulousLabs/fastrand"
 )
 
 func Uuid(length int64) string {
@@ -31,14 +30,14 @@ func Uuid(length int64) string {
 	uuid := ""
 	var i int64
 	for i = 0; i < length; i++ {
-		uuid += ele[fastrand.Intn(59)]
+		uuid += ele[rand.Intn(59)]
 	}
 	return uuid
 }
 
 func Random(strings []string) ([]string, error) {
 	for i := len(strings) - 1; i > 0; i-- {
-		num := fastrand.Intn(i + 1)
+		num := rand.Intn(i + 1)
 		strings[i], strings[num] = strings[num], strings[i]
 	}
 
@@ -47,6 +46,38 @@ func Random(strings []string) ([]string, error) {
 		str = append(str, strings[i])
 	}
 	return str, nil
+}
+
+var Rander = rand.New(rand.NewSource(time.Now().UnixNano()))
+
+const letterString = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const numLetterString = "0123456789"
+
+// 随机生成字符串
+func RandStr(n int, letter string) string {
+	str := []byte(letter)
+	res := ""
+	for i := 0; i < n; i++ {
+		res += fmt.Sprintf("%c", str[Rander.Intn(strings.Count(letter, "")-1)])
+	}
+	return res
+}
+
+func RandNumStr(n int) string {
+	return RandStr(n, numLetterString)
+}
+
+func RandString(n int) string {
+	return RandStr(n, letterString)
+}
+
+func RandOrder(n int) string {
+	return time.Now().Format("20060102150405") + RandNumStr(n)
+}
+
+// 包含min, max
+func RandNum(min, max int) int {
+	return Rander.Intn(max-min+1) + min
 }
 
 func CompressedContent(h *template.HTML) {
@@ -179,13 +210,13 @@ func ParseHTML(name, tmpl string, param interface{}) template.HTML {
 	t := template.New(name)
 	t, err := t.Parse(tmpl)
 	if err != nil {
-		fmt.Println("utils parseHTML error", err)
+		fmt.Println("util parseHTML error", err)
 		return ""
 	}
 	buf := new(bytes.Buffer)
 	err = t.Execute(buf, param)
 	if err != nil {
-		fmt.Println("utils parseHTML error", err)
+		fmt.Println("util parseHTML error", err)
 		return ""
 	}
 	return template.HTML(buf.String())
@@ -195,13 +226,13 @@ func ParseText(name, tmpl string, param interface{}) string {
 	t := textTmpl.New(name)
 	t, err := t.Parse(tmpl)
 	if err != nil {
-		fmt.Println("utils parseHTML error", err)
+		fmt.Println("util parseHTML error", err)
 		return ""
 	}
 	buf := new(bytes.Buffer)
 	err = t.Execute(buf, param)
 	if err != nil {
-		fmt.Println("utils parseHTML error", err)
+		fmt.Println("util parseHTML error", err)
 		return ""
 	}
 	return buf.String()

@@ -12,7 +12,7 @@ import (
 	"github.com/qtoad/xgo-admin/modules/db"
 	"github.com/qtoad/xgo-admin/modules/db/dialect"
 	"github.com/qtoad/xgo-admin/modules/logger"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 	"github.com/qtoad/xgo-admin/plugins/admin/modules/constant"
 )
 
@@ -136,7 +136,7 @@ func (t UserModel) CheckPermissionByUrlMethod(path, method string, formParams ur
 		path = path[:len(path)-1]
 	}
 
-	path = utils.ReplaceAll(path, constant.EditPKKey, "id", constant.DetailPKKey, "id")
+	path = util.ReplaceAll(path, constant.EditPKKey, "id", constant.DetailPKKey, "id")
 
 	path, params := getParam(path)
 	for key, value := range formParams {

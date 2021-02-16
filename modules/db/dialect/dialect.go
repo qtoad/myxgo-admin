@@ -5,9 +5,9 @@
 package dialect
 
 import (
-	"strings"
-
 	"github.com/qtoad/xgo-admin/modules/config"
+	"strings"
+	//"github.com/qtoad/xgo-admin/modules/config"
 )
 
 // Dialect is methods set of different driver.

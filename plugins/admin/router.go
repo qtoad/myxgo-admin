@@ -4,7 +4,7 @@ import (
 	"github.com/qtoad/xgo-admin/context"
 	"github.com/qtoad/xgo-admin/modules/auth"
 	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 	"github.com/qtoad/xgo-admin/plugins/admin/modules/response"
 	"github.com/qtoad/xgo-admin/template"
 )
@@ -26,7 +26,7 @@ func (admin *Admin) initRouter() *Admin {
 	checkRepeatedPath := make([]string, 0)
 	for _, themeName := range template.Themes() {
 		for _, path := range template.Get(themeName).GetAssetList() {
-			if !utils.InArray(checkRepeatedPath, path) {
+			if !util.InArray(checkRepeatedPath, path) {
 				checkRepeatedPath = append(checkRepeatedPath, path)
 				route.GET("/assets"+path, admin.handler.Assets)
 			}

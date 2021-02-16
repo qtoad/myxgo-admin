@@ -7,7 +7,7 @@ package db
 import (
 	"database/sql"
 	"fmt"
-	"time"
+	_ "time"
 
 	"github.com/qtoad/xgo-admin/modules/config"
 )
@@ -67,7 +67,6 @@ func (db *Mysql) InitDB(cfgs map[string]config.Database) Connection {
 			}
 
 			// Largest set up the database connection reduce time wait
-			sqlDB.SetConnMaxLifetime(time.Duration(480) * time.Second)
 			sqlDB.SetMaxIdleConns(cfg.MaxIdleCon)
 			sqlDB.SetMaxOpenConns(cfg.MaxOpenCon)
 

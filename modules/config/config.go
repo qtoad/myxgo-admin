@@ -8,7 +8,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/qtoad/xgo-admin/modules/logger"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 	"github.com/qtoad/xgo-admin/plugins/admin/modules/form"
 	"github.com/qtoad/xgo-plusplus/ini"
 	"github.com/qtoad/xgo-plusplus/yaml"
@@ -139,7 +139,7 @@ func (d DatabaseList) GroupByDriver() map[string]DatabaseList {
 }
 
 func (d DatabaseList) JSON() string {
-	return utils.JSON(d)
+	return util.JSON(d)
 }
 
 func (d DatabaseList) Copy() DatabaseList {
@@ -226,7 +226,7 @@ func (s Store) JSON() string {
 	if s.Path == "" && s.Prefix == "" {
 		return ""
 	}
-	return utils.JSON(s)
+	return util.JSON(s)
 }
 
 func GetStoreFromJSON(m string) Store {
@@ -438,15 +438,15 @@ type URLFormat struct {
 }
 
 func (f URLFormat) SetDefault() URLFormat {
-	f.Detail = utils.SetDefault(f.Detail, "", "/info/:__prefix/detail")
-	f.ShowEdit = utils.SetDefault(f.ShowEdit, "", "/info/:__prefix/edit")
-	f.ShowCreate = utils.SetDefault(f.ShowCreate, "", "/info/:__prefix/new")
-	f.Edit = utils.SetDefault(f.Edit, "", "/edit/:__prefix")
-	f.Create = utils.SetDefault(f.Create, "", "/new/:__prefix")
-	f.Delete = utils.SetDefault(f.Delete, "", "/delete/:__prefix")
-	f.Export = utils.SetDefault(f.Export, "", "/export/:__prefix")
-	f.Info = utils.SetDefault(f.Info, "", "/info/:__prefix")
-	f.Update = utils.SetDefault(f.Update, "", "/update/:__prefix")
+	f.Detail = util.SetDefault(f.Detail, "", "/info/:__prefix/detail")
+	f.ShowEdit = util.SetDefault(f.ShowEdit, "", "/info/:__prefix/edit")
+	f.ShowCreate = util.SetDefault(f.ShowCreate, "", "/info/:__prefix/new")
+	f.Edit = util.SetDefault(f.Edit, "", "/edit/:__prefix")
+	f.Create = util.SetDefault(f.Create, "", "/new/:__prefix")
+	f.Delete = util.SetDefault(f.Delete, "", "/delete/:__prefix")
+	f.Export = util.SetDefault(f.Export, "", "/export/:__prefix")
+	f.Info = util.SetDefault(f.Info, "", "/info/:__prefix")
+	f.Update = util.SetDefault(f.Update, "", "/update/:__prefix")
 	return f
 }
 
@@ -465,7 +465,7 @@ func (p PageAnimation) JSON() string {
 	if p.Type == "" {
 		return ""
 	}
-	return utils.JSON(p)
+	return util.JSON(p)
 }
 
 // FileUploadEngine is a file upload engine.
@@ -481,7 +481,7 @@ func (f FileUploadEngine) JSON() string {
 	if len(f.Config) == 0 {
 		f.Config = nil
 	}
-	return utils.JSON(f)
+	return util.JSON(f)
 }
 
 func GetFileUploadEngineFromJSON(m string) FileUploadEngine {
@@ -681,18 +681,18 @@ func (c *Config) ToMap() map[string]string {
 				m["logger_encoder_encoding"] = c.Logger.Encoder.Encoding
 				m["logger_level"] = strconv.Itoa(int(c.Logger.Level))
 			case "config.DatabaseList":
-				m["databases"] = utils.JSON(v.Interface())
+				m["databases"] = util.JSON(v.Interface())
 			}
 		case reflect.Map:
 			if t.Type.String() == "config.ExtraInfo" {
 				if len(c.Extra) == 0 {
 					m["extra"] = ""
 				} else {
-					m["extra"] = utils.JSON(c.Extra)
+					m["extra"] = util.JSON(c.Extra)
 				}
 			}
 		default:
-			m[keyName] = utils.JSON(v.Interface())
+			m[keyName] = util.JSON(v.Interface())
 		}
 	}
 	return m
@@ -717,7 +717,7 @@ func (c *Config) Update(m map[string]string) error {
 		switch t.Type.Kind() {
 		case reflect.Bool:
 			if mv, ok := m[keyName]; ok {
-				v.Set(reflect.ValueOf(utils.ParseBool(mv)))
+				v.Set(reflect.ValueOf(util.ParseBool(mv)))
 			}
 		case reflect.String:
 			if t.Type.String() == "template.HTML" {
@@ -735,9 +735,9 @@ func (c *Config) Update(m map[string]string) error {
 			}
 			if mv, ok := m[keyName]; ok {
 				if keyName == "info_log" || keyName == "error_log" || keyName == "access_log" {
-					v.Set(reflect.ValueOf(utils.SetDefault(mv, v.String(), v.String())))
+					v.Set(reflect.ValueOf(util.SetDefault(mv, v.String(), v.String())))
 				} else if keyName == "app_id" {
-					v.Set(reflect.ValueOf(utils.SetDefault(mv, "", v.String())))
+					v.Set(reflect.ValueOf(util.SetDefault(mv, "", v.String())))
 				} else if keyName == "color_scheme" {
 					if m["theme"] == "adminlte" {
 						v.Set(reflect.ValueOf(mv))
@@ -755,13 +755,13 @@ func (c *Config) Update(m map[string]string) error {
 			switch t.Type.String() {
 			case "config.PageAnimation":
 				c.Animation.Type = m["animation_type"]
-				c.Animation.Duration = utils.ParseFloat32(m["animation_duration"])
-				c.Animation.Delay = utils.ParseFloat32(m["animation_delay"])
+				c.Animation.Duration = util.ParseFloat32(m["animation_duration"])
+				c.Animation.Delay = util.ParseFloat32(m["animation_delay"])
 			case "config.Logger":
 				c.Logger.Rotate.MaxSize, _ = strconv.Atoi(m["logger_rotate_max_size"])
 				c.Logger.Rotate.MaxBackups, _ = strconv.Atoi(m["logger_rotate_max_backups"])
 				c.Logger.Rotate.MaxAge, _ = strconv.Atoi(m["logger_rotate_max_age"])
-				c.Logger.Rotate.Compress = utils.ParseBool(m["logger_rotate_compress"])
+				c.Logger.Rotate.Compress = util.ParseBool(m["logger_rotate_compress"])
 
 				c.Logger.Encoder.Encoding = m["logger_encoder_encoding"]
 				loggerLevel, _ := strconv.Atoi(m["logger_level"])
@@ -880,26 +880,26 @@ func ReadFromINI(path string) Config {
 }
 
 func SetDefault(cfg *Config) *Config {
-	cfg.Title = utils.SetDefault(cfg.Title, "", "GoAdmin")
-	cfg.LoginTitle = utils.SetDefault(cfg.LoginTitle, "", "GoAdmin")
-	cfg.Logo = template.HTML(utils.SetDefault(string(cfg.Logo), "", "<b>Go</b>Admin"))
-	cfg.MiniLogo = template.HTML(utils.SetDefault(string(cfg.MiniLogo), "", "<b>G</b>A"))
-	cfg.Theme = utils.SetDefault(cfg.Theme, "", "adminlte")
-	cfg.IndexUrl = utils.SetDefault(cfg.IndexUrl, "", "/info/manager")
-	cfg.LoginUrl = utils.SetDefault(cfg.LoginUrl, "", "/login")
-	cfg.AuthUserTable = utils.SetDefault(cfg.AuthUserTable, "", "goadmin_users")
+	cfg.Title = util.SetDefault(cfg.Title, "", "GoAdmin")
+	cfg.LoginTitle = util.SetDefault(cfg.LoginTitle, "", "GoAdmin")
+	cfg.Logo = template.HTML(util.SetDefault(string(cfg.Logo), "", "<b>Go</b>Admin"))
+	cfg.MiniLogo = template.HTML(util.SetDefault(string(cfg.MiniLogo), "", "<b>G</b>A"))
+	cfg.Theme = util.SetDefault(cfg.Theme, "", "adminlte")
+	cfg.IndexUrl = util.SetDefault(cfg.IndexUrl, "", "/info/manager")
+	cfg.LoginUrl = util.SetDefault(cfg.LoginUrl, "", "/login")
+	cfg.AuthUserTable = util.SetDefault(cfg.AuthUserTable, "", "goadmin_users")
 	if cfg.Theme == "adminlte" {
-		cfg.ColorScheme = utils.SetDefault(cfg.ColorScheme, "", "skin-black")
+		cfg.ColorScheme = util.SetDefault(cfg.ColorScheme, "", "skin-black")
 	}
-	cfg.AssetRootPath = utils.SetDefault(cfg.AssetRootPath, "", "./public/")
+	cfg.AssetRootPath = util.SetDefault(cfg.AssetRootPath, "", "./public/")
 	cfg.AssetRootPath = filepath.ToSlash(cfg.AssetRootPath)
-	cfg.FileUploadEngine.Name = utils.SetDefault(cfg.FileUploadEngine.Name, "", "local")
-	cfg.Env = utils.SetDefault(cfg.Env, "", EnvProd)
+	cfg.FileUploadEngine.Name = util.SetDefault(cfg.FileUploadEngine.Name, "", "local")
+	cfg.Env = util.SetDefault(cfg.Env, "", EnvProd)
 	if cfg.SessionLifeTime == 0 {
 		// default two hours
 		cfg.SessionLifeTime = 7200
 	}
-	cfg.AppID = utils.Uuid(12)
+	cfg.AppID = util.Uuid(12)
 	if cfg.UrlPrefix == "" {
 		cfg.prefix = "/"
 	} else if cfg.UrlPrefix[0] != '/' {

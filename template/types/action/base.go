@@ -6,7 +6,7 @@ import (
 
 	"github.com/qtoad/xgo-admin/context"
 	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 	"github.com/qtoad/xgo-admin/template/types"
 )
 
@@ -25,7 +25,7 @@ func (a AjaxData) Add(m map[string]interface{}) AjaxData {
 
 func (a AjaxData) JSON() string {
 	b, _ := json.Marshal(a)
-	return utils.ReplaceAll(string(b), `"{%id}"`, "{{.Id}}",
+	return util.ReplaceAll(string(b), `"{%id}"`, "{{.Id}}",
 		`"{%ids}"`, "{{.Ids}}",
 		`"{{.Ids}}"`, "{{.Ids}}",
 		`"{{.Id}}"`, "{{.Id}}")
@@ -58,5 +58,5 @@ var _ types.Action = (*JumpAction)(nil)
 var _ types.Action = (*JumpSelectBoxAction)(nil)
 
 func URL(id string) string {
-	return config.Url("/operation/" + utils.WrapURL(id))
+	return config.Url("/operation/" + util.WrapURL(id))
 }

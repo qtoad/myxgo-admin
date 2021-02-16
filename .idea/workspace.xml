@@ -2,67 +2,57 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f87f7eec-bcf0-4769-b80c-59cfa65914da" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/admin.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/admin.mysql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/buffalo/buffalo.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adm/add.go" beforeDir="false" afterPath="$PROJECT_DIR$/adm/add.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adm/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/adm/db.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adm/project_template.go" beforeDir="false" afterPath="$PROJECT_DIR$/adm/project_template.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/admin.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/README_CN.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/adm_config.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/admin.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/bootstrap.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/deploy/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/deploy/apache.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/deploy/nginx.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/html/hello.tmpl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/logs/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/main_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/models/base.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/models/statistics.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/pages/form.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/pages/index.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/pages/table.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/tables/authors.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/tables/external.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/tables/posts.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/tables/profile.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/tables/tables.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/tables/users.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/uploads/a.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo123/vendor/vendor.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/buffalo/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/chi/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/chi/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/datamodel/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/datamodel/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/echo/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/echo/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/gin/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/gin/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adm/helper.go" beforeDir="false" afterPath="$PROJECT_DIR$/adm/helper.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adm/plugin_template.go" beforeDir="false" afterPath="$PROJECT_DIR$/adm/plugin_template.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adm/project_web.go" beforeDir="false" afterPath="$PROJECT_DIR$/adm/project_web.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adm/template.go" beforeDir="false" afterPath="$PROJECT_DIR$/adm/template.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/login/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/components/login/login.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/html/README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/html/element.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/html/html_test.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/config/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/db/mssql.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/db/mssql.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/config/config_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/config/config_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/db/dialect/dialect.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/db/dialect/dialect.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/db/mysql.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/db/mysql.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/db/postgresql.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/db/postgresql.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/db/sqlite.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/db/sqlite.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/logger/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/logger/logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/system/application.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/system/application.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/utils/utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/util/util.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/utils/utils_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/util/util_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/admin/admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/admin/admin.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugins/admin/controller/plugins.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/admin/controller/plugins.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugins/admin/controller/show.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/admin/controller/show.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/admin/modules/table/default.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/admin/modules/table/default.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/admin/models/site.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/admin/models/site.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/admin/models/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/admin/models/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugins/admin/modules/table/generators.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/admin/modules/table/generators.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugins/admin/modules/tools/generator.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/admin/modules/tools/generator.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/admin/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/admin/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/filemanager/controller/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/controller/common.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/filemanager/filemanager.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/filemanager.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/filemanager/installation.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/installation.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/filemanager/previewer/code.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/previewer/code.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/filemanager/previewer/image.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/previewer/image.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/filemanager/previewer/previewer.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/filemanager/previewer/previewer.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugins/librarian/librarian.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/librarian/librarian.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/adminlte/separation/adminlte.go" beforeDir="false" afterPath="$PROJECT_DIR$/themes/adminlte/separation/adminlte.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/plugins.go" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/plugins.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/components/button.go" beforeDir="false" afterPath="$PROJECT_DIR$/template/components/button.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/components/composer.go" beforeDir="false" afterPath="$PROJECT_DIR$/template/components/composer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/components/form.go" beforeDir="false" afterPath="$PROJECT_DIR$/template/components/form.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/components/treeview.go" beforeDir="false" afterPath="$PROJECT_DIR$/template/components/treeview.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/icon/icon.go" beforeDir="false" afterPath="$PROJECT_DIR$/template/icon/icon.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/template.go" beforeDir="false" afterPath="$PROJECT_DIR$/template/template.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/types/action/base.go" beforeDir="false" afterPath="$PROJECT_DIR$/template/types/action/base.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/types/action/jump.go" beforeDir="false" afterPath="$PROJECT_DIR$/template/types/action/jump.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/types/action/popup.go" beforeDir="false" afterPath="$PROJECT_DIR$/template/types/action/popup.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/types/button.go" beforeDir="false" afterPath="$PROJECT_DIR$/template/types/button.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/types/display/bool.go" beforeDir="false" afterPath="$PROJECT_DIR$/template/types/display/bool.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/types/display/filesize.go" beforeDir="false" afterPath="$PROJECT_DIR$/template/types/display/filesize.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/types/form.go" beforeDir="false" afterPath="$PROJECT_DIR$/template/types/form.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/types/info.go" beforeDir="false" afterPath="$PROJECT_DIR$/template/types/info.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/types/page.go" beforeDir="false" afterPath="$PROJECT_DIR$/template/types/page.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/types/select.go" beforeDir="false" afterPath="$PROJECT_DIR$/template/types/select.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/sword/components/card/card.go" beforeDir="false" afterPath="$PROJECT_DIR$/themes/sword/components/card/card.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +93,7 @@
       <recent name="$PROJECT_DIR$/template/types" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build github.com/qtoad/xgo-admin/examples/echo">
+  <component name="RunManager" selected="Go Build.go build main.go (2)">
     <configuration name="go build github.com/qtoad/xgo-admin/examples/chi" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="xgo-admin" />
       <working_directory value="$PROJECT_DIR$" />
@@ -140,29 +130,29 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build main.go (2)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="xgo-admin" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/examples/buffalo/main.go" />
+      <filePath value="$PROJECT_DIR$/examples/echo/main.go" />
       <package value="github.com/qtoad/xgo-admin" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Go Build.go build github.com/qtoad/xgo-admin/examples/gin" />
-      <item itemvalue="Go Build.go build main.go" />
       <item itemvalue="Go Build.go build github.com/qtoad/xgo-admin/examples/chi" />
       <item itemvalue="Go Build.go build github.com/qtoad/xgo-admin/examples/echo" />
       <item itemvalue="Go Build.go build main.go (1)" />
+      <item itemvalue="Go Build.go build main.go (2)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build main.go (2)" />
         <item itemvalue="Go Build.go build github.com/qtoad/xgo-admin/examples/echo" />
         <item itemvalue="Go Build.go build github.com/qtoad/xgo-admin/examples/chi" />
         <item itemvalue="Go Build.go build main.go (1)" />
         <item itemvalue="Go Build.go build github.com/qtoad/xgo-admin/examples/gin" />
-        <item itemvalue="Go Build.go build main.go" />
       </list>
     </recent_temporary>
   </component>
@@ -192,58 +182,58 @@
       <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state x="424" y="246" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.828@0.23.1440.828" timestamp="1613399163658" />
-    <state x="254" y="23" width="846" height="828" key="CommitChangelistDialog2" timestamp="1613398092212">
+    <state x="254" y="23" width="846" height="828" key="CommitChangelistDialog2" timestamp="1613469023495">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state x="254" y="23" width="846" height="828" key="CommitChangelistDialog2/0.23.1440.828@0.23.1440.828" timestamp="1613398092211" />
+    <state x="254" y="23" width="846" height="828" key="CommitChangelistDialog2/0.23.1440.828@0.23.1440.828" timestamp="1613469023495" />
     <state x="612" y="286" key="EnvironmentVariablesDialog" timestamp="1613390072077">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state x="612" y="286" key="EnvironmentVariablesDialog/0.23.1440.828@0.23.1440.828" timestamp="1613390072077" />
-    <state width="1473" height="188" key="GridCell.Tab.0.bottom" timestamp="1613468826404">
+    <state width="1082" height="122" key="GridCell.Tab.0.bottom" timestamp="1613490092507">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1473" height="188" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1613468826404" />
-    <state width="1473" height="188" key="GridCell.Tab.0.center" timestamp="1613468826403">
+    <state width="1082" height="122" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1613490092507" />
+    <state width="1082" height="122" key="GridCell.Tab.0.center" timestamp="1613490092507">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1473" height="188" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1613468826403" />
-    <state width="1473" height="188" key="GridCell.Tab.0.left" timestamp="1613468826402">
+    <state width="1082" height="122" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1613490092507" />
+    <state width="1082" height="122" key="GridCell.Tab.0.left" timestamp="1613490092506">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1473" height="188" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1613468826402" />
-    <state width="1473" height="188" key="GridCell.Tab.0.right" timestamp="1613468826403">
+    <state width="1082" height="122" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1613490092506" />
+    <state width="1082" height="122" key="GridCell.Tab.0.right" timestamp="1613490092507">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1473" height="188" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1613468826403" />
-    <state width="1473" height="188" key="GridCell.Tab.1.bottom" timestamp="1613468826405">
+    <state width="1082" height="122" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1613490092507" />
+    <state width="1473" height="188" key="GridCell.Tab.1.bottom" timestamp="1613469040587">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1473" height="188" key="GridCell.Tab.1.bottom/0.23.1440.828@0.23.1440.828" timestamp="1613468826405" />
-    <state width="1473" height="188" key="GridCell.Tab.1.center" timestamp="1613468826404">
+    <state width="1473" height="188" key="GridCell.Tab.1.bottom/0.23.1440.828@0.23.1440.828" timestamp="1613469040587" />
+    <state width="1473" height="188" key="GridCell.Tab.1.center" timestamp="1613469040587">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1473" height="188" key="GridCell.Tab.1.center/0.23.1440.828@0.23.1440.828" timestamp="1613468826404" />
-    <state width="1473" height="188" key="GridCell.Tab.1.left" timestamp="1613468826404">
+    <state width="1473" height="188" key="GridCell.Tab.1.center/0.23.1440.828@0.23.1440.828" timestamp="1613469040587" />
+    <state width="1473" height="188" key="GridCell.Tab.1.left" timestamp="1613469040586">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1473" height="188" key="GridCell.Tab.1.left/0.23.1440.828@0.23.1440.828" timestamp="1613468826404" />
-    <state width="1473" height="188" key="GridCell.Tab.1.right" timestamp="1613468826405">
+    <state width="1473" height="188" key="GridCell.Tab.1.left/0.23.1440.828@0.23.1440.828" timestamp="1613469040586" />
+    <state width="1473" height="188" key="GridCell.Tab.1.right" timestamp="1613469040587">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1473" height="188" key="GridCell.Tab.1.right/0.23.1440.828@0.23.1440.828" timestamp="1613468826405" />
+    <state width="1473" height="188" key="GridCell.Tab.1.right/0.23.1440.828@0.23.1440.828" timestamp="1613469040587" />
     <state x="223" y="56" key="SettingsEditor" timestamp="1613468681507">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state x="223" y="56" key="SettingsEditor/0.23.1440.828@0.23.1440.828" timestamp="1613468681507" />
-    <state x="322" y="157" key="Vcs.Push.Dialog.v2" timestamp="1613398184541">
+    <state x="322" y="157" key="Vcs.Push.Dialog.v2" timestamp="1613469028601">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state x="322" y="157" key="Vcs.Push.Dialog.v2/0.23.1440.828@0.23.1440.828" timestamp="1613398184541" />
-    <state x="553" y="27" width="689" height="735" key="find.popup" timestamp="1613464093831">
+    <state x="322" y="157" key="Vcs.Push.Dialog.v2/0.23.1440.828@0.23.1440.828" timestamp="1613469028601" />
+    <state x="553" y="27" width="689" height="735" key="find.popup" timestamp="1613489921263">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state x="553" y="27" width="689" height="735" key="find.popup/0.23.1440.828@0.23.1440.828" timestamp="1613464093831" />
+    <state x="553" y="27" width="689" height="735" key="find.popup/0.23.1440.828@0.23.1440.828" timestamp="1613489921263" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

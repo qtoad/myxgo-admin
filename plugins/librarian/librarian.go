@@ -16,7 +16,7 @@ import (
 	"github.com/qtoad/xgo-admin/modules/logger"
 	"github.com/qtoad/xgo-admin/modules/menu"
 	"github.com/qtoad/xgo-admin/modules/service"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 	"github.com/qtoad/xgo-admin/plugins"
 	form2 "github.com/qtoad/xgo-admin/plugins/admin/modules/form"
 	"github.com/qtoad/xgo-admin/plugins/admin/modules/parameter"
@@ -168,8 +168,8 @@ var info = plugins.Info{
 	Uuid:        "TzgE2RAYGqnCgEt7TK",
 	Name:        Name,
 	ModulePath:  "github.com/GoAdminGroup/librarian",
-	CreateDate:  utils.ParseTime("2020-04-19"),
-	UpdateDate:  utils.ParseTime("2020-08-03"),
+	CreateDate:  util.ParseTime("2020-04-19"),
+	UpdateDate:  util.ParseTime("2020-08-03"),
 }
 
 func (l *Librarian) AddRoot(key string, value root.Root) *Librarian {

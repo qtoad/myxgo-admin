@@ -19,16 +19,16 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/html"
 	"github.com/qtoad/xgo-admin/modules/auth"
 	"github.com/qtoad/xgo-admin/modules/language"
 	"github.com/qtoad/xgo-admin/modules/remote_server"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 	"github.com/qtoad/xgo-admin/plugins"
 	"github.com/qtoad/xgo-admin/plugins/admin/modules/guard"
 	template2 "github.com/qtoad/xgo-admin/template"
 	"github.com/qtoad/xgo-admin/template/types"
 	"github.com/qtoad/xgo-admin/template/types/form"
+	"github.com/qtoad/xgo-plusplus/html"
 )
 
 func (h *Handler) Plugins(ctx *context.Context) {
@@ -372,9 +372,9 @@ func (h *Handler) PluginDownload(ctx *context.Context) {
 		}
 	}
 
-	tempFile := "./temp-" + utils.Uuid(10) + ".zip"
+	tempFile := "./temp-" + util.Uuid(10) + ".zip"
 
-	err := utils.DownloadTo(downloadURL, tempFile)
+	err := util.DownloadTo(downloadURL, tempFile)
 
 	if err != nil {
 		logger.Error("download plugins error", map[string]interface{}{
@@ -408,7 +408,7 @@ func (h *Handler) PluginDownload(ctx *context.Context) {
 		installPath = filepath.ToSlash(gopath + "/pkg/mod/" + base)
 	}
 
-	err = utils.UnzipDir(tempFile, installPath)
+	err = util.UnzipDir(tempFile, installPath)
 
 	if err != nil {
 		logger.Error("download plugins, unzip error", map[string]interface{}{
@@ -462,7 +462,7 @@ func (h *Handler) PluginDownload(ctx *context.Context) {
 		}
 	}
 
-	if h.config.BootstrapFilePath != "" && utils.FileExist(h.config.BootstrapFilePath) {
+	if h.config.BootstrapFilePath != "" && util.FileExist(h.config.BootstrapFilePath) {
 		content, err := ioutil.ReadFile(h.config.BootstrapFilePath)
 		if err != nil {
 			logger.Error("read bootstrap file error: ", err)
@@ -475,7 +475,7 @@ import _ "`+plug.GetInfo().ModulePath+`"`), 0644)
 		}
 	}
 
-	if h.config.GoModFilePath != "" && utils.FileExist(h.config.GoModFilePath) &&
+	if h.config.GoModFilePath != "" && util.FileExist(h.config.GoModFilePath) &&
 		plug.GetInfo().CanUpdate && plug.GetInfo().OldVersion != "" {
 		content, _ := ioutil.ReadFile(h.config.BootstrapFilePath)
 		src := plug.GetInfo().ModulePath + " " + plug.GetInfo().OldVersion
@@ -487,7 +487,7 @@ import _ "`+plug.GetInfo().ModulePath+`"`), 0644)
 	// TODO: 实现运行环境与编译环境隔离
 
 	if plug.GetInfo().ExtraDownloadUrl != "" {
-		err = utils.DownloadTo(extraDownloadURL, "./"+plug.Name()+"_extra_"+
+		err = util.DownloadTo(extraDownloadURL, "./"+plug.Name()+"_extra_"+
 			fmt.Sprintf("%d", time.Now().Unix())+".zip")
 		if err != nil {
 			logger.Error("failed to download "+plug.Name()+" extra data: ", err)

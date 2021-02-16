@@ -19,7 +19,7 @@ import (
 	"github.com/qtoad/xgo-admin/modules/file"
 	"github.com/qtoad/xgo-admin/modules/language"
 	"github.com/qtoad/xgo-admin/modules/logger"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 	"github.com/qtoad/xgo-admin/plugins/admin/modules"
 	"github.com/qtoad/xgo-admin/plugins/admin/modules/form"
 	form2 "github.com/qtoad/xgo-admin/template/types/form"
@@ -50,7 +50,7 @@ func (fo FieldOptions) SetSelected(val interface{}, labels []template.HTML) Fiel
 			if text == "" {
 				text = string(fo[k].TextHTML)
 			}
-			fo[k].Selected = utils.InArray(valArr, fo[k].Value) || utils.InArray(valArr, text)
+			fo[k].Selected = util.InArray(valArr, fo[k].Value) || util.InArray(valArr, text)
 			if fo[k].Selected {
 				fo[k].SelectedLabel = labels[0]
 			} else {
@@ -973,7 +973,7 @@ func (f *FormPanel) FieldOnChoose(val, field string, value template.HTML) *FormP
 }
 
 func (f *FormPanel) OperationURL(id string) string {
-	return config.Url("/operation/" + utils.WrapURL(id))
+	return config.Url("/operation/" + util.WrapURL(id))
 }
 
 func (f *FormPanel) FieldOnChooseAjax(field, url string, handler Handler, custom ...template.HTML) *FormPanel {
@@ -1007,7 +1007,7 @@ func searchJS(ext template.JS, url string, handler Handler, delay ...int) (templ
 	if ext != template.JS("") {
 		s := string(ext)
 		s = strings.Replace(s, "{", "", 1)
-		s = utils.ReplaceNth(s, "}", "", strings.Count(s, "}"))
+		s = util.ReplaceNth(s, "}", "", strings.Count(s, "}"))
 		s = strings.TrimRight(s, " ")
 		s += ","
 		ext = template.JS(s)
@@ -1039,14 +1039,14 @@ func searchJS(ext template.JS, url string, handler Handler, delay ...int) (templ
 }
 
 func chooseCustomJS(field string, js template.HTML) template.HTML {
-	return utils.ParseHTML("choose_custom", tmpls["choose_custom"], struct {
+	return util.ParseHTML("choose_custom", tmpls["choose_custom"], struct {
 		Field template.JS
 		JS    template.JS
 	}{Field: template.JS(field), JS: template.JS(js)})
 }
 
 func chooseMapJS(field string, m map[string]LinkField) template.HTML {
-	return utils.ParseHTML("choose_map", tmpls["choose_map"], struct {
+	return util.ParseHTML("choose_map", tmpls["choose_map"], struct {
 		Field template.JS
 		Data  map[string]LinkField
 	}{
@@ -1056,7 +1056,7 @@ func chooseMapJS(field string, m map[string]LinkField) template.HTML {
 }
 
 func chooseJS(field, chooseField, val string, value template.HTML) template.HTML {
-	return utils.ParseHTML("choose", tmpls["choose"], struct {
+	return util.ParseHTML("choose", tmpls["choose"], struct {
 		Field       template.JS
 		ChooseField template.JS
 		Val         template.JS
@@ -1082,7 +1082,7 @@ func chooseAjax(field, chooseField, url string, handler Handler, js ...template.
 		passValue = template.JS(js[1])
 	}
 
-	return utils.ParseHTML("choose_ajax", tmpls["choose_ajax"], struct {
+	return util.ParseHTML("choose_ajax", tmpls["choose_ajax"], struct {
 			Field       template.JS
 			ChooseField template.JS
 			PassValue   template.JS
@@ -1107,7 +1107,7 @@ func chooseHideJS(field, value string, chooseFields ...string) template.HTML {
 		return ""
 	}
 
-	return utils.ParseHTML("choose_hide", tmpls["choose_hide"], struct {
+	return util.ParseHTML("choose_hide", tmpls["choose_hide"], struct {
 		Field        template.JS
 		Value        template.JS
 		ChooseFields []string
@@ -1123,7 +1123,7 @@ func chooseShowJS(field, value string, chooseFields ...string) template.HTML {
 		return ""
 	}
 
-	return utils.ParseHTML("choose_show", tmpls["choose_show"], struct {
+	return util.ParseHTML("choose_show", tmpls["choose_show"], struct {
 		Field        template.JS
 		Value        template.JS
 		ChooseFields []string
@@ -1139,7 +1139,7 @@ func chooseDisableJS(field, value string, chooseFields ...string) template.HTML 
 		return ""
 	}
 
-	return utils.ParseHTML("choose_disable", tmpls["choose_disable"], struct {
+	return util.ParseHTML("choose_disable", tmpls["choose_disable"], struct {
 		Field        template.JS
 		Value        template.JS
 		ChooseFields []string
@@ -1475,7 +1475,7 @@ func (f *FormPanel) GroupFieldWithValue(pk, id string, columns []string, res map
 							}
 							field.TableFields[z] = *(field.TableFields[z].UpdateValue(id, rowValue, res, sql()))
 						}
-						if utils.InArray(existField, field.Field) {
+						if util.InArray(existField, field.Field) {
 							field.Field = field.Field + label
 						}
 						list = append(list, *field)
@@ -1485,7 +1485,7 @@ func (f *FormPanel) GroupFieldWithValue(pk, id string, columns []string, res map
 							hasPK = true
 						}
 						rowValue := field.GetRawValue(columns, res[field.Field])
-						if utils.InArray(existField, field.Field) {
+						if util.InArray(existField, field.Field) {
 							field.Field = field.Field + label
 						}
 						list = append(list, *(field.UpdateValue(id, rowValue, res, sql())))
@@ -1537,13 +1537,13 @@ func (f *FormPanel) GroupField(sql ...func() *db.SQL) ([]FormFields, []string) {
 							field.TableFields[z] = *(field.TableFields[z].UpdateDefaultValue(nil))
 						}
 					}
-					if utils.InArray(existField, field.Field) {
+					if util.InArray(existField, field.Field) {
 						field.Field = field.Field + label
 					}
 					list = append(list, *field)
 					existField = append(existField, field.Field)
 				} else {
-					if utils.InArray(existField, field.Field) {
+					if util.InArray(existField, field.Field) {
 						field.Field = field.Field + label
 					}
 					if len(sql) > 0 {

@@ -7,7 +7,7 @@ import (
 
 	"github.com/qtoad/xgo-admin/modules/config"
 	"github.com/qtoad/xgo-admin/modules/language"
-	"github.com/qtoad/xgo-admin/modules/utils"
+	"github.com/qtoad/xgo-admin/modules/util"
 	form2 "github.com/qtoad/xgo-admin/plugins/admin/modules/form"
 	"github.com/qtoad/xgo-admin/template/types"
 	"github.com/qtoad/xgo-admin/template/types/form"
@@ -197,7 +197,7 @@ func (compo *FormAttribute) SetOperationFooter(value template.HTML) types.FormAt
 func (compo *FormAttribute) GetContent() template.HTML {
 	compo.CdnUrl = config.GetAssetUrl()
 	if compo.Id == "" {
-		compo.Id = utils.Uuid(10)
+		compo.Id = util.Uuid(10)
 	}
 
 	if col := compo.Layout.Col(); col > 0 {
