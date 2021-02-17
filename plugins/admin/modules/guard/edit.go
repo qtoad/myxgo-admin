@@ -6,19 +6,19 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/qtoad/xgo-admin/template/types"
+	"github.com/qtoad/mygo-admin/template/types"
 
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/modules/auth"
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/modules/db"
-	"github.com/qtoad/xgo-admin/modules/errors"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/constant"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/form"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/parameter"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/response"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/table"
-	"github.com/qtoad/xgo-admin/template"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/modules/auth"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/modules/db"
+	"github.com/qtoad/mygo-admin/modules/errors"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/constant"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/form"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/parameter"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/response"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/table"
+	"github.com/qtoad/mygo-admin/template"
 )
 
 type ShowFormParam struct {

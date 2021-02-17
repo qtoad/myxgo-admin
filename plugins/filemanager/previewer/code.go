@@ -3,7 +3,7 @@ package previewer
 import (
 	"html/template"
 
-	"github.com/qtoad/xgo-plusplus/html"
+	"github.com/qtoad/mygo-plusplus/html"
 )
 
 type Code struct {

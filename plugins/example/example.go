@@ -1,9 +1,9 @@
 package example
 
 import (
-	c "github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/modules/service"
-	"github.com/qtoad/xgo-admin/plugins"
+	c "github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/modules/service"
+	"github.com/qtoad/mygo-admin/plugins"
 )
 
 type Example struct {

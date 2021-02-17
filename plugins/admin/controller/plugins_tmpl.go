@@ -4,10 +4,10 @@ import (
 	"bytes"
 	"html/template"
 
-	"github.com/qtoad/xgo-admin/modules/remote_server"
+	"github.com/qtoad/mygo-admin/modules/remote_server"
 
-	"github.com/qtoad/xgo-admin/modules/language"
-	"github.com/qtoad/xgo-admin/modules/logger"
+	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/mygo-admin/modules/logger"
 )
 
 func GetPluginsPageJS(data PluginsPageJSData) template.JS {

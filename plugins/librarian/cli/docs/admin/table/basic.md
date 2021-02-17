@@ -219,8 +219,8 @@ info.AddButton(title template.HTML, icon string, action Action, color ...templat
 
 import (
     ...
-	"github.com/qtoad/xgo-admin/template/icon"
-	"github.com/qtoad/xgo-admin/template/types/action"
+	"github.com/qtoad/mygo-admin/template/icon"
+	"github.com/qtoad/mygo-admin/template/types/action"
     ...
 )
 
@@ -255,7 +255,7 @@ type Action interface {
 ```go
 
 import (
-    "github.com/qtoad/xgo-admin/template/types/action"
+    "github.com/qtoad/mygo-admin/template/types/action"
 )
 
 // 返回一个Jump Action，参数一为url，参数二为额外的html
@@ -369,7 +369,7 @@ package main
 
 import (
     ...
-    "github.com/qtoad/xgo-admin/plugins/admin/modules/parameter"
+    "github.com/qtoad/mygo-admin/plugins/admin/modules/parameter"
     ...
 )
 

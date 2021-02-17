@@ -6,11 +6,11 @@ package main
 
 import (
 	"github.com/GoAdminGroup/demo/tables"
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/tests"
-	"github.com/qtoad/xgo-admin/tests/common"
-	"github.com/qtoad/xgo-admin/tests/frameworks/gin"
-	"github.com/qtoad/xgo-admin/tests/web"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/tests"
+	"github.com/qtoad/mygo-admin/tests/common"
+	"github.com/qtoad/mygo-admin/tests/frameworks/gin"
+	"github.com/qtoad/mygo-admin/tests/web"
 	"github.com/gavv/httpexpect"
 	"net/http"
 	"testing"

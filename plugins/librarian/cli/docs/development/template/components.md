@@ -12,7 +12,7 @@ type Component interface {
 	// {{.UrlPrefix}}/assets/login/css/bootstrap.min.css => login/css/bootstrap.min.css
 	//
 	// 例子：
-	// https://github.com/qtoad/xgo-admin/blob/master/template/login/assets_list.go
+	// https://github.com/qtoad/mygo-admin/blob/master/template/login/assets_list.go
 	GetAssetList() []string
 
 	// GetAsset 根据提供的资源路径返回资源的内容。
@@ -111,15 +111,15 @@ func (l *MagicBox) GetContent() template.HTML {
 package main
 
 import (
-	_ "github.com/qtoad/xgo-admin/adapter/gin"	    
-    _ "github.com/qtoad/xgo-admin/adapter/gin"
-    _ "github.com/qtoad/xgo-admin/modules/db/drivers/mysql"
+	_ "github.com/qtoad/mygo-admin/adapter/gin"	    
+    _ "github.com/qtoad/mygo-admin/adapter/gin"
+    _ "github.com/qtoad/mygo-admin/modules/db/drivers/mysql"
 	
 	"github.com/GoAdminGroup/components/login"
-	"github.com/qtoad/xgo-admin/engine"
-	"github.com/qtoad/xgo-admin/examples/datamodel"
-	"github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/plugins/admin"
+	"github.com/qtoad/mygo-admin/engine"
+	"github.com/qtoad/mygo-admin/examples/datamodel"
+	"github.com/qtoad/mygo-admin/template"
+	"github.com/qtoad/mygo-admin/plugins/admin"
 	"github.com/gin-gonic/gin"
 	"io/ioutil"
 )

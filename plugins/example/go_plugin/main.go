@@ -1,12 +1,12 @@
 package main
 
 import (
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/modules/auth"
-	c "github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/modules/db"
-	"github.com/qtoad/xgo-admin/modules/service"
-	"github.com/qtoad/xgo-admin/plugins"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/modules/auth"
+	c "github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/modules/db"
+	"github.com/qtoad/mygo-admin/modules/service"
+	"github.com/qtoad/mygo-admin/plugins"
 )
 
 type Example struct {

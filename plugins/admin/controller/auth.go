@@ -6,17 +6,17 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/modules/auth"
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/modules/db"
-	"github.com/qtoad/xgo-admin/modules/logger"
-	"github.com/qtoad/xgo-admin/modules/system"
-	"github.com/qtoad/xgo-admin/plugins/admin/models"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/captcha"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/response"
-	"github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/template/types"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/modules/auth"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/modules/db"
+	"github.com/qtoad/mygo-admin/modules/logger"
+	"github.com/qtoad/mygo-admin/modules/system"
+	"github.com/qtoad/mygo-admin/plugins/admin/models"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/captcha"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/response"
+	"github.com/qtoad/mygo-admin/template"
+	"github.com/qtoad/mygo-admin/template/types"
 )
 
 // Auth check the input password and username for authentication.

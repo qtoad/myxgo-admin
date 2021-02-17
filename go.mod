@@ -1,4 +1,4 @@
-module github.com/qtoad/xgo-admin
+module github.com/qtoad/mygo-admin
 
 go 1.13
 
@@ -31,13 +31,13 @@ require (
 	github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d
 	github.com/moul/http2curl v1.0.0 // indirect
 	github.com/natefinch/lumberjack v2.0.0+incompatible
-	github.com/qtoad/xgo-plusplus v0.0.0-20210216061414-622486c4d239
+	github.com/qtoad/mygo-plusplus v0.0.3
 	github.com/russross/blackfriday v1.5.2 // indirect
 	github.com/russross/blackfriday/v2 v2.0.1 // indirect
 	github.com/satori/go.uuid v1.2.0
 	github.com/schollz/progressbar v1.0.0
 	github.com/sclevine/agouti v3.0.0+incompatible
-	github.com/stretchr/testify v1.6.0
+	github.com/stretchr/testify v1.7.0
 	github.com/tdewolff/minify v2.3.6+incompatible
 	github.com/tdewolff/parse v2.3.4+incompatible // indirect
 	github.com/valyala/fasthttp v1.20.0 // indirect

@@ -5,12 +5,12 @@ import (
 	"html/template"
 	"strings"
 
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/modules/language"
-	"github.com/qtoad/xgo-admin/modules/util"
-	form2 "github.com/qtoad/xgo-admin/plugins/admin/modules/form"
-	"github.com/qtoad/xgo-admin/template/types"
-	"github.com/qtoad/xgo-admin/template/types/form"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/mygo-admin/modules/util"
+	form2 "github.com/qtoad/mygo-admin/plugins/admin/modules/form"
+	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/mygo-admin/template/types/form"
 )
 
 type FormAttribute struct {

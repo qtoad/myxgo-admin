@@ -17,16 +17,16 @@ example插件是我们的演示例子。
 package main
 
 import (	
-	_ "github.com/qtoad/xgo-admin/adapter/gin" // 必须引入，如若不引入，则需要自己定义
+	_ "github.com/qtoad/mygo-admin/adapter/gin" // 必须引入，如若不引入，则需要自己定义
 	_ "github.com/GoAdminGroup/themes/adminlte" // 必须引入，不然报错
-	_ "github.com/qtoad/xgo-admin/modules/db/drivers/mysql" // 引入数据库驱动
+	_ "github.com/qtoad/mygo-admin/modules/db/drivers/mysql" // 引入数据库驱动
 
 	"github.com/gin-gonic/gin"
-	"github.com/qtoad/xgo-admin/engine"
-	"github.com/qtoad/xgo-admin/plugins/admin"
-	"github.com/qtoad/xgo-admin/plugins/example"
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/examples/datamodel"
+	"github.com/qtoad/mygo-admin/engine"
+	"github.com/qtoad/mygo-admin/plugins/admin"
+	"github.com/qtoad/mygo-admin/plugins/example"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/examples/datamodel"
 )
 
 func main() {
@@ -55,16 +55,16 @@ func main() {
 package main
 
 import (	
-	_ "github.com/qtoad/xgo-admin/adapter/gin" // 必须引入，如若不引入，则需要自己定义
+	_ "github.com/qtoad/mygo-admin/adapter/gin" // 必须引入，如若不引入，则需要自己定义
 	_ "github.com/GoAdminGroup/themes/adminlte" // 必须引入，不然报错
-	_ "github.com/qtoad/xgo-admin/modules/db/drivers/mysql" // 引入数据库驱动
+	_ "github.com/qtoad/mygo-admin/modules/db/drivers/mysql" // 引入数据库驱动
 
 	"github.com/gin-gonic/gin"
-	"github.com/qtoad/xgo-admin/engine"
-	"github.com/qtoad/xgo-admin/plugins/admin"
-	"github.com/qtoad/xgo-admin/plugins"
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/examples/datamodel"
+	"github.com/qtoad/mygo-admin/engine"
+	"github.com/qtoad/mygo-admin/plugins/admin"
+	"github.com/qtoad/mygo-admin/plugins"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/examples/datamodel"
 )
 
 func main() {

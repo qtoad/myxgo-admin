@@ -1,6 +1,6 @@
 package theme1
 
-import "github.com/qtoad/xgo-admin/template"
+import "github.com/qtoad/mygo-admin/template"
 
 type Theme1 struct {
 	*template.BaseComponent

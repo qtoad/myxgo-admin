@@ -5,8 +5,8 @@ import (
 	"html/template"
 	"strings"
 
-	"github.com/qtoad/xgo-admin/modules/config"
-	adminTemplate "github.com/qtoad/xgo-admin/template"
+	"github.com/qtoad/mygo-admin/modules/config"
+	adminTemplate "github.com/qtoad/mygo-admin/template"
 )
 
 type BaseTheme struct {

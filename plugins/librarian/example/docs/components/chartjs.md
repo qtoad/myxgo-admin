@@ -3,7 +3,7 @@
 
 ```go
 
-import "github.com/qtoad/xgo-admin/template/chartjs"
+import "github.com/qtoad/mygo-admin/template/chartjs"
 
 func xxx() {
 

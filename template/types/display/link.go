@@ -1,8 +1,8 @@
 package display
 
 import (
-	"github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/template/types"
+	"github.com/qtoad/mygo-admin/template"
+	"github.com/qtoad/mygo-admin/template/types"
 )
 
 type Link struct {

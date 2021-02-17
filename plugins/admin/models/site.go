@@ -3,12 +3,12 @@ package models
 import (
 	"database/sql"
 
-	"github.com/qtoad/xgo-admin/modules/util"
+	"github.com/qtoad/mygo-admin/modules/util"
 
-	"github.com/qtoad/xgo-admin/modules/collection"
-	"github.com/qtoad/xgo-admin/modules/db"
-	"github.com/qtoad/xgo-admin/modules/db/dialect"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/form"
+	"github.com/qtoad/mygo-admin/modules/collection"
+	"github.com/qtoad/mygo-admin/modules/db"
+	"github.com/qtoad/mygo-admin/modules/db/dialect"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/form"
 )
 
 // SiteModel is role model structure.

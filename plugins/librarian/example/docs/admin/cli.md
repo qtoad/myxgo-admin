@@ -18,7 +18,7 @@ GoAdmin提供了一个命令行工具，以提高开发效率，简化开发流�
 或使用命令安装：
 
 ```
-go install github.com/qtoad/xgo-admin/adm
+go install github.com/qtoad/mygo-admin/adm
 ```
 
 ## 使用

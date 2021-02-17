@@ -1,6 +1,6 @@
 <p align="center">
   修改过的GOADMIN <br>
-  <a href="https://github.com/qtoad/xgo-admin">
+  <a href="https://github.com/qtoad/mygo-admin">
     <img width="48%" alt="go-admin" src="http://quick.go-admin.cn/official/assets/imgs/github_logo.png">
   </a>
 </p>
@@ -25,7 +25,7 @@
   <a href="https://t.me/joinchat/NlyH6Bch2QARZkArithKvg" rel="nofollow"><img alt="telegram" src="https://img.shields.io/badge/chat%20on-telegram-blue" style="max-width:100%;"></a>
   <a href="https://goadmin.slack.com"><img alt="slack" src="https://img.shields.io/badge/chat on-Slack-yellow.svg"></a>
   <a href="https://godoc.org/github.com/GoAdminGroup/go-admin" rel="nofollow"><img src="https://camo.githubusercontent.com/a9a286d43bdfff9fb41b88b25b35ea8edd2634fc/68747470733a2f2f676f646f632e6f72672f6769746875622e636f6d2f646572656b7061726b65722f64656c76653f7374617475732e737667" alt="GoDoc" data-canonical-src="https://godoc.org/github.com/derekparker/delve?status.svg" style="max-width:100%;"></a>
-  <a href="https://raw.githubusercontent.com/qtoad/xgo-admin/master/LICENSE" rel="nofollow"><img src="https://img.shields.io/badge/license-Apache2.0-blue.svg" alt="license" data-canonical-src="https://img.shields.io/badge/license-Apache2.0-blue.svg" style="max-width:100%;"></a>
+  <a href="https://raw.githubusercontent.com/qtoad/mygo-admin/master/LICENSE" rel="nofollow"><img src="https://img.shields.io/badge/license-Apache2.0-blue.svg" alt="license" data-canonical-src="https://img.shields.io/badge/license-Apache2.0-blue.svg" style="max-width:100%;"></a>
 </p> 
 
 <p align="center">
@@ -57,7 +57,7 @@ We need your help: [https://github.com/GoAdminGroup/docs/issues/1](https://githu
 
 ## Who is using
 
-[Comment the issue to tell us](https://github.com/qtoad/xgo-admin/issues/71).
+[Comment the issue to tell us](https://github.com/qtoad/mygo-admin/issues/71).
 
 ## How to
 
@@ -67,7 +67,7 @@ Note: now you can quickly start by doing like this.
 
 ```shell
 $ mkdir new_project && cd new_project
-$ go install github.com/qtoad/xgo-admin/adm
+$ go install github.com/qtoad/mygo-admin/adm
 $ adm init
 ```
 
@@ -75,16 +75,16 @@ Or (use adm whose version higher or equal than v1.2.16)
 
 ```shell
 $ mkdir new_project && cd new_project
-$ go install github.com/qtoad/xgo-admin/adm
+$ go install github.com/qtoad/mygo-admin/adm
 $ adm init web
 ```
 
 ### Step 1: import sql
 
-- [mysql](https://raw.githubusercontent.com/qtoad/xgo-admin/master/data/admin.sql)
-- [mssql](https://raw.githubusercontent.com/qtoad/xgo-admin/master/data/admin.mssql)
-- [postgresql](https://raw.githubusercontent.com/qtoad/xgo-admin/master/data/admin.pgsql)
-- [sqlite](https://raw.githubusercontent.com/qtoad/xgo-admin/master/data/admin.db)
+- [mysql](https://raw.githubusercontent.com/qtoad/mygo-admin/master/data/admin.sql)
+- [mssql](https://raw.githubusercontent.com/qtoad/mygo-admin/master/data/admin.mssql)
+- [postgresql](https://raw.githubusercontent.com/qtoad/mygo-admin/master/data/admin.pgsql)
+- [sqlite](https://raw.githubusercontent.com/qtoad/mygo-admin/master/data/admin.db)
 
 ### Step 2: create main.go
 
@@ -96,17 +96,17 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	_ "github.com/qtoad/xgo-admin/adapter/gin"
-	_ "github.com/qtoad/xgo-admin/modules/db/drivers/mysql"
-	"github.com/qtoad/xgo-admin/engine"
-	"github.com/qtoad/xgo-admin/plugins/admin"
-	"github.com/qtoad/xgo-admin/modules/config"
+	_ "github.com/qtoad/mygo-admin/adapter/gin"
+	_ "github.com/qtoad/mygo-admin/modules/db/drivers/mysql"
+	"github.com/qtoad/mygo-admin/engine"
+	"github.com/qtoad/mygo-admin/plugins/admin"
+	"github.com/qtoad/mygo-admin/modules/config"
 	"github.com/GoAdminGroup/themes/adminlte"
-	"github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/template/chartjs"
-	"github.com/qtoad/xgo-admin/template/types"
-	"github.com/qtoad/xgo-admin/examples/datamodel"
-	"github.com/qtoad/xgo-admin/modules/language"
+	"github.com/qtoad/mygo-admin/template"
+	"github.com/qtoad/mygo-admin/template/chartjs"
+	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/mygo-admin/examples/datamodel"
+	"github.com/qtoad/mygo-admin/modules/language"
 )
 
 func main() {
@@ -167,7 +167,7 @@ func main() {
 </p>
 </details>
 
-More framework examples: [https://github.com/qtoad/xgo-admin/tree/master/examples](https://github.com/qtoad/xgo-admin/tree/master/examples)
+More framework examples: [https://github.com/qtoad/mygo-admin/tree/master/examples](https://github.com/qtoad/mygo-admin/tree/master/examples)
 
 ### Step 3: run
 

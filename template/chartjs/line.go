@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"html/template"
 
-	template2 "github.com/qtoad/xgo-admin/template"
+	template2 "github.com/qtoad/mygo-admin/template"
 )
 
 type LineChart struct {

@@ -7,19 +7,19 @@ import (
 	"os"
 	"os/signal"
 
-	_ "github.com/qtoad/xgo-admin/adapter/gin"
-	_ "github.com/qtoad/xgo-admin/modules/db/drivers/mysql"
-	_ "github.com/qtoad/xgo-admin/themes/sword"
+	_ "github.com/qtoad/mygo-admin/adapter/gin"
+	_ "github.com/qtoad/mygo-admin/modules/db/drivers/mysql"
+	_ "github.com/qtoad/mygo-admin/themes/sword"
 
 	"github.com/gin-gonic/gin"
-	"github.com/qtoad/xgo-admin/engine"
-	"github.com/qtoad/xgo-admin/examples/datamodel"
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/modules/language"
-	"github.com/qtoad/xgo-admin/plugins/example"
-	"github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/template/chartjs"
-	"github.com/qtoad/xgo-admin/themes/adminlte"
+	"github.com/qtoad/mygo-admin/engine"
+	"github.com/qtoad/mygo-admin/examples/datamodel"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/mygo-admin/plugins/example"
+	"github.com/qtoad/mygo-admin/template"
+	"github.com/qtoad/mygo-admin/template/chartjs"
+	"github.com/qtoad/mygo-admin/themes/adminlte"
 )
 
 func main() {

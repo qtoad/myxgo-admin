@@ -3,13 +3,13 @@ package controller
 import (
 	"io/ioutil"
 
-	"github.com/qtoad/xgo-admin/template"
+	"github.com/qtoad/mygo-admin/template"
 
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/modules/util"
-	"github.com/qtoad/xgo-admin/plugins/librarian/guard"
-	"github.com/qtoad/xgo-admin/plugins/librarian/modules/theme"
-	"github.com/qtoad/xgo-admin/template/types"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/modules/util"
+	"github.com/qtoad/mygo-admin/plugins/librarian/guard"
+	"github.com/qtoad/mygo-admin/plugins/librarian/modules/theme"
+	"github.com/qtoad/mygo-admin/template/types"
 )
 
 func (h *Handler) View(ctx *context.Context) {

@@ -5,10 +5,10 @@ import (
 	"html/template"
 	"strings"
 
-	"github.com/qtoad/xgo-admin/template/types"
+	"github.com/qtoad/mygo-admin/template/types"
 
-	"github.com/qtoad/xgo-admin/modules/language"
-	"github.com/qtoad/xgo-admin/modules/logger"
+	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/mygo-admin/modules/logger"
 )
 
 type Login struct {

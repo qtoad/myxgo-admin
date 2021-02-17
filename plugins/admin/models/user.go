@@ -8,12 +8,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/modules/db"
-	"github.com/qtoad/xgo-admin/modules/db/dialect"
-	"github.com/qtoad/xgo-admin/modules/logger"
-	"github.com/qtoad/xgo-admin/modules/util"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/constant"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/modules/db"
+	"github.com/qtoad/mygo-admin/modules/db/dialect"
+	"github.com/qtoad/mygo-admin/modules/logger"
+	"github.com/qtoad/mygo-admin/modules/util"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/constant"
 )
 
 // UserModel is user model structure.

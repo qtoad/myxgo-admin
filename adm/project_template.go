@@ -10,13 +10,13 @@ import (
 	"os"
 	"os/signal"
 
-	_ "github.com/qtoad/xgo-admin/adapter/gin"                    // web framework adapter
-	_ "github.com/qtoad/xgo-admin/modules/db/drivers/{{.DriverModule}}" // sql driver
-	_ "github.com/qtoad/xgo-admin/themes/{{.Theme}}"                       // ui theme
+	_ "github.com/qtoad/mygo-admin/adapter/gin"                    // web framework adapter
+	_ "github.com/qtoad/mygo-admin/modules/db/drivers/{{.DriverModule}}" // sql driver
+	_ "github.com/qtoad/mygo-admin/themes/{{.Theme}}"                       // ui theme
 
-	"github.com/qtoad/xgo-admin/engine"
-	"github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/template/chartjs"
+	"github.com/qtoad/mygo-admin/engine"
+	"github.com/qtoad/mygo-admin/template"
+	"github.com/qtoad/mygo-admin/template/chartjs"
 	"github.com/gin-gonic/gin"
 	
 	"{{.Module}}/pages"
@@ -74,13 +74,13 @@ import (
 	"path/filepath"
 	"strings"
 
-	_ "github.com/qtoad/xgo-admin/adapter/chi"                 // web framework adapter
-	_ "github.com/qtoad/xgo-admin/modules/db/drivers/{{.DriverModule}}"  // sql driver
-	_ "github.com/qtoad/xgo-admin/themes/{{.Theme}}"                        // ui theme
+	_ "github.com/qtoad/mygo-admin/adapter/chi"                 // web framework adapter
+	_ "github.com/qtoad/mygo-admin/modules/db/drivers/{{.DriverModule}}"  // sql driver
+	_ "github.com/qtoad/mygo-admin/themes/{{.Theme}}"                        // ui theme
 
-	"github.com/qtoad/xgo-admin/engine"
-	"github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/template/chartjs"
+	"github.com/qtoad/mygo-admin/engine"
+	"github.com/qtoad/mygo-admin/template"
+	"github.com/qtoad/mygo-admin/template/chartjs"
 	"github.com/go-chi/chi"
 
 	"{{.Module}}/pages"
@@ -157,13 +157,13 @@ import (
 	"os"
 	"os/signal"
 
-	_ "github.com/qtoad/xgo-admin/adapter/echo"                 // web framework adapter
-	_ "github.com/qtoad/xgo-admin/modules/db/drivers/{{.DriverModule}}"  // sql driver
-	_ "github.com/qtoad/xgo-admin/themes/{{.Theme}}"                        // ui theme
+	_ "github.com/qtoad/mygo-admin/adapter/echo"                 // web framework adapter
+	_ "github.com/qtoad/mygo-admin/modules/db/drivers/{{.DriverModule}}"  // sql driver
+	_ "github.com/qtoad/mygo-admin/themes/{{.Theme}}"                        // ui theme
 
-	"github.com/qtoad/xgo-admin/engine"
-	"github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/template/chartjs"
+	"github.com/qtoad/mygo-admin/engine"
+	"github.com/qtoad/mygo-admin/template"
+	"github.com/qtoad/mygo-admin/template/chartjs"
 	"github.com/labstack/echo/v4"
 
 	"{{.Module}}/pages"
@@ -211,15 +211,15 @@ func startServer() {
 var swordIndexPage = []byte(`package pages
 
 import (
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/modules/config"
-	template2 "github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/template/chartjs"
-	"github.com/qtoad/xgo-admin/template/types"
-	"github.com/qtoad/xgo-admin/themes/sword/components/card"
-	"github.com/qtoad/xgo-admin/themes/sword/components/chart_legend"
-	"github.com/qtoad/xgo-admin/themes/sword/components/description"
-	"github.com/qtoad/xgo-admin/themes/sword/components/progress_group"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/modules/config"
+	template2 "github.com/qtoad/mygo-admin/template"
+	"github.com/qtoad/mygo-admin/template/chartjs"
+	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/mygo-admin/themes/sword/components/card"
+	"github.com/qtoad/mygo-admin/themes/sword/components/chart_legend"
+	"github.com/qtoad/mygo-admin/themes/sword/components/description"
+	"github.com/qtoad/mygo-admin/themes/sword/components/progress_group"
 	"html/template"
 )
 
@@ -484,17 +484,17 @@ like Aldus PageMaker including versions of Lorem Ipsum.
 var adminlteIndexPage = []byte(`package pages
 
 import (
-	"github.com/qtoad/xgo-admin/context"
-	tmpl "github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/template/chartjs"
-	"github.com/qtoad/xgo-admin/template/icon"
-	"github.com/qtoad/xgo-admin/template/types"
-	"github.com/qtoad/xgo-admin/themes/adminlte/components/chart_legend"
-	"github.com/qtoad/xgo-admin/themes/adminlte/components/description"
-	"github.com/qtoad/xgo-admin/themes/adminlte/components/infobox"
-	"github.com/qtoad/xgo-admin/themes/adminlte/components/productlist"
-	"github.com/qtoad/xgo-admin/themes/adminlte/components/progress_group"
-	"github.com/qtoad/xgo-admin/themes/adminlte/components/smallbox"
+	"github.com/qtoad/mygo-admin/context"
+	tmpl "github.com/qtoad/mygo-admin/template"
+	"github.com/qtoad/mygo-admin/template/chartjs"
+	"github.com/qtoad/mygo-admin/template/icon"
+	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/mygo-admin/themes/adminlte/components/chart_legend"
+	"github.com/qtoad/mygo-admin/themes/adminlte/components/description"
+	"github.com/qtoad/mygo-admin/themes/adminlte/components/infobox"
+	"github.com/qtoad/mygo-admin/themes/adminlte/components/productlist"
+	"github.com/qtoad/mygo-admin/themes/adminlte/components/progress_group"
+	"github.com/qtoad/mygo-admin/themes/adminlte/components/smallbox"
 	"html/template"
 )
 
@@ -880,11 +880,11 @@ var mainTest = []byte(`package main
 
 import (
 	"./tables"
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/tests"
-	"github.com/qtoad/xgo-admin/tests/common"
-	"github.com/qtoad/xgo-admin/tests/frameworks/gin"
-	"github.com/qtoad/xgo-admin/tests/web"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/tests"
+	"github.com/qtoad/mygo-admin/tests/common"
+	"github.com/qtoad/mygo-admin/tests/frameworks/gin"
+	"github.com/qtoad/mygo-admin/tests/web"
 	"github.com/gavv/httpexpect"
 	"log"
 	"testing"
@@ -928,11 +928,11 @@ var mainTestCN = []byte(`package main
 
 import (
 	"./tables"
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/tests"
-	"github.com/qtoad/xgo-admin/tests/common"
-	"github.com/qtoad/xgo-admin/tests/frameworks/gin"
-	"github.com/qtoad/xgo-admin/tests/web"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/tests"
+	"github.com/qtoad/mygo-admin/tests/common"
+	"github.com/qtoad/mygo-admin/tests/frameworks/gin"
+	"github.com/qtoad/mygo-admin/tests/web"
 	"github.com/gavv/httpexpect"
 	"log"
 	"testing"

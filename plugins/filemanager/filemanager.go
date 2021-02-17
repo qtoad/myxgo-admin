@@ -4,18 +4,18 @@ import (
 	"encoding/json"
 	"time"
 
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/modules/db"
-	"github.com/qtoad/xgo-admin/modules/language"
-	"github.com/qtoad/xgo-admin/modules/service"
-	"github.com/qtoad/xgo-admin/modules/util"
-	"github.com/qtoad/xgo-admin/plugins"
-	"github.com/qtoad/xgo-admin/plugins/filemanager/controller"
-	"github.com/qtoad/xgo-admin/plugins/filemanager/guard"
-	errors "github.com/qtoad/xgo-admin/plugins/filemanager/modules/error"
-	language2 "github.com/qtoad/xgo-admin/plugins/filemanager/modules/language"
-	"github.com/qtoad/xgo-admin/plugins/filemanager/modules/permission"
-	"github.com/qtoad/xgo-admin/plugins/filemanager/modules/root"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/modules/db"
+	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/mygo-admin/modules/service"
+	"github.com/qtoad/mygo-admin/modules/util"
+	"github.com/qtoad/mygo-admin/plugins"
+	"github.com/qtoad/mygo-admin/plugins/filemanager/controller"
+	"github.com/qtoad/mygo-admin/plugins/filemanager/guard"
+	errors "github.com/qtoad/mygo-admin/plugins/filemanager/modules/error"
+	language2 "github.com/qtoad/mygo-admin/plugins/filemanager/modules/language"
+	"github.com/qtoad/mygo-admin/plugins/filemanager/modules/permission"
+	"github.com/qtoad/mygo-admin/plugins/filemanager/modules/root"
 )
 
 type FileManager struct {
@@ -188,7 +188,7 @@ var info = plugins.Info{
 	Description: "A plugin help you manage files in your server",
 	Version:     "v0.0.6",
 	Author:      "Official",
-	Url:         "https://github.com/qtoad/xgo-admin/plugins/filemanager/archive/v0.0.6.zip",
+	Url:         "https://github.com/qtoad/mygo-admin/plugins/filemanager/archive/v0.0.6.zip",
 	Cover:       "",
 	Agreement:   "",
 	Uuid:        "DDN7VxZDTHTeaF8HUU",

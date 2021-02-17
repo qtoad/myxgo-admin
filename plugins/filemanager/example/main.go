@@ -7,16 +7,16 @@ import (
 	"os/signal"
 	"path/filepath"
 
-	_ "github.com/qtoad/xgo-admin/adapter/gin"
-	_ "github.com/qtoad/xgo-admin/modules/db/drivers/sqlite"
-	_ "github.com/qtoad/xgo-admin/themes/sword"
+	_ "github.com/qtoad/mygo-admin/adapter/gin"
+	_ "github.com/qtoad/mygo-admin/modules/db/drivers/sqlite"
+	_ "github.com/qtoad/mygo-admin/themes/sword"
 
 	"github.com/gin-gonic/gin"
-	"github.com/qtoad/xgo-admin/engine"
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/modules/language"
-	"github.com/qtoad/xgo-admin/plugins/filemanager"
-	"github.com/qtoad/xgo-admin/plugins/filemanager/modules/root"
+	"github.com/qtoad/mygo-admin/engine"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/mygo-admin/plugins/filemanager"
+	"github.com/qtoad/mygo-admin/plugins/filemanager/modules/root"
 )
 
 func main() {

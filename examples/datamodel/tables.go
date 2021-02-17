@@ -1,6 +1,6 @@
 package datamodel
 
-import "github.com/qtoad/xgo-admin/plugins/admin/modules/table"
+import "github.com/qtoad/mygo-admin/plugins/admin/modules/table"
 
 // generators is a map of table models.
 //

@@ -3,9 +3,9 @@ package components
 import (
 	"html/template"
 
-	"github.com/qtoad/xgo-admin/modules/errors"
-	"github.com/qtoad/xgo-admin/modules/language"
-	"github.com/qtoad/xgo-admin/template/types"
+	"github.com/qtoad/mygo-admin/modules/errors"
+	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/mygo-admin/template/types"
 )
 
 type AlertAttribute struct {

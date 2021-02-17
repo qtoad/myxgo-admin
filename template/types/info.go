@@ -9,18 +9,18 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/qtoad/xgo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/modules/config"
 
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/modules/db"
-	"github.com/qtoad/xgo-admin/modules/errors"
-	"github.com/qtoad/xgo-admin/modules/language"
-	"github.com/qtoad/xgo-admin/modules/logger"
-	"github.com/qtoad/xgo-admin/modules/util"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/parameter"
-	"github.com/qtoad/xgo-admin/template/types/form"
-	"github.com/qtoad/xgo-admin/template/types/table"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/modules/db"
+	"github.com/qtoad/mygo-admin/modules/errors"
+	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/mygo-admin/modules/logger"
+	"github.com/qtoad/mygo-admin/modules/util"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/parameter"
+	"github.com/qtoad/mygo-admin/template/types/form"
+	"github.com/qtoad/mygo-admin/template/types/table"
 )
 
 // FieldModel is the single query result.

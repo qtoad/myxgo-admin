@@ -6,10 +6,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/modules/util"
-	"github.com/qtoad/xgo-admin/plugins/filemanager/guard"
-	"github.com/qtoad/xgo-admin/plugins/filemanager/models"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/modules/util"
+	"github.com/qtoad/mygo-admin/plugins/filemanager/guard"
+	"github.com/qtoad/mygo-admin/plugins/filemanager/models"
 )
 
 func (h *Handler) ListFiles(ctx *context.Context) {

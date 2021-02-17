@@ -11,19 +11,19 @@ import (
 	"strings"
 	"time"
 
-	"github.com/qtoad/xgo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/modules/config"
 
-	"github.com/qtoad/xgo-admin/modules/db"
-	"github.com/qtoad/xgo-admin/modules/db/dialect"
-	errs "github.com/qtoad/xgo-admin/modules/errors"
-	"github.com/qtoad/xgo-admin/modules/language"
-	"github.com/qtoad/xgo-admin/modules/logger"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/constant"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/form"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/paginator"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/parameter"
-	"github.com/qtoad/xgo-admin/template/types"
+	"github.com/qtoad/mygo-admin/modules/db"
+	"github.com/qtoad/mygo-admin/modules/db/dialect"
+	errs "github.com/qtoad/mygo-admin/modules/errors"
+	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/mygo-admin/modules/logger"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/constant"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/form"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/paginator"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/parameter"
+	"github.com/qtoad/mygo-admin/template/types"
 )
 
 // DefaultTable is an implementation of table.Table

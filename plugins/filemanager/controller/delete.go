@@ -5,8 +5,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/plugins/filemanager/guard"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/plugins/filemanager/guard"
 )
 
 func (h *Handler) Delete(ctx *context.Context) {

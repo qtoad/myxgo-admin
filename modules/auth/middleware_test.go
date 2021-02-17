@@ -4,8 +4,8 @@ import (
 	"net/url"
 	"testing"
 
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/plugins/admin/models"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/plugins/admin/models"
 	"github.com/stretchr/testify/assert"
 )
 

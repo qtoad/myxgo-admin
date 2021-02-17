@@ -11,26 +11,26 @@ import (
 	"strings"
 	"time"
 
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/modules/collection"
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/modules/db"
-	"github.com/qtoad/xgo-admin/modules/db/dialect"
-	errs "github.com/qtoad/xgo-admin/modules/errors"
-	"github.com/qtoad/xgo-admin/modules/language"
-	"github.com/qtoad/xgo-admin/modules/logger"
-	"github.com/qtoad/xgo-admin/modules/ui"
-	"github.com/qtoad/xgo-admin/modules/util"
-	"github.com/qtoad/xgo-admin/plugins/admin/models"
-	form2 "github.com/qtoad/xgo-admin/plugins/admin/modules/form"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/parameter"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/tools"
-	"github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/template/types"
-	"github.com/qtoad/xgo-admin/template/types/action"
-	"github.com/qtoad/xgo-admin/template/types/form"
-	selection "github.com/qtoad/xgo-admin/template/types/selection"
-	"github.com/qtoad/xgo-plusplus/html"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/modules/collection"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/modules/db"
+	"github.com/qtoad/mygo-admin/modules/db/dialect"
+	errs "github.com/qtoad/mygo-admin/modules/errors"
+	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/mygo-admin/modules/logger"
+	"github.com/qtoad/mygo-admin/modules/ui"
+	"github.com/qtoad/mygo-admin/modules/util"
+	"github.com/qtoad/mygo-admin/plugins/admin/models"
+	form2 "github.com/qtoad/mygo-admin/plugins/admin/modules/form"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/parameter"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/tools"
+	"github.com/qtoad/mygo-admin/template"
+	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/mygo-admin/template/types/action"
+	"github.com/qtoad/mygo-admin/template/types/form"
+	selection "github.com/qtoad/mygo-admin/template/types/selection"
+	"github.com/qtoad/mygo-plusplus/html"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -1460,10 +1460,10 @@ func (s *SystemTable) GetGenerateForm(ctx *context.Context) (generateTool Table)
 			{Text: "time", Value: "time"},
 			{Text: "log", Value: "log"},
 			{Text: "fmt", Value: "fmt"},
-			{Text: "github.com/qtoad/xgo-admin/modules/db/dialect", Value: "github.com/qtoad/xgo-admin/modules/db/dialect"},
-			{Text: "github.com/qtoad/xgo-admin/modules/db", Value: "github.com/qtoad/xgo-admin/modules/db"},
-			{Text: "github.com/qtoad/xgo-admin/modules/language", Value: "github.com/qtoad/xgo-admin/modules/language"},
-			{Text: "github.com/qtoad/xgo-admin/modules/logger", Value: "github.com/qtoad/xgo-admin/modules/logger"},
+			{Text: "github.com/qtoad/mygo-admin/modules/db/dialect", Value: "github.com/qtoad/mygo-admin/modules/db/dialect"},
+			{Text: "github.com/qtoad/mygo-admin/modules/db", Value: "github.com/qtoad/mygo-admin/modules/db"},
+			{Text: "github.com/qtoad/mygo-admin/modules/language", Value: "github.com/qtoad/mygo-admin/modules/language"},
+			{Text: "github.com/qtoad/mygo-admin/modules/logger", Value: "github.com/qtoad/mygo-admin/modules/logger"},
 		}).
 		FieldDefault("").
 		FieldOptionExt(map[string]interface{}{

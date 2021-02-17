@@ -1,6 +1,6 @@
 package language
 
-import "github.com/qtoad/xgo-admin/modules/language"
+import "github.com/qtoad/mygo-admin/modules/language"
 
 var EN = language.LangSet{
 	"librarian.table of contents": "Table of contents",

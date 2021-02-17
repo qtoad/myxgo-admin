@@ -1,18 +1,18 @@
 package admin
 
 import (
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/modules/service"
-	"github.com/qtoad/xgo-admin/modules/system"
-	"github.com/qtoad/xgo-admin/modules/util"
-	"github.com/qtoad/xgo-admin/plugins"
-	"github.com/qtoad/xgo-admin/plugins/admin/controller"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/guard"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/table"
-	"github.com/qtoad/xgo-admin/template/types"
-	"github.com/qtoad/xgo-admin/template/types/action"
-	_ "github.com/qtoad/xgo-admin/template/types/display"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/modules/service"
+	"github.com/qtoad/mygo-admin/modules/system"
+	"github.com/qtoad/mygo-admin/modules/util"
+	"github.com/qtoad/mygo-admin/plugins"
+	"github.com/qtoad/mygo-admin/plugins/admin/controller"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/guard"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/table"
+	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/mygo-admin/template/types/action"
+	_ "github.com/qtoad/mygo-admin/template/types/display"
 )
 
 // Admin is a GoAdmin plugin.

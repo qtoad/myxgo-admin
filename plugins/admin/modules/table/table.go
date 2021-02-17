@@ -5,13 +5,13 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/modules/db"
-	"github.com/qtoad/xgo-admin/modules/service"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/form"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/paginator"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/parameter"
-	"github.com/qtoad/xgo-admin/template/types"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/modules/db"
+	"github.com/qtoad/mygo-admin/modules/service"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/form"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/paginator"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/parameter"
+	"github.com/qtoad/mygo-admin/template/types"
 )
 
 type Generator func(ctx *context.Context) Table

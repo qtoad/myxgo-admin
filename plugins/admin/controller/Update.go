@@ -1,9 +1,9 @@
 package controller
 
 import (
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/guard"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/response"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/guard"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/response"
 )
 
 // Update update the table row of given id.

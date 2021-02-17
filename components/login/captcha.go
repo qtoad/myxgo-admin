@@ -2,7 +2,7 @@ package login
 
 import (
 	"encoding/json"
-	"github.com/qtoad/xgo-admin/modules/logger"
+	"github.com/qtoad/mygo-admin/modules/logger"
 	"io/ioutil"
 	"net/http"
 	"net/url"

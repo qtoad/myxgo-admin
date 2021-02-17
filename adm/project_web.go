@@ -13,10 +13,10 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/modules/db"
-	"github.com/qtoad/xgo-admin/modules/system"
-	"github.com/qtoad/xgo-admin/modules/util"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/modules/db"
+	"github.com/qtoad/mygo-admin/modules/system"
+	"github.com/qtoad/mygo-admin/modules/util"
 )
 
 func buildProjectWeb(port string) {

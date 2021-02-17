@@ -1,10 +1,10 @@
 package controller
 
 import (
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/modules/logger"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/guard"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/response"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/modules/logger"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/guard"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/response"
 )
 
 // Delete delete the row from database.

@@ -1,11 +1,11 @@
 package controller
 
 import (
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/modules/file"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/constant"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/guard"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/response"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/modules/file"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/constant"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/guard"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/response"
 )
 
 func (h *Handler) ApiCreate(ctx *context.Context) {

@@ -1,6 +1,6 @@
 package language
 
-import "github.com/qtoad/xgo-admin/modules/language"
+import "github.com/qtoad/mygo-admin/modules/language"
 
 var CN = language.LangSet{
 	"filemanager.not exist":     "不存在",

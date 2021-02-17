@@ -1,11 +1,11 @@
 package controller
 
 import (
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/plugins/librarian/modules/constant"
-	"github.com/qtoad/xgo-admin/plugins/librarian/modules/root"
-	"github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/template/types"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/plugins/librarian/modules/constant"
+	"github.com/qtoad/mygo-admin/plugins/librarian/modules/root"
+	"github.com/qtoad/mygo-admin/template"
+	"github.com/qtoad/mygo-admin/template/types"
 )
 
 type Handler struct {

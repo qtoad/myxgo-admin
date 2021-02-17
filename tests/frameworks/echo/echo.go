@@ -2,20 +2,20 @@ package echo
 
 import (
 	// add echo adapter
-	_ "github.com/qtoad/xgo-admin/adapter/echo"
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/modules/language"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/table"
-	"github.com/qtoad/xgo-admin/themes/adminlte"
+	_ "github.com/qtoad/mygo-admin/adapter/echo"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/table"
+	"github.com/qtoad/mygo-admin/themes/adminlte"
 
 	// add mysql driver
-	_ "github.com/qtoad/xgo-admin/modules/db/drivers/mysql"
+	_ "github.com/qtoad/mygo-admin/modules/db/drivers/mysql"
 	// add postgresql driver
-	_ "github.com/qtoad/xgo-admin/modules/db/drivers/postgres"
+	_ "github.com/qtoad/mygo-admin/modules/db/drivers/postgres"
 	// add sqlite driver
-	_ "github.com/qtoad/xgo-admin/modules/db/drivers/sqlite"
+	_ "github.com/qtoad/mygo-admin/modules/db/drivers/sqlite"
 	// add mssql driver
-	_ "github.com/qtoad/xgo-admin/modules/db/drivers/mssql"
+	_ "github.com/qtoad/mygo-admin/modules/db/drivers/mssql"
 	// add adminlte ui theme
 	_ "github.com/GoAdminGroup/themes/adminlte"
 
@@ -23,12 +23,12 @@ import (
 	"os"
 
 	"github.com/labstack/echo/v4"
-	"github.com/qtoad/xgo-admin/engine"
-	"github.com/qtoad/xgo-admin/plugins/admin"
-	"github.com/qtoad/xgo-admin/plugins/example"
-	"github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/template/chartjs"
-	"github.com/qtoad/xgo-admin/tests/tables"
+	"github.com/qtoad/mygo-admin/engine"
+	"github.com/qtoad/mygo-admin/plugins/admin"
+	"github.com/qtoad/mygo-admin/plugins/example"
+	"github.com/qtoad/mygo-admin/template"
+	"github.com/qtoad/mygo-admin/template/chartjs"
+	"github.com/qtoad/mygo-admin/tests/tables"
 )
 
 func newHandler() http.Handler {

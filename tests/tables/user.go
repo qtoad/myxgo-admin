@@ -4,16 +4,16 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/modules/db"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/table"
-	"github.com/qtoad/xgo-admin/template/icon"
-	"github.com/qtoad/xgo-admin/template/types"
-	"github.com/qtoad/xgo-admin/template/types/action"
-	"github.com/qtoad/xgo-admin/template/types/form"
-	selection "github.com/qtoad/xgo-admin/template/types/selection"
-	editType "github.com/qtoad/xgo-admin/template/types/table"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/modules/db"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/table"
+	"github.com/qtoad/mygo-admin/template/icon"
+	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/mygo-admin/template/types/action"
+	"github.com/qtoad/mygo-admin/template/types/form"
+	selection "github.com/qtoad/mygo-admin/template/types/selection"
+	editType "github.com/qtoad/mygo-admin/template/types/table"
 )
 
 // GetUserTable return the model of table user.

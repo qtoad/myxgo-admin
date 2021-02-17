@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/qtoad/xgo-admin/plugins/librarian/modules/language"
+	"github.com/qtoad/mygo-admin/plugins/librarian/modules/language"
 )
 
 type Theme interface {

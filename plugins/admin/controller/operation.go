@@ -3,11 +3,11 @@ package controller
 import (
 	"encoding/json"
 
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/plugins/admin/models"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/constant"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/response"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/plugins/admin/models"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/constant"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/response"
 )
 
 func (h *Handler) Operation(ctx *context.Context) {

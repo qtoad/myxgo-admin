@@ -5,7 +5,7 @@ import (
 	"os/exec"
 	"testing"
 
-	_ "github.com/qtoad/xgo-admin/modules/db/drivers/mysql"
+	_ "github.com/qtoad/mygo-admin/modules/db/drivers/mysql"
 )
 
 var driverTestMysqlConn Connection

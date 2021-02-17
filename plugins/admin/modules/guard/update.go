@@ -3,9 +3,9 @@ package guard
 import (
 	"net/http"
 
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/form"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/table"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/form"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/table"
 )
 
 type UpdateParam struct {

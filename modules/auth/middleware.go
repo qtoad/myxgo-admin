@@ -8,17 +8,17 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/modules/constant"
-	"github.com/qtoad/xgo-admin/modules/db"
-	"github.com/qtoad/xgo-admin/modules/errors"
-	"github.com/qtoad/xgo-admin/modules/language"
-	"github.com/qtoad/xgo-admin/modules/logger"
-	"github.com/qtoad/xgo-admin/modules/page"
-	"github.com/qtoad/xgo-admin/plugins/admin/models"
-	template2 "github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/template/types"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/modules/constant"
+	"github.com/qtoad/mygo-admin/modules/db"
+	"github.com/qtoad/mygo-admin/modules/errors"
+	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/mygo-admin/modules/logger"
+	"github.com/qtoad/mygo-admin/modules/page"
+	"github.com/qtoad/mygo-admin/plugins/admin/models"
+	template2 "github.com/qtoad/mygo-admin/template"
+	"github.com/qtoad/mygo-admin/template/types"
 )
 
 // Invoker contains the callback functions which are used

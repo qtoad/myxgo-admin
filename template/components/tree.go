@@ -3,8 +3,8 @@ package components
 import (
 	"html/template"
 
-	"github.com/qtoad/xgo-admin/modules/menu"
-	"github.com/qtoad/xgo-admin/template/types"
+	"github.com/qtoad/mygo-admin/modules/menu"
+	"github.com/qtoad/mygo-admin/template/types"
 )
 
 type TreeAttribute struct {

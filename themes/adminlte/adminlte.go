@@ -4,11 +4,11 @@ import (
 	"github.com/gobuffalo/packr/v2"
 	"strings"
 
-	adminTemplate "github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/template/components"
-	"github.com/qtoad/xgo-admin/template/types"
-	"github.com/qtoad/xgo-admin/themes/adminlte/resource"
-	"github.com/qtoad/xgo-admin/themes/common"
+	adminTemplate "github.com/qtoad/mygo-admin/template"
+	"github.com/qtoad/mygo-admin/template/components"
+	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/mygo-admin/themes/adminlte/resource"
+	"github.com/qtoad/mygo-admin/themes/common"
 )
 
 const (

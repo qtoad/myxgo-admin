@@ -9,16 +9,16 @@
 package main
 
 import (
-	_ "github.com/qtoad/xgo-admin/adapter/gin"	    
-    _ "github.com/qtoad/xgo-admin/adapter/gin"
-    _ "github.com/qtoad/xgo-admin/modules/db/drivers/mysql"
+	_ "github.com/qtoad/mygo-admin/adapter/gin"	    
+    _ "github.com/qtoad/mygo-admin/adapter/gin"
+    _ "github.com/qtoad/mygo-admin/modules/db/drivers/mysql"
     // 引入theme2登录页面主题，如不用，可以不导入
     _ "github.com/GoAdminGroup/components/login/theme2"
 	
 	"github.com/GoAdminGroup/components/login"
-	"github.com/qtoad/xgo-admin/engine"
-	"github.com/qtoad/xgo-admin/examples/datamodel"
-	"github.com/qtoad/xgo-admin/plugins/admin"
+	"github.com/qtoad/mygo-admin/engine"
+	"github.com/qtoad/mygo-admin/examples/datamodel"
+	"github.com/qtoad/mygo-admin/plugins/admin"
 	"github.com/gin-gonic/gin"
 	"io/ioutil"
 )

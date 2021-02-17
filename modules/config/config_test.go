@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/qtoad/xgo-admin/modules/util"
+	"github.com/qtoad/mygo-admin/modules/util"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -241,7 +241,7 @@ func TestUpdate(t *testing.T) {
 		"no_limit_login_ip":                 `false`,
 		"open_admin_api":                    `false`,
 		"operation_log_off":                 `false`,
-		"plugin_file_path":                  `/go/src/github.com/qtoad/xgo-admin/examples/gin/plugins.go`,
+		"plugin_file_path":                  `/go/src/github.com/qtoad/mygo-admin/examples/gin/plugins.go`,
 		"session_life_time":                 `7200`,
 		"site_off":                          `false`,
 		"sql_log":                           `true`,

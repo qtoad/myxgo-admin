@@ -1,6 +1,6 @@
 package tables
 
-import "github.com/qtoad/xgo-admin/plugins/admin/modules/table"
+import "github.com/qtoad/mygo-admin/plugins/admin/modules/table"
 
 var Generators = map[string]table.Generator{
 	"posts":    GetPostsTable,

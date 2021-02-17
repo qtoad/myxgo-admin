@@ -11,7 +11,7 @@ import (
 	"path"
 	"sync"
 
-	"github.com/qtoad/xgo-admin/plugins/admin/modules"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules"
 )
 
 // Uploader is a file uploader which contains the method Upload.

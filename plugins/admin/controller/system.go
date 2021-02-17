@@ -6,11 +6,11 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/modules/auth"
-	"github.com/qtoad/xgo-admin/modules/language"
-	"github.com/qtoad/xgo-admin/modules/system"
-	"github.com/qtoad/xgo-admin/template/types"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/modules/auth"
+	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/mygo-admin/modules/system"
+	"github.com/qtoad/mygo-admin/template/types"
 )
 
 func (h *Handler) SystemInfo(ctx *context.Context) {

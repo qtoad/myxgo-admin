@@ -3,8 +3,8 @@ package db
 import (
 	"testing"
 
-	"github.com/qtoad/xgo-admin/modules/config"
-	_ "github.com/qtoad/xgo-admin/modules/db/drivers/sqlite"
+	"github.com/qtoad/mygo-admin/modules/config"
+	_ "github.com/qtoad/mygo-admin/modules/db/drivers/sqlite"
 )
 
 var driverTestSQLiteConn Connection

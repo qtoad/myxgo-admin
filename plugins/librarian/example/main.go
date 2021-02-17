@@ -1,9 +1,9 @@
 package main
 
 import (
-	_ "github.com/qtoad/xgo-admin/adapter/gin"
-	_ "github.com/qtoad/xgo-admin/modules/db/drivers/sqlite"
-	_ "github.com/qtoad/xgo-admin/themes/sword"
+	_ "github.com/qtoad/mygo-admin/adapter/gin"
+	_ "github.com/qtoad/mygo-admin/modules/db/drivers/sqlite"
+	_ "github.com/qtoad/mygo-admin/themes/sword"
 
 	"io/ioutil"
 	"log"
@@ -12,16 +12,16 @@ import (
 	"path/filepath"
 
 	"github.com/gin-gonic/gin"
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/engine"
-	"github.com/qtoad/xgo-admin/modules/auth"
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/modules/language"
-	"github.com/qtoad/xgo-admin/plugins/admin/models"
-	"github.com/qtoad/xgo-admin/plugins/filemanager"
-	"github.com/qtoad/xgo-admin/plugins/librarian"
-	"github.com/qtoad/xgo-admin/plugins/librarian/modules/theme"
-	"github.com/qtoad/xgo-admin/template/types/action"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/engine"
+	"github.com/qtoad/mygo-admin/modules/auth"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/mygo-admin/plugins/admin/models"
+	"github.com/qtoad/mygo-admin/plugins/filemanager"
+	"github.com/qtoad/mygo-admin/plugins/librarian"
+	"github.com/qtoad/mygo-admin/plugins/librarian/modules/theme"
+	"github.com/qtoad/mygo-admin/template/types/action"
 )
 
 func main() {

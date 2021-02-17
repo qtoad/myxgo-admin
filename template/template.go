@@ -14,16 +14,16 @@ import (
 	"strings"
 	"sync"
 
-	c "github.com/qtoad/xgo-admin/modules/config"
-	errors2 "github.com/qtoad/xgo-admin/modules/errors"
-	"github.com/qtoad/xgo-admin/modules/language"
-	"github.com/qtoad/xgo-admin/modules/logger"
-	"github.com/qtoad/xgo-admin/modules/menu"
-	"github.com/qtoad/xgo-admin/modules/system"
-	"github.com/qtoad/xgo-admin/modules/util"
-	"github.com/qtoad/xgo-admin/plugins/admin/models"
-	"github.com/qtoad/xgo-admin/template/login"
-	"github.com/qtoad/xgo-admin/template/types"
+	c "github.com/qtoad/mygo-admin/modules/config"
+	errors2 "github.com/qtoad/mygo-admin/modules/errors"
+	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/mygo-admin/modules/logger"
+	"github.com/qtoad/mygo-admin/modules/menu"
+	"github.com/qtoad/mygo-admin/modules/system"
+	"github.com/qtoad/mygo-admin/modules/util"
+	"github.com/qtoad/mygo-admin/plugins/admin/models"
+	"github.com/qtoad/mygo-admin/template/login"
+	"github.com/qtoad/mygo-admin/template/types"
 )
 
 // Template is the interface which contains methods of ui components.
@@ -265,8 +265,8 @@ type Component interface {
 	// {{.UrlPrefix}}/assets/login/css/bootstrap.min.css => login/css/bootstrap.min.css
 	//
 	// See:
-	// https://github.com/qtoad/xgo-admin/blob/master/template/login/theme1.tmpl#L32
-	// https://github.com/qtoad/xgo-admin/blob/master/template/login/list.go
+	// https://github.com/qtoad/mygo-admin/blob/master/template/login/theme1.tmpl#L32
+	// https://github.com/qtoad/mygo-admin/blob/master/template/login/list.go
 	GetAssetList() []string
 
 	// GetAsset return the asset content according to the corresponding url suffix.

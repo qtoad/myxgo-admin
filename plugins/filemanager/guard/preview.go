@@ -1,10 +1,10 @@
 package guard
 
 import (
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/modules/util"
-	"github.com/qtoad/xgo-admin/plugins/filemanager/modules/constant"
-	errors "github.com/qtoad/xgo-admin/plugins/filemanager/modules/error"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/modules/util"
+	"github.com/qtoad/mygo-admin/plugins/filemanager/modules/constant"
+	errors "github.com/qtoad/mygo-admin/plugins/filemanager/modules/error"
 )
 
 type PreviewParam struct {

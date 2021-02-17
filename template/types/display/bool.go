@@ -3,9 +3,9 @@ package display
 import (
 	"strings"
 
-	"github.com/qtoad/xgo-admin/template/icon"
-	"github.com/qtoad/xgo-admin/template/types"
-	"github.com/qtoad/xgo-plusplus/html"
+	"github.com/qtoad/mygo-admin/template/icon"
+	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/mygo-plusplus/html"
 )
 
 type Bool struct {

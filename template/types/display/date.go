@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/qtoad/xgo-admin/template/types"
+	"github.com/qtoad/mygo-admin/template/types"
 )
 
 type Date struct {

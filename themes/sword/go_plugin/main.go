@@ -4,11 +4,11 @@ import (
 	"html/template"
 	"strings"
 
-	"github.com/qtoad/xgo-admin/modules/language"
-	"github.com/qtoad/xgo-admin/template/components"
-	"github.com/qtoad/xgo-admin/template/types"
-	"github.com/qtoad/xgo-admin/themes/sword"
-	"github.com/qtoad/xgo-admin/themes/sword/resource"
+	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/mygo-admin/template/components"
+	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/mygo-admin/themes/sword"
+	"github.com/qtoad/mygo-admin/themes/sword/resource"
 )
 
 type Theme struct {

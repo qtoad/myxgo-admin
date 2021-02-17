@@ -5,10 +5,10 @@ import (
 	"net/http"
 
 	"github.com/gavv/httpexpect"
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/modules/language"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/constant"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/form"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/constant"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/form"
 )
 
 func menuTest(e *httpexpect.Expect, sesID *http.Cookie) {

@@ -5,4 +5,4 @@
 // and any other packr generated files.
 package sword
 
-import _ "github.com/qtoad/xgo-admin/themes/sword/packrd"
+import _ "github.com/qtoad/mygo-admin/themes/sword/packrd"

@@ -90,7 +90,7 @@ type Action interface {
 ```go
 
 import (
-    "github.com/qtoad/xgo-admin/template/types/action"
+    "github.com/qtoad/mygo-admin/template/types/action"
 )
 
 // 返回一个Jump Action，参数一为url，参数二为额外的html
@@ -129,7 +129,7 @@ func(ctx *context.Context) (success bool, msg string, data interface{}) {
 在列上做一个简单的开关
 
 ```go
-import "github.com/qtoad/xgo-admin/template/types/table"
+import "github.com/qtoad/mygo-admin/template/types/table"
 
 info.AddField("显示状态", "show_status", db.Tinyint).FieldEditAble(table.Switch).FieldEditOptions(types.FieldOptions{
 		{Value: "1", Text: "允许"}, // 放在第一个代表 on

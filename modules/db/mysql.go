@@ -9,7 +9,7 @@ import (
 	"fmt"
 	_ "time"
 
-	"github.com/qtoad/xgo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/modules/config"
 )
 
 // SQLTx is an in-progress database transaction.

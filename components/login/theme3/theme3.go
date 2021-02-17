@@ -1,8 +1,8 @@
 package theme3
 
 import (
-	"github.com/qtoad/xgo-admin/components/login"
-	"github.com/qtoad/xgo-admin/template"
+	"github.com/qtoad/mygo-admin/components/login"
+	"github.com/qtoad/mygo-admin/template"
 )
 
 type Theme3 struct {

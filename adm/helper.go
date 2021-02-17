@@ -9,9 +9,9 @@ import (
 	"time"
 
 	"github.com/mgutz/ansi"
-	"github.com/qtoad/xgo-admin/modules/util"
+	"github.com/qtoad/mygo-admin/modules/util"
 
-	"github.com/qtoad/xgo-admin/modules/system"
+	"github.com/qtoad/mygo-admin/modules/system"
 )
 
 func cliInfo() {

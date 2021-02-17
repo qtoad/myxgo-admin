@@ -5,9 +5,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/qtoad/xgo-admin/plugins/admin/modules"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/constant"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/form"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/constant"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/form"
 )
 
 type Parameters struct {

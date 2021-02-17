@@ -11,24 +11,24 @@ import (
 	"strings"
 	"time"
 
-	"github.com/qtoad/xgo-admin/modules/system"
+	"github.com/qtoad/mygo-admin/modules/system"
 
-	"github.com/qtoad/xgo-admin/modules/logger"
+	"github.com/qtoad/mygo-admin/modules/logger"
 
-	"github.com/qtoad/xgo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/modules/config"
 
 	"github.com/gin-gonic/gin"
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/modules/auth"
-	"github.com/qtoad/xgo-admin/modules/language"
-	"github.com/qtoad/xgo-admin/modules/remote_server"
-	"github.com/qtoad/xgo-admin/modules/util"
-	"github.com/qtoad/xgo-admin/plugins"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/guard"
-	template2 "github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/template/types"
-	"github.com/qtoad/xgo-admin/template/types/form"
-	"github.com/qtoad/xgo-plusplus/html"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/modules/auth"
+	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/mygo-admin/modules/remote_server"
+	"github.com/qtoad/mygo-admin/modules/util"
+	"github.com/qtoad/mygo-admin/plugins"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/guard"
+	template2 "github.com/qtoad/mygo-admin/template"
+	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/mygo-admin/template/types/form"
+	"github.com/qtoad/mygo-plusplus/html"
 )
 
 func (h *Handler) Plugins(ctx *context.Context) {

@@ -10,11 +10,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/qtoad/xgo-admin/modules/db/dialect"
+	"github.com/qtoad/mygo-admin/modules/db/dialect"
 
-	"github.com/qtoad/xgo-admin/modules/db"
-	"github.com/qtoad/xgo-admin/modules/language"
-	"github.com/qtoad/xgo-admin/plugins/admin/models"
+	"github.com/qtoad/mygo-admin/modules/db"
+	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/mygo-admin/plugins/admin/models"
 )
 
 // Item is an menu item.

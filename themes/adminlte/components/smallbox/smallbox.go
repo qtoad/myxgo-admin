@@ -4,7 +4,7 @@ import (
 	"html/template"
 	"strings"
 
-	adminTemplate "github.com/qtoad/xgo-admin/template"
+	adminTemplate "github.com/qtoad/mygo-admin/template"
 )
 
 type SmallBox struct {

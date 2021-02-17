@@ -5,8 +5,8 @@ import (
 	"net/http"
 
 	"github.com/gavv/httpexpect"
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/constant"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/constant"
 )
 
 func externalTest(e *httpexpect.Expect, sesID *http.Cookie) {

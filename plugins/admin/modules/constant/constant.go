@@ -1,7 +1,7 @@
 package constant
 
 import (
-	"github.com/qtoad/xgo-admin/modules/constant"
+	"github.com/qtoad/mygo-admin/modules/constant"
 )
 
 const (

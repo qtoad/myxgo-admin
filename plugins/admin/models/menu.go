@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/qtoad/xgo-admin/modules/db"
-	"github.com/qtoad/xgo-admin/modules/db/dialect"
+	"github.com/qtoad/mygo-admin/modules/db"
+	"github.com/qtoad/mygo-admin/modules/db/dialect"
 )
 
 // MenuModel is menu model structure.

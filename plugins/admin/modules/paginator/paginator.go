@@ -6,12 +6,12 @@ import (
 	"math"
 	"strconv"
 
-	"github.com/qtoad/xgo-admin/modules/language"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/form"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/parameter"
-	template2 "github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/template/components"
-	"github.com/qtoad/xgo-admin/template/types"
+	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/form"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/parameter"
+	template2 "github.com/qtoad/mygo-admin/template"
+	"github.com/qtoad/mygo-admin/template/components"
+	"github.com/qtoad/mygo-admin/template/types"
 )
 
 type Config struct {

@@ -1,9 +1,9 @@
 package guard
 
 import (
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/modules/errors"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/table"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/modules/errors"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/table"
 )
 
 type DeleteParam struct {

@@ -12,14 +12,14 @@ import (
 	"strings"
 
 	"github.com/labstack/echo/v4"
-	"github.com/qtoad/xgo-admin/adapter"
-	"github.com/qtoad/xgo-admin/context"
-	"github.com/qtoad/xgo-admin/engine"
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/plugins"
-	"github.com/qtoad/xgo-admin/plugins/admin/models"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/constant"
-	"github.com/qtoad/xgo-admin/template/types"
+	"github.com/qtoad/mygo-admin/adapter"
+	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/mygo-admin/engine"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/plugins"
+	"github.com/qtoad/mygo-admin/plugins/admin/models"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/constant"
+	"github.com/qtoad/mygo-admin/template/types"
 )
 
 // Echo structure value is an Echo GoAdmin adapter.

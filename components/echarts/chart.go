@@ -7,7 +7,7 @@ import (
 	"github.com/go-echarts/go-echarts/charts"
 	"github.com/go-echarts/go-echarts/datasets"
 	"github.com/go-echarts/go-echarts/templates"
-	template2 "github.com/qtoad/xgo-admin/template"
+	template2 "github.com/qtoad/mygo-admin/template"
 	"html/template"
 	"regexp"
 	"strings"

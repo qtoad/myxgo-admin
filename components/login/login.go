@@ -9,13 +9,13 @@ import (
 	"time"
 
 	"github.com/dchest/captcha"
-	"github.com/qtoad/xgo-admin/components/login/theme1"
-	"github.com/qtoad/xgo-admin/modules/logger"
-	"github.com/qtoad/xgo-admin/modules/util"
-	captcha2 "github.com/qtoad/xgo-admin/plugins/admin/modules/captcha"
-	template2 "github.com/qtoad/xgo-admin/template"
-	"github.com/qtoad/xgo-admin/template/login"
-	"github.com/qtoad/xgo-admin/template/types"
+	"github.com/qtoad/mygo-admin/components/login/theme1"
+	"github.com/qtoad/mygo-admin/modules/logger"
+	"github.com/qtoad/mygo-admin/modules/util"
+	captcha2 "github.com/qtoad/mygo-admin/plugins/admin/modules/captcha"
+	template2 "github.com/qtoad/mygo-admin/template"
+	"github.com/qtoad/mygo-admin/template/login"
+	"github.com/qtoad/mygo-admin/template/types"
 )
 
 var themes = map[string]Theme{

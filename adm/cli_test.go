@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/magiconair/properties/assert"
-	"github.com/qtoad/xgo-admin/modules/system"
+	"github.com/qtoad/mygo-admin/modules/system"
 )
 
 func TestGetLatestVersion(t *testing.T) {

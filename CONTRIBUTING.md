@@ -9,7 +9,7 @@ If you want to contribute, but not sure what to do, here's a list of things that
 * Finding security problems
 * Themes and Plugins
 
-See [manual](https://github.com/qtoad/xgo-admin/projects/3) for more information.
+See [manual](https://github.com/qtoad/mygo-admin/projects/3) for more information.
 
 You can view all open issues on github, which is usually a good starting point if you want to start contributing:
 
@@ -80,5 +80,5 @@ You can also donate or become a patreon, which helps out covering server costs a
 If you are a member of the official GoAdmin developer Team:
 
 * [Discussions](http://forum.go-admin.cn)
-* [Tasks](https://github.com/qtoad/xgo-admin/projects)
+* [Tasks](https://github.com/qtoad/mygo-admin/projects)
 * [Chat](https://t.me/joinchat/NlyH6Bch2QARZkArithKvg)

@@ -5,8 +5,8 @@ import (
 	"testing"
 
 	"github.com/magiconair/properties/assert"
-	_ "github.com/qtoad/xgo-admin/modules/db/drivers/mssql"
-	_ "github.com/qtoad/xgo-admin/modules/db/drivers/postgres"
+	_ "github.com/qtoad/mygo-admin/modules/db/drivers/mssql"
+	_ "github.com/qtoad/mygo-admin/modules/db/drivers/postgres"
 )
 
 func testSQLWhereIn(t *testing.T, conn Connection) {

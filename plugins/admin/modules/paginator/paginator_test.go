@@ -3,9 +3,9 @@ package paginator
 import (
 	"testing"
 
-	"github.com/qtoad/xgo-admin/modules/config"
-	"github.com/qtoad/xgo-admin/plugins/admin/modules/parameter"
-	_ "github.com/qtoad/xgo-admin/themes/sword"
+	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/mygo-admin/plugins/admin/modules/parameter"
+	_ "github.com/qtoad/mygo-admin/themes/sword"
 )
 
 func TestGet(t *testing.T) {
