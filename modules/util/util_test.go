@@ -16,14 +16,14 @@ func TestCompressedContent(t *testing.T) {
 
 
 
-		<p>CompressedContent</p>           
+		<p>CompressedHTML</p>           
 
 	</body>
 
 </html>
 `)
 	htmlContent2 := htmlContent1
-	CompressedContent(&htmlContent2)
+	CompressedHTML(&htmlContent2)
 	t.Log(len(htmlContent1) > len(htmlContent2))
 }
 

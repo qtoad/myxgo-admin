@@ -321,7 +321,7 @@ window.setTimeout(function(){
 	}
 
 	if compress {
-		util.CompressedContent(&p.Content)
+		util.CompressedHTML(&p.Content)
 	}
 
 	return p
