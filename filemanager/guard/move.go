@@ -5,7 +5,7 @@ import (
 
 	"github.com/qtoad/xgo-admin/context"
 	errors "github.com/qtoad/xgo-admin/filemanager/modules/error"
-	"github.com/qtoad/xgo-admin/filemanager/modules/util"
+	"github.com/qtoad/xgo-admin/modules/util"
 )
 
 type MoveParam struct {

@@ -15,7 +15,6 @@ import (
 	language2 "github.com/qtoad/xgo-admin/librarian/modules/language"
 	"github.com/qtoad/xgo-admin/librarian/modules/root"
 	"github.com/qtoad/xgo-admin/librarian/modules/theme"
-	"github.com/qtoad/xgo-admin/librarian/modules/util"
 	"github.com/qtoad/xgo-admin/modules/config"
 	"github.com/qtoad/xgo-admin/modules/db"
 	"github.com/qtoad/xgo-admin/modules/db/dialect"
@@ -31,6 +30,7 @@ import (
 	"github.com/qtoad/xgo-admin/template/icon"
 	"github.com/qtoad/xgo-admin/template/types"
 	"github.com/qtoad/xgo-admin/template/types/form"
+	"github.com/qtoad/xgo-plusplus/yaml"
 )
 
 type Librarian struct {

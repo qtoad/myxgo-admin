@@ -8,7 +8,7 @@ import (
 	"github.com/qtoad/xgo-admin/context"
 	"github.com/qtoad/xgo-admin/filemanager/modules/constant"
 	errors "github.com/qtoad/xgo-admin/filemanager/modules/error"
-	"github.com/qtoad/xgo-admin/filemanager/modules/util"
+	"github.com/qtoad/xgo-admin/modules/util"
 )
 
 type UploadParam struct {

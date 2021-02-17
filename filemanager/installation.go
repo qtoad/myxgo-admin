@@ -2,6 +2,7 @@ package filemanager
 
 import (
 	"encoding/json"
+	"github.com/qtoad/xgo-admin/modules/util"
 	"strings"
 
 	"github.com/qtoad/xgo-admin/modules/db/dialect"
@@ -194,7 +195,7 @@ func (f *FileManager) GetSettingPage() table.Generator {
 			}
 			roots, _ := json.Marshal(rootsMap)
 
-			if !utils.InArray(tables, TableName) {
+			if !util.InArray(tables, TableName) {
 				err = f.Conn.CreateDB(connName, new(Table))
 				if err != nil {
 					logger.Error("filemanager create database table error: ", err)

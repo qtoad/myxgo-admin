@@ -9,7 +9,7 @@ import (
 	"github.com/qtoad/xgo-admin/context"
 	"github.com/qtoad/xgo-admin/filemanager/guard"
 	"github.com/qtoad/xgo-admin/filemanager/models"
-	"github.com/qtoad/xgo-admin/filemanager/modules/util"
+	"github.com/qtoad/xgo-admin/modules/util"
 )
 
 func (h *Handler) ListFiles(ctx *context.Context) {

@@ -8,7 +8,7 @@ import (
 	"github.com/qtoad/xgo-admin/context"
 	"github.com/qtoad/xgo-admin/librarian/guard"
 	"github.com/qtoad/xgo-admin/librarian/modules/theme"
-	"github.com/qtoad/xgo-admin/librarian/modules/util"
+	"github.com/qtoad/xgo-admin/modules/util"
 	"github.com/qtoad/xgo-admin/template/types"
 )
 
@@ -22,8 +22,7 @@ func (h *Handler) View(ctx *context.Context) {
 		panic(err)
 	}
 
-	md := blackfriday.Run(util.NormalizeEOL(content))
-
+	var md = /*blackfriday.Run(*/ util.NormalizeEOL(content) //)
 	h.HTML(ctx, types.Panel{
 		Content: theme.Get(h.theme).HTML(md),
 		CSS:     theme.Get(h.theme).CSS(),

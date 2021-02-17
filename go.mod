@@ -5,6 +5,7 @@ go 1.13
 require (
 	github.com/360EntSecGroup-Skylar/excelize v1.4.1
 	github.com/AlecAivazis/survey/v2 v2.2.7 // indirect
+	github.com/GoAdminGroup/go-admin v1.2.19 // indirect
 	github.com/GoAdminGroup/themes v0.0.42
 	github.com/NebulousLabs/fastrand v0.0.0-20181203155948-6fb6489aac4e
 	github.com/dchest/captcha v0.0.0-20200903113550-03f5f0333e1f
@@ -31,6 +32,7 @@ require (
 	github.com/moul/http2curl v1.0.0 // indirect
 	github.com/natefinch/lumberjack v2.0.0+incompatible
 	github.com/qtoad/xgo-plusplus v0.0.0-20210216061414-622486c4d239
+	github.com/russross/blackfriday v1.5.2
 	github.com/russross/blackfriday/v2 v2.0.1
 	github.com/satori/go.uuid v1.2.0
 	github.com/schollz/progressbar v1.0.0

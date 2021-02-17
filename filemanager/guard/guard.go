@@ -10,8 +10,8 @@ import (
 	errors "github.com/qtoad/xgo-admin/filemanager/modules/error"
 	"github.com/qtoad/xgo-admin/filemanager/modules/permission"
 	"github.com/qtoad/xgo-admin/filemanager/modules/root"
-	"github.com/qtoad/xgo-admin/filemanager/modules/util"
 	"github.com/qtoad/xgo-admin/modules/db"
+	"github.com/qtoad/xgo-admin/modules/util"
 )
 
 type Guardian struct {
