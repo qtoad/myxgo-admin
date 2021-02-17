@@ -4,10 +4,10 @@ go 1.13
 
 require (
 	github.com/360EntSecGroup-Skylar/excelize v1.4.1
-	github.com/AlecAivazis/survey/v2 v2.2.7 // indirect
+	github.com/AlecAivazis/survey/v2 v2.2.7
 	github.com/GoAdminGroup/go-admin v1.2.19 // indirect
 	github.com/GoAdminGroup/themes v0.0.42
-	github.com/NebulousLabs/fastrand v0.0.0-20181203155948-6fb6489aac4e
+	github.com/NebulousLabs/fastrand v0.0.0-20181203155948-6fb6489aac4e // indirect
 	github.com/dchest/captcha v0.0.0-20200903113550-03f5f0333e1f
 	github.com/denisenkom/go-mssqldb v0.0.0-20200206145737-bbfc9a55622e
 	github.com/gavv/httpexpect v2.0.0+incompatible
@@ -16,13 +16,13 @@ require (
 	github.com/go-echarts/go-echarts v1.0.0
 	github.com/go-sql-driver/mysql v1.5.0
 	github.com/go-xorm/xorm v0.7.9
-	github.com/gobuffalo/buffalo v0.16.21
+	github.com/gobuffalo/buffalo v0.16.21 // indirect
 	github.com/gobuffalo/packr v1.30.1 // indirect
 	github.com/gobuffalo/packr/v2 v2.8.1
 	github.com/h2non/filetype v1.1.1
 	github.com/imkira/go-interpol v1.1.0 // indirect
 	github.com/jawher/mow.cli v1.2.0
-	github.com/jinzhu/gorm v1.9.16
+	github.com/jinzhu/gorm v1.9.16 // indirect
 	github.com/jteeuwen/go-bindata v3.0.7+incompatible
 	github.com/labstack/echo/v4 v4.2.0
 	github.com/lib/pq v1.3.0
@@ -32,8 +32,8 @@ require (
 	github.com/moul/http2curl v1.0.0 // indirect
 	github.com/natefinch/lumberjack v2.0.0+incompatible
 	github.com/qtoad/xgo-plusplus v0.0.0-20210216061414-622486c4d239
-	github.com/russross/blackfriday v1.5.2
-	github.com/russross/blackfriday/v2 v2.0.1
+	github.com/russross/blackfriday v1.5.2 // indirect
+	github.com/russross/blackfriday/v2 v2.0.1 // indirect
 	github.com/satori/go.uuid v1.2.0
 	github.com/schollz/progressbar v1.0.0
 	github.com/sclevine/agouti v3.0.0+incompatible
@@ -48,5 +48,5 @@ require (
 	go.uber.org/zap v1.14.1
 	golang.org/x/crypto v0.0.0-20200820211705-5c72a883971a
 	golang.org/x/text v0.3.3
-	golang.org/x/tools v0.0.0-20200323192200-8849913b6971
+	golang.org/x/tools v0.0.0-20200323192200-8849913b6971 // indirect
 )
