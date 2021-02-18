@@ -5,11 +5,11 @@ import (
 	"testing"
 
 	"github.com/gavv/httpexpect"
-	"github.com/qtoad/mygo-admin/demo123/tables"
 	"github.com/qtoad/mygo-admin/modules/config"
 	"github.com/qtoad/mygo-admin/tests"
 	"github.com/qtoad/mygo-admin/tests/common"
 	"github.com/qtoad/mygo-admin/tests/frameworks/gin"
+	"github.com/qtoad/mygo-admin/tests/tables"
 	"github.com/qtoad/mygo-admin/tests/web"
 )
 

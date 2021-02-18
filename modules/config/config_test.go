@@ -350,7 +350,7 @@ func TestToMap(t *testing.T) {
 	}
 
 	for key := range m {
-		if !utils.InArray(arr, key) {
+		if !util.InArray(arr, key) {
 			panic(key)
 		}
 	}

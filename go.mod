@@ -31,7 +31,7 @@ require (
 	github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d
 	github.com/moul/http2curl v1.0.0 // indirect
 	github.com/natefinch/lumberjack v2.0.0+incompatible
-	github.com/qtoad/mygo-plusplus v0.0.3
+	github.com/qtoad/mygo-plusplus v0.0.5
 	github.com/russross/blackfriday v1.5.2 // indirect
 	github.com/russross/blackfriday/v2 v2.0.1 // indirect
 	github.com/satori/go.uuid v1.2.0
@@ -46,7 +46,6 @@ require (
 	github.com/yudai/gojsondiff v1.0.0 // indirect
 	github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82 // indirect
 	go.uber.org/zap v1.14.1
-	golang.org/x/crypto v0.0.0-20200820211705-5c72a883971a
-	golang.org/x/text v0.3.3
-	golang.org/x/tools v0.0.0-20200323192200-8849913b6971 // indirect
+	golang.org/x/crypto v0.0.0-20201221181555-eec23a3978ad
+	golang.org/x/text v0.3.4
 )
