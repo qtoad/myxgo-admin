@@ -1,16 +1,42 @@
+# Windows
+[Dd]esktop.ini
+Thumbs.db
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
+
 .idea
 .vscode
 .DS_Store
-demo/config.json
-demo/config
-demo/deploy.yml
-demo/hosts
-demo/go-admin
-demo/Makefile
-demo/deploy.retry
 vendor/**
 !vendor/vendor.json
 logs
 adm/build
 template/login/assets/login
 uploads
+go.sum
+uploads
+build
+deploy
+.DS_Store
