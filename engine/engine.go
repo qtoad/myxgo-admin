@@ -9,6 +9,7 @@ import (
 	"encoding/json"
 	errors2 "errors"
 	"fmt"
+	"github.com/qtoad/mygo-admin/version"
 	template2 "html/template"
 	"net/http"
 	"runtime/debug"
@@ -28,7 +29,6 @@ import (
 	"github.com/qtoad/mygo-admin/modules/logger"
 	"github.com/qtoad/mygo-admin/modules/menu"
 	"github.com/qtoad/mygo-admin/modules/service"
-	"github.com/qtoad/mygo-admin/modules/system"
 	"github.com/qtoad/mygo-admin/modules/ui"
 	"github.com/qtoad/mygo-admin/plugins"
 	"github.com/qtoad/mygo-admin/plugins/admin"
@@ -151,7 +151,7 @@ func (eng *Engine) setConfig(cfg *config.Config) *Engine {
 	}
 	if !themeCheck {
 		logger.Panicf(language.Get("wrong theme version, goadmin %s required version of theme %s is %s"),
-			system.Version(), eng.config.Theme, strings.Join(system.RequireThemeVersion()[eng.config.Theme], ","))
+			version.Version(), eng.config.Theme, strings.Join(version.RequireThemeVersion()[eng.config.Theme], ","))
 	}
 	return eng
 }
@@ -479,7 +479,7 @@ func (eng *Engine) initSiteSetting() {
 	if err != nil {
 		logger.Panic(err)
 	}
-	eng.Services.Add("config", config.SrvWithConfig(eng.config))
+	eng.Services.Add("config", config.ServiceWithConfig(eng.config))
 
 	errors.Init()
 }
@@ -490,7 +490,7 @@ func (eng *Engine) initSiteSetting() {
 
 // Content call the Content method of engine adapter.
 // If adapter is nil, it will panic.
-func (eng *Engine) Content(ctx interface{}, panel types.GetPanelFn) {
+func (eng *Engine) Content(ctx interface{}, panel types.GetPanelFunc) {
 	if eng.Adapter == nil {
 		emptyAdapterPanic()
 	}
@@ -499,7 +499,7 @@ func (eng *Engine) Content(ctx interface{}, panel types.GetPanelFn) {
 
 // Content call the Content method of defaultAdapter.
 // If defaultAdapter is nil, it will panic.
-func Content(ctx interface{}, panel types.GetPanelFn) {
+func Content(ctx interface{}, panel types.GetPanelFunc) {
 	if defaultAdapter == nil {
 		emptyAdapterPanic()
 	}
@@ -516,10 +516,10 @@ func (eng *Engine) Data(method, url string, handler context.Handler, noAuth ...b
 }
 
 // HTML inject the route and corresponding handler wrapped by the given function to the web framework.
-func (eng *Engine) HTML(method, url string, fn types.GetPanelInfoFn, noAuth ...bool) {
+func (eng *Engine) HTML(method, url string, getPanelInfoFunc types.GetPanelInfoFunc, noAuth ...bool) {
 
 	var handler = func(ctx *context.Context) {
-		panel, err := fn(ctx)
+		panel, err := getPanelInfoFunc(ctx)
 		if err != nil {
 			panel = template.WarningPanel(err.Error())
 		}
@@ -724,14 +724,14 @@ func (eng *Engine) SetCaptchaDriver(driver string) *Engine {
 }
 
 // AddGenerator add table model generator.
-func (eng *Engine) AddGenerator(key string, g table.Generator) *Engine {
-	eng.AdminPlugin().AddGenerator(key, g)
+func (eng *Engine) AddGenerator(key string, gen table.Generator) *Engine {
+	eng.AdminPlugin().AddGenerator(key, gen)
 	return eng
 }
 
-// AddGlobalDisplayProcessFn call types.AddGlobalDisplayProcessFn.
-func (eng *Engine) AddGlobalDisplayProcessFn(f types.FieldFilterFn) *Engine {
-	types.AddGlobalDisplayProcessFn(f)
+// AddGlobalDisplayProcessFunc call types.AddGlobalDisplayProcessFunc.
+func (eng *Engine) AddGlobalDisplayProcessFunc(filterFunc types.FieldFilterFunc) *Engine {
+	types.AddGlobalDisplayProcessFunc(filterFunc)
 	return eng
 }
 

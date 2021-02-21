@@ -383,7 +383,7 @@ func (h *Handler) Export(ctx *context.Context) {
 	}
 
 	// TODO: support any numbers of fields.
-	orders := []string{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K",
+	orders := []string{"A", "B", "Cfg", "D", "E", "F", "G", "H", "I", "J", "K",
 		"L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}
 
 	if len(infoData.Thead) > 26 {

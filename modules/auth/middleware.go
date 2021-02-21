@@ -177,11 +177,11 @@ func Filter(ctx *context.Context, conn db.Connection) (models.UserModel, bool, b
 	return user, true, CheckPermissions(user, ctx.Request.URL.String(), ctx.Method(), ctx.PostForm())
 }
 
-const defaultUserIDSesKey = "user_id"
+const defaultSessionKeyUserID = "user_id"
 
 // GetUserID return the user id from the session.
-func GetUserID(sesKey string, conn db.Connection) int64 {
-	id, err := GetSessionByKey(sesKey, defaultUserIDSesKey, conn)
+func GetUserID(sessionKey string, conn db.Connection) int64 {
+	id, err := GetSessionByKey(sessionKey, defaultSessionKeyUserID, conn)
 	if err != nil {
 		logger.Error("retrieve auth user failed", err)
 		return -1
@@ -193,14 +193,14 @@ func GetUserID(sesKey string, conn db.Connection) int64 {
 }
 
 // GetCurUser return the user model.
-func GetCurUser(sesKey string, conn db.Connection) (user models.UserModel, ok bool) {
+func GetCurUser(sessionKey string, conn db.Connection) (user models.UserModel, ok bool) {
 
-	if sesKey == "" {
+	if sessionKey == "" {
 		ok = false
 		return
 	}
 
-	id := GetUserID(sesKey, conn)
+	id := GetUserID(sessionKey, conn)
 	if id == -1 {
 		ok = false
 		return

@@ -36,7 +36,7 @@ type WebFrameWork interface {
 
 	// Content add the panel html response of the given callback function to
 	// the web framework context which is the first parameter.
-	Content(ctx interface{}, fn types.GetPanelFn, fn2 context.NodeProcessor, navButtons ...types.Button)
+	Content(ctx interface{}, getPanelFunc types.GetPanelFunc, nodeProcessor context.NodeProcessor, navButtons ...types.Button)
 
 	// User get the auth user model from the given web framework context.
 	User(ctx interface{}) (models.UserModel, bool)
@@ -127,11 +127,11 @@ func (base *BaseAdapter) GetUse(app interface{}, plugin []plugins.Plugin, wf Web
 }
 
 // GetContent is a helper function of adapter.Content
-func (base *BaseAdapter) GetContent(ctx interface{}, getPanelFn types.GetPanelFn, wf WebFrameWork,
-	navButtons types.Buttons, fn context.NodeProcessor) {
+func (base *BaseAdapter) GetContent(ctx interface{}, getPanelFunc types.GetPanelFunc, webFrameWork WebFrameWork,
+	navButtons types.Buttons, nodeProcessor context.NodeProcessor) {
 
 	var (
-		newBase          = wf.SetContext(ctx)
+		newBase          = webFrameWork.SetContext(ctx)
 		cookie, hasError = newBase.GetCookie()
 	)
 
@@ -140,7 +140,7 @@ func (base *BaseAdapter) GetContent(ctx interface{}, getPanelFn types.GetPanelFn
 		return
 	}
 
-	user, authSuccess := auth.GetCurUser(cookie, wf.GetConnection())
+	user, authSuccess := auth.GetCurUser(cookie, webFrameWork.GetConnection())
 
 	if !authSuccess {
 		newBase.Redirect()
@@ -155,20 +155,20 @@ func (base *BaseAdapter) GetContent(ctx interface{}, getPanelFn types.GetPanelFn
 	if !auth.CheckPermissions(user, newBase.Path(), newBase.Method(), newBase.FormParam()) {
 		panel = template.WarningPanel(errors.NoPermission, template.NoPermission403Page)
 	} else {
-		panel, err = getPanelFn(ctx)
+		panel, err = getPanelFunc(ctx)
 		if err != nil {
 			panel = template.WarningPanel(err.Error())
 		}
 	}
 
-	fn(panel.Callbacks...)
+	nodeProcessor(panel.Callbacks...)
 
 	tmpl, tmplName := template.Default().GetTemplate(newBase.IsPjax())
 
 	buf := new(bytes.Buffer)
 	hasError = tmpl.ExecuteTemplate(buf, tmplName, types.NewPage(&types.NewPageParam{
 		User:         user,
-		Menu:         menu.GetGlobalMenu(user, wf.GetConnection(), newBase.Lang()).SetActiveClass(config.URLRemovePrefix(newBase.Path())),
+		Menu:         menu.GetGlobalMenu(user, webFrameWork.GetConnection(), newBase.Lang()).SetActiveClass(config.URLRemovePrefix(newBase.Path())),
 		Panel:        panel.GetContent(config.IsProductionEnvironment()),
 		Assets:       template.GetComponentAssetImportHTML(),
 		Buttons:      navButtons.CheckPermission(user),

@@ -13,7 +13,7 @@ func init() {
 	types.RegisterDisplayFnGenerator("label", new(Label))
 }
 
-func (label *Label) Get(args ...interface{}) types.FieldFilterFn {
+func (label *Label) Get(args ...interface{}) types.FieldFilterFunc {
 	return func(value types.FieldModel) interface{} {
 		params := args[0].([]types.FieldLabelParam)
 		if len(params) == 0 {

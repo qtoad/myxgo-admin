@@ -234,8 +234,8 @@ func NewBasePluginWithInfo(info Info) Plugin {
 	return &BasePlugin{Info: info}
 }
 
-func NewBasePluginWithInfoAndIndexURL(info Info, u string, installed bool) Plugin {
-	return &BasePlugin{Info: info, IndexURL: u, Installed: installed}
+func NewBasePluginWithInfoAndIndexURL(info Info, indexUrl string, installed bool) Plugin {
+	return &BasePlugin{Info: info, IndexURL: indexUrl, Installed: installed}
 }
 
 func GetPluginsWithInfos(info []Info) Plugins {

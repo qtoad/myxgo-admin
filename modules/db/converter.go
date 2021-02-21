@@ -10,7 +10,7 @@ import (
 
 // SetColVarType set the column type.
 func SetColVarType(colVar *[]interface{}, i int, typeName string) {
-	dt := DT(typeName)
+	dt := GetFieldType(typeName)
 	switch {
 	case Contains(dt, BoolTypeList):
 		var s sql.NullBool
@@ -35,7 +35,7 @@ func SetColVarType(colVar *[]interface{}, i int, typeName string) {
 
 // SetResultValue set the result value.
 func SetResultValue(result *map[string]interface{}, index string, colVar interface{}, typeName string) {
-	dt := DT(typeName)
+	dt := GetFieldType(typeName)
 	switch {
 	case Contains(dt, BoolTypeList):
 		temp := *(colVar.(*sql.NullBool))

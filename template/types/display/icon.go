@@ -13,7 +13,7 @@ func init() {
 	types.RegisterDisplayFnGenerator("icon", new(Icon))
 }
 
-func (i *Icon) Get(args ...interface{}) types.FieldFilterFn {
+func (i *Icon) Get(args ...interface{}) types.FieldFilterFunc {
 	return func(value types.FieldModel) interface{} {
 		icons := args[0].(map[string]string)
 		defaultIcon := ""

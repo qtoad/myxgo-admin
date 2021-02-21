@@ -13,7 +13,7 @@ func init() {
 	types.RegisterDisplayFnGenerator("image", new(Image))
 }
 
-func (image *Image) Get(args ...interface{}) types.FieldFilterFn {
+func (image *Image) Get(args ...interface{}) types.FieldFilterFunc {
 	param := args[2].([]string)
 	return func(value types.FieldModel) interface{} {
 		if len(param) > 0 {

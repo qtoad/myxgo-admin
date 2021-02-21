@@ -6,7 +6,7 @@ import (
 	"github.com/qtoad/mygo-admin/modules/service"
 )
 
-func (f *FileManager) initRouter(srv service.List) *context.App {
+func (f *FileManager) initRouter(srvList service.List) *context.App {
 
 	app := context.NewApp()
 	authRoute := app.Group("/", auth.Middleware(f.Conn))

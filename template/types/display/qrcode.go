@@ -14,7 +14,7 @@ func init() {
 	types.RegisterDisplayFnGenerator("qrcode", new(Qrcode))
 }
 
-func (q *Qrcode) Get(args ...interface{}) types.FieldFilterFn {
+func (q *Qrcode) Get(args ...interface{}) types.FieldFilterFunc {
 	return func(value types.FieldModel) interface{} {
 
 		src := `https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=` + value.Value

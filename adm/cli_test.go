@@ -1,12 +1,12 @@
 package main
 
 import (
+	"github.com/qtoad/mygo-admin/version"
 	"testing"
 
 	"github.com/magiconair/properties/assert"
-	"github.com/qtoad/mygo-admin/modules/system"
 )
 
 func TestGetLatestVersion(t *testing.T) {
-	assert.Equal(t, getLatestVersion(), system.Version())
+	assert.Equal(t, getLatestVersion(), version.Version())
 }

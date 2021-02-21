@@ -1,4 +1,4 @@
-package system
+package version
 
 const version = "v1.2.19"
 

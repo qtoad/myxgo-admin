@@ -34,8 +34,8 @@ func MenuWithId(id string) MenuModel {
 	return MenuModel{Base: Base{TableName: "goadmin_menu"}, Id: int64(idInt)}
 }
 
-func (t MenuModel) SetConn(con db.Connection) MenuModel {
-	t.Conn = con
+func (t MenuModel) SetConn(conn db.Connection) MenuModel {
+	t.Conn = conn
 	return t
 }
 

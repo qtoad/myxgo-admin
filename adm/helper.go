@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"github.com/qtoad/mygo-admin/version"
 	"io/ioutil"
 	"net/http"
 	"strings"
@@ -10,12 +11,10 @@ import (
 
 	"github.com/mgutz/ansi"
 	"github.com/qtoad/mygo-admin/modules/util"
-
-	"github.com/qtoad/mygo-admin/modules/system"
 )
 
 func cliInfo() {
-	fmt.Println("GoAdmin CLI " + system.Version() + compareVersion(system.Version()))
+	fmt.Println("GoAdmin CLI " + version.Version() + compareVersion(version.Version()))
 	fmt.Println()
 }
 

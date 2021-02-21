@@ -14,7 +14,7 @@ func init() {
 	types.RegisterDisplayFnGenerator("dot", new(Dot))
 }
 
-func (d *Dot) Get(args ...interface{}) types.FieldFilterFn {
+func (d *Dot) Get(args ...interface{}) types.FieldFilterFunc {
 	return func(value types.FieldModel) interface{} {
 		icons := args[0].(map[string]types.FieldDotColor)
 		defaultDot := types.FieldDotColor("")

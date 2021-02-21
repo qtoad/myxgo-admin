@@ -33,12 +33,12 @@ type DefaultTable struct {
 	connectionDriverMode string
 	connection           string
 	sourceURL            string
-	getDataFun           GetDataFun
+	getDataFunc          GetDataFunc
 
 	dbObj db.Connection
 }
 
-type GetDataFun func(params parameter.Parameters) ([]map[string]interface{}, int)
+type GetDataFunc func(params parameter.Parameters) ([]map[string]interface{}, int)
 
 func NewDefaultTable(cfgs ...Config) Table {
 
@@ -70,7 +70,7 @@ func NewDefaultTable(cfgs ...Config) Table {
 		connectionDriverMode: cfg.DriverMode,
 		connection:           cfg.Connection,
 		sourceURL:            cfg.SourceURL,
-		getDataFun:           cfg.GetDataFun,
+		getDataFunc:          cfg.GetDataFun,
 	}
 }
 
@@ -102,7 +102,7 @@ func (tb *DefaultTable) Copy() Table {
 		connectionDriverMode: tb.connectionDriverMode,
 		connection:           tb.connection,
 		sourceURL:            tb.sourceURL,
-		getDataFun:           tb.getDataFun,
+		getDataFunc:          tb.getDataFunc,
 	}
 }
 
@@ -125,7 +125,7 @@ func (tb *DefaultTable) GetData(params parameter.Parameters) (PanelInfo, error) 
 		var ids []string
 		var stopQuery bool
 
-		if tb.getDataFun == nil && tb.Info.GetDataFn == nil {
+		if tb.getDataFunc == nil && tb.Info.GetDataFn == nil {
 			ids, stopQuery = tb.Info.QueryFilterFn(params, tb.db())
 		} else {
 			ids, stopQuery = tb.Info.QueryFilterFn(params, nil)
@@ -136,8 +136,8 @@ func (tb *DefaultTable) GetData(params parameter.Parameters) (PanelInfo, error) 
 		}
 	}
 
-	if tb.getDataFun != nil {
-		data, size = tb.getDataFun(params)
+	if tb.getDataFunc != nil {
+		data, size = tb.getDataFunc(params)
 	} else if tb.sourceURL != "" {
 		data, size = tb.getDataFromURL(params)
 	} else if tb.Info.GetDataFn != nil {
@@ -228,8 +228,8 @@ func (tb *DefaultTable) GetDataWithIds(params parameter.Parameters) (PanelInfo, 
 		beginTime = time.Now()
 	)
 
-	if tb.getDataFun != nil {
-		data, size = tb.getDataFun(params)
+	if tb.getDataFunc != nil {
+		data, size = tb.getDataFunc(params)
 	} else if tb.sourceURL != "" {
 		data, size = tb.getDataFromURL(params)
 	} else if tb.Info.GetDataFn != nil {
@@ -276,7 +276,7 @@ func (tb *DefaultTable) getTempModelData(res map[string]interface{}, params para
 	deleteParams := ""
 	detailParams := ""
 
-	primaryKeyValue := db.GetValueFromDatabaseType(tb.PrimaryKey.Type, res[tb.PrimaryKey.Name], len(columns) == 0)
+	primaryKeyValue := db.GetValueFromFieldType(tb.PrimaryKey.Type, res[tb.PrimaryKey.Name], len(columns) == 0)
 
 	for _, field := range tb.Info.FieldList {
 
@@ -299,7 +299,7 @@ func (tb *DefaultTable) getTempModelData(res map[string]interface{}, params para
 			typeName = db.Varchar
 		}
 
-		combineValue := db.GetValueFromDatabaseType(typeName, res[headField], len(columns) == 0).String()
+		combineValue := db.GetValueFromFieldType(typeName, res[headField], len(columns) == 0).String()
 
 		// TODO: ToDisplay some same logic execute repeatedly, it can be improved.
 		var value interface{}
@@ -625,22 +625,22 @@ func getDataRes(list []map[string]interface{}, _ int) map[string]interface{} {
 }
 
 // GetDataWithId query the single row of data.
-func (tb *DefaultTable) GetDataWithId(param parameter.Parameters) (FormInfo, error) {
+func (tb *DefaultTable) GetDataWithId(params parameter.Parameters) (FormInfo, error) {
 
 	var (
 		res     map[string]interface{}
 		columns Columns
-		id      = param.PK()
+		id      = params.PK()
 	)
 
-	if tb.getDataFun != nil {
-		res = getDataRes(tb.getDataFun(param))
+	if tb.getDataFunc != nil {
+		res = getDataRes(tb.getDataFunc(params))
 	} else if tb.sourceURL != "" {
-		res = getDataRes(tb.getDataFromURL(param))
+		res = getDataRes(tb.getDataFromURL(params))
 	} else if tb.Detail.GetDataFn != nil {
-		res = getDataRes(tb.Detail.GetDataFn(param))
+		res = getDataRes(tb.Detail.GetDataFn(params))
 	} else if tb.Info.GetDataFn != nil {
-		res = getDataRes(tb.Info.GetDataFn(param))
+		res = getDataRes(tb.Info.GetDataFn(params))
 	} else {
 
 		columns, _ = tb.getColumns(tb.Form.Table)
@@ -1107,7 +1107,7 @@ func (tb *DefaultTable) delimiter2() string {
 }
 
 func (tb *DefaultTable) getDataFromDB() bool {
-	return tb.sourceURL == "" && tb.getDataFun == nil && tb.Info.GetDataFn == nil && tb.Detail.GetDataFn == nil
+	return tb.sourceURL == "" && tb.getDataFunc == nil && tb.Info.GetDataFn == nil && tb.Detail.GetDataFn == nil
 }
 
 // sql is a helper function return db sql.

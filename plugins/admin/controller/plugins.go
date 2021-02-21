@@ -3,6 +3,7 @@ package controller
 import (
 	"bytes"
 	"fmt"
+	"github.com/qtoad/mygo-admin/version"
 	"html/template"
 	"io/ioutil"
 	"net/http"
@@ -10,8 +11,6 @@ import (
 	"path/filepath"
 	"strings"
 	"time"
-
-	"github.com/qtoad/mygo-admin/modules/system"
 
 	"github.com/qtoad/mygo-admin/modules/logger"
 
@@ -80,7 +79,7 @@ func (h *Handler) PluginStore(ctx *context.Context) {
 				Filter:     ctx.Query("filter"),
 				Order:      ctx.Query("order"),
 				Lang:       h.config.Language,
-				Version:    system.Version(),
+				Version:    version.Version(),
 				CategoryId: ctx.Query("category_id"),
 			}, ctx.Cookie(remote_server.TokenKey))
 		rows = template.HTML(page.HTML)

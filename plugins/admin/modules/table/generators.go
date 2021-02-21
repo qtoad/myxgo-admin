@@ -36,11 +36,11 @@ import (
 
 type SystemTable struct {
 	conn db.Connection
-	c    *config.Config
+	cfg  *config.Config
 }
 
-func NewSystemTable(conn db.Connection, c *config.Config) *SystemTable {
-	return &SystemTable{conn: conn, c: c}
+func NewSystemTable(conn db.Connection, cfg *config.Config) *SystemTable {
+	return &SystemTable{conn: conn, cfg: cfg}
 }
 
 func (s *SystemTable) GetManagerTable(ctx *context.Context) (managerTable Table) {
@@ -1063,7 +1063,7 @@ func (s *SystemTable) GetSiteTable(ctx *context.Context) (siteTable Table) {
 		})
 	formList.AddField(lgWithConfigScore("env"), "env", db.Varchar, form.Default).
 		FieldDisplay(func(value types.FieldModel) interface{} {
-			return s.c.Env
+			return s.cfg.Env
 		})
 
 	langOps := make(types.FieldOptions, len(language.Langs))
@@ -1105,7 +1105,7 @@ func (s *SystemTable) GetSiteTable(ctx *context.Context) (siteTable Table) {
 	formList.AddField(lgWithConfigScore("extra"), "extra", db.Varchar, form.TextArea)
 	formList.AddField(lgWithConfigScore("logo"), "logo", db.Varchar, form.Code).FieldMust()
 	formList.AddField(lgWithConfigScore("mini logo"), "mini_logo", db.Varchar, form.Code).FieldMust()
-	if s.c.IsNotProductionEnvironment() {
+	if s.cfg.IsNotProductionEnvironment() {
 		formList.AddField(lgWithConfigScore("bootstrap file path"), "bootstrap_file_path", db.Varchar, form.Text)
 		formList.AddField(lgWithConfigScore("go mod file path"), "go_mod_file_path", db.Varchar, form.Text)
 	}
@@ -1330,8 +1330,8 @@ func (s *SystemTable) GetSiteTable(ctx *context.Context) (siteTable Table) {
 		values["login_logo"][0] = escape(values.Get("login_logo"))
 
 		var err error
-		if s.c.UpdateProcessFn != nil {
-			values, err = s.c.UpdateProcessFn(values)
+		if s.cfg.UpdateProcessFn != nil {
+			values, err = s.cfg.UpdateProcessFn(values)
 			if err != nil {
 				return err
 			}
@@ -1347,7 +1347,7 @@ func (s *SystemTable) GetSiteTable(ctx *context.Context) (siteTable Table) {
 		if err != nil {
 			return err
 		}
-		return s.c.Update(values.ToMap())
+		return s.cfg.Update(values.ToMap())
 	})
 
 	formList.EnableAjax(lgWithConfigScore("modify site config"),
@@ -1388,7 +1388,7 @@ func (s *SystemTable) GetGenerateForm(ctx *context.Context) (generateTool Table)
 				if connName == "" {
 					return false, "wrong parameter", nil
 				}
-				cfg := s.c.Databases[connName]
+				cfg := s.cfg.Databases[connName]
 				conn := db.GetConnectionFromService(services.Get(cfg.Driver))
 				tables, err := db.WithDriverAndConnection(connName, conn).Table(cfg.Name).ShowTables()
 				if err != nil {
@@ -1407,7 +1407,7 @@ func (s *SystemTable) GetGenerateForm(ctx *context.Context) (generateTool Table)
 				var (
 					tableName       = ctx.FormValue("value")
 					connName        = ctx.FormValue("conn")
-					driver          = s.c.Databases[connName].Driver
+					driver          = s.cfg.Databases[connName].Driver
 					conn            = db.GetConnectionFromService(services.Get(driver))
 					columnsModel, _ = db.WithDriverAndConnection(connName, conn).Table(tableName).ShowColumns()
 
@@ -1439,7 +1439,7 @@ func (s *SystemTable) GetGenerateForm(ctx *context.Context) (generateTool Table)
 					headName[i] = strings.Title(model[fieldField].(string))
 					fieldName[i] = model[fieldField].(string)
 					dbTypeList[i] = typeName
-					formTypeList[i] = form.GetFormTypeFromFieldType(db.DT(strings.ToUpper(typeName)),
+					formTypeList[i] = form.GetFormTypeFromFieldType(db.GetFieldType(strings.ToUpper(typeName)),
 						model[fieldField].(string))
 				}
 
@@ -1772,7 +1772,7 @@ func (s *SystemTable) GetGenerateForm(ctx *context.Context) (generateTool Table)
 
 		err := tools.Generate(tools.NewParamWithFields(tools.Config{
 			Connection:               connName,
-			Driver:                   s.c.Databases[connName].Driver,
+			Driver:                   s.cfg.Databases[connName].Driver,
 			Package:                  values.Get("package"),
 			Table:                    table,
 			HideFilterArea:           values.Get("hide_filter_area") == "y",
@@ -1855,7 +1855,7 @@ func lg(v string) string {
 	return language.Get(v)
 }
 
-func defaultFilterFn(val string, def ...string) types.FieldFilterFn {
+func defaultFilterFn(val string, def ...string) types.FieldFilterFunc {
 	return func(value types.FieldModel) interface{} {
 		if len(def) > 0 {
 			if value.Value == def[0] {

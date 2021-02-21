@@ -19,12 +19,12 @@ type Guard struct {
 	navBtns   *types.Buttons
 }
 
-func New(s service.List, c db.Connection, t table.GeneratorList, b *types.Buttons) *Guard {
+func New(s service.List, conn db.Connection, tableList table.GeneratorList, btns *types.Buttons) *Guard {
 	return &Guard{
 		services:  s,
-		conn:      c,
-		tableList: t,
-		navBtns:   b,
+		conn:      conn,
+		tableList: tableList,
+		navBtns:   btns,
 	}
 }
 

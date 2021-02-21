@@ -7,6 +7,7 @@ package types
 import (
 	"bytes"
 	"fmt"
+	"github.com/qtoad/mygo-admin/version"
 	"html/template"
 	"strconv"
 	textTmpl "text/template"
@@ -14,7 +15,6 @@ import (
 	"github.com/qtoad/mygo-admin/context"
 	"github.com/qtoad/mygo-admin/modules/config"
 	"github.com/qtoad/mygo-admin/modules/menu"
-	"github.com/qtoad/mygo-admin/modules/system"
 	"github.com/qtoad/mygo-admin/modules/util"
 	"github.com/qtoad/mygo-admin/plugins/admin/models"
 )
@@ -146,7 +146,7 @@ func NewPage(param *NewPageParam) *Page {
 		Panel:      param.Panel,
 		UpdateMenu: param.UpdateMenu,
 		System: SystemInfo{
-			Version: system.Version(),
+			Version: version.Version(),
 			Theme:   config.GetTheme(),
 		},
 		UrlPrefix:      config.AssertPrefix(),
@@ -178,7 +178,7 @@ func NewPagePanel(panel Panel) *Page {
 	return &Page{
 		Panel: panel,
 		System: SystemInfo{
-			Version: system.Version(),
+			Version: version.Version(),
 		},
 	}
 }
@@ -327,6 +327,6 @@ window.setTimeout(function(){
 	return p
 }
 
-type GetPanelFn func(ctx interface{}) (Panel, error)
+type GetPanelFunc func(ctx interface{}) (Panel, error)
 
-type GetPanelInfoFn func(ctx *context.Context) (Panel, error)
+type GetPanelInfoFunc func(ctx *context.Context) (Panel, error)

@@ -160,7 +160,7 @@ func NewParam(cfg Config) *Param {
 }
 
 func NewParamWithFields(cfg Config, fields ...Fields) *Param {
-	ta := camelcase(cfg.Table)
+	tb := camelcase(cfg.Table)
 	dbTable := cfg.Table
 	if cfg.Schema != "" {
 		dbTable = cfg.Schema + "." + cfg.Table
@@ -170,7 +170,7 @@ func NewParamWithFields(cfg Config, fields ...Fields) *Param {
 		cfg.Output = cfg.Output[:len(cfg.Output)-1]
 	}
 
-	tt := strings.Title(ta)
+	tt := strings.Title(tb)
 
 	detailFields := make(Fields, 0)
 	if len(fields) > 2 {
@@ -181,7 +181,7 @@ func NewParamWithFields(cfg Config, fields ...Fields) *Param {
 		Connection:               cfg.Connection,
 		Driver:                   cfg.Driver,
 		Package:                  cfg.Package,
-		Table:                    ta,
+		Table:                    tb,
 		TableTitle:               tt,
 		TableName:                dbTable,
 		RowTable:                 cfg.Table,
@@ -448,7 +448,7 @@ func getFieldsFromConn(conn db.Connection, table, driver string) Fields {
 			DBType:   typeName,
 			CanAdd:   true,
 			Editable: true,
-			FormType: form.GetFormTypeFromFieldType(db.DT(strings.ToUpper(typeName)), model[fieldField].(string)),
+			FormType: form.GetFormTypeFromFieldType(db.GetFieldType(strings.ToUpper(typeName)), model[fieldField].(string)),
 		}
 		if model[fieldField].(string) == "id" {
 			fields[i].Filterable = true

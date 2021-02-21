@@ -248,9 +248,9 @@ func (b Buttons) CheckPermissionWhenURLAndMethodNotEmpty(user models.UserModel) 
 	return btns
 }
 
-func (b Buttons) AddNavButton(ico, name string, action Action) Buttons {
+func (b Buttons) AddNavButton(icon, name string, action Action) Buttons {
 	if !b.CheckExist(name) {
-		return append(b, GetNavButton("", ico, action, name))
+		return append(b, GetNavButton("", icon, action, name))
 	}
 	return b
 }

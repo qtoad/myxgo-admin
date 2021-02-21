@@ -471,7 +471,7 @@ func getDateTimeRangeOptions(f Type) (map[string]interface{}, map[string]interfa
 	return m, m1
 }
 
-func GetFormTypeFromFieldType(typeName db.DatabaseType, fieldName string) string {
+func GetFormTypeFromFieldType(typeName db.FieldType, fieldName string) string {
 
 	if fieldName == "password" {
 		return "Password"

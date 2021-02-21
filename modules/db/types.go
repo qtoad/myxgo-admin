@@ -10,120 +10,120 @@ import (
 	"strconv"
 )
 
-// DatabaseType is the database field type.
-type DatabaseType string
+// FieldType is the database field type.
+type FieldType string
 
 const (
 	// =================================
 	// integer
 	// =================================
 
-	Int       DatabaseType = "INT"
-	Tinyint   DatabaseType = "TINYINT"
-	Mediumint DatabaseType = "MEDIUMINT"
-	Smallint  DatabaseType = "SMALLINT"
-	Bigint    DatabaseType = "BIGINT"
-	Bit       DatabaseType = "BIT"
-	Int8      DatabaseType = "INT8"
-	Int4      DatabaseType = "INT4"
-	Int2      DatabaseType = "INT2"
+	Int       FieldType = "INT"
+	Tinyint   FieldType = "TINYINT"
+	Mediumint FieldType = "MEDIUMINT"
+	Smallint  FieldType = "SMALLINT"
+	Bigint    FieldType = "BIGINT"
+	Bit       FieldType = "BIT"
+	Int8      FieldType = "INT8"
+	Int4      FieldType = "INT4"
+	Int2      FieldType = "INT2"
 
-	Integer     DatabaseType = "INTEGER"
-	Numeric     DatabaseType = "NUMERIC"
-	Smallserial DatabaseType = "SMALLSERIAL"
-	Serial      DatabaseType = "SERIAL"
-	Bigserial   DatabaseType = "BIGSERIAL"
-	Money       DatabaseType = "MONEY"
+	Integer     FieldType = "INTEGER"
+	Numeric     FieldType = "NUMERIC"
+	Smallserial FieldType = "SMALLSERIAL"
+	Serial      FieldType = "SERIAL"
+	Bigserial   FieldType = "BIGSERIAL"
+	Money       FieldType = "MONEY"
 
 	// =================================
 	// float
 	// =================================
 
-	Real    DatabaseType = "REAL"
-	Float   DatabaseType = "FLOAT"
-	Float4  DatabaseType = "FLOAT4"
-	Float8  DatabaseType = "FLOAT8"
-	Double  DatabaseType = "DOUBLE"
-	Decimal DatabaseType = "DECIMAL"
+	Real    FieldType = "REAL"
+	Float   FieldType = "FLOAT"
+	Float4  FieldType = "FLOAT4"
+	Float8  FieldType = "FLOAT8"
+	Double  FieldType = "DOUBLE"
+	Decimal FieldType = "DECIMAL"
 
-	Doubleprecision DatabaseType = "DOUBLEPRECISION"
+	Doubleprecision FieldType = "DOUBLEPRECISION"
 
 	// =================================
 	// string
 	// =================================
 
-	Date      DatabaseType = "DATE"
-	Time      DatabaseType = "TIME"
-	Year      DatabaseType = "YEAR"
-	Datetime  DatabaseType = "DATETIME"
-	Timestamp DatabaseType = "TIMESTAMP"
+	Date      FieldType = "DATE"
+	Time      FieldType = "TIME"
+	Year      FieldType = "YEAR"
+	Datetime  FieldType = "DATETIME"
+	Timestamp FieldType = "TIMESTAMP"
 
-	Text       DatabaseType = "TEXT"
-	Longtext   DatabaseType = "LONGTEXT"
-	Mediumtext DatabaseType = "MEDIUMTEXT"
-	Tinytext   DatabaseType = "TINYTEXT"
+	Text       FieldType = "TEXT"
+	Longtext   FieldType = "LONGTEXT"
+	Mediumtext FieldType = "MEDIUMTEXT"
+	Tinytext   FieldType = "TINYTEXT"
 
-	Varchar DatabaseType = "VARCHAR"
-	Char    DatabaseType = "CHAR"
-	Bpchar  DatabaseType = "BPCHAR"
-	JSON    DatabaseType = "JSON"
+	Varchar FieldType = "VARCHAR"
+	Char    FieldType = "CHAR"
+	Bpchar  FieldType = "BPCHAR"
+	JSON    FieldType = "JSON"
 
-	Blob       DatabaseType = "BLOB"
-	Tinyblob   DatabaseType = "TINYBLOB"
-	Mediumblob DatabaseType = "MEDIUMBLOB"
-	Longblob   DatabaseType = "LONGBLOB"
+	Blob       FieldType = "BLOB"
+	Tinyblob   FieldType = "TINYBLOB"
+	Mediumblob FieldType = "MEDIUMBLOB"
+	Longblob   FieldType = "LONGBLOB"
 
-	Interval DatabaseType = "INTERVAL"
-	Boolean  DatabaseType = "BOOLEAN"
-	Bool     DatabaseType = "BOOL"
+	Interval FieldType = "INTERVAL"
+	Boolean  FieldType = "BOOLEAN"
+	Bool     FieldType = "BOOL"
 
-	Point   DatabaseType = "POINT"
-	Line    DatabaseType = "LINE"
-	Lseg    DatabaseType = "LSEG"
-	Box     DatabaseType = "BOX"
-	Path    DatabaseType = "PATH"
-	Polygon DatabaseType = "POLYGON"
-	Circle  DatabaseType = "CIRCLE"
+	Point   FieldType = "POINT"
+	Line    FieldType = "LINE"
+	Lseg    FieldType = "LSEG"
+	Box     FieldType = "BOX"
+	Path    FieldType = "PATH"
+	Polygon FieldType = "POLYGON"
+	Circle  FieldType = "CIRCLE"
 
-	Cidr    DatabaseType = "CIDR"
-	Inet    DatabaseType = "INET"
-	Macaddr DatabaseType = "MACADDR"
+	Cidr    FieldType = "CIDR"
+	Inet    FieldType = "INET"
+	Macaddr FieldType = "MACADDR"
 
-	Character        DatabaseType = "CHARACTER"
-	Varyingcharacter DatabaseType = "VARYINGCHARACTER"
-	Nchar            DatabaseType = "NCHAR"
-	Nativecharacter  DatabaseType = "NATIVECHARACTER"
-	Nvarchar         DatabaseType = "NVARCHAR"
-	Clob             DatabaseType = "CLOB"
+	Character        FieldType = "CHARACTER"
+	Varyingcharacter FieldType = "VARYINGCHARACTER"
+	Nchar            FieldType = "NCHAR"
+	Nativecharacter  FieldType = "NATIVECHARACTER"
+	Nvarchar         FieldType = "NVARCHAR"
+	Clob             FieldType = "CLOB"
 
-	Binary    DatabaseType = "BINARY"
-	Varbinary DatabaseType = "VARBINARY"
-	Enum      DatabaseType = "ENUM"
-	Set       DatabaseType = "SET"
+	Binary    FieldType = "BINARY"
+	Varbinary FieldType = "VARBINARY"
+	Enum      FieldType = "ENUM"
+	Set       FieldType = "SET"
 
-	Geometry DatabaseType = "GEOMETRY"
+	Geometry FieldType = "GEOMETRY"
 
-	Multilinestring    DatabaseType = "MULTILINESTRING"
-	Multipolygon       DatabaseType = "MULTIPOLYGON"
-	Linestring         DatabaseType = "LINESTRING"
-	Multipoint         DatabaseType = "MULTIPOINT"
-	Geometrycollection DatabaseType = "GEOMETRYCOLLECTION"
+	Multilinestring    FieldType = "MULTILINESTRING"
+	Multipolygon       FieldType = "MULTIPOLYGON"
+	Linestring         FieldType = "LINESTRING"
+	Multipoint         FieldType = "MULTIPOINT"
+	Geometrycollection FieldType = "GEOMETRYCOLLECTION"
 
-	Name DatabaseType = "NAME"
-	UUID DatabaseType = "UUID"
+	Name FieldType = "NAME"
+	UUID FieldType = "UUID"
 
-	Timestamptz DatabaseType = "TIMESTAMPTZ"
-	Timetz      DatabaseType = "TIMETZ"
+	Timestamptz FieldType = "TIMESTAMPTZ"
+	Timetz      FieldType = "TIMETZ"
 )
 
-// DT turn the string value into DatabaseType.
-func DT(s string) DatabaseType {
-	return DatabaseType(s)
+// GetFieldType turn the string value into FieldType.
+func GetFieldType(s string) FieldType {
+	return FieldType(s)
 }
 
-// GetDTAndCheck check the DatabaseType.
-func GetDTAndCheck(s string) DatabaseType {
-	ss := DatabaseType(s)
+// GetFieldTypeAndCheck check the FieldType.
+func GetFieldTypeAndCheck(s string) FieldType {
+	ss := FieldType(s)
 	if !Contains(ss, BoolTypeList) &&
 		!Contains(ss, IntTypeList) &&
 		!Contains(ss, FloatTypeList) &&
@@ -135,8 +135,8 @@ func GetDTAndCheck(s string) DatabaseType {
 }
 
 var (
-	// StringTypeList is a DatabaseType list of string.
-	StringTypeList = []DatabaseType{Date, Time, Year, Datetime, Timestamptz, Timestamp, Timetz,
+	// StringTypeList is a FieldType list of string.
+	StringTypeList = []FieldType{Date, Time, Year, Datetime, Timestamptz, Timestamp, Timetz,
 		Varchar, Char, Mediumtext, Longtext, Tinytext,
 		Text, JSON, Blob, Tinyblob, Mediumblob, Longblob,
 		Interval, Point, Bpchar,
@@ -145,11 +145,11 @@ var (
 		Multipolygon, Linestring, Multipoint, Geometrycollection, Name, UUID, Timestamptz,
 		Name, UUID, Inet}
 
-	// BoolTypeList is a DatabaseType list of bool.
-	BoolTypeList = []DatabaseType{Bool, Boolean}
+	// BoolTypeList is a FieldType list of bool.
+	BoolTypeList = []FieldType{Bool, Boolean}
 
-	// IntTypeList is a DatabaseType list of integer.
-	IntTypeList = []DatabaseType{Int4, Int2, Int8,
+	// IntTypeList is a FieldType list of integer.
+	IntTypeList = []FieldType{Int4, Int2, Int8,
 		Int,
 		Tinyint,
 		Mediumint,
@@ -158,15 +158,15 @@ var (
 		Integer,
 		Bigint}
 
-	// FloatTypeList is a DatabaseType list of float.
-	FloatTypeList = []DatabaseType{Float, Float4, Float8, Double, Real, Doubleprecision}
+	// FloatTypeList is a FieldType list of float.
+	FloatTypeList = []FieldType{Float, Float4, Float8, Double, Real, Doubleprecision}
 
-	// UintTypeList is a DatabaseType list of uint.
-	UintTypeList = []DatabaseType{Decimal, Bit, Money, Numeric}
+	// UintTypeList is a FieldType list of uint.
+	UintTypeList = []FieldType{Decimal, Bit, Money, Numeric}
 )
 
-// Contains check the given DatabaseType is in the list or not.
-func Contains(v DatabaseType, a []DatabaseType) bool {
+// Contains check the given FieldType is in the list or not.
+func Contains(v FieldType, a []FieldType) bool {
 	for _, i := range a {
 		if i == v {
 			return true
@@ -197,16 +197,17 @@ func (v Value) HTML() template.HTML {
 	return template.HTML(v)
 }
 
-func GetValueFromDatabaseType(typ DatabaseType, value interface{}, json bool) Value {
+// GetValueFromFieldType return Value of given FieldType and interface.
+func GetValueFromFieldType(typ FieldType, value interface{}, json bool) Value {
 	if json {
-		return GetValueFromJSONOfDatabaseType(typ, value)
+		return GetValueFromJSONFieldType(typ, value)
 	} else {
-		return GetValueFromSQLOfDatabaseType(typ, value)
+		return GetValueFromSQLFieldType(typ, value)
 	}
 }
 
-// GetValueFromDatabaseType return Value of given DatabaseType and interface.
-func GetValueFromSQLOfDatabaseType(typ DatabaseType, value interface{}) Value {
+// GetValueFromSQLFieldType return Value of given FieldType and interface.
+func GetValueFromSQLFieldType(typ FieldType, value interface{}) Value {
 	switch {
 	case Contains(typ, StringTypeList):
 		if v, ok := value.(string); ok {
@@ -246,8 +247,8 @@ func GetValueFromSQLOfDatabaseType(typ DatabaseType, value interface{}) Value {
 	panic("wrong type：" + string(typ))
 }
 
-// GetValueFromJSONOfDatabaseType return Value of given DatabaseType and interface from JSON string value.
-func GetValueFromJSONOfDatabaseType(typ DatabaseType, value interface{}) Value {
+// GetValueFromJSONFieldType return Value of given FieldType and interface from JSON string value.
+func GetValueFromJSONFieldType(typ FieldType, value interface{}) Value {
 	switch {
 	case Contains(typ, StringTypeList):
 		if v, ok := value.(string); ok {

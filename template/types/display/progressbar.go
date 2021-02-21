@@ -16,7 +16,7 @@ func init() {
 	types.RegisterDisplayFnGenerator("progressbar", new(ProgressBar))
 }
 
-func (p *ProgressBar) Get(args ...interface{}) types.FieldFilterFn {
+func (p *ProgressBar) Get(args ...interface{}) types.FieldFilterFunc {
 	return func(value types.FieldModel) interface{} {
 		param := args[0].([]types.FieldProgressBarData)
 		style := "primary"

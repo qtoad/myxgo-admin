@@ -31,16 +31,16 @@ type Handler struct {
 	HTML func(ctx *context.Context, panel types.Panel, options ...template.ExecuteOptions)
 }
 
-func NewHandler(root root.Roots, p permission.Permission) *Handler {
+func NewHandler(root root.Roots, permission permission.Permission) *Handler {
 	return &Handler{
 		roots:       root,
-		permissions: p,
+		permissions: permission,
 	}
 }
 
-func (h *Handler) Update(root root.Roots, p permission.Permission) {
+func (h *Handler) Update(root root.Roots, permission permission.Permission) {
 	h.roots = root
-	h.permissions = p
+	h.permissions = permission
 }
 
 func (h *Handler) Prefix(ctx *context.Context) string {
@@ -102,8 +102,8 @@ func (h *Handler) preview(ctx *context.Context, content template2.HTML, relative
 	})
 }
 
-func fixedDescription(des string) template2.HTML {
-	return html.SpanEl().SetAttr("title", des).SetContent(template2.HTML(des)).Get()
+func fixedDescription(title string) template2.HTML {
+	return html.SpanEl().SetAttr("title", title).SetContent(template2.HTML(title)).Get()
 }
 
 func (h *Handler) table(ctx *context.Context, files models.Files, err error) {

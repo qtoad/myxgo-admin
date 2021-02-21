@@ -10,14 +10,14 @@ type node struct {
 	children []*node
 	value    string
 	method   []string
-	handle   [][]Handler
+	handler  [][]Handler
 }
 
 func tree() *node {
 	return &node{
 		children: make([]*node, 0),
 		value:    "/",
-		handle:   nil,
+		handler:  nil,
 	}
 }
 
@@ -32,7 +32,7 @@ func (n *node) hasMethod(method string) int {
 
 func (n *node) addMethodAndHandler(method string, handler []Handler) {
 	n.method = append(n.method, method)
-	n.handle = append(n.handle, handler)
+	n.handler = append(n.handler, handler)
 }
 
 func (n *node) addChild(child *node) {
@@ -82,7 +82,7 @@ func (n *node) findPath(paths []string, method string) []Handler {
 		return nil
 	}
 
-	return child.handle[methodIndex]
+	return child.handler[methodIndex]
 }
 
 func (n *node) print() {

@@ -4,7 +4,6 @@ import (
 	"github.com/qtoad/mygo-admin/context"
 	"github.com/qtoad/mygo-admin/modules/config"
 	"github.com/qtoad/mygo-admin/modules/service"
-	"github.com/qtoad/mygo-admin/modules/system"
 	"github.com/qtoad/mygo-admin/modules/util"
 	"github.com/qtoad/mygo-admin/plugins"
 	"github.com/qtoad/mygo-admin/plugins/admin/controller"
@@ -13,6 +12,7 @@ import (
 	"github.com/qtoad/mygo-admin/template/types"
 	"github.com/qtoad/mygo-admin/template/types/action"
 	_ "github.com/qtoad/mygo-admin/template/types/display"
+	"github.com/qtoad/mygo-admin/version"
 )
 
 // Admin is a GoAdmin plugin.
@@ -74,7 +74,7 @@ func (admin *Admin) GetInfo() plugins.Info {
 		Website:     "https://www.go-admin.cn",
 		Description: "A built-in plugins of GoAdmin which help you to build a crud manager platform quickly.",
 		Author:      "official",
-		Version:     system.Version(),
+		Version:     version.Version(),
 		CreateDate:  util.ParseTime("2018-07-08 00:00:00"),
 		UpdateDate:  util.ParseTime("2020-06-28 00:00:00"),
 	}
@@ -115,9 +115,9 @@ func (admin *Admin) AddGenerators(gen ...table.GeneratorList) *Admin {
 	return admin
 }
 
-// AddGlobalDisplayProcessFn call types.AddGlobalDisplayProcessFn
-func (admin *Admin) AddGlobalDisplayProcessFn(f types.FieldFilterFn) *Admin {
-	types.AddGlobalDisplayProcessFn(f)
+// AddGlobalDisplayProcessFunc call types.AddGlobalDisplayProcessFunc
+func (admin *Admin) AddGlobalDisplayProcessFunc(f types.FieldFilterFunc) *Admin {
+	types.AddGlobalDisplayProcessFunc(f)
 	return admin
 }
 

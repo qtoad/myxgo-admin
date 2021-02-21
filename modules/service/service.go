@@ -10,11 +10,11 @@ type Service interface {
 
 type Generator func() (Service, error)
 
-func Register(k string, gen Generator) {
-	if _, ok := services[k]; ok {
+func Register(key string, gen Generator) {
+	if _, ok := services[key]; ok {
 		panic("service has been registered")
 	}
-	services[k] = gen
+	services[key] = gen
 }
 
 func GetServices() List {
@@ -36,21 +36,21 @@ type Generators map[string]Generator
 
 type List map[string]Service
 
-func (g List) Get(k string) Service {
-	if v, ok := g[k]; ok {
+func (g List) Get(key string) Service {
+	if v, ok := g[key]; ok {
 		return v
 	}
 	panic("service not found")
 }
 
-func (g List) GetOrNot(k string) (Service, bool) {
-	v, ok := g[k]
+func (g List) GetOrNot(key string) (Service, bool) {
+	v, ok := g[key]
 	return v, ok
 }
 
-func (g List) Add(k string, service Service) {
-	if _, ok := g[k]; ok {
+func (g List) Add(key string, service Service) {
+	if _, ok := g[key]; ok {
 		panic("service exist")
 	}
-	g[k] = service
+	g[key] = service
 }

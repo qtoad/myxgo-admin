@@ -36,9 +36,9 @@ func InArrayWithoutEmpty(arr []string, str string) bool {
 	return false
 }
 
-func RemoveBlankFromArray(s []string) []string {
+func RemoveBlankFromArray(arr []string) []string {
 	var r []string
-	for _, str := range s {
+	for _, str := range arr {
 		if str != "" {
 			r = append(r, str)
 		}

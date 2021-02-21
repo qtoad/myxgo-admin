@@ -53,7 +53,7 @@ func (db *Mysql) GetDelimiters() []string {
 
 // InitDB implements the method Connection.InitDB.
 func (db *Mysql) InitDB(cfgs map[string]config.Database) Connection {
-	db.Configs = cfgs
+	db.DatabaseList = cfgs
 	db.Once.Do(func() {
 		for conn, cfg := range cfgs {
 
@@ -82,13 +82,13 @@ func (db *Mysql) InitDB(cfgs map[string]config.Database) Connection {
 }
 
 // QueryWithConnection implements the method Connection.QueryWithConnection.
-func (db *Mysql) QueryWithConnection(con string, query string, args ...interface{}) ([]map[string]interface{}, error) {
-	return CommonQuery(db.DbList[con], query, args...)
+func (db *Mysql) QueryWithConnection(conn string, query string, args ...interface{}) ([]map[string]interface{}, error) {
+	return CommonQuery(db.DbList[conn], query, args...)
 }
 
 // ExecWithConnection implements the method Connection.ExecWithConnection.
-func (db *Mysql) ExecWithConnection(con string, query string, args ...interface{}) (sql.Result, error) {
-	return CommonExec(db.DbList[con], query, args...)
+func (db *Mysql) ExecWithConnection(conn string, query string, args ...interface{}) (sql.Result, error) {
+	return CommonExec(db.DbList[conn], query, args...)
 }
 
 // Query implements the method Connection.Query.

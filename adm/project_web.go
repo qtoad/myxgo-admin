@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/qtoad/mygo-admin/version"
 	"html/template"
 	"log"
 	"net"
@@ -15,7 +16,6 @@ import (
 
 	"github.com/qtoad/mygo-admin/modules/config"
 	"github.com/qtoad/mygo-admin/modules/db"
-	"github.com/qtoad/mygo-admin/modules/system"
 	"github.com/qtoad/mygo-admin/modules/util"
 )
 
@@ -73,7 +73,7 @@ func buildProjectWeb(port string) {
 			tk := util.Uuid(25)
 			tokens = append(tokens, tk)
 			err = t.Execute(w, InstallationPage{
-				Version:       system.Version(),
+				Version:       version.Version(),
 				GoVer:         strings.Title(runtime.Version()),
 				Port:          port,
 				CSRFToken:     tk,

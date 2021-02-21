@@ -211,15 +211,15 @@ func (db *Mssql) parseSql(sql string) string {
 }
 
 // QueryWithConnection implements the method Connection.QueryWithConnection.
-func (db *Mssql) QueryWithConnection(con string, query string, args ...interface{}) ([]map[string]interface{}, error) {
+func (db *Mssql) QueryWithConnection(conn string, query string, args ...interface{}) ([]map[string]interface{}, error) {
 	query = db.handleSqlBeforeExec(query)
-	return CommonQuery(db.DbList[con], query, args...)
+	return CommonQuery(db.DbList[conn], query, args...)
 }
 
 // ExecWithConnection implements the method Connection.ExecWithConnection.
-func (db *Mssql) ExecWithConnection(con string, query string, args ...interface{}) (sql.Result, error) {
+func (db *Mssql) ExecWithConnection(conn string, query string, args ...interface{}) (sql.Result, error) {
 	query = db.handleSqlBeforeExec(query)
-	return CommonExec(db.DbList[con], query, args...)
+	return CommonExec(db.DbList[conn], query, args...)
 }
 
 // Query implements the method Connection.Query.
@@ -250,7 +250,7 @@ func (db *Mssql) ExecWith(tx *sql.Tx, conn, query string, args ...interface{}) (
 
 // InitDB implements the method Connection.InitDB.
 func (db *Mssql) InitDB(cfgs map[string]config.Database) Connection {
-	db.Configs = cfgs
+	db.DatabaseList = cfgs
 	db.Once.Do(func() {
 		for conn, cfg := range cfgs {
 

@@ -13,7 +13,7 @@ func init() {
 	types.RegisterDisplayFnGenerator("link", new(Link))
 }
 
-func (l *Link) Get(args ...interface{}) types.FieldFilterFn {
+func (l *Link) Get(args ...interface{}) types.FieldFilterFunc {
 	prefix := ""
 	openInNewTabs := false
 	if len(args) > 0 {

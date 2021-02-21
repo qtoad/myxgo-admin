@@ -171,12 +171,12 @@ func (ctx *Context) MustBindJSON(data interface{}) {
 }
 
 // Write save the given status code, headers and body string into the response.
-func (ctx *Context) Write(code int, header map[string]string, Body string) {
+func (ctx *Context) Write(code int, header map[string]string, body string) {
 	ctx.Response.StatusCode = code
 	for key, head := range header {
 		ctx.AddHeader(key, head)
 	}
-	ctx.Response.Body = ioutil.NopCloser(strings.NewReader(Body))
+	ctx.Response.Body = ioutil.NopCloser(strings.NewReader(body))
 }
 
 // JSON serializes the given struct as JSON into the response body.

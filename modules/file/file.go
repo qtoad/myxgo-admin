@@ -31,16 +31,16 @@ var upMu sync.Mutex
 // AddUploader makes a uploader generator available by the provided theme name.
 // If Add is called twice with the same name or if uploader is nil,
 // it panics.
-func AddUploader(name string, up UploaderGenerator) {
+func AddUploader(name string, uploaderGenerator UploaderGenerator) {
 	upMu.Lock()
 	defer upMu.Unlock()
-	if up == nil {
+	if uploaderGenerator == nil {
 		panic("uploader generator is nil")
 	}
 	if _, dup := uploaderList[name]; dup {
 		panic("add uploader generator twice " + name)
 	}
-	uploaderList[name] = up
+	uploaderList[name] = uploaderGenerator
 }
 
 // GetFileEngine return the Uploader of given name.
@@ -51,11 +51,11 @@ func GetFileEngine(name string) Uploader {
 	panic("wrong uploader name")
 }
 
-// UploadFun is a function to process the uploading logic.
-type UploadFun func(*multipart.FileHeader, string) (string, error)
+// UploadFunc is a function to process the uploading logic.
+type UploadFunc func(*multipart.FileHeader, string) (string, error)
 
-// Upload receive the return value of given UploadFun and put them into the form.
-func Upload(c UploadFun, form *multipart.Form) error {
+// Upload receive the return value of given UploadFunc and put them into the form.
+func Upload(uploadFunc UploadFunc, form *multipart.Form) error {
 	var (
 		suffix   string
 		filename string
@@ -66,7 +66,7 @@ func Upload(c UploadFun, form *multipart.Form) error {
 			suffix = path.Ext(fileObj.Filename)
 			filename = modules.Uuid() + suffix
 
-			pathStr, err := c(fileObj, filename)
+			pathStr, err := uploadFunc(fileObj, filename)
 
 			if err != nil {
 				return err
@@ -80,8 +80,8 @@ func Upload(c UploadFun, form *multipart.Form) error {
 }
 
 // SaveMultipartFile used in a local Uploader which help to save file in the local path.
-func SaveMultipartFile(fh *multipart.FileHeader, path string) error {
-	f, err := fh.Open()
+func SaveMultipartFile(fileHeader *multipart.FileHeader, path string) error {
+	f, err := fileHeader.Open()
 	if err != nil {
 		return err
 	}
@@ -99,7 +99,7 @@ func SaveMultipartFile(fh *multipart.FileHeader, path string) error {
 		}
 
 		// Reopen f for the code below.
-		f, err = fh.Open()
+		f, err = fileHeader.Open()
 		if err != nil {
 			return err
 		}

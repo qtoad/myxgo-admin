@@ -20,17 +20,17 @@ type Guardian struct {
 	permissions permission.Permission
 }
 
-func New(r root.Roots, c db.Connection, p permission.Permission) *Guardian {
+func New(roots root.Roots, conn db.Connection, permission permission.Permission) *Guardian {
 	return &Guardian{
-		roots:       r,
-		conn:        c,
-		permissions: p,
+		roots:       roots,
+		conn:        conn,
+		permissions: permission,
 	}
 }
 
-func (g *Guardian) Update(r root.Roots, p permission.Permission) {
-	g.roots = r
-	g.permissions = p
+func (g *Guardian) Update(roots root.Roots, permission permission.Permission) {
+	g.roots = roots
+	g.permissions = permission
 }
 
 const (

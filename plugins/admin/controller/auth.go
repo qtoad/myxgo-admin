@@ -2,6 +2,7 @@ package controller
 
 import (
 	"bytes"
+	"github.com/qtoad/mygo-admin/version"
 	template2 "html/template"
 	"net/http"
 	"net/url"
@@ -11,7 +12,6 @@ import (
 	"github.com/qtoad/mygo-admin/modules/config"
 	"github.com/qtoad/mygo-admin/modules/db"
 	"github.com/qtoad/mygo-admin/modules/logger"
-	"github.com/qtoad/mygo-admin/modules/system"
 	"github.com/qtoad/mygo-admin/plugins/admin/models"
 	"github.com/qtoad/mygo-admin/plugins/admin/modules/captcha"
 	"github.com/qtoad/mygo-admin/plugins/admin/modules/response"
@@ -109,7 +109,7 @@ func (h *Handler) ShowLogin(ctx *context.Context) {
 		Title:     h.config.LoginTitle,
 		Logo:      h.config.LoginLogo,
 		System: types.SystemInfo{
-			Version: system.Version(),
+			Version: version.Version(),
 		},
 		CdnUrl: h.config.AssetUrl,
 	}); err == nil {

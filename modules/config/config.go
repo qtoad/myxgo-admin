@@ -371,7 +371,7 @@ type Config struct {
 	Custom500HTML template.HTML `json:"custom_500_html,omitempty" yaml:"custom_500_html,omitempty" ini:"custom_500_html,omitempty"`
 
 	// Update Process Function
-	UpdateProcessFn UpdateConfigProcessFn `json:"-" yaml:"-" ini:"-"`
+	UpdateProcessFn UpdateConfigProcessFunc `json:"-" yaml:"-" ini:"-"`
 
 	// Favicon string `json:"favicon,omitempty" yaml:"favicon,omitempty" ini:"favicon,omitempty"`
 
@@ -452,7 +452,7 @@ func (f URLFormat) SetDefault() URLFormat {
 
 type ExtraInfo map[string]interface{}
 
-type UpdateConfigProcessFn func(values form.Values) (form.Values, error)
+type UpdateConfigProcessFunc func(values form.Values) (form.Values, error)
 
 // see more: https://daneden.github.io/animate.css/
 type PageAnimation struct {
@@ -573,7 +573,7 @@ func (c *Config) AssertPrefix() string {
 	return c.prefix
 }
 
-func (c *Config) AddUpdateProcessFn(fn UpdateConfigProcessFn) *Config {
+func (c *Config) AddUpdateProcessFn(fn UpdateConfigProcessFunc) *Config {
 	c.UpdateProcessFn = fn
 	return c
 }
@@ -1285,20 +1285,20 @@ func GetExcludeThemeComponents() []string {
 }
 
 type Service struct {
-	C *Config
+	Cfg *Config
 }
 
 func (s *Service) Name() string {
 	return "config"
 }
 
-func SrvWithConfig(c *Config) *Service {
-	return &Service{c}
+func ServiceWithConfig(cfg *Config) *Service {
+	return &Service{cfg}
 }
 
 func GetService(s interface{}) *Config {
 	if srv, ok := s.(*Service); ok {
-		return srv.C
+		return srv.Cfg
 	}
 	panic("wrong service")
 }

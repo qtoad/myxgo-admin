@@ -17,11 +17,11 @@ type Guardian struct {
 	prefix string
 }
 
-func New(r *root.Roots, c db.Connection, p string) *Guardian {
+func New(roots *root.Roots, conn db.Connection, prefix string) *Guardian {
 	return &Guardian{
-		roots:  r,
-		conn:   c,
-		prefix: p,
+		roots:  roots,
+		conn:   conn,
+		prefix: prefix,
 	}
 }
 

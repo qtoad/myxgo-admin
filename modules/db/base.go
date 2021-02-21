@@ -11,9 +11,9 @@ import (
 
 // Base is a common Connection.
 type Base struct {
-	DbList  map[string]*sql.DB
-	Once    sync.Once
-	Configs config.DatabaseList
+	DbList       map[string]*sql.DB
+	Once         sync.Once
+	DatabaseList config.DatabaseList
 }
 
 // Close implements the method Connection.Close.
@@ -50,5 +50,5 @@ func (db *Base) CreateDB(name string, beans ...interface{}) error {
 }
 
 func (db *Base) GetConfig(name string) config.Database {
-	return db.Configs[name]
+	return db.DatabaseList[name]
 }

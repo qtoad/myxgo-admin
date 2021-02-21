@@ -135,8 +135,8 @@ VALUES
 
 	for _, model := range columnsModel {
 		fieldTypeName := strings.ToUpper(testGetType(model[typeField].(string)))
-		GetDTAndCheck(fieldTypeName)
-		GetValueFromSQLOfDatabaseType(DatabaseType(fieldTypeName), item[model[fieldField].(string)])
+		GetFieldTypeAndCheck(fieldTypeName)
+		GetValueFromSQLFieldType(FieldType(fieldTypeName), item[model[fieldField].(string)])
 	}
 	assert.Equal(t, err, nil)
 }
@@ -195,8 +195,8 @@ func testPG(t *testing.T, port string) {
 	for _, model := range columnsModel {
 		fieldTypeName := strings.ToUpper(testGetType(model[typeField].(string)))
 		fmt.Println("fieldTypeName", fieldTypeName)
-		GetDTAndCheck(fieldTypeName)
-		fmt.Println(model[fieldField].(string), GetValueFromSQLOfDatabaseType(DatabaseType(fieldTypeName), item[model[fieldField].(string)]))
+		GetFieldTypeAndCheck(fieldTypeName)
+		fmt.Println(model[fieldField].(string), GetValueFromSQLFieldType(FieldType(fieldTypeName), item[model[fieldField].(string)]))
 	}
 
 	assert.Equal(t, err, nil)

@@ -96,8 +96,8 @@ func GetConnectionFromService(srv interface{}) Connection {
 	panic("wrong service")
 }
 
-func GetConnection(srvs service.List) Connection {
-	if v, ok := srvs.Get(config.GetDatabases().GetDefault().Driver).(Connection); ok {
+func GetConnection(srvList service.List) Connection {
+	if v, ok := srvList.Get(config.GetDatabases().GetDefault().Driver).(Connection); ok {
 		return v
 	}
 	panic("wrong service")

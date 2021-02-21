@@ -46,13 +46,13 @@ func (db *Sqlite) GetDelimiters() []string {
 }
 
 // QueryWithConnection implements the method Connection.QueryWithConnection.
-func (db *Sqlite) QueryWithConnection(con string, query string, args ...interface{}) ([]map[string]interface{}, error) {
-	return CommonQuery(db.DbList[con], query, args...)
+func (db *Sqlite) QueryWithConnection(conn string, query string, args ...interface{}) ([]map[string]interface{}, error) {
+	return CommonQuery(db.DbList[conn], query, args...)
 }
 
 // ExecWithConnection implements the method Connection.ExecWithConnection.
-func (db *Sqlite) ExecWithConnection(con string, query string, args ...interface{}) (sql.Result, error) {
-	return CommonExec(db.DbList[con], query, args...)
+func (db *Sqlite) ExecWithConnection(conn string, query string, args ...interface{}) (sql.Result, error) {
+	return CommonExec(db.DbList[conn], query, args...)
 }
 
 // Query implements the method Connection.Query.
@@ -81,7 +81,7 @@ func (db *Sqlite) ExecWith(tx *sql.Tx, conn, query string, args ...interface{}) 
 
 // InitDB implements the method Connection.InitDB.
 func (db *Sqlite) InitDB(cfgList map[string]config.Database) Connection {
-	db.Configs = cfgList
+	db.DatabaseList = cfgList
 	db.Once.Do(func() {
 		for conn, cfg := range cfgList {
 			sqlDB, err := sql.Open("sqlite3", cfg.GetDSN())

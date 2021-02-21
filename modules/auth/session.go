@@ -35,8 +35,8 @@ type PersistenceDriver interface {
 }
 
 // GetSessionByKey get the session value by key.
-func GetSessionByKey(sesKey, key string, conn db.Connection) (interface{}, error) {
-	m, err := newDBDriver(conn).Load(sesKey)
+func GetSessionByKey(sessionKey, key string, conn db.Connection) (interface{}, error) {
+	m, err := newDBDriver(conn).Load(sessionKey)
 	return m[key], err
 }
 
@@ -56,7 +56,7 @@ type Config struct {
 	Cookie  string
 }
 
-// UpdateConfig update the Expires and Cookie of Session.
+// UpdateConfig update the Expire and Cookie of Session.
 func (ses *Session) UpdateConfig(config Config) {
 	ses.Expires = config.Expires
 	ses.Cookie = config.Cookie

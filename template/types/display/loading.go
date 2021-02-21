@@ -14,7 +14,7 @@ func init() {
 	types.RegisterDisplayFnGenerator("loading", new(Loading))
 }
 
-func (l *Loading) Get(args ...interface{}) types.FieldFilterFn {
+func (l *Loading) Get(args ...interface{}) types.FieldFilterFunc {
 	return func(value types.FieldModel) interface{} {
 		param := args[0].([]string)
 

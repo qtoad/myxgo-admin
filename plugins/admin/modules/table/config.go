@@ -14,7 +14,7 @@ type Config struct {
 	Exportable     bool
 	PrimaryKey     PrimaryKey
 	SourceURL      string
-	GetDataFun     GetDataFun
+	GetDataFun     GetDataFunc
 	OnlyInfo       bool
 	OnlyNewForm    bool
 	OnlyUpdateForm bool
@@ -36,7 +36,7 @@ func DefaultConfig() Config {
 	}
 }
 
-func (config Config) SetPrimaryKey(name string, typ db.DatabaseType) Config {
+func (config Config) SetPrimaryKey(name string, typ db.FieldType) Config {
 	config.PrimaryKey.Name = name
 	config.PrimaryKey.Type = typ
 	return config
@@ -48,7 +48,7 @@ func (config Config) SetDriverMode(mode string) Config {
 }
 
 func (config Config) SetPrimaryKeyType(typ string) Config {
-	config.PrimaryKey.Type = db.GetDTAndCheck(typ)
+	config.PrimaryKey.Type = db.GetFieldTypeAndCheck(typ)
 	return config
 }
 
@@ -62,7 +62,7 @@ func (config Config) SetSourceURL(url string) Config {
 	return config
 }
 
-func (config Config) SetGetDataFun(fun GetDataFun) Config {
+func (config Config) SetGetDataFun(fun GetDataFunc) Config {
 	config.GetDataFun = fun
 	return config
 }
@@ -102,8 +102,8 @@ func (config Config) SetExportable(exportable bool) Config {
 	return config
 }
 
-func (config Config) SetConnection(connection string) Config {
-	config.Connection = connection
+func (config Config) SetConnection(conn string) Config {
+	config.Connection = conn
 	return config
 }
 

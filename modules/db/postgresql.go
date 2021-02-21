@@ -48,13 +48,13 @@ func (db *Postgresql) GetDelimiters() []string {
 }
 
 // QueryWithConnection implements the method Connection.QueryWithConnection.
-func (db *Postgresql) QueryWithConnection(con string, query string, args ...interface{}) ([]map[string]interface{}, error) {
-	return CommonQuery(db.DbList[con], filterQuery(query), args...)
+func (db *Postgresql) QueryWithConnection(conn string, query string, args ...interface{}) ([]map[string]interface{}, error) {
+	return CommonQuery(db.DbList[conn], filterQuery(query), args...)
 }
 
 // ExecWithConnection implements the method Connection.ExecWithConnection.
-func (db *Postgresql) ExecWithConnection(con string, query string, args ...interface{}) (sql.Result, error) {
-	return CommonExec(db.DbList[con], filterQuery(query), args...)
+func (db *Postgresql) ExecWithConnection(conn string, query string, args ...interface{}) (sql.Result, error) {
+	return CommonExec(db.DbList[conn], filterQuery(query), args...)
 }
 
 // Query implements the method Connection.Query.
@@ -93,7 +93,7 @@ func filterQuery(query string) string {
 
 // InitDB implements the method Connection.InitDB.
 func (db *Postgresql) InitDB(cfgList map[string]config.Database) Connection {
-	db.Configs = cfgList
+	db.DatabaseList = cfgList
 	db.Once.Do(func() {
 		for conn, cfg := range cfgList {
 

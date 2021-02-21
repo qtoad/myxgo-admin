@@ -120,12 +120,12 @@ func (f *FileManager) GetIndexURL() string {
 	return config.Url("/fm")
 }
 
-func (f *FileManager) InitPlugin(srv service.List) {
+func (f *FileManager) InitPlugin(srvList service.List) {
 
 	// DO NOT DELETE
-	f.InitBase(srv, "fm")
+	f.InitBase(srvList, "fm")
 
-	f.Conn = db.GetConnection(srv)
+	f.Conn = db.GetConnection(srvList)
 
 	if len(f.roots) == 0 {
 		checkExist, _ := db.WithDriver(f.Conn).
@@ -171,7 +171,7 @@ func (f *FileManager) InitPlugin(srv service.List) {
 	}
 	f.handler = controller.NewHandler(f.roots, p)
 	f.guard = guard.New(f.roots, f.Conn, p)
-	f.App = f.initRouter(srv)
+	f.App = f.initRouter(srvList)
 	f.handler.HTML = f.HTMLMenu
 
 	language.Lang[language.CN].Combine(language2.CN)

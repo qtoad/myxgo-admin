@@ -7,6 +7,7 @@ package template
 import (
 	"bytes"
 	"errors"
+	"github.com/qtoad/mygo-admin/version"
 	"html/template"
 	"path"
 	"plugin"
@@ -19,7 +20,6 @@ import (
 	"github.com/qtoad/mygo-admin/modules/language"
 	"github.com/qtoad/mygo-admin/modules/logger"
 	"github.com/qtoad/mygo-admin/modules/menu"
-	"github.com/qtoad/mygo-admin/modules/system"
 	"github.com/qtoad/mygo-admin/modules/util"
 	"github.com/qtoad/mygo-admin/plugins/admin/models"
 	"github.com/qtoad/mygo-admin/template/login"
@@ -176,11 +176,11 @@ func CheckRequirements() (bool, bool) {
 	if !util.InArray(DefaultThemeNames, Default().Name()) {
 		return true, true
 	}
-	return true, VersionCompare(Default().GetVersion(), system.RequireThemeVersion()[Default().Name()])
+	return true, VersionCompare(Default().GetVersion(), version.RequireThemeVersion()[Default().Name()])
 }
 
 func CheckThemeRequirements() bool {
-	return VersionCompare(system.Version(), Default().GetRequirements())
+	return VersionCompare(version.Version(), Default().GetRequirements())
 }
 
 func VersionCompare(toCompare string, versions []string) bool {

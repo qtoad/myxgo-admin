@@ -166,7 +166,7 @@ type FormInfo struct {
 }
 
 type PrimaryKey struct {
-	Type db.DatabaseType
+	Type db.FieldType
 	Name string
 }
 

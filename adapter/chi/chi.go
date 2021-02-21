@@ -49,8 +49,8 @@ func (ch *Chi) DisableLog()                { panic("not implement") }
 func (ch *Chi) Static(prefix, path string) { panic("not implement") }
 
 // Content implements the method Adapter.Content.
-func (ch *Chi) Content(ctx interface{}, getPanelFn types.GetPanelFn, fn context.NodeProcessor, btns ...types.Button) {
-	ch.GetContent(ctx, getPanelFn, ch, btns, fn)
+func (ch *Chi) Content(ctx interface{}, getPanelFunc types.GetPanelFunc, nodeProcessor context.NodeProcessor, btns ...types.Button) {
+	ch.GetContent(ctx, getPanelFunc, ch, btns, nodeProcessor)
 }
 
 type HandlerFunc func(ctx Context) (types.Panel, error)
@@ -125,10 +125,10 @@ func (ch *Chi) AddHandler(method, path string, handlers context.Handlers) {
 	})
 }
 
-// HandleFun is type of route methods of chi.
-type HandleFun func(pattern string, handlerFn http.HandlerFunc)
+// HandleFunc is type of route methods of chi.
+type HandleFunc func(pattern string, handlerFunc http.HandlerFunc)
 
-func getHandleFunc(eng *chi.Mux, method string) HandleFun {
+func getHandleFunc(eng *chi.Mux, method string) HandleFunc {
 	switch method {
 	case "GET":
 		return eng.Get

@@ -134,7 +134,7 @@ func (r FieldModelValue) First() string {
 }
 
 // FieldDisplay is filter function of data.
-type FieldFilterFn func(value FieldModel) interface{}
+type FieldFilterFunc func(value FieldModel) interface{}
 
 // PostFieldFilterFn is filter function of data.
 type PostFieldFilterFn func(value PostFieldModel) interface{}
@@ -143,7 +143,7 @@ type PostFieldFilterFn func(value PostFieldModel) interface{}
 type Field struct {
 	Head     string
 	Field    string
-	TypeName db.DatabaseType
+	TypeName db.FieldType
 
 	Joins Joins
 
@@ -538,7 +538,7 @@ const (
 )
 
 type primaryKey struct {
-	Type db.DatabaseType
+	Type db.FieldType
 	Name string
 }
 
@@ -600,7 +600,7 @@ type InfoPanel struct {
 
 	GetDataFn GetDataFn
 
-	processChains DisplayProcessFnChains
+	processChains DisplayProcessFuncChains
 
 	ActionButtons    Buttons
 	ActionButtonFold bool
@@ -813,7 +813,7 @@ func NewInfoPanel(pk string) *InfoPanel {
 		curFieldListIndex:       -1,
 		PageSizeList:            DefaultPageSizeList,
 		DefaultPageSize:         DefaultPageSize,
-		processChains:           make(DisplayProcessFnChains, 0),
+		processChains:           make(DisplayProcessFuncChains, 0),
 		Buttons:                 make(Buttons, 0),
 		Callbacks:               make(Callbacks, 0),
 		DisplayGeneratorRecords: make(map[string]struct{}),
@@ -990,7 +990,7 @@ func (i *InfoPanel) SetGetDataFn(fn GetDataFn) *InfoPanel {
 	return i
 }
 
-func (i *InfoPanel) SetPrimaryKey(name string, typ db.DatabaseType) *InfoPanel {
+func (i *InfoPanel) SetPrimaryKey(name string, typ db.FieldType) *InfoPanel {
 	i.primaryKey = primaryKey{Name: name, Type: typ}
 	return i
 }
@@ -1037,7 +1037,7 @@ func (i *InfoPanel) AddColumnButtons(head string, buttons ...Button) *InfoPanel 
 		EditType: table.Text,
 		FieldDisplay: FieldDisplay{
 			Display: func(value FieldModel) interface{} {
-				pk := db.GetValueFromDatabaseType(i.primaryKey.Type, value.Row[i.primaryKey.Name], i.isFromJSON())
+				pk := db.GetValueFromFieldType(i.primaryKey.Type, value.Row[i.primaryKey.Name], i.isFromJSON())
 				var v = make(map[string]InfoItem)
 				for key, item := range value.Row {
 					itemValue := fmt.Sprintf("%v", item)
@@ -1052,15 +1052,15 @@ func (i *InfoPanel) AddColumnButtons(head string, buttons ...Button) *InfoPanel 
 	return i
 }
 
-func (i *InfoPanel) AddFieldTr(ctx *context.Context, head, field string, typeName db.DatabaseType) *InfoPanel {
+func (i *InfoPanel) AddFieldTr(ctx *context.Context, head, field string, typeName db.FieldType) *InfoPanel {
 	return i.AddFieldWithTranslation(ctx, head, field, typeName)
 }
 
-func (i *InfoPanel) AddFieldWithTranslation(ctx *context.Context, head, field string, typeName db.DatabaseType) *InfoPanel {
+func (i *InfoPanel) AddFieldWithTranslation(ctx *context.Context, head, field string, typeName db.FieldType) *InfoPanel {
 	return i.AddField(language.GetWithLang(head, ctx.Lang()), field, typeName)
 }
 
-func (i *InfoPanel) AddField(head, field string, typeName db.DatabaseType) *InfoPanel {
+func (i *InfoPanel) AddField(head, field string, typeName db.FieldType) *InfoPanel {
 	i.FieldList = append(i.FieldList, Field{
 		Head:     head,
 		Field:    field,
@@ -1080,7 +1080,7 @@ func (i *InfoPanel) AddField(head, field string, typeName db.DatabaseType) *Info
 	return i
 }
 
-func (i *InfoPanel) AddFilter(head, field string, typeName db.DatabaseType, fn UpdateParametersFn, filterType ...FilterType) *InfoPanel {
+func (i *InfoPanel) AddFilter(head, field string, typeName db.FieldType, fn UpdateParametersFn, filterType ...FilterType) *InfoPanel {
 	return i.AddField(head, field, typeName).FieldHide().FieldFilterable(filterType...).AddUpdateParametersFn(fn)
 }
 

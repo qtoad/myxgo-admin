@@ -2,11 +2,10 @@ package remote_server
 
 import (
 	"encoding/json"
+	"github.com/qtoad/mygo-admin/version"
 	"io/ioutil"
 	"net/http"
 	"strings"
-
-	"github.com/qtoad/mygo-admin/modules/system"
 
 	"github.com/qtoad/mygo-admin/modules/logger"
 )
@@ -89,7 +88,7 @@ type GetDownloadURLRes struct {
 func GetDownloadURL(uuid, token string) (string, string, error) {
 	var resData GetDownloadURLRes
 
-	req, err := http.NewRequest("GET", ServerHostApi+"/plugin/download", strings.NewReader(`{"uuid":"`+uuid+`", "version":"`+system.Version()+`"}`))
+	req, err := http.NewRequest("GET", ServerHostApi+"/plugin/download", strings.NewReader(`{"uuid":"`+uuid+`", "version":"`+version.Version()+`"}`))
 
 	if err != nil {
 		logger.Error("get plugin download url error: ", err)

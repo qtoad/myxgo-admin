@@ -30,8 +30,8 @@ func (t OperationLogModel) Find(id interface{}) OperationLogModel {
 	return t.MapToModel(item)
 }
 
-func (t OperationLogModel) SetConn(con db.Connection) OperationLogModel {
-	t.Conn = con
+func (t OperationLogModel) SetConn(conn db.Connection) OperationLogModel {
+	t.Conn = conn
 	return t
 }
 

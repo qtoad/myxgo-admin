@@ -14,7 +14,7 @@ func init() {
 	types.RegisterDisplayFnGenerator("downloadable", new(Downloadable))
 }
 
-func (d *Downloadable) Get(args ...interface{}) types.FieldFilterFn {
+func (d *Downloadable) Get(args ...interface{}) types.FieldFilterFunc {
 	return func(value types.FieldModel) interface{} {
 		param := args[0].([]string)
 

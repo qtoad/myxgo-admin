@@ -15,7 +15,7 @@ func init() {
 	types.RegisterDisplayFnGenerator("filesize", new(FileSize))
 }
 
-func (f *FileSize) Get(args ...interface{}) types.FieldFilterFn {
+func (f *FileSize) Get(args ...interface{}) types.FieldFilterFunc {
 	return func(value types.FieldModel) interface{} {
 		size, _ := strconv.ParseUint(value.Value, 10, 64)
 		return util.FileSize(size)

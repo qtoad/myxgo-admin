@@ -116,14 +116,14 @@ type (
 
 // FormField is the form field with different options.
 type FormField struct {
-	Field          string          `json:"field"`
-	FieldClass     string          `json:"field_class"`
-	TypeName       db.DatabaseType `json:"type_name"`
-	Head           string          `json:"head"`
-	Foot           template.HTML   `json:"foot"`
-	FormType       form2.Type      `json:"form_type"`
-	FatherFormType form2.Type      `json:"father_form_type"`
-	FatherField    string          `json:"father_field"`
+	Field          string        `json:"field"`
+	FieldClass     string        `json:"field_class"`
+	TypeName       db.FieldType  `json:"type_name"`
+	Head           string        `json:"head"`
+	Foot           template.HTML `json:"foot"`
+	FormType       form2.Type    `json:"form_type"`
+	FatherFormType form2.Type    `json:"father_form_type"`
+	FatherField    string        `json:"father_field"`
 
 	RowWidth int
 	RowFlag  uint8
@@ -185,7 +185,7 @@ type FormField struct {
 func (f *FormField) GetRawValue(columns []string, v interface{}) string {
 	isJSON := len(columns) == 0
 	return modules.AorB(isJSON || modules.InArray(columns, f.Field),
-		db.GetValueFromDatabaseType(f.TypeName, v, isJSON).String(), "")
+		db.GetValueFromFieldType(f.TypeName, v, isJSON).String(), "")
 }
 
 func (f *FormField) UpdateValue(id, val string, res map[string]interface{}, sql *db.SQL) *FormField {
@@ -377,7 +377,7 @@ type FormPanel struct {
 
 	HideSideBar bool `json:"hide_side_bar"`
 
-	processChains DisplayProcessFnChains
+	processChains DisplayProcessFuncChains
 
 	HeaderHtml template.HTML `json:"header_html"`
 	FooterHtml template.HTML `json:"footer_html"`
@@ -442,7 +442,7 @@ func (f *FormPanel) AddXssJsFilter() *FormPanel {
 	return f
 }
 
-func (f *FormPanel) SetPrimaryKey(name string, typ db.DatabaseType) *FormPanel {
+func (f *FormPanel) SetPrimaryKey(name string, typ db.FieldType) *FormPanel {
 	f.primaryKey = primaryKey{Name: name, Type: typ}
 	return f
 }
@@ -467,16 +467,16 @@ func (f *FormPanel) HideBackButton() *FormPanel {
 	return f
 }
 
-func (f *FormPanel) AddFieldTr(ctx *context.Context, head, field string, filedType db.DatabaseType, formType form2.Type) *FormPanel {
+func (f *FormPanel) AddFieldTr(ctx *context.Context, head, field string, filedType db.FieldType, formType form2.Type) *FormPanel {
 	return f.AddFieldWithTranslation(ctx, head, field, filedType, formType)
 }
 
-func (f *FormPanel) AddFieldWithTranslation(ctx *context.Context, head, field string, filedType db.DatabaseType,
+func (f *FormPanel) AddFieldWithTranslation(ctx *context.Context, head, field string, filedType db.FieldType,
 	formType form2.Type) *FormPanel {
 	return f.AddField(language.GetWithLang(head, ctx.Lang()), field, filedType, formType)
 }
 
-func (f *FormPanel) AddField(head, field string, filedType db.DatabaseType, formType form2.Type) *FormPanel {
+func (f *FormPanel) AddField(head, field string, filedType db.FieldType, formType form2.Type) *FormPanel {
 
 	f.FieldList = append(f.FieldList, FormField{
 		Head:        head,
@@ -504,7 +504,7 @@ func (f *FormPanel) AddField(head, field string, filedType db.DatabaseType, form
 	f.FieldOptionExtJS(js)
 
 	// Set default Display Filter Function of different form type
-	setDefaultDisplayFnOfFormType(f, formType)
+	setDefaultDisplayFuncOfFormType(f, formType)
 
 	if formType.IsEditor() {
 		f.NoCompress = true

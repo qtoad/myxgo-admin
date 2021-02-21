@@ -15,7 +15,7 @@ func init() {
 	types.RegisterDisplayFnGenerator("carousel", new(Carousel))
 }
 
-func (c *Carousel) Get(args ...interface{}) types.FieldFilterFn {
+func (c *Carousel) Get(args ...interface{}) types.FieldFilterFunc {
 	return func(value types.FieldModel) interface{} {
 		fn := args[0].(types.FieldGetImgArrFn)
 		size := args[1].([]int)

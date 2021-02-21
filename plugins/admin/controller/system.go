@@ -2,6 +2,7 @@ package controller
 
 import (
 	"fmt"
+	"github.com/qtoad/mygo-admin/version"
 	"html/template"
 	"os"
 	"runtime"
@@ -26,7 +27,7 @@ func (h *Handler) SystemInfo(ctx *context.Context) {
 				"value": types.InfoItem{Content: "GoAdmin"},
 			}, {
 				"key":   types.InfoItem{Content: lg("go_admin_version")},
-				"value": types.InfoItem{Content: template.HTML(system.Version())},
+				"value": types.InfoItem{Content: template.HTML(version.Version())},
 			}, {
 				"key":   types.InfoItem{Content: lg("theme_name")},
 				"value": types.InfoItem{Content: template.HTML(aTemplate().Name())},

@@ -116,10 +116,10 @@ func (l *Librarian) GetIndexURL() string {
 	return l.indexURL
 }
 
-func (l *Librarian) InitPlugin(srv service.List) {
+func (l *Librarian) InitPlugin(srvList service.List) {
 
 	// DO NOT DELETE
-	l.InitBase(srv, Name)
+	l.InitBase(srvList, Name)
 
 	if len(*l.roots) == 0 {
 		checkExist, _ := l.siteTable().
@@ -141,7 +141,7 @@ func (l *Librarian) InitPlugin(srv service.List) {
 
 	l.handler = controller.NewHandler(l.roots, l.theme)
 	l.guard = guard.New(l.roots, l.Conn, l.prefix)
-	l.App = l.initRouter(srv)
+	l.App = l.initRouter(srvList)
 	l.handler.HTML = l.HTMLMenu
 
 	language.Lang[language.CN].Combine(language2.CN)
