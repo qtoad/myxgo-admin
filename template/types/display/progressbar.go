@@ -9,14 +9,14 @@ import (
 )
 
 type ProgressBar struct {
-	types.BaseDisplayFuncGenerator
+	types.BaseDisplayFnGenerator
 }
 
 func init() {
 	types.RegisterDisplayFnGenerator("progressbar", new(ProgressBar))
 }
 
-func (p *ProgressBar) Get(args ...interface{}) types.FieldFilterFunc {
+func (p *ProgressBar) Get(args ...interface{}) types.FieldFilterFn {
 	return func(value types.FieldModel) interface{} {
 		param := args[0].([]types.FieldProgressBarData)
 		style := "primary"

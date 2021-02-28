@@ -487,7 +487,7 @@ func WarningPanelWithDescAndTitle(msg, desc, title string, pts ...PageType) type
 	}
 }
 
-var DefaultFuncMap = template.FuncMap{
+var DefaultFnMap = template.FuncMap{
 	"lang":     language.Get,
 	"langHtml": language.GetFromHtml,
 	"link": func(cdnUrl, prefixUrl, assetsUrl string) string {
@@ -573,7 +573,7 @@ func (b *BaseComponent) GetContentWithData(obj interface{}) template.HTML {
 
 func (b *BaseComponent) GetTemplate() (*template.Template, string) {
 	tmpl, err := template.New(b.Name).
-		Funcs(DefaultFuncMap).
+		Funcs(DefaultFnMap).
 		Parse(b.HTMLData)
 
 	if err != nil {

@@ -87,7 +87,7 @@ func (b *BaseTheme) GetTemplate(isPjax bool) (tmpl *template.Template, name stri
 		root := config.GetAssetRootPath() + "pages/"
 		if !isPjax {
 			name = "layout"
-			tmpl, err = template.New("layout").Funcs(adminTemplate.DefaultFuncMap).
+			tmpl, err = template.New("layout").Funcs(adminTemplate.DefaultFnMap).
 				ParseFiles(
 					root+b.TemplateList["layout"]+".tmpl",
 					root+b.TemplateList["head"]+".tmpl",
@@ -100,20 +100,20 @@ func (b *BaseTheme) GetTemplate(isPjax bool) (tmpl *template.Template, name stri
 					root+b.TemplateList["content"]+".tmpl")
 		} else {
 			name = "content"
-			tmpl, err = template.New("content").Funcs(adminTemplate.DefaultFuncMap).
+			tmpl, err = template.New("content").Funcs(adminTemplate.DefaultFnMap).
 				ParseFiles(root+b.TemplateList["admin_panel"]+".tmpl", root+b.TemplateList["content"]+".tmpl")
 		}
 	} else {
 		if !isPjax {
 			name = "layout"
-			tmpl, err = template.New("layout").Funcs(adminTemplate.DefaultFuncMap).
+			tmpl, err = template.New("layout").Funcs(adminTemplate.DefaultFnMap).
 				Parse(b.TemplateList["layout"] +
 					b.TemplateList["head"] + b.TemplateList["header"] + b.TemplateList["sidebar"] +
 					b.TemplateList["footer"] + b.TemplateList["js"] + b.TemplateList["menu"] +
 					b.TemplateList["admin_panel"] + b.TemplateList["content"])
 		} else {
 			name = "content"
-			tmpl, err = template.New("content").Funcs(adminTemplate.DefaultFuncMap).
+			tmpl, err = template.New("content").Funcs(adminTemplate.DefaultFnMap).
 				Parse(b.TemplateList["admin_panel"] + b.TemplateList["content"])
 		}
 	}

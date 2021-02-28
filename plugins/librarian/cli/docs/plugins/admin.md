@@ -220,9 +220,9 @@ func GetUserTable(ctx *context.Context) (userTable table.Table) {
 	formList.AddField("Phone", "phone", db.Varchar, form.Text)
 	formList.AddField("City", "city", db.Varchar, form.Text)
 
-	// 自定义一个表单字段，使用 FieldPostFilterFunc 可以进行连表操作
+	// 自定义一个表单字段，使用 FieldPostFilterFn 可以进行连表操作
 	formList.AddField("Custom Field", "role", db.Varchar, form.Text).
-		FieldPostFilterFunc(func(value types.PostFieldModel) interface{} {
+		FieldPostFilterFn(func(value types.PostFieldModel) interface{} {
 			fmt.Println("user custom field", value)
 			return ""
 		})

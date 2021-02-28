@@ -20,7 +20,7 @@ func GetExternalTable(ctx *context.Context) (externalTable table.Table) {
 	info.SetTable("external").
 		SetTitle("Externals").
 		SetDescription("Externals").
-		SetGetDataFunc(func(param parameter.Parameters) ([]map[string]interface{}, int) {
+		SetGetDataFn(func(param parameter.Parameters) ([]map[string]interface{}, int) {
 			return []map[string]interface{}{
 				{
 					"id":    10,
@@ -49,7 +49,7 @@ func GetExternalTable(ctx *context.Context) (externalTable table.Table) {
 	detail.SetTable("external").
 		SetTitle("Externals").
 		SetDescription("Externals").
-		SetGetDataFunc(func(param parameter.Parameters) ([]map[string]interface{}, int) {
+		SetGetDataFn(func(param parameter.Parameters) ([]map[string]interface{}, int) {
 			return []map[string]interface{}{
 				{
 					"id":    10,

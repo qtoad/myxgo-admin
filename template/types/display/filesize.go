@@ -8,14 +8,14 @@ import (
 )
 
 type FileSize struct {
-	types.BaseDisplayFuncGenerator
+	types.BaseDisplayFnGenerator
 }
 
 func init() {
 	types.RegisterDisplayFnGenerator("filesize", new(FileSize))
 }
 
-func (f *FileSize) Get(args ...interface{}) types.FieldFilterFunc {
+func (f *FileSize) Get(args ...interface{}) types.FieldFilterFn {
 	return func(value types.FieldModel) interface{} {
 		size, _ := strconv.ParseUint(value.Value, 10, 64)
 		return util.FileSize(size)

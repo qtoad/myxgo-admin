@@ -11,28 +11,28 @@ import (
 )
 
 type DisplayFnGenerator interface {
-	Get(args ...interface{}) FieldFilterFunc
+	Get(args ...interface{}) FieldFilterFn
 	JS() template.HTML
 	HTML() template.HTML
 }
 
-type BaseDisplayFuncGenerator struct{}
+type BaseDisplayFnGenerator struct{}
 
-func (base *BaseDisplayFuncGenerator) JS() template.HTML   { return "" }
-func (base *BaseDisplayFuncGenerator) HTML() template.HTML { return "" }
+func (base *BaseDisplayFnGenerator) JS() template.HTML   { return "" }
+func (base *BaseDisplayFnGenerator) HTML() template.HTML { return "" }
 
-var displayFuncGens = make(map[string]DisplayFnGenerator)
+var displayFnGens = make(map[string]DisplayFnGenerator)
 
 func RegisterDisplayFnGenerator(key string, gen DisplayFnGenerator) {
-	if _, ok := displayFuncGens[key]; ok {
+	if _, ok := displayFnGens[key]; ok {
 		panic("display function generator has been registered")
 	}
-	displayFuncGens[key] = gen
+	displayFnGens[key] = gen
 }
 
 type FieldDisplay struct {
-	Display              FieldFilterFunc
-	DisplayProcessChains DisplayProcessFuncChains
+	Display              FieldFilterFn
+	DisplayProcessChains DisplayProcessFnChains
 }
 
 func (f FieldDisplay) ToDisplay(value FieldModel) interface{} {
@@ -144,7 +144,7 @@ func (f FieldDisplay) ToDisplayStringArrayArray(value FieldModel) [][]string {
 	}
 }
 
-func (f FieldDisplay) AddLimit(limit int) DisplayProcessFuncChains {
+func (f FieldDisplay) AddLimit(limit int) DisplayProcessFnChains {
 	return f.DisplayProcessChains.Add(func(value FieldModel) interface{} {
 		if limit > len(value.Value) {
 			return value
@@ -156,13 +156,13 @@ func (f FieldDisplay) AddLimit(limit int) DisplayProcessFuncChains {
 	})
 }
 
-func (f FieldDisplay) AddTrimSpace() DisplayProcessFuncChains {
+func (f FieldDisplay) AddTrimSpace() DisplayProcessFnChains {
 	return f.DisplayProcessChains.Add(func(value FieldModel) interface{} {
 		return strings.TrimSpace(value.Value)
 	})
 }
 
-func (f FieldDisplay) AddSubstr(start int, end int) DisplayProcessFuncChains {
+func (f FieldDisplay) AddSubstr(start int, end int) DisplayProcessFnChains {
 	return f.DisplayProcessChains.Add(func(value FieldModel) interface{} {
 		if start > end || start > len(value.Value) || end < 0 {
 			return ""
@@ -177,94 +177,94 @@ func (f FieldDisplay) AddSubstr(start int, end int) DisplayProcessFuncChains {
 	})
 }
 
-func (f FieldDisplay) AddToTitle() DisplayProcessFuncChains {
+func (f FieldDisplay) AddToTitle() DisplayProcessFnChains {
 	return f.DisplayProcessChains.Add(func(value FieldModel) interface{} {
 		return strings.Title(value.Value)
 	})
 }
 
-func (f FieldDisplay) AddToUpper() DisplayProcessFuncChains {
+func (f FieldDisplay) AddToUpper() DisplayProcessFnChains {
 	return f.DisplayProcessChains.Add(func(value FieldModel) interface{} {
 		return strings.ToUpper(value.Value)
 	})
 }
 
-func (f FieldDisplay) AddToLower() DisplayProcessFuncChains {
+func (f FieldDisplay) AddToLower() DisplayProcessFnChains {
 	return f.DisplayProcessChains.Add(func(value FieldModel) interface{} {
 		return strings.ToLower(value.Value)
 	})
 }
 
-type DisplayProcessFuncChains []FieldFilterFunc
+type DisplayProcessFnChains []FieldFilterFn
 
-func (d DisplayProcessFuncChains) Valid() bool {
+func (d DisplayProcessFnChains) Valid() bool {
 	return len(d) > 0
 }
 
-func (d DisplayProcessFuncChains) Add(filter FieldFilterFunc) DisplayProcessFuncChains {
+func (d DisplayProcessFnChains) Add(filter FieldFilterFn) DisplayProcessFnChains {
 	return append(d, filter)
 }
 
-func (d DisplayProcessFuncChains) Append(f DisplayProcessFuncChains) DisplayProcessFuncChains {
+func (d DisplayProcessFnChains) Append(f DisplayProcessFnChains) DisplayProcessFnChains {
 	return append(d, f...)
 }
 
-func (d DisplayProcessFuncChains) Copy() DisplayProcessFuncChains {
+func (d DisplayProcessFnChains) Copy() DisplayProcessFnChains {
 	if len(d) == 0 {
-		return make(DisplayProcessFuncChains, 0)
+		return make(DisplayProcessFnChains, 0)
 	} else {
-		var newDisplayProcessFnChains = make(DisplayProcessFuncChains, len(d))
+		var newDisplayProcessFnChains = make(DisplayProcessFnChains, len(d))
 		copy(newDisplayProcessFnChains, d)
 		return newDisplayProcessFnChains
 	}
 }
 
-func chooseDisplayProcessChains(internal DisplayProcessFuncChains) DisplayProcessFuncChains {
+func chooseDisplayProcessChains(internal DisplayProcessFnChains) DisplayProcessFnChains {
 	if len(internal) > 0 {
 		return internal
 	}
 	return globalDisplayProcessChains.Copy()
 }
 
-var globalDisplayProcessChains = make(DisplayProcessFuncChains, 0)
+var globalDisplayProcessChains = make(DisplayProcessFnChains, 0)
 
-func AddGlobalDisplayProcessFunc(filterFunc FieldFilterFunc) {
-	globalDisplayProcessChains = globalDisplayProcessChains.Add(filterFunc)
+func AddGlobalDisplayProcessFn(filterFn FieldFilterFn) {
+	globalDisplayProcessChains = globalDisplayProcessChains.Add(filterFn)
 }
 
-func AddLimit(limit int) DisplayProcessFuncChains {
+func AddLimit(limit int) DisplayProcessFnChains {
 	return addLimit(limit, globalDisplayProcessChains)
 }
 
-func AddTrimSpace() DisplayProcessFuncChains {
+func AddTrimSpace() DisplayProcessFnChains {
 	return addTrimSpace(globalDisplayProcessChains)
 }
 
-func AddSubstr(start int, end int) DisplayProcessFuncChains {
+func AddSubstr(start int, end int) DisplayProcessFnChains {
 	return addSubstr(start, end, globalDisplayProcessChains)
 }
 
-func AddToTitle() DisplayProcessFuncChains {
+func AddToTitle() DisplayProcessFnChains {
 	return addToTitle(globalDisplayProcessChains)
 }
 
-func AddToUpper() DisplayProcessFuncChains {
+func AddToUpper() DisplayProcessFnChains {
 	return addToUpper(globalDisplayProcessChains)
 }
 
-func AddToLower() DisplayProcessFuncChains {
+func AddToLower() DisplayProcessFnChains {
 	return addToLower(globalDisplayProcessChains)
 }
 
-func AddXssFilter() DisplayProcessFuncChains {
+func AddXssFilter() DisplayProcessFnChains {
 	return addXssFilter(globalDisplayProcessChains)
 }
 
-func AddXssJsFilter() DisplayProcessFuncChains {
+func AddXssJsFilter() DisplayProcessFnChains {
 	return addXssJsFilter(globalDisplayProcessChains)
 }
 
-func addLimit(limit int, chains DisplayProcessFuncChains) DisplayProcessFuncChains {
+func addLimit(limit int, chains DisplayProcessFnChains) DisplayProcessFnChains {
 	chains = chains.Add(func(value FieldModel) interface{} {
 		if limit > len(value.Value) {
 			return value
@@ -277,14 +277,14 @@ func addLimit(limit int, chains DisplayProcessFuncChains) DisplayProcessFuncChai
 	return chains
 }
 
-func addTrimSpace(chains DisplayProcessFuncChains) DisplayProcessFuncChains {
+func addTrimSpace(chains DisplayProcessFnChains) DisplayProcessFnChains {
 	chains = chains.Add(func(value FieldModel) interface{} {
 		return strings.TrimSpace(value.Value)
 	})
 	return chains
 }
 
-func addSubstr(start int, end int, chains DisplayProcessFuncChains) DisplayProcessFuncChains {
+func addSubstr(start int, end int, chains DisplayProcessFnChains) DisplayProcessFnChains {
 	chains = chains.Add(func(value FieldModel) interface{} {
 		if start > end || start > len(value.Value) || end < 0 {
 			return ""
@@ -300,35 +300,35 @@ func addSubstr(start int, end int, chains DisplayProcessFuncChains) DisplayProce
 	return chains
 }
 
-func addToTitle(chains DisplayProcessFuncChains) DisplayProcessFuncChains {
+func addToTitle(chains DisplayProcessFnChains) DisplayProcessFnChains {
 	chains = chains.Add(func(value FieldModel) interface{} {
 		return strings.Title(value.Value)
 	})
 	return chains
 }
 
-func addToUpper(chains DisplayProcessFuncChains) DisplayProcessFuncChains {
+func addToUpper(chains DisplayProcessFnChains) DisplayProcessFnChains {
 	chains = chains.Add(func(value FieldModel) interface{} {
 		return strings.ToUpper(value.Value)
 	})
 	return chains
 }
 
-func addToLower(chains DisplayProcessFuncChains) DisplayProcessFuncChains {
+func addToLower(chains DisplayProcessFnChains) DisplayProcessFnChains {
 	chains = chains.Add(func(value FieldModel) interface{} {
 		return strings.ToLower(value.Value)
 	})
 	return chains
 }
 
-func addXssFilter(chains DisplayProcessFuncChains) DisplayProcessFuncChains {
+func addXssFilter(chains DisplayProcessFnChains) DisplayProcessFnChains {
 	chains = chains.Add(func(value FieldModel) interface{} {
 		return html.EscapeString(value.Value)
 	})
 	return chains
 }
 
-func addXssJsFilter(chains DisplayProcessFuncChains) DisplayProcessFuncChains {
+func addXssJsFilter(chains DisplayProcessFnChains) DisplayProcessFnChains {
 	chains = chains.Add(func(value FieldModel) interface{} {
 		replacer := strings.NewReplacer("<script>", "&lt;script&gt;", "</script>", "&lt;/script&gt;")
 		return replacer.Replace(value.Value)
@@ -336,7 +336,7 @@ func addXssJsFilter(chains DisplayProcessFuncChains) DisplayProcessFuncChains {
 	return chains
 }
 
-func setDefaultDisplayFuncOfFormType(f *FormPanel, typ form.Type) {
+func setDefaultDisplayFnOfFormType(f *FormPanel, typ form.Type) {
 	if typ.IsMultiFile() {
 		f.FieldList[f.curFieldListIndex].Display = func(value FieldModel) interface{} {
 			if value.Value == "" {

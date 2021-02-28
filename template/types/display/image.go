@@ -6,14 +6,14 @@ import (
 )
 
 type Image struct {
-	types.BaseDisplayFuncGenerator
+	types.BaseDisplayFnGenerator
 }
 
 func init() {
 	types.RegisterDisplayFnGenerator("image", new(Image))
 }
 
-func (image *Image) Get(args ...interface{}) types.FieldFilterFunc {
+func (image *Image) Get(args ...interface{}) types.FieldFilterFn {
 	param := args[2].([]string)
 	return func(value types.FieldModel) interface{} {
 		if len(param) > 0 {

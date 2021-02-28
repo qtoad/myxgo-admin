@@ -50,7 +50,7 @@ func (db *Mssql) Name() string {
 
 // TODO: 整理优化
 
-func replaceStringFunc(pattern, src string, rpl func(s string) string) (string, error) {
+func replaceStringFn(pattern, src string, rpl func(s string) string) (string, error) {
 
 	r, err := regexp.Compile(pattern)
 	if err != nil {
@@ -111,7 +111,7 @@ func matchString(pattern string, src string) ([]string, error) {
 // 在执行sql之前对sql进行进一步处理
 func (db *Mssql) handleSqlBeforeExec(query string) string {
 	index := 0
-	str, _ := replaceStringFunc("\\?", query, func(s string) string {
+	str, _ := replaceStringFn("\\?", query, func(s string) string {
 		index++
 		return fmt.Sprintf("@p%d", index)
 	})

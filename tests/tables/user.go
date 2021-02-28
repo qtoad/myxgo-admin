@@ -214,7 +214,7 @@ func GetUserTable(ctx *context.Context) (userTable table.Table) {
 		FieldDisplay(func(value types.FieldModel) interface{} {
 			return strings.Split(value.Value, ",")
 		}).
-		FieldPostFilterFunc(func(value types.PostFieldModel) interface{} {
+		FieldPostFilterFn(func(value types.PostFieldModel) interface{} {
 			return strings.Join(value.Value, ",")
 		})
 	formList.AddField("Work Experience", "experience", db.Tinyint, form.SelectSingle).

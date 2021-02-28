@@ -21,7 +21,7 @@ func GetLoginComponent() *Login {
 	}
 }
 
-var DefaultFuncMap = template.FuncMap{
+var DefaultFnMap = template.FuncMap{
 	"lang":     language.Get,
 	"langHtml": language.GetFromHtml,
 	"link": func(cdnUrl, prefixUrl, assetsUrl string) string {
@@ -46,7 +46,7 @@ var DefaultFuncMap = template.FuncMap{
 
 func (l *Login) GetTemplate() (*template.Template, string) {
 	tmpl, err := template.New("login_theme1").
-		Funcs(DefaultFuncMap).
+		Funcs(DefaultFnMap).
 		Parse(loginTmpl)
 
 	if err != nil {

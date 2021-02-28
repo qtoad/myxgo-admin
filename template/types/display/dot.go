@@ -7,14 +7,14 @@ import (
 )
 
 type Dot struct {
-	types.BaseDisplayFuncGenerator
+	types.BaseDisplayFnGenerator
 }
 
 func init() {
 	types.RegisterDisplayFnGenerator("dot", new(Dot))
 }
 
-func (d *Dot) Get(args ...interface{}) types.FieldFilterFunc {
+func (d *Dot) Get(args ...interface{}) types.FieldFilterFn {
 	return func(value types.FieldModel) interface{} {
 		icons := args[0].(map[string]types.FieldDotColor)
 		defaultDot := types.FieldDotColor("")

@@ -327,6 +327,6 @@ window.setTimeout(function(){
 	return p
 }
 
-type GetPanelFunc func(ctx interface{}) (Panel, error)
+type GetPanelFn func(ctx interface{}) (Panel, error)
 
-type GetPanelInfoFunc func(ctx *context.Context) (Panel, error)
+type GetPanelInfoFn func(ctx *context.Context) (Panel, error)

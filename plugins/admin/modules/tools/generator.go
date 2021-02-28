@@ -233,7 +233,7 @@ type Field struct {
 	CreateHide   bool   `json:"create_hide"`
 	Default      string `json:"default"`
 	CanAdd       bool   `json:"can_add"`
-	ExtraFunc    string `json:"extra_func"`
+	ExtraFn      string `json:"extra_fn"`
 }
 
 func Generate(param *Param) error {

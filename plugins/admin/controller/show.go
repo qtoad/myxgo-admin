@@ -354,7 +354,7 @@ func (h *Handler) Export(ctx *context.Context) {
 		params    parameter.Parameters
 	)
 
-	if fn := panel.GetInfo().ExportProcessFunc; fn != nil {
+	if fn := panel.GetInfo().ExportProcessFn; fn != nil {
 		params = parameter.GetParam(ctx.Request.URL, tableInfo.DefaultPageSize, tableInfo.SortField,
 			tableInfo.GetSort())
 		p, err := fn(params.WithIsAll(param.IsAll))

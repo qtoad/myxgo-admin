@@ -175,7 +175,7 @@ func GetUserTable(ctx *context.Context) (userTable table.Table) {
 <span class="input-group-addon"><i class="fa fa-pencil fa-fw"></i></span>
 <input type="text" name="{{.Field}}" value="{{.Value}}" class="form-control {{.Field}}" placeholder="please input {{.Head}}">`)
 	formList.AddField("City", "city", db.Varchar, form.SelectSingle).
-		FieldOptionInitFunc(func(val types.FieldModel) types.FieldOptions {
+		FieldOptionInitFn(func(val types.FieldModel) types.FieldOptions {
 			return types.FieldOptions{
 				{Value: val.Value, Text: val.Value, Selected: true},
 			}
@@ -186,7 +186,7 @@ func GetUserTable(ctx *context.Context) (userTable table.Table) {
 		{Text: "ShenZhen", Value: "shenzhen"},
 	})
 	formList.AddField("Custom Field", "role", db.Varchar, form.Text).
-		FieldPostFilterFunc(func(value types.PostFieldModel) interface{} {
+		FieldPostFilterFn(func(value types.PostFieldModel) interface{} {
 			fmt.Println("user custom field", value)
 			return ""
 		})

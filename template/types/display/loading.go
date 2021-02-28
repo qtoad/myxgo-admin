@@ -7,14 +7,14 @@ import (
 )
 
 type Loading struct {
-	types.BaseDisplayFuncGenerator
+	types.BaseDisplayFnGenerator
 }
 
 func init() {
 	types.RegisterDisplayFnGenerator("loading", new(Loading))
 }
 
-func (l *Loading) Get(args ...interface{}) types.FieldFilterFunc {
+func (l *Loading) Get(args ...interface{}) types.FieldFilterFn {
 	return func(value types.FieldModel) interface{} {
 		param := args[0].([]string)
 

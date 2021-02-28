@@ -28,13 +28,13 @@ func ComposeHtml(temList map[string]string, separation bool, compo interface{}, 
 		for _, v := range templateName {
 			files = append(files, root+temList["components/"+v]+".tmpl")
 		}
-		tmpl, err = template.New("comp").Funcs(template2.DefaultFuncMap).ParseFiles(files...)
+		tmpl, err = template.New("comp").Funcs(template2.DefaultFnMap).ParseFiles(files...)
 	} else {
 		var text = ""
 		for _, v := range templateName {
 			text += temList["components/"+v]
 		}
-		tmpl, err = template.New("comp").Funcs(template2.DefaultFuncMap).Parse(text)
+		tmpl, err = template.New("comp").Funcs(template2.DefaultFnMap).Parse(text)
 	}
 
 	if err != nil {

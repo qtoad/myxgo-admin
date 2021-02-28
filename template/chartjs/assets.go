@@ -168,7 +168,7 @@ func AssetDir(name string) ([]string, error) {
 			}
 		}
 	}
-	if node.Func != nil {
+	if node.Fn != nil {
 		return nil, fmt.Errorf("Asset %s not found", name)
 	}
 	rv := make([]string, 0, len(node.Children))
@@ -179,7 +179,7 @@ func AssetDir(name string) ([]string, error) {
 }
 
 type bintree struct {
-	Func     func() (*asset, error)
+	Fn       func() (*asset, error)
 	Children map[string]*bintree
 }
 

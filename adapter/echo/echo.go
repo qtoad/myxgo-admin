@@ -48,13 +48,13 @@ func (e *Echo) DisableLog()                { panic("not implement") }
 func (e *Echo) Static(prefix, path string) { panic("not implement") }
 
 // Content implements the method Adapter.Content.
-func (e *Echo) Content(ctx interface{}, getPanelFunc types.GetPanelFunc, nodeProcessor context.NodeProcessor, btns ...types.Button) {
-	e.GetContent(ctx, getPanelFunc, e, btns, nodeProcessor)
+func (e *Echo) Content(ctx interface{}, getPanelFn types.GetPanelFn, nodeProcessor context.NodeProcessor, btns ...types.Button) {
+	e.GetContent(ctx, getPanelFn, e, btns, nodeProcessor)
 }
 
-type HandlerFunc func(ctx echo.Context) (types.Panel, error)
+type HandlerFn func(ctx echo.Context) (types.Panel, error)
 
-func Content(handler HandlerFunc) echo.HandlerFunc {
+func Content(handler HandlerFn) echo.HandlerFunc {
 	return func(ctx echo.Context) error {
 		engine.Content(ctx, func(ctx interface{}) (types.Panel, error) {
 			return handler(ctx.(echo.Context))

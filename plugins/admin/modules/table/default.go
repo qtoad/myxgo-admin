@@ -33,12 +33,12 @@ type DefaultTable struct {
 	connectionDriverMode string
 	connection           string
 	sourceURL            string
-	getDataFunc          GetDataFunc
+	getDataFn            GetDataFn
 
 	dbObj db.Connection
 }
 
-type GetDataFunc func(params parameter.Parameters) ([]map[string]interface{}, int)
+type GetDataFn func(params parameter.Parameters) ([]map[string]interface{}, int)
 
 func NewDefaultTable(cfgs ...Config) Table {
 
@@ -70,7 +70,7 @@ func NewDefaultTable(cfgs ...Config) Table {
 		connectionDriverMode: cfg.DriverMode,
 		connection:           cfg.Connection,
 		sourceURL:            cfg.SourceURL,
-		getDataFunc:          cfg.GetDataFunc,
+		getDataFn:            cfg.GetDataFn,
 	}
 }
 
@@ -87,11 +87,11 @@ func (tb *DefaultTable) Copy() Table {
 			Info: types.NewInfoPanel(tb.PrimaryKey.Name).SetTable(tb.Info.Table).
 				SetDescription(tb.Info.Description).
 				SetTitle(tb.Info.Title).
-				SetGetDataFunc(tb.Info.GetDataFunc),
+				SetGetDataFn(tb.Info.GetDataFn),
 			Detail: types.NewInfoPanel(tb.PrimaryKey.Name).SetTable(tb.Detail.Table).
 				SetDescription(tb.Detail.Description).
 				SetTitle(tb.Detail.Title).
-				SetGetDataFunc(tb.Detail.GetDataFunc),
+				SetGetDataFn(tb.Detail.GetDataFn),
 			CanAdd:     tb.CanAdd,
 			Editable:   tb.Editable,
 			Deletable:  tb.Deletable,
@@ -102,7 +102,7 @@ func (tb *DefaultTable) Copy() Table {
 		connectionDriverMode: tb.connectionDriverMode,
 		connection:           tb.connection,
 		sourceURL:            tb.sourceURL,
-		getDataFunc:          tb.getDataFunc,
+		getDataFn:            tb.getDataFn,
 	}
 }
 
@@ -115,20 +115,20 @@ func (tb *DefaultTable) GetData(params parameter.Parameters) (PanelInfo, error) 
 		beginTime = time.Now()
 	)
 
-	if tb.Info.UpdateParametersFuncs != nil {
-		for _, fn := range tb.Info.UpdateParametersFuncs {
+	if tb.Info.UpdateParametersFns != nil {
+		for _, fn := range tb.Info.UpdateParametersFns {
 			fn(&params)
 		}
 	}
 
-	if tb.Info.QueryFilterFunc != nil {
+	if tb.Info.QueryFilterFn != nil {
 		var ids []string
 		var stopQuery bool
 
-		if tb.getDataFunc == nil && tb.Info.GetDataFunc == nil {
-			ids, stopQuery = tb.Info.QueryFilterFunc(params, tb.db())
+		if tb.getDataFn == nil && tb.Info.GetDataFn == nil {
+			ids, stopQuery = tb.Info.QueryFilterFn(params, tb.db())
 		} else {
-			ids, stopQuery = tb.Info.QueryFilterFunc(params, nil)
+			ids, stopQuery = tb.Info.QueryFilterFn(params, nil)
 		}
 
 		if stopQuery {
@@ -136,12 +136,12 @@ func (tb *DefaultTable) GetData(params parameter.Parameters) (PanelInfo, error) 
 		}
 	}
 
-	if tb.getDataFunc != nil {
-		data, size = tb.getDataFunc(params)
+	if tb.getDataFn != nil {
+		data, size = tb.getDataFn(params)
 	} else if tb.sourceURL != "" {
 		data, size = tb.getDataFromURL(params)
-	} else if tb.Info.GetDataFunc != nil {
-		data, size = tb.Info.GetDataFunc(params)
+	} else if tb.Info.GetDataFn != nil {
+		data, size = tb.Info.GetDataFn(params)
 	} else if params.IsAll() {
 		return tb.getAllDataFromDatabase(params)
 	} else {
@@ -228,12 +228,12 @@ func (tb *DefaultTable) GetDataWithIds(params parameter.Parameters) (PanelInfo, 
 		beginTime = time.Now()
 	)
 
-	if tb.getDataFunc != nil {
-		data, size = tb.getDataFunc(params)
+	if tb.getDataFn != nil {
+		data, size = tb.getDataFn(params)
 	} else if tb.sourceURL != "" {
 		data, size = tb.getDataFromURL(params)
-	} else if tb.Info.GetDataFunc != nil {
-		data, size = tb.Info.GetDataFunc(params)
+	} else if tb.Info.GetDataFn != nil {
+		data, size = tb.Info.GetDataFn(params)
 	} else {
 		return tb.getDataFromDatabase(params)
 	}
@@ -633,14 +633,14 @@ func (tb *DefaultTable) GetDataWithId(params parameter.Parameters) (FormInfo, er
 		id      = params.PK()
 	)
 
-	if tb.getDataFunc != nil {
-		res = getDataRes(tb.getDataFunc(params))
+	if tb.getDataFn != nil {
+		res = getDataRes(tb.getDataFn(params))
 	} else if tb.sourceURL != "" {
 		res = getDataRes(tb.getDataFromURL(params))
-	} else if tb.Detail.GetDataFunc != nil {
-		res = getDataRes(tb.Detail.GetDataFunc(params))
-	} else if tb.Info.GetDataFunc != nil {
-		res = getDataRes(tb.Info.GetDataFunc(params))
+	} else if tb.Detail.GetDataFn != nil {
+		res = getDataRes(tb.Detail.GetDataFn(params))
+	} else if tb.Info.GetDataFn != nil {
+		res = getDataRes(tb.Info.GetDataFn(params))
 	} else {
 
 		columns, _ = tb.getColumns(tb.Form.Table)
@@ -789,13 +789,13 @@ func (tb *DefaultTable) UpdateData(dataList form.Values) error {
 		}
 	}
 
-	if tb.Form.PreProcessFunc != nil {
-		dataList = tb.Form.PreProcessFunc(dataList)
+	if tb.Form.PreProcessFn != nil {
+		dataList = tb.Form.PreProcessFn(dataList)
 	}
 
-	if tb.Form.UpdateFunc != nil {
+	if tb.Form.UpdateFn != nil {
 		dataList.Delete(form.PostTypeKey)
-		err = tb.Form.UpdateFunc(tb.PreProcessValue(dataList, types.PostTypeUpdate))
+		err = tb.Form.UpdateFn(tb.PreProcessValue(dataList, types.PostTypeUpdate))
 		if err != nil {
 			errMsg = "post error: " + err.Error()
 		}
@@ -857,13 +857,13 @@ func (tb *DefaultTable) InsertData(dataList form.Values) error {
 		}
 	}
 
-	if frm.PreProcessFunc != nil {
-		dataList = frm.PreProcessFunc(dataList)
+	if frm.PreProcessFn != nil {
+		dataList = frm.PreProcessFn(dataList)
 	}
 
-	if frm.InsertFunc != nil {
+	if frm.InsertFn != nil {
 		dataList.Delete(form.PostTypeKey)
-		err = frm.InsertFunc(tb.PreProcessValue(dataList, types.PostTypeCreate))
+		err = frm.InsertFn(tb.PreProcessValue(dataList, types.PostTypeCreate))
 		if err != nil {
 			errMsg = "post error: " + err.Error()
 		}
@@ -888,7 +888,7 @@ func (tb *DefaultTable) getInjectValueFromFormValue(dataList form.Values, typ ty
 		exceptString  = make([]string, 0)
 		columns, auto = tb.getColumns(tb.Form.Table)
 
-		fun types.PostFieldFilterFunc
+		fn types.PostFieldFilterFn
 	)
 
 	// If a key is a auto increment primary key, it can`t be insert or update.
@@ -919,12 +919,12 @@ func (tb *DefaultTable) getInjectValueFromFormValue(dataList form.Values, typ ty
 				field := tb.Form.FieldList.FindByFieldName(k)
 				delimiter := ","
 				if field != nil {
-					fun = field.PostFilterFunc
+					fn = field.PostFilterFn
 					delimiter = modules.SetDefault(field.DefaultOptionDelimiter, ",")
 				}
 				vv := modules.RemoveBlankFromArray(v)
-				if fun != nil {
-					value[k] = fun(types.PostFieldModel{
+				if fn != nil {
+					value[k] = fn(types.PostFieldModel{
 						ID:       dataList.Get(tb.PrimaryKey.Name),
 						Value:    vv,
 						Row:      dataList.ToMap(),
@@ -941,8 +941,8 @@ func (tb *DefaultTable) getInjectValueFromFormValue(dataList form.Values, typ ty
 				}
 			} else {
 				field := tb.Form.FieldList.FindByFieldName(k)
-				if field != nil && field.PostFilterFunc != nil {
-					field.PostFilterFunc(types.PostFieldModel{
+				if field != nil && field.PostFilterFn != nil {
+					field.PostFilterFn(types.PostFieldModel{
 						ID:       dataList.Get(tb.PrimaryKey.Name),
 						Value:    modules.RemoveBlankFromArray(v),
 						Row:      dataList.ToMap(),
@@ -960,18 +960,18 @@ func (tb *DefaultTable) PreProcessValue(dataList form.Values, typ types.PostType
 	exceptString := []string{form.PreviousKey, form.MethodKey, form.TokenKey,
 		constant.IframeKey, constant.IframeIDKey}
 	dataList = dataList.RemoveRemark()
-	var fun types.PostFieldFilterFunc
+	var fn types.PostFieldFilterFn
 
 	for k, v := range dataList {
 		k = strings.ReplaceAll(k, "[]", "")
 		if !modules.InArray(exceptString, k) {
 			field := tb.Form.FieldList.FindByFieldName(k)
 			if field != nil {
-				fun = field.PostFilterFunc
+				fn = field.PostFilterFn
 			}
 			vv := modules.RemoveBlankFromArray(v)
-			if fun != nil {
-				dataList.Add(k, fmt.Sprintf("%s", fun(types.PostFieldModel{
+			if fn != nil {
+				dataList.Add(k, fmt.Sprintf("%s", fn(types.PostFieldModel{
 					ID:       dataList.Get(tb.PrimaryKey.Name),
 					Value:    vv,
 					Row:      dataList.ToMap(),
@@ -1023,14 +1023,14 @@ func (tb *DefaultTable) DeleteData(id string) error {
 		}()
 	}
 
-	if tb.Info.PreDeleteFunc != nil {
-		if err = tb.Info.PreDeleteFunc(idArr); err != nil {
+	if tb.Info.PreDeleteFn != nil {
+		if err = tb.Info.PreDeleteFn(idArr); err != nil {
 			return err
 		}
 	}
 
-	if tb.Info.DeleteFunc != nil {
-		err = tb.Info.DeleteFunc(idArr)
+	if tb.Info.DeleteFn != nil {
+		err = tb.Info.DeleteFn(idArr)
 		return err
 	}
 
@@ -1107,7 +1107,7 @@ func (tb *DefaultTable) delimiter2() string {
 }
 
 func (tb *DefaultTable) getDataFromDB() bool {
-	return tb.sourceURL == "" && tb.getDataFunc == nil && tb.Info.GetDataFunc == nil && tb.Detail.GetDataFunc == nil
+	return tb.sourceURL == "" && tb.getDataFn == nil && tb.Info.GetDataFn == nil && tb.Detail.GetDataFn == nil
 }
 
 // sql is a helper function return db sql.

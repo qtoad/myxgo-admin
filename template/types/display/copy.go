@@ -7,14 +7,14 @@ import (
 )
 
 type Copyable struct {
-	types.BaseDisplayFuncGenerator
+	types.BaseDisplayFnGenerator
 }
 
 func init() {
 	types.RegisterDisplayFnGenerator("copyable", new(Copyable))
 }
 
-func (c *Copyable) Get(args ...interface{}) types.FieldFilterFunc {
+func (c *Copyable) Get(args ...interface{}) types.FieldFilterFn {
 	return func(value types.FieldModel) interface{} {
 		return template.HTML(`
 <a href="javascript:void(0);" class="grid-column-copyable text-muted" data-content="` + value.Value + `" 

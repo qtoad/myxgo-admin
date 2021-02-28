@@ -51,11 +51,11 @@ func GetFileEngine(name string) Uploader {
 	panic("wrong uploader name")
 }
 
-// UploadFunc is a function to process the uploading logic.
-type UploadFunc func(*multipart.FileHeader, string) (string, error)
+// UploadFn is a function to process the uploading logic.
+type UploadFn func(*multipart.FileHeader, string) (string, error)
 
-// Upload receive the return value of given UploadFunc and put them into the form.
-func Upload(uploadFunc UploadFunc, form *multipart.Form) error {
+// Upload receive the return value of given UploadFn and put them into the form.
+func Upload(uploadFn UploadFn, form *multipart.Form) error {
 	var (
 		suffix   string
 		filename string
@@ -66,7 +66,7 @@ func Upload(uploadFunc UploadFunc, form *multipart.Form) error {
 			suffix = path.Ext(fileObj.Filename)
 			filename = modules.Uuid() + suffix
 
-			pathStr, err := uploadFunc(fileObj, filename)
+			pathStr, err := uploadFn(fileObj, filename)
 
 			if err != nil {
 				return err

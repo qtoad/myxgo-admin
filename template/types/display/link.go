@@ -6,14 +6,14 @@ import (
 )
 
 type Link struct {
-	types.BaseDisplayFuncGenerator
+	types.BaseDisplayFnGenerator
 }
 
 func init() {
 	types.RegisterDisplayFnGenerator("link", new(Link))
 }
 
-func (l *Link) Get(args ...interface{}) types.FieldFilterFunc {
+func (l *Link) Get(args ...interface{}) types.FieldFilterFn {
 	prefix := ""
 	openInNewTabs := false
 	if len(args) > 0 {

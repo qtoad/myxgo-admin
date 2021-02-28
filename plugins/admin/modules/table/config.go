@@ -14,7 +14,7 @@ type Config struct {
 	Exportable     bool
 	PrimaryKey     PrimaryKey
 	SourceURL      string
-	GetDataFunc    GetDataFunc
+	GetDataFn      GetDataFn
 	OnlyInfo       bool
 	OnlyNewForm    bool
 	OnlyUpdateForm bool
@@ -62,8 +62,8 @@ func (config Config) SetSourceURL(url string) Config {
 	return config
 }
 
-func (config Config) SetGetDataFunc(fun GetDataFunc) Config {
-	config.GetDataFunc = fun
+func (config Config) SetGetDataFn(fn GetDataFn) Config {
+	config.GetDataFn = fn
 	return config
 }
 

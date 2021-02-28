@@ -7,14 +7,14 @@ import (
 )
 
 type Downloadable struct {
-	types.BaseDisplayFuncGenerator
+	types.BaseDisplayFnGenerator
 }
 
 func init() {
 	types.RegisterDisplayFnGenerator("downloadable", new(Downloadable))
 }
 
-func (d *Downloadable) Get(args ...interface{}) types.FieldFilterFunc {
+func (d *Downloadable) Get(args ...interface{}) types.FieldFilterFn {
 	return func(value types.FieldModel) interface{} {
 		param := args[0].([]string)
 

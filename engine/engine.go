@@ -490,20 +490,20 @@ func (eng *Engine) initSiteSetting() {
 
 // Content call the Content method of engine adapter.
 // If adapter is nil, it will panic.
-func (eng *Engine) Content(ctx interface{}, panel types.GetPanelFunc) {
+func (eng *Engine) Content(ctx interface{}, panel types.GetPanelFn) {
 	if eng.Adapter == nil {
 		emptyAdapterPanic()
 	}
-	eng.Adapter.Content(ctx, panel, eng.AdminPlugin().GetAddOperationFunc(), *eng.NavButtons...)
+	eng.Adapter.Content(ctx, panel, eng.AdminPlugin().GetAddOperationFn(), *eng.NavButtons...)
 }
 
 // Content call the Content method of defaultAdapter.
 // If defaultAdapter is nil, it will panic.
-func Content(ctx interface{}, panel types.GetPanelFunc) {
+func Content(ctx interface{}, panel types.GetPanelFn) {
 	if defaultAdapter == nil {
 		emptyAdapterPanic()
 	}
-	defaultAdapter.Content(ctx, panel, engine.AdminPlugin().GetAddOperationFunc(), *navButtons...)
+	defaultAdapter.Content(ctx, panel, engine.AdminPlugin().GetAddOperationFn(), *navButtons...)
 }
 
 // Data inject the route and corresponding handler to the web framework.
@@ -516,15 +516,15 @@ func (eng *Engine) Data(method, url string, handler context.Handler, noAuth ...b
 }
 
 // HTML inject the route and corresponding handler wrapped by the given function to the web framework.
-func (eng *Engine) HTML(method, url string, getPanelInfoFunc types.GetPanelInfoFunc, noAuth ...bool) {
+func (eng *Engine) HTML(method, url string, getPanelInfoFn types.GetPanelInfoFn, noAuth ...bool) {
 
 	var handler = func(ctx *context.Context) {
-		panel, err := getPanelInfoFunc(ctx)
+		panel, err := getPanelInfoFn(ctx)
 		if err != nil {
 			panel = template.WarningPanel(err.Error())
 		}
 
-		eng.AdminPlugin().GetAddOperationFunc()(panel.Callbacks...)
+		eng.AdminPlugin().GetAddOperationFn()(panel.Callbacks...)
 
 		var (
 			tmpl, tmplName = template.Default().GetTemplate(ctx.IsPjax())
@@ -729,9 +729,9 @@ func (eng *Engine) AddGenerator(key string, gen table.Generator) *Engine {
 	return eng
 }
 
-// AddGlobalDisplayProcessFunc call types.AddGlobalDisplayProcessFunc.
-func (eng *Engine) AddGlobalDisplayProcessFunc(filterFunc types.FieldFilterFunc) *Engine {
-	types.AddGlobalDisplayProcessFunc(filterFunc)
+// AddGlobalDisplayProcessFn call types.AddGlobalDisplayProcessFn.
+func (eng *Engine) AddGlobalDisplayProcessFn(filterFn types.FieldFilterFn) *Engine {
+	types.AddGlobalDisplayProcessFn(filterFn)
 	return eng
 }
 

@@ -88,7 +88,7 @@ func (s *SystemTable) GetManagerTable(ctx *context.Context) (managerTable Table)
 	info.SetTable("goadmin_users").
 		SetTitle(lg("Managers")).
 		SetDescription(lg("Managers")).
-		SetDeleteFunc(func(idArr []string) error {
+		SetDeleteFn(func(idArr []string) error {
 
 			var ids = interfaces(idArr)
 
@@ -397,7 +397,7 @@ func (s *SystemTable) GetNormalManagerTable(ctx *context.Context) (managerTable 
 	info.SetTable("goadmin_users").
 		SetTitle(lg("Managers")).
 		SetDescription(lg("Managers")).
-		SetDeleteFunc(func(idArr []string) error {
+		SetDeleteFn(func(idArr []string) error {
 
 			var ids = interfaces(idArr)
 
@@ -553,7 +553,7 @@ func (s *SystemTable) GetPermissionTable(ctx *context.Context) (permissionTable 
 	info.SetTable("goadmin_permissions").
 		SetTitle(lg("Permission Manage")).
 		SetDescription(lg("Permission Manage")).
-		SetDeleteFunc(func(idArr []string) error {
+		SetDeleteFn(func(idArr []string) error {
 
 			var ids = interfaces(idArr)
 
@@ -610,13 +610,13 @@ func (s *SystemTable) GetPermissionTable(ctx *context.Context) (permissionTable 
 		FieldDisplay(func(model types.FieldModel) interface{} {
 			return strings.Split(model.Value, ",")
 		}).
-		FieldPostFilterFunc(func(model types.PostFieldModel) interface{} {
+		FieldPostFilterFn(func(model types.PostFieldModel) interface{} {
 			return strings.Join(model.Value, ",")
 		}).
 		FieldHelpMsg(template.HTML(lg("all method if empty")))
 
 	formList.AddField(lg("path"), "http_path", db.Varchar, form.TextArea).
-		FieldPostFilterFunc(func(model types.PostFieldModel) interface{} {
+		FieldPostFilterFn(func(model types.PostFieldModel) interface{} {
 			return strings.TrimSpace(model.Value.Value())
 		}).
 		FieldHelpMsg(template.HTML(lg("a path a line, without global prefix")))
@@ -672,7 +672,7 @@ func (s *SystemTable) GetRolesTable(ctx *context.Context) (roleTable Table) {
 	info.SetTable("goadmin_roles").
 		SetTitle(lg("Roles Manage")).
 		SetDescription(lg("Roles Manage")).
-		SetDeleteFunc(func(idArr []string) error {
+		SetDeleteFn(func(idArr []string) error {
 
 			var ids = interfaces(idArr)
 
@@ -915,7 +915,7 @@ func (s *SystemTable) GetMenuTable(ctx *context.Context) (menuTable Table) {
 	info.SetTable("goadmin_menu").
 		SetTitle(lg("Menus Manage")).
 		SetDescription(lg("Menus Manage")).
-		SetDeleteFunc(func(idArr []string) error {
+		SetDeleteFn(func(idArr []string) error {
 
 			var ids = interfaces(idArr)
 
@@ -1042,7 +1042,7 @@ func (s *SystemTable) GetMenuTable(ctx *context.Context) (menuTable Table) {
 func (s *SystemTable) GetSiteTable(ctx *context.Context) (siteTable Table) {
 	siteTable = NewDefaultTable(DefaultConfigWithDriver(config.GetDatabases().GetDefault().Driver).
 		SetOnlyUpdateForm().
-		SetGetDataFunc(func(params parameter.Parameters) (i []map[string]interface{}, i2 int) {
+		SetGetDataFn(func(params parameter.Parameters) (i []map[string]interface{}, i2 int) {
 			return []map[string]interface{}{models.Site().SetConn(s.conn).AllToMapInterface()}, 1
 		}))
 
@@ -1330,8 +1330,8 @@ func (s *SystemTable) GetSiteTable(ctx *context.Context) (siteTable Table) {
 		values["login_logo"][0] = escape(values.Get("login_logo"))
 
 		var err error
-		if s.cfg.UpdateProcessFunc != nil {
-			values, err = s.cfg.UpdateProcessFunc(values)
+		if s.cfg.UpdateProcessFn != nil {
+			values, err = s.cfg.UpdateProcessFn(values)
 			if err != nil {
 				return err
 			}
@@ -1735,11 +1735,11 @@ func (s *SystemTable) GetGenerateForm(ctx *context.Context) (generateTool Table)
 		formFields := make(tools.Fields, len(values["field_head_form"]))
 
 		for i := 0; i < len(values["field_head_form"]); i++ {
-			extraFunc := ""
+			extraFn := ""
 			if values["field_name_form"][i] == `created_at` {
-				extraFunc += `.FieldNowWhenInsert()`
+				extraFn += `.FieldNowWhenInsert()`
 			} else if values["field_name_form"][i] == `updated_at` {
-				extraFunc += `.FieldNowWhenUpdate()`
+				extraFn += `.FieldNowWhenUpdate()`
 			} else if values["field_default"][i] != "" && !strings.Contains(values["field_default"][i], `"`) {
 				values["field_default"][i] = `"` + values["field_default"][i] + `"`
 			}
@@ -1754,7 +1754,7 @@ func (s *SystemTable) GetGenerateForm(ctx *context.Context) (generateTool Table)
 				FormHide:   values["field_display"][i] == "1",
 				CreateHide: values["field_display"][i] == "2",
 				EditHide:   values["field_display"][i] == "3",
-				ExtraFunc:  extraFunc,
+				ExtraFn:    extraFn,
 			}
 		}
 
@@ -1855,7 +1855,7 @@ func lg(v string) string {
 	return language.Get(v)
 }
 
-func defaultFilterFn(val string, def ...string) types.FieldFilterFunc {
+func defaultFilterFn(val string, def ...string) types.FieldFilterFn {
 	return func(value types.FieldModel) interface{} {
 		if len(def) > 0 {
 			if value.Value == def[0] {

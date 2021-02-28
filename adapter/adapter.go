@@ -36,7 +36,7 @@ type WebFrameWork interface {
 
 	// Content add the panel html response of the given callback function to
 	// the web framework context which is the first parameter.
-	Content(ctx interface{}, getPanelFunc types.GetPanelFunc, nodeProcessor context.NodeProcessor, navButtons ...types.Button)
+	Content(ctx interface{}, getPanelFn types.GetPanelFn, nodeProcessor context.NodeProcessor, navButtons ...types.Button)
 
 	// User get the auth user model from the given web framework context.
 	User(ctx interface{}) (models.UserModel, bool)
@@ -127,7 +127,7 @@ func (base *BaseAdapter) GetUse(app interface{}, plugin []plugins.Plugin, wf Web
 }
 
 // GetContent is a helper function of adapter.Content
-func (base *BaseAdapter) GetContent(ctx interface{}, getPanelFunc types.GetPanelFunc, webFrameWork WebFrameWork,
+func (base *BaseAdapter) GetContent(ctx interface{}, getPanelFn types.GetPanelFn, webFrameWork WebFrameWork,
 	navButtons types.Buttons, nodeProcessor context.NodeProcessor) {
 
 	var (
@@ -155,7 +155,7 @@ func (base *BaseAdapter) GetContent(ctx interface{}, getPanelFunc types.GetPanel
 	if !auth.CheckPermissions(user, newBase.Path(), newBase.Method(), newBase.FormParam()) {
 		panel = template.WarningPanel(errors.NoPermission, template.NoPermission403Page)
 	} else {
-		panel, err = getPanelFunc(ctx)
+		panel, err = getPanelFn(ctx)
 		if err != nil {
 			panel = template.WarningPanel(err.Error())
 		}

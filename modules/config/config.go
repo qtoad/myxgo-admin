@@ -371,7 +371,7 @@ type Config struct {
 	Custom500HTML template.HTML `json:"custom_500_html,omitempty" yaml:"custom_500_html,omitempty" ini:"custom_500_html,omitempty"`
 
 	// Update Process Function
-	UpdateProcessFunc UpdateConfigProcessFunc `json:"-" yaml:"-" ini:"-"`
+	UpdateProcessFn UpdateConfigProcessFn `json:"-" yaml:"-" ini:"-"`
 
 	// Favicon string `json:"favicon,omitempty" yaml:"favicon,omitempty" ini:"favicon,omitempty"`
 
@@ -452,7 +452,7 @@ func (f URLFormat) SetDefault() URLFormat {
 
 type ExtraInfo map[string]interface{}
 
-type UpdateConfigProcessFunc func(values form.Values) (form.Values, error)
+type UpdateConfigProcessFn func(values form.Values) (form.Values, error)
 
 // see more: https://daneden.github.io/animate.css/
 type PageAnimation struct {
@@ -573,8 +573,8 @@ func (c *Config) AssertPrefix() string {
 	return c.prefix
 }
 
-func (c *Config) AddUpdateProcessFunc(fn UpdateConfigProcessFunc) *Config {
-	c.UpdateProcessFunc = fn
+func (c *Config) AddUpdateProcessFn(fn UpdateConfigProcessFn) *Config {
+	c.UpdateProcessFn = fn
 	return c
 }
 

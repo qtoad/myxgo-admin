@@ -49,13 +49,13 @@ func (ch *Chi) DisableLog()                { panic("not implement") }
 func (ch *Chi) Static(prefix, path string) { panic("not implement") }
 
 // Content implements the method Adapter.Content.
-func (ch *Chi) Content(ctx interface{}, getPanelFunc types.GetPanelFunc, nodeProcessor context.NodeProcessor, btns ...types.Button) {
-	ch.GetContent(ctx, getPanelFunc, ch, btns, nodeProcessor)
+func (ch *Chi) Content(ctx interface{}, getPanelFn types.GetPanelFn, nodeProcessor context.NodeProcessor, btns ...types.Button) {
+	ch.GetContent(ctx, getPanelFn, ch, btns, nodeProcessor)
 }
 
-type HandlerFunc func(ctx Context) (types.Panel, error)
+type HandlerFn func(ctx Context) (types.Panel, error)
 
-func Content(handler HandlerFunc) http.HandlerFunc {
+func Content(handler HandlerFn) http.HandlerFunc {
 	return func(writer http.ResponseWriter, request *http.Request) {
 		ctx := Context{
 			Request:  request,
@@ -92,7 +92,7 @@ func (ch *Chi) AddHandler(method, path string, handlers context.Handlers) {
 		url = url[1:]
 	}
 
-	getHandleFunc(ch.app, strings.ToUpper(method))(url, func(w http.ResponseWriter, r *http.Request) {
+	getHandleFn(ch.app, strings.ToUpper(method))(url, func(w http.ResponseWriter, r *http.Request) {
 
 		if r.URL.Path[len(r.URL.Path)-1] == '/' {
 			r.URL.Path = r.URL.Path[:len(r.URL.Path)-1]
@@ -125,10 +125,10 @@ func (ch *Chi) AddHandler(method, path string, handlers context.Handlers) {
 	})
 }
 
-// HandleFunc is type of route methods of chi.
-type HandleFunc func(pattern string, handlerFunc http.HandlerFunc)
+// HandleFn is type of route methods of chi.
+type HandleFn func(pattern string, handlerFn http.HandlerFunc)
 
-func getHandleFunc(eng *chi.Mux, method string) HandleFunc {
+func getHandleFn(eng *chi.Mux, method string) HandleFn {
 	switch method {
 	case "GET":
 		return eng.Get

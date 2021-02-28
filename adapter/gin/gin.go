@@ -44,13 +44,13 @@ func (gins *Gin) Use(app interface{}, plugs []plugins.Plugin) error {
 }
 
 // Content implements the method Adapter.Content.
-func (gins *Gin) Content(ctx interface{}, getPanelFunc types.GetPanelFunc, nodeProcessor context.NodeProcessor, btns ...types.Button) {
-	gins.GetContent(ctx, getPanelFunc, gins, btns, nodeProcessor)
+func (gins *Gin) Content(ctx interface{}, getPanelFn types.GetPanelFn, nodeProcessor context.NodeProcessor, btns ...types.Button) {
+	gins.GetContent(ctx, getPanelFn, gins, btns, nodeProcessor)
 }
 
-type HandlerFunc func(ctx *gin.Context) (types.Panel, error)
+type HandlerFn func(ctx *gin.Context) (types.Panel, error)
 
-func Content(handler HandlerFunc) gin.HandlerFunc {
+func Content(handler HandlerFn) gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		engine.Content(ctx, func(ctx interface{}) (types.Panel, error) {
 			return handler(ctx.(*gin.Context))

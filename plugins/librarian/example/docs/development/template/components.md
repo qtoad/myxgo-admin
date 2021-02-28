@@ -77,7 +77,7 @@ func Get() *MagicBox {
 
 func (l *MagicBox) GetTemplate() (*template.Template, string) {
 	tmpl, err := template.New("magic_box").
-		Funcs(DefaultFuncMap).
+		Funcs(DefaultFnMap).
 		Parse(List["magic_box"])
 
 	if err != nil {

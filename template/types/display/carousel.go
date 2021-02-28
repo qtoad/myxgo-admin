@@ -8,14 +8,14 @@ import (
 )
 
 type Carousel struct {
-	types.BaseDisplayFuncGenerator
+	types.BaseDisplayFnGenerator
 }
 
 func init() {
 	types.RegisterDisplayFnGenerator("carousel", new(Carousel))
 }
 
-func (c *Carousel) Get(args ...interface{}) types.FieldFilterFunc {
+func (c *Carousel) Get(args ...interface{}) types.FieldFilterFn {
 	return func(value types.FieldModel) interface{} {
 		fn := args[0].(types.FieldGetImgArrFn)
 		size := args[1].([]int)

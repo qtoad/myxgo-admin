@@ -100,17 +100,17 @@ func (fo FieldOptions) Marshal() string {
 }
 
 type (
-	OptionInitFunc              func(val FieldModel) FieldOptions
-	OptionArrInitFunc           func(val FieldModel) []FieldOptions
-	OptionTableQueryProcessFunc func(sql *db.SQL) *db.SQL
-	OptionProcessFunc           func(options FieldOptions) FieldOptions
+	OptionInitFn              func(val FieldModel) FieldOptions
+	OptionArrInitFn           func(val FieldModel) []FieldOptions
+	OptionTableQueryProcessFn func(sql *db.SQL) *db.SQL
+	OptionProcessFn           func(options FieldOptions) FieldOptions
 
 	OptionTable struct {
-		Table            string
-		TextField        string
-		ValueField       string
-		QueryProcessFunc OptionTableQueryProcessFunc
-		ProcessFunc      OptionProcessFunc
+		Table          string
+		TextField      string
+		ValueField     string
+		QueryProcessFn OptionTableQueryProcessFn
+		ProcessFn      OptionProcessFn
 	}
 )
 
@@ -172,14 +172,14 @@ type FormField struct {
 	Style  template.HTMLAttr `json:"style"`
 	NoIcon bool              `json:"no_icon"`
 
-	OptionExt         template.JS       `json:"option_ext"`
-	OptionExt2        template.JS       `json:"option_ext_2"`
-	OptionInitFunc    OptionInitFunc    `json:"-"`
-	OptionArrInitFunc OptionArrInitFunc `json:"-"`
-	OptionTable       OptionTable       `json:"-"`
+	OptionExt       template.JS     `json:"option_ext"`
+	OptionExt2      template.JS     `json:"option_ext_2"`
+	OptionInitFn    OptionInitFn    `json:"-"`
+	OptionArrInitFn OptionArrInitFn `json:"-"`
+	OptionTable     OptionTable     `json:"-"`
 
-	FieldDisplay   `json:"-"`
-	PostFilterFunc PostFieldFilterFunc `json:"-"`
+	FieldDisplay `json:"-"`
+	PostFilterFn PostFieldFilterFn `json:"-"`
 }
 
 func (f *FormField) GetRawValue(columns []string, v interface{}) string {
@@ -202,8 +202,8 @@ func (f *FormField) setOptionsFromSQL(sql *db.SQL) {
 
 		sql.Table(f.OptionTable.Table).Select(f.OptionTable.ValueField, f.OptionTable.TextField)
 
-		if f.OptionTable.QueryProcessFunc != nil {
-			f.OptionTable.QueryProcessFunc(sql)
+		if f.OptionTable.QueryProcessFn != nil {
+			f.OptionTable.QueryProcessFn(sql)
 		}
 
 		queryRes, err := sql.All()
@@ -216,8 +216,8 @@ func (f *FormField) setOptionsFromSQL(sql *db.SQL) {
 			}
 		}
 
-		if f.OptionTable.ProcessFunc != nil {
-			f.Options = f.OptionTable.ProcessFunc(f.Options)
+		if f.OptionTable.ProcessFn != nil {
+			f.Options = f.OptionTable.ProcessFn(f.Options)
 		}
 	}
 }
@@ -245,8 +245,8 @@ func (f *FormField) updateValue(id, val string, res map[string]interface{}, typ 
 
 	if f.isBelongToATable() {
 		if f.FormType.IsSelect() {
-			if len(f.OptionsArr) == 0 && f.OptionArrInitFunc != nil {
-				f.OptionsArr = f.OptionArrInitFunc(m)
+			if len(f.OptionsArr) == 0 && f.OptionArrInitFn != nil {
+				f.OptionsArr = f.OptionArrInitFn(m)
 				for i := 0; i < len(f.OptionsArr); i++ {
 					f.OptionsArr[i] = f.OptionsArr[i].SetSelectedLabel(f.FormType.SelectedLabel())
 				}
@@ -273,8 +273,8 @@ func (f *FormField) updateValue(id, val string, res map[string]interface{}, typ 
 		}
 	} else {
 		if f.FormType.IsSelect() {
-			if len(f.Options) == 0 && f.OptionInitFunc != nil {
-				f.Options = f.OptionInitFunc(m).SetSelectedLabel(f.FormType.SelectedLabel())
+			if len(f.Options) == 0 && f.OptionInitFn != nil {
+				f.Options = f.OptionInitFn(m).SetSelectedLabel(f.FormType.SelectedLabel())
 			} else {
 				f.setOptionsFromSQL(sql)
 				f.Options.SetSelected(f.ToDisplay(m), f.FormType.SelectedLabel())
@@ -337,16 +337,16 @@ type FormPanel struct {
 	Title       string `json:"title"`
 	Description string `json:"description"`
 
-	Validator      FormPostFunc       `json:"validator"`
-	PostHook       FormPostFunc       `json:"post_hook"`
-	PreProcessFunc FormPreProcessFunc `json:"pre_process_func"`
+	Validator    FormPostFn       `json:"validator"`
+	PostHook     FormPostFn       `json:"post_hook"`
+	PreProcessFn FormPreProcessFn `json:"pre_process_fn"`
 
 	Callbacks Callbacks `json:"callbacks"`
 
 	primaryKey primaryKey
 
-	UpdateFunc FormPostFunc `json:"update_func"`
-	InsertFunc FormPostFunc `json:"insert_func"`
+	UpdateFn FormPostFn `json:"update_fn"`
+	InsertFn FormPostFn `json:"insert_fn"`
 
 	IsHideContinueEditCheckBox bool `json:"is_hide_continue_edit_check_box"`
 	IsHideContinueNewCheckBox  bool `json:"is_hide_continue_new_check_box"`
@@ -377,7 +377,7 @@ type FormPanel struct {
 
 	HideSideBar bool `json:"hide_side_bar"`
 
-	processChains DisplayProcessFuncChains
+	processChains DisplayProcessFnChains
 
 	HeaderHtml template.HTML `json:"header_html"`
 	FooterHtml template.HTML `json:"footer_html"`
@@ -504,7 +504,7 @@ func (f *FormPanel) AddField(head, field string, filedType db.FieldType, formTyp
 	f.FieldOptionExtJS(js)
 
 	// Set default Display Filter Function of different form type
-	setDefaultDisplayFuncOfFormType(f, formType)
+	setDefaultDisplayFnOfFormType(f, formType)
 
 	if formType.IsEditor() {
 		f.NoCompress = true
@@ -564,7 +564,7 @@ func (f *FormPanel) AddRow(addFields AddFormFieldFn) *FormPanel {
 // Field attribute setting functions
 // ====================================================
 
-func (f *FormPanel) FieldDisplay(filter FieldFilterFunc) *FormPanel {
+func (f *FormPanel) FieldDisplay(filter FieldFilterFn) *FormPanel {
 	f.FieldList[f.curFieldListIndex].Display = filter
 	return f
 }
@@ -632,8 +632,8 @@ func (f *FormPanel) FieldHelpMsg(s template.HTML) *FormPanel {
 	return f
 }
 
-func (f *FormPanel) FieldOptionInitFunc(fn OptionInitFunc) *FormPanel {
-	f.FieldList[f.curFieldListIndex].OptionInitFunc = fn
+func (f *FormPanel) FieldOptionInitFn(fn OptionInitFn) *FormPanel {
+	f.FieldList[f.curFieldListIndex].OptionInitFn = fn
 	return f
 }
 
@@ -829,22 +829,22 @@ func (f *FormPanel) FieldValue(value string) *FormPanel {
 	return f
 }
 
-func (f *FormPanel) FieldOptionsFromTable(table, textFieldName, valueFieldName string, process ...OptionTableQueryProcessFunc) *FormPanel {
-	var fn OptionTableQueryProcessFunc
+func (f *FormPanel) FieldOptionsFromTable(table, textFieldName, valueFieldName string, process ...OptionTableQueryProcessFn) *FormPanel {
+	var fn OptionTableQueryProcessFn
 	if len(process) > 0 {
 		fn = process[0]
 	}
 	f.FieldList[f.curFieldListIndex].OptionTable = OptionTable{
-		Table:            table,
-		TextField:        textFieldName,
-		ValueField:       valueFieldName,
-		QueryProcessFunc: fn,
+		Table:          table,
+		TextField:      textFieldName,
+		ValueField:     valueFieldName,
+		QueryProcessFn: fn,
 	}
 	return f
 }
 
-func (f *FormPanel) FieldOptionsTableProcessFn(fn OptionProcessFunc) *FormPanel {
-	f.FieldList[f.curFieldListIndex].OptionTable.ProcessFunc = fn
+func (f *FormPanel) FieldOptionsTableProcessFn(fn OptionProcessFn) *FormPanel {
+	f.FieldList[f.curFieldListIndex].OptionTable.ProcessFn = fn
 	return f
 }
 
@@ -858,20 +858,20 @@ func (f *FormPanel) FieldDefaultOptionDelimiter(delimiter string) *FormPanel {
 	return f
 }
 
-func (f *FormPanel) FieldPostFilterFunc(post PostFieldFilterFunc) *FormPanel {
-	f.FieldList[f.curFieldListIndex].PostFilterFunc = post
+func (f *FormPanel) FieldPostFilterFn(post PostFieldFilterFn) *FormPanel {
+	f.FieldList[f.curFieldListIndex].PostFilterFn = post
 	return f
 }
 
 func (f *FormPanel) FieldNow() *FormPanel {
-	f.FieldList[f.curFieldListIndex].PostFilterFunc = func(value PostFieldModel) interface{} {
+	f.FieldList[f.curFieldListIndex].PostFilterFn = func(value PostFieldModel) interface{} {
 		return time.Now().Format("2006-01-02 15:04:05")
 	}
 	return f
 }
 
 func (f *FormPanel) FieldNowWhenUpdate() *FormPanel {
-	f.FieldList[f.curFieldListIndex].PostFilterFunc = func(value PostFieldModel) interface{} {
+	f.FieldList[f.curFieldListIndex].PostFilterFn = func(value PostFieldModel) interface{} {
 		if value.IsUpdate() {
 			return time.Now().Format("2006-01-02 15:04:05")
 		}
@@ -881,7 +881,7 @@ func (f *FormPanel) FieldNowWhenUpdate() *FormPanel {
 }
 
 func (f *FormPanel) FieldNowWhenInsert() *FormPanel {
-	f.FieldList[f.curFieldListIndex].PostFilterFunc = func(value PostFieldModel) interface{} {
+	f.FieldList[f.curFieldListIndex].PostFilterFn = func(value PostFieldModel) interface{} {
 		if value.IsCreate() {
 			return time.Now().Format("2006-01-02 15:04:05")
 		}
@@ -1244,13 +1244,13 @@ func (f *FormPanel) SetLayout(layout form2.Layout) *FormPanel {
 	return f
 }
 
-func (f *FormPanel) SetPostValidator(va FormPostFunc) *FormPanel {
+func (f *FormPanel) SetPostValidator(va FormPostFn) *FormPanel {
 	f.Validator = va
 	return f
 }
 
-func (f *FormPanel) SetPreProcessFn(fn FormPreProcessFunc) *FormPanel {
-	f.PreProcessFunc = fn
+func (f *FormPanel) SetPreProcessFn(fn FormPreProcessFn) *FormPanel {
+	f.PreProcessFn = fn
 	return f
 }
 
@@ -1434,18 +1434,18 @@ func (f *FormPanel) SetAjaxErrorJS(js template.JS) *FormPanel {
 	return f
 }
 
-func (f *FormPanel) SetPostHook(fn FormPostFunc) *FormPanel {
+func (f *FormPanel) SetPostHook(fn FormPostFn) *FormPanel {
 	f.PostHook = fn
 	return f
 }
 
-func (f *FormPanel) SetUpdateFn(fn FormPostFunc) *FormPanel {
-	f.UpdateFunc = fn
+func (f *FormPanel) SetUpdateFn(fn FormPostFn) *FormPanel {
+	f.UpdateFn = fn
 	return f
 }
 
-func (f *FormPanel) SetInsertFn(fn FormPostFunc) *FormPanel {
-	f.InsertFunc = fn
+func (f *FormPanel) SetInsertFn(fn FormPostFn) *FormPanel {
+	f.InsertFn = fn
 	return f
 }
 
@@ -1636,11 +1636,11 @@ func (f *FormPanel) GetNewFormFields(sql ...func() *db.SQL) (FormFields, []FormF
 }
 
 type (
-	FormPreProcessFunc func(values form.Values) form.Values
-	FormPostFunc       func(values form.Values) error
-	FormFields         []FormField
-	GroupFormFields    []FormFields
-	GroupFieldHeaders  []string
+	FormPreProcessFn  func(values form.Values) form.Values
+	FormPostFn        func(values form.Values) error
+	FormFields        []FormField
+	GroupFormFields   []FormFields
+	GroupFieldHeaders []string
 )
 
 func (f FormFields) Copy() FormFields {

@@ -6,14 +6,14 @@ import (
 )
 
 type Icon struct {
-	types.BaseDisplayFuncGenerator
+	types.BaseDisplayFnGenerator
 }
 
 func init() {
 	types.RegisterDisplayFnGenerator("icon", new(Icon))
 }
 
-func (i *Icon) Get(args ...interface{}) types.FieldFilterFunc {
+func (i *Icon) Get(args ...interface{}) types.FieldFilterFn {
 	return func(value types.FieldModel) interface{} {
 		icons := args[0].(map[string]string)
 		defaultIcon := ""

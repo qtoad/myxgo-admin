@@ -9,14 +9,14 @@ import (
 )
 
 type Bool struct {
-	types.BaseDisplayFuncGenerator
+	types.BaseDisplayFnGenerator
 }
 
 func init() {
 	types.RegisterDisplayFnGenerator("bool", new(Bool))
 }
 
-func (b *Bool) Get(args ...interface{}) types.FieldFilterFunc {
+func (b *Bool) Get(args ...interface{}) types.FieldFilterFn {
 	return func(value types.FieldModel) interface{} {
 		params := args[0].([]string)
 		pass := icon.IconWithStyle(icon.Check, html.Style{

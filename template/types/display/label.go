@@ -6,14 +6,14 @@ import (
 )
 
 type Label struct {
-	types.BaseDisplayFuncGenerator
+	types.BaseDisplayFnGenerator
 }
 
 func init() {
 	types.RegisterDisplayFnGenerator("label", new(Label))
 }
 
-func (label *Label) Get(args ...interface{}) types.FieldFilterFunc {
+func (label *Label) Get(args ...interface{}) types.FieldFilterFn {
 	return func(value types.FieldModel) interface{} {
 		params := args[0].([]types.FieldLabelParam)
 		if len(params) == 0 {

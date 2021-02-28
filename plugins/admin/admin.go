@@ -61,7 +61,7 @@ func (admin *Admin) InitPlugin(services service.List) {
 
 	table.SetServices(services)
 
-	action.InitOperationHandlerSetter(admin.GetAddOperationFunc())
+	action.InitOperationHandlerSetter(admin.GetAddOperationFn())
 }
 
 func (admin *Admin) GetIndexURL() string {
@@ -93,7 +93,7 @@ func NewAdmin(tableCfg ...table.GeneratorList) *Admin {
 	}
 }
 
-func (admin *Admin) GetAddOperationFunc() context.NodeProcessor {
+func (admin *Admin) GetAddOperationFn() context.NodeProcessor {
 	return admin.handler.AddOperation
 }
 
@@ -115,9 +115,9 @@ func (admin *Admin) AddGenerators(gen ...table.GeneratorList) *Admin {
 	return admin
 }
 
-// AddGlobalDisplayProcessFunc call types.AddGlobalDisplayProcessFunc
-func (admin *Admin) AddGlobalDisplayProcessFunc(f types.FieldFilterFunc) *Admin {
-	types.AddGlobalDisplayProcessFunc(f)
+// AddGlobalDisplayProcessFn call types.AddGlobalDisplayProcessFn
+func (admin *Admin) AddGlobalDisplayProcessFn(f types.FieldFilterFn) *Admin {
+	types.AddGlobalDisplayProcessFn(f)
 	return admin
 }
 
