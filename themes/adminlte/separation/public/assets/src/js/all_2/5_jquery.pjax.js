@@ -29,7 +29,7 @@
 // the options object.
 //
 // Returns the jQuery object
-function fnPjax(selector, container, options) {
+function funcPjax(selector, container, options) {
   var context = this
   return this.on('click.pjax', selector, function(event) {
     var opts = $.extend({}, optionsFor(container, options))
@@ -865,7 +865,7 @@ function findVersion() {
 //
 // Returns nothing.
 function enable() {
-  $.fn.pjax = fnPjax
+  $.fn.pjax = funcPjax
   $.pjax = pjax
   $.pjax.enable = $.noop
   $.pjax.disable = disable

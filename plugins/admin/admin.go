@@ -1,18 +1,18 @@
 package admin
 
 import (
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/modules/service"
-	"github.com/qtoad/mygo-admin/modules/util"
-	"github.com/qtoad/mygo-admin/plugins"
-	"github.com/qtoad/mygo-admin/plugins/admin/controller"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/guard"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/table"
-	"github.com/qtoad/mygo-admin/template/types"
-	"github.com/qtoad/mygo-admin/template/types/action"
-	_ "github.com/qtoad/mygo-admin/template/types/display"
-	"github.com/qtoad/mygo-admin/version"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/service"
+	"github.com/qtoad/myxgo-admin/modules/util"
+	"github.com/qtoad/myxgo-admin/plugins"
+	"github.com/qtoad/myxgo-admin/plugins/admin/controller"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/guard"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/table"
+	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/template/types/action"
+	_ "github.com/qtoad/myxgo-admin/template/types/display"
+	"github.com/qtoad/myxgo-admin/version"
 )
 
 // Admin is a GoAdmin plugin.
@@ -61,7 +61,7 @@ func (admin *Admin) InitPlugin(services service.List) {
 
 	table.SetServices(services)
 
-	action.InitOperationHandlerSetter(admin.GetAddOperationFn())
+	action.InitOperationHandlerSetter(admin.GetAddOperationFunc())
 }
 
 func (admin *Admin) GetIndexURL() string {
@@ -93,7 +93,7 @@ func NewAdmin(tableCfg ...table.GeneratorList) *Admin {
 	}
 }
 
-func (admin *Admin) GetAddOperationFn() context.NodeProcessor {
+func (admin *Admin) GetAddOperationFunc() context.NodeProcessor {
 	return admin.handler.AddOperation
 }
 

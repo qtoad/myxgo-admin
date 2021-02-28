@@ -1,7 +1,7 @@
 package guard
 
 import (
-	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/myxgo-admin/context"
 )
 
 type FilesParam struct {

@@ -5,13 +5,13 @@
 package main
 
 import (
-	_ "github.com/qtoad/mygo-admin/modules/db/drivers/mysql"
+	_ "github.com/qtoad/myxgo-admin/modules/db/drivers/mysql"
 	_ "github.com/GoAdminGroup/themes/adminlte"
-	"github.com/qtoad/mygo-admin/engine"
-	"github.com/qtoad/mygo-admin/examples/datamodel"
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/plugins/admin"
-    ginAdapter "github.com/qtoad/mygo-admin/adapter/gin"
+	"github.com/qtoad/myxgo-admin/engine"
+	"github.com/qtoad/myxgo-admin/examples/datamodel"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/plugins/admin"
+    ginAdapter "github.com/qtoad/myxgo-admin/adapter/gin"
 	"github.com/gin-gonic/gin"
 )
 
@@ -54,14 +54,14 @@ GetContent方法代码如下：
 ```go
 
 import (
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/modules/db"
-	"github.com/qtoad/mygo-admin/modules/language"
-	form2 "github.com/qtoad/mygo-admin/plugins/admin/modules/form"
-	template2 "github.com/qtoad/mygo-admin/template"
-	"github.com/qtoad/mygo-admin/template/icon"
-	"github.com/qtoad/mygo-admin/template/types"
-	"github.com/qtoad/mygo-admin/template/types/form"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/db"
+	"github.com/qtoad/myxgo-admin/modules/language"
+	form2 "github.com/qtoad/myxgo-admin/plugins/admin/modules/form"
+	template2 "github.com/qtoad/myxgo-admin/template"
+	"github.com/qtoad/myxgo-admin/template/icon"
+	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/template/types/form"
 	"github.com/gin-gonic/gin"
 )
 

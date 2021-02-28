@@ -10,7 +10,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/qtoad/mygo-admin/modules/util"
+	"github.com/qtoad/myxgo-admin/modules/util"
 )
 
 func getThemeTemplate(moduleName, themeName string) {

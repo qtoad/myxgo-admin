@@ -6,7 +6,7 @@ import (
 	"sync"
 
 	"github.com/go-xorm/xorm"
-	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/config"
 )
 
 // Base is a common Connection.

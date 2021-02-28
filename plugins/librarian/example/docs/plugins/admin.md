@@ -33,7 +33,7 @@ CREATE TABLE `users` (
 - 安装
 
 ```bash
-go install github.com/qtoad/mygo-admin/adm
+go install github.com/qtoad/myxgo-admin/adm
 ```
 
 - 生成
@@ -56,7 +56,7 @@ adm generate
 ```go
 package main
 
-import "github.com/qtoad/mygo-admin/plugins/admin/models"
+import "github.com/qtoad/myxgo-admin/plugins/admin/models"
 
 // The key of Generators is the prefix of table info url.
 // The corresponding value is the Form and Table data.
@@ -83,15 +83,15 @@ var Generators = map[string]models.TableGenerator{
 package main
 
 import (
-	_ "github.com/qtoad/mygo-admin/adapter/gin" // 必须引入，如若不引入，则需要自己定义
+	_ "github.com/qtoad/myxgo-admin/adapter/gin" // 必须引入，如若不引入，则需要自己定义
 	_ "github.com/GoAdminGroup/themes/adminlte" // 必须引入，不然报错
-	_ "github.com/qtoad/mygo-admin/modules/db/drivers/mysql" // 数据库驱动
+	_ "github.com/qtoad/myxgo-admin/modules/db/drivers/mysql" // 数据库驱动
 
 	"github.com/gin-gonic/gin"
-	"github.com/qtoad/mygo-admin/engine"
-	"github.com/qtoad/mygo-admin/plugins/admin"
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/myxgo-admin/engine"
+	"github.com/qtoad/myxgo-admin/plugins/admin"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/language"
 )
 
 func main() {
@@ -153,11 +153,11 @@ package datamodel
 
 import (
 	"fmt"
-	"github.com/qtoad/mygo-admin/modules/db"
-	form2 "github.com/qtoad/mygo-admin/plugins/admin/modules/form"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/table"
-	"github.com/qtoad/mygo-admin/template/types"
-	"github.com/qtoad/mygo-admin/template/types/form"
+	"github.com/qtoad/myxgo-admin/modules/db"
+	form2 "github.com/qtoad/myxgo-admin/plugins/admin/modules/form"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/table"
+	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/template/types/form"
 )
 
 func GetUserTable(ctx *context.Context) (userTable table.Table) {
@@ -220,9 +220,9 @@ func GetUserTable(ctx *context.Context) (userTable table.Table) {
 	formList.AddField("Phone", "phone", db.Varchar, form.Text)
 	formList.AddField("City", "city", db.Varchar, form.Text)
 
-	// 自定义一个表单字段，使用 FieldPostFilterFn 可以进行连表操作
+	// 自定义一个表单字段，使用 FieldPostFilterFunc 可以进行连表操作
 	formList.AddField("Custom Field", "role", db.Varchar, form.Text).
-		FieldPostFilterFn(func(value types.PostFieldModel) interface{} {
+		FieldPostFilterFunc(func(value types.PostFieldModel) interface{} {
 			fmt.Println("user custom field", value)
 			return ""
 		})
@@ -393,8 +393,8 @@ type FormPanel struct {
 	Title        string          // 标题
 	Description  string          // 描述
 
-	TabGroups    TabGroups      // tab分组，使用示例：[这里](https://github.com/qtoad/mygo-admin/blob/master/examples/datamodel/user.go#L76)
-	TabHeaders   TabHeaders     // tab分组标题，使用示例：[这里](https://github.com/qtoad/mygo-admin/blob/master/examples/datamodel/user.go#L78)
+	TabGroups    TabGroups      // tab分组，使用示例：[这里](https://github.com/qtoad/myxgo-admin/blob/master/examples/datamodel/user.go#L76)
+	TabHeaders   TabHeaders     // tab分组标题，使用示例：[这里](https://github.com/qtoad/myxgo-admin/blob/master/examples/datamodel/user.go#L78)
 
 	HeaderHtml    template.HTML   // 头部自定义内容
 	FooterHtml    template.HTML   // 底部自定义内容	
@@ -476,13 +476,13 @@ type FormField struct {
 
 </br>
 
-详见：https://github.com/qtoad/mygo-admin/blob/master/template/types/form/form.go
+详见：https://github.com/qtoad/myxgo-admin/blob/master/template/types/form/form.go
 
 这样子去引用：
 
 ```
 
-import "github.com/qtoad/mygo-admin/template/types/form"
+import "github.com/qtoad/myxgo-admin/template/types/form"
 
 ...
 FormType: form.File,

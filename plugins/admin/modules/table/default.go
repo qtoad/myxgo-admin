@@ -11,19 +11,19 @@ import (
 	"strings"
 	"time"
 
-	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/config"
 
-	"github.com/qtoad/mygo-admin/modules/db"
-	"github.com/qtoad/mygo-admin/modules/db/dialect"
-	errs "github.com/qtoad/mygo-admin/modules/errors"
-	"github.com/qtoad/mygo-admin/modules/language"
-	"github.com/qtoad/mygo-admin/modules/logger"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/constant"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/form"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/paginator"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/parameter"
-	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/modules/db"
+	"github.com/qtoad/myxgo-admin/modules/db/dialect"
+	errs "github.com/qtoad/myxgo-admin/modules/errors"
+	"github.com/qtoad/myxgo-admin/modules/language"
+	"github.com/qtoad/myxgo-admin/modules/logger"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/constant"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/form"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/paginator"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/parameter"
+	"github.com/qtoad/myxgo-admin/template/types"
 )
 
 // DefaultTable is an implementation of table.Table
@@ -70,7 +70,7 @@ func NewDefaultTable(cfgs ...Config) Table {
 		connectionDriverMode: cfg.DriverMode,
 		connection:           cfg.Connection,
 		sourceURL:            cfg.SourceURL,
-		getDataFunc:          cfg.GetDataFun,
+		getDataFunc:          cfg.GetDataFunc,
 	}
 }
 
@@ -87,11 +87,11 @@ func (tb *DefaultTable) Copy() Table {
 			Info: types.NewInfoPanel(tb.PrimaryKey.Name).SetTable(tb.Info.Table).
 				SetDescription(tb.Info.Description).
 				SetTitle(tb.Info.Title).
-				SetGetDataFn(tb.Info.GetDataFn),
+				SetGetDataFunc(tb.Info.GetDataFunc),
 			Detail: types.NewInfoPanel(tb.PrimaryKey.Name).SetTable(tb.Detail.Table).
 				SetDescription(tb.Detail.Description).
 				SetTitle(tb.Detail.Title).
-				SetGetDataFn(tb.Detail.GetDataFn),
+				SetGetDataFunc(tb.Detail.GetDataFunc),
 			CanAdd:     tb.CanAdd,
 			Editable:   tb.Editable,
 			Deletable:  tb.Deletable,
@@ -115,20 +115,20 @@ func (tb *DefaultTable) GetData(params parameter.Parameters) (PanelInfo, error) 
 		beginTime = time.Now()
 	)
 
-	if tb.Info.UpdateParametersFns != nil {
-		for _, fn := range tb.Info.UpdateParametersFns {
+	if tb.Info.UpdateParametersFuncs != nil {
+		for _, fn := range tb.Info.UpdateParametersFuncs {
 			fn(&params)
 		}
 	}
 
-	if tb.Info.QueryFilterFn != nil {
+	if tb.Info.QueryFilterFunc != nil {
 		var ids []string
 		var stopQuery bool
 
-		if tb.getDataFunc == nil && tb.Info.GetDataFn == nil {
-			ids, stopQuery = tb.Info.QueryFilterFn(params, tb.db())
+		if tb.getDataFunc == nil && tb.Info.GetDataFunc == nil {
+			ids, stopQuery = tb.Info.QueryFilterFunc(params, tb.db())
 		} else {
-			ids, stopQuery = tb.Info.QueryFilterFn(params, nil)
+			ids, stopQuery = tb.Info.QueryFilterFunc(params, nil)
 		}
 
 		if stopQuery {
@@ -140,8 +140,8 @@ func (tb *DefaultTable) GetData(params parameter.Parameters) (PanelInfo, error) 
 		data, size = tb.getDataFunc(params)
 	} else if tb.sourceURL != "" {
 		data, size = tb.getDataFromURL(params)
-	} else if tb.Info.GetDataFn != nil {
-		data, size = tb.Info.GetDataFn(params)
+	} else if tb.Info.GetDataFunc != nil {
+		data, size = tb.Info.GetDataFunc(params)
 	} else if params.IsAll() {
 		return tb.getAllDataFromDatabase(params)
 	} else {
@@ -232,8 +232,8 @@ func (tb *DefaultTable) GetDataWithIds(params parameter.Parameters) (PanelInfo, 
 		data, size = tb.getDataFunc(params)
 	} else if tb.sourceURL != "" {
 		data, size = tb.getDataFromURL(params)
-	} else if tb.Info.GetDataFn != nil {
-		data, size = tb.Info.GetDataFn(params)
+	} else if tb.Info.GetDataFunc != nil {
+		data, size = tb.Info.GetDataFunc(params)
 	} else {
 		return tb.getDataFromDatabase(params)
 	}
@@ -637,10 +637,10 @@ func (tb *DefaultTable) GetDataWithId(params parameter.Parameters) (FormInfo, er
 		res = getDataRes(tb.getDataFunc(params))
 	} else if tb.sourceURL != "" {
 		res = getDataRes(tb.getDataFromURL(params))
-	} else if tb.Detail.GetDataFn != nil {
-		res = getDataRes(tb.Detail.GetDataFn(params))
-	} else if tb.Info.GetDataFn != nil {
-		res = getDataRes(tb.Info.GetDataFn(params))
+	} else if tb.Detail.GetDataFunc != nil {
+		res = getDataRes(tb.Detail.GetDataFunc(params))
+	} else if tb.Info.GetDataFunc != nil {
+		res = getDataRes(tb.Info.GetDataFunc(params))
 	} else {
 
 		columns, _ = tb.getColumns(tb.Form.Table)
@@ -789,13 +789,13 @@ func (tb *DefaultTable) UpdateData(dataList form.Values) error {
 		}
 	}
 
-	if tb.Form.PreProcessFn != nil {
-		dataList = tb.Form.PreProcessFn(dataList)
+	if tb.Form.PreProcessFunc != nil {
+		dataList = tb.Form.PreProcessFunc(dataList)
 	}
 
-	if tb.Form.UpdateFn != nil {
+	if tb.Form.UpdateFunc != nil {
 		dataList.Delete(form.PostTypeKey)
-		err = tb.Form.UpdateFn(tb.PreProcessValue(dataList, types.PostTypeUpdate))
+		err = tb.Form.UpdateFunc(tb.PreProcessValue(dataList, types.PostTypeUpdate))
 		if err != nil {
 			errMsg = "post error: " + err.Error()
 		}
@@ -826,10 +826,10 @@ func (tb *DefaultTable) InsertData(dataList form.Values) error {
 		id     = int64(0)
 		err    error
 		errMsg = ""
-		f      = tb.GetActualNewForm()
+		frm    = tb.GetActualNewForm()
 	)
 
-	if f.PostHook != nil {
+	if frm.PostHook != nil {
 		defer func() {
 			dataList.Add(form.PostTypeKey, "1")
 			dataList.Add(tb.GetPrimaryKey().Name, strconv.Itoa(int(id)))
@@ -842,7 +842,7 @@ func (tb *DefaultTable) InsertData(dataList form.Values) error {
 					}
 				}()
 
-				err := f.PostHook(dataList)
+				err := frm.PostHook(dataList)
 				if err != nil {
 					logger.Error(err)
 				}
@@ -850,27 +850,27 @@ func (tb *DefaultTable) InsertData(dataList form.Values) error {
 		}()
 	}
 
-	if f.Validator != nil {
-		if err := f.Validator(dataList); err != nil {
+	if frm.Validator != nil {
+		if err := frm.Validator(dataList); err != nil {
 			errMsg = "post error: " + err.Error()
 			return err
 		}
 	}
 
-	if f.PreProcessFn != nil {
-		dataList = f.PreProcessFn(dataList)
+	if frm.PreProcessFunc != nil {
+		dataList = frm.PreProcessFunc(dataList)
 	}
 
-	if f.InsertFn != nil {
+	if frm.InsertFunc != nil {
 		dataList.Delete(form.PostTypeKey)
-		err = f.InsertFn(tb.PreProcessValue(dataList, types.PostTypeCreate))
+		err = frm.InsertFunc(tb.PreProcessValue(dataList, types.PostTypeCreate))
 		if err != nil {
 			errMsg = "post error: " + err.Error()
 		}
 		return err
 	}
 
-	id, err = tb.sql().Table(f.Table).Insert(tb.getInjectValueFromFormValue(dataList, types.PostTypeCreate))
+	id, err = tb.sql().Table(frm.Table).Insert(tb.getInjectValueFromFormValue(dataList, types.PostTypeCreate))
 
 	// NOTE: some errors should be ignored.
 	if db.CheckError(err, db.INSERT) {
@@ -888,7 +888,7 @@ func (tb *DefaultTable) getInjectValueFromFormValue(dataList form.Values, typ ty
 		exceptString  = make([]string, 0)
 		columns, auto = tb.getColumns(tb.Form.Table)
 
-		fun types.PostFieldFilterFn
+		fun types.PostFieldFilterFunc
 	)
 
 	// If a key is a auto increment primary key, it can`t be insert or update.
@@ -919,7 +919,7 @@ func (tb *DefaultTable) getInjectValueFromFormValue(dataList form.Values, typ ty
 				field := tb.Form.FieldList.FindByFieldName(k)
 				delimiter := ","
 				if field != nil {
-					fun = field.PostFilterFn
+					fun = field.PostFilterFunc
 					delimiter = modules.SetDefault(field.DefaultOptionDelimiter, ",")
 				}
 				vv := modules.RemoveBlankFromArray(v)
@@ -941,8 +941,8 @@ func (tb *DefaultTable) getInjectValueFromFormValue(dataList form.Values, typ ty
 				}
 			} else {
 				field := tb.Form.FieldList.FindByFieldName(k)
-				if field != nil && field.PostFilterFn != nil {
-					field.PostFilterFn(types.PostFieldModel{
+				if field != nil && field.PostFilterFunc != nil {
+					field.PostFilterFunc(types.PostFieldModel{
 						ID:       dataList.Get(tb.PrimaryKey.Name),
 						Value:    modules.RemoveBlankFromArray(v),
 						Row:      dataList.ToMap(),
@@ -960,14 +960,14 @@ func (tb *DefaultTable) PreProcessValue(dataList form.Values, typ types.PostType
 	exceptString := []string{form.PreviousKey, form.MethodKey, form.TokenKey,
 		constant.IframeKey, constant.IframeIDKey}
 	dataList = dataList.RemoveRemark()
-	var fun types.PostFieldFilterFn
+	var fun types.PostFieldFilterFunc
 
 	for k, v := range dataList {
 		k = strings.ReplaceAll(k, "[]", "")
 		if !modules.InArray(exceptString, k) {
 			field := tb.Form.FieldList.FindByFieldName(k)
 			if field != nil {
-				fun = field.PostFilterFn
+				fun = field.PostFilterFunc
 			}
 			vv := modules.RemoveBlankFromArray(v)
 			if fun != nil {
@@ -1023,14 +1023,14 @@ func (tb *DefaultTable) DeleteData(id string) error {
 		}()
 	}
 
-	if tb.Info.PreDeleteFn != nil {
-		if err = tb.Info.PreDeleteFn(idArr); err != nil {
+	if tb.Info.PreDeleteFunc != nil {
+		if err = tb.Info.PreDeleteFunc(idArr); err != nil {
 			return err
 		}
 	}
 
-	if tb.Info.DeleteFn != nil {
-		err = tb.Info.DeleteFn(idArr)
+	if tb.Info.DeleteFunc != nil {
+		err = tb.Info.DeleteFunc(idArr)
 		return err
 	}
 
@@ -1107,7 +1107,7 @@ func (tb *DefaultTable) delimiter2() string {
 }
 
 func (tb *DefaultTable) getDataFromDB() bool {
-	return tb.sourceURL == "" && tb.getDataFunc == nil && tb.Info.GetDataFn == nil && tb.Detail.GetDataFn == nil
+	return tb.sourceURL == "" && tb.getDataFunc == nil && tb.Info.GetDataFunc == nil && tb.Detail.GetDataFunc == nil
 }
 
 // sql is a helper function return db sql.

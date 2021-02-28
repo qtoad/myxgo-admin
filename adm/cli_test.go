@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/qtoad/mygo-admin/version"
+	"github.com/qtoad/myxgo-admin/version"
 	"testing"
 
 	"github.com/magiconair/properties/assert"

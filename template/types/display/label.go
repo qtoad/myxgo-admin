@@ -1,12 +1,12 @@
 package display
 
 import (
-	"github.com/qtoad/mygo-admin/template"
-	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/template"
+	"github.com/qtoad/myxgo-admin/template/types"
 )
 
 type Label struct {
-	types.BaseDisplayFnGenerator
+	types.BaseDisplayFuncGenerator
 }
 
 func init() {

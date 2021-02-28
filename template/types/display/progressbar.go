@@ -5,11 +5,11 @@ import (
 	"html/template"
 	"strconv"
 
-	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/template/types"
 )
 
 type ProgressBar struct {
-	types.BaseDisplayFnGenerator
+	types.BaseDisplayFuncGenerator
 }
 
 func init() {

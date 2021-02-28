@@ -13,14 +13,14 @@ import (
 	"strings"
 
 	"github.com/go-chi/chi"
-	"github.com/qtoad/mygo-admin/adapter"
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/engine"
-	cfg "github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/plugins"
-	"github.com/qtoad/mygo-admin/plugins/admin/models"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/constant"
-	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/adapter"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/engine"
+	cfg "github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/plugins"
+	"github.com/qtoad/myxgo-admin/plugins/admin/models"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/constant"
+	"github.com/qtoad/myxgo-admin/template/types"
 )
 
 // Chi structure value is a Chi GoAdmin adapter.

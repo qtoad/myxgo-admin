@@ -3,8 +3,8 @@ package action
 import (
 	"html/template"
 
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/modules/util"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/modules/util"
 )
 
 type JumpAction struct {

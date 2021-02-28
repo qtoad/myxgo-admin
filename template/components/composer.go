@@ -4,10 +4,10 @@ import (
 	"bytes"
 	"html/template"
 
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/modules/logger"
-	"github.com/qtoad/mygo-admin/modules/util"
-	template2 "github.com/qtoad/mygo-admin/template"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/logger"
+	"github.com/qtoad/myxgo-admin/modules/util"
+	template2 "github.com/qtoad/myxgo-admin/template"
 )
 
 func ComposeHtml(temList map[string]string, separation bool, compo interface{}, templateName ...string) template.HTML {

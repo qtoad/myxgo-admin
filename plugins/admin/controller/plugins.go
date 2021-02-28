@@ -3,7 +3,7 @@ package controller
 import (
 	"bytes"
 	"fmt"
-	"github.com/qtoad/mygo-admin/version"
+	"github.com/qtoad/myxgo-admin/version"
 	"html/template"
 	"io/ioutil"
 	"net/http"
@@ -12,22 +12,22 @@ import (
 	"strings"
 	"time"
 
-	"github.com/qtoad/mygo-admin/modules/logger"
+	"github.com/qtoad/myxgo-admin/modules/logger"
 
-	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/config"
 
 	"github.com/gin-gonic/gin"
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/modules/auth"
-	"github.com/qtoad/mygo-admin/modules/language"
-	"github.com/qtoad/mygo-admin/modules/remote_server"
-	"github.com/qtoad/mygo-admin/modules/util"
-	"github.com/qtoad/mygo-admin/plugins"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/guard"
-	template2 "github.com/qtoad/mygo-admin/template"
-	"github.com/qtoad/mygo-admin/template/types"
-	"github.com/qtoad/mygo-admin/template/types/form"
-	"github.com/qtoad/mygo-plusplus/html"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/modules/auth"
+	"github.com/qtoad/myxgo-admin/modules/language"
+	"github.com/qtoad/myxgo-admin/modules/remote_server"
+	"github.com/qtoad/myxgo-admin/modules/util"
+	"github.com/qtoad/myxgo-admin/plugins"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/guard"
+	template2 "github.com/qtoad/myxgo-admin/template"
+	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/template/types/form"
+	"github.com/qtoad/myxgo-plusplus/html"
 )
 
 func (h *Handler) Plugins(ctx *context.Context) {

@@ -1,8 +1,8 @@
 package guard
 
 import (
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/modules/errors"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/modules/errors"
 )
 
 type MenuDeleteParam struct {

@@ -1,9 +1,9 @@
 package filemanager
 
 import (
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/modules/auth"
-	"github.com/qtoad/mygo-admin/modules/service"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/modules/auth"
+	"github.com/qtoad/myxgo-admin/modules/service"
 )
 
 func (f *FileManager) initRouter(srvList service.List) *context.App {

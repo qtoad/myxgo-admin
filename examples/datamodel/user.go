@@ -3,17 +3,17 @@ package datamodel
 import (
 	"fmt"
 
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/modules/db"
-	form2 "github.com/qtoad/mygo-admin/plugins/admin/modules/form"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/table"
-	"github.com/qtoad/mygo-admin/template"
-	"github.com/qtoad/mygo-admin/template/icon"
-	"github.com/qtoad/mygo-admin/template/types"
-	"github.com/qtoad/mygo-admin/template/types/action"
-	"github.com/qtoad/mygo-admin/template/types/form"
-	selection "github.com/qtoad/mygo-admin/template/types/selection"
-	editType "github.com/qtoad/mygo-admin/template/types/table"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/modules/db"
+	form2 "github.com/qtoad/myxgo-admin/plugins/admin/modules/form"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/table"
+	"github.com/qtoad/myxgo-admin/template"
+	"github.com/qtoad/myxgo-admin/template/icon"
+	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/template/types/action"
+	"github.com/qtoad/myxgo-admin/template/types/form"
+	selection "github.com/qtoad/myxgo-admin/template/types/selection"
+	editType "github.com/qtoad/myxgo-admin/template/types/table"
 )
 
 // GetUserTable return the model of table user.
@@ -175,7 +175,7 @@ func GetUserTable(ctx *context.Context) (userTable table.Table) {
 <span class="input-group-addon"><i class="fa fa-pencil fa-fw"></i></span>
 <input type="text" name="{{.Field}}" value="{{.Value}}" class="form-control {{.Field}}" placeholder="please input {{.Head}}">`)
 	formList.AddField("City", "city", db.Varchar, form.SelectSingle).
-		FieldOptionInitFn(func(val types.FieldModel) types.FieldOptions {
+		FieldOptionInitFunc(func(val types.FieldModel) types.FieldOptions {
 			return types.FieldOptions{
 				{Value: val.Value, Text: val.Value, Selected: true},
 			}
@@ -186,7 +186,7 @@ func GetUserTable(ctx *context.Context) (userTable table.Table) {
 		{Text: "ShenZhen", Value: "shenzhen"},
 	})
 	formList.AddField("Custom Field", "role", db.Varchar, form.Text).
-		FieldPostFilterFn(func(value types.PostFieldModel) interface{} {
+		FieldPostFilterFunc(func(value types.PostFieldModel) interface{} {
 			fmt.Println("user custom field", value)
 			return ""
 		})

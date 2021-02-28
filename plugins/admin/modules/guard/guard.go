@@ -1,15 +1,15 @@
 package guard
 
 import (
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/modules/db"
-	"github.com/qtoad/mygo-admin/modules/errors"
-	"github.com/qtoad/mygo-admin/modules/service"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/constant"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/response"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/table"
-	"github.com/qtoad/mygo-admin/template"
-	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/modules/db"
+	"github.com/qtoad/myxgo-admin/modules/errors"
+	"github.com/qtoad/myxgo-admin/modules/service"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/constant"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/response"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/table"
+	"github.com/qtoad/myxgo-admin/template"
+	"github.com/qtoad/myxgo-admin/template/types"
 )
 
 type Guard struct {

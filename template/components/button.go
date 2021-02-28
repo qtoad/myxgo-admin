@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"html/template"
 
-	"github.com/qtoad/mygo-admin/modules/language"
-	"github.com/qtoad/mygo-admin/modules/util"
-	"github.com/qtoad/mygo-admin/template/icon"
-	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/modules/language"
+	"github.com/qtoad/myxgo-admin/modules/util"
+	"github.com/qtoad/myxgo-admin/template/icon"
+	"github.com/qtoad/myxgo-admin/template/types"
 )
 
 type ButtonAttribute struct {

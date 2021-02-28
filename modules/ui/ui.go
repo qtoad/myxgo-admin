@@ -1,12 +1,12 @@
 package ui
 
 import (
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/modules/language"
-	"github.com/qtoad/mygo-admin/modules/service"
-	"github.com/qtoad/mygo-admin/template/icon"
-	"github.com/qtoad/mygo-admin/template/types"
-	"github.com/qtoad/mygo-admin/template/types/action"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/language"
+	"github.com/qtoad/myxgo-admin/modules/service"
+	"github.com/qtoad/myxgo-admin/template/icon"
+	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/template/types/action"
 )
 
 type Service struct {

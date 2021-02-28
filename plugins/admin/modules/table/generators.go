@@ -11,26 +11,26 @@ import (
 	"strings"
 	"time"
 
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/modules/collection"
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/modules/db"
-	"github.com/qtoad/mygo-admin/modules/db/dialect"
-	errs "github.com/qtoad/mygo-admin/modules/errors"
-	"github.com/qtoad/mygo-admin/modules/language"
-	"github.com/qtoad/mygo-admin/modules/logger"
-	"github.com/qtoad/mygo-admin/modules/ui"
-	"github.com/qtoad/mygo-admin/modules/util"
-	"github.com/qtoad/mygo-admin/plugins/admin/models"
-	form2 "github.com/qtoad/mygo-admin/plugins/admin/modules/form"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/parameter"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/tools"
-	"github.com/qtoad/mygo-admin/template"
-	"github.com/qtoad/mygo-admin/template/types"
-	"github.com/qtoad/mygo-admin/template/types/action"
-	"github.com/qtoad/mygo-admin/template/types/form"
-	selection "github.com/qtoad/mygo-admin/template/types/selection"
-	"github.com/qtoad/mygo-plusplus/html"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/modules/collection"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/db"
+	"github.com/qtoad/myxgo-admin/modules/db/dialect"
+	errs "github.com/qtoad/myxgo-admin/modules/errors"
+	"github.com/qtoad/myxgo-admin/modules/language"
+	"github.com/qtoad/myxgo-admin/modules/logger"
+	"github.com/qtoad/myxgo-admin/modules/ui"
+	"github.com/qtoad/myxgo-admin/modules/util"
+	"github.com/qtoad/myxgo-admin/plugins/admin/models"
+	form2 "github.com/qtoad/myxgo-admin/plugins/admin/modules/form"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/parameter"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/tools"
+	"github.com/qtoad/myxgo-admin/template"
+	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/template/types/action"
+	"github.com/qtoad/myxgo-admin/template/types/form"
+	selection "github.com/qtoad/myxgo-admin/template/types/selection"
+	"github.com/qtoad/myxgo-plusplus/html"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -88,7 +88,7 @@ func (s *SystemTable) GetManagerTable(ctx *context.Context) (managerTable Table)
 	info.SetTable("goadmin_users").
 		SetTitle(lg("Managers")).
 		SetDescription(lg("Managers")).
-		SetDeleteFn(func(idArr []string) error {
+		SetDeleteFunc(func(idArr []string) error {
 
 			var ids = interfaces(idArr)
 
@@ -397,7 +397,7 @@ func (s *SystemTable) GetNormalManagerTable(ctx *context.Context) (managerTable 
 	info.SetTable("goadmin_users").
 		SetTitle(lg("Managers")).
 		SetDescription(lg("Managers")).
-		SetDeleteFn(func(idArr []string) error {
+		SetDeleteFunc(func(idArr []string) error {
 
 			var ids = interfaces(idArr)
 
@@ -553,7 +553,7 @@ func (s *SystemTable) GetPermissionTable(ctx *context.Context) (permissionTable 
 	info.SetTable("goadmin_permissions").
 		SetTitle(lg("Permission Manage")).
 		SetDescription(lg("Permission Manage")).
-		SetDeleteFn(func(idArr []string) error {
+		SetDeleteFunc(func(idArr []string) error {
 
 			var ids = interfaces(idArr)
 
@@ -610,13 +610,13 @@ func (s *SystemTable) GetPermissionTable(ctx *context.Context) (permissionTable 
 		FieldDisplay(func(model types.FieldModel) interface{} {
 			return strings.Split(model.Value, ",")
 		}).
-		FieldPostFilterFn(func(model types.PostFieldModel) interface{} {
+		FieldPostFilterFunc(func(model types.PostFieldModel) interface{} {
 			return strings.Join(model.Value, ",")
 		}).
 		FieldHelpMsg(template.HTML(lg("all method if empty")))
 
 	formList.AddField(lg("path"), "http_path", db.Varchar, form.TextArea).
-		FieldPostFilterFn(func(model types.PostFieldModel) interface{} {
+		FieldPostFilterFunc(func(model types.PostFieldModel) interface{} {
 			return strings.TrimSpace(model.Value.Value())
 		}).
 		FieldHelpMsg(template.HTML(lg("a path a line, without global prefix")))
@@ -672,7 +672,7 @@ func (s *SystemTable) GetRolesTable(ctx *context.Context) (roleTable Table) {
 	info.SetTable("goadmin_roles").
 		SetTitle(lg("Roles Manage")).
 		SetDescription(lg("Roles Manage")).
-		SetDeleteFn(func(idArr []string) error {
+		SetDeleteFunc(func(idArr []string) error {
 
 			var ids = interfaces(idArr)
 
@@ -915,7 +915,7 @@ func (s *SystemTable) GetMenuTable(ctx *context.Context) (menuTable Table) {
 	info.SetTable("goadmin_menu").
 		SetTitle(lg("Menus Manage")).
 		SetDescription(lg("Menus Manage")).
-		SetDeleteFn(func(idArr []string) error {
+		SetDeleteFunc(func(idArr []string) error {
 
 			var ids = interfaces(idArr)
 
@@ -1042,7 +1042,7 @@ func (s *SystemTable) GetMenuTable(ctx *context.Context) (menuTable Table) {
 func (s *SystemTable) GetSiteTable(ctx *context.Context) (siteTable Table) {
 	siteTable = NewDefaultTable(DefaultConfigWithDriver(config.GetDatabases().GetDefault().Driver).
 		SetOnlyUpdateForm().
-		SetGetDataFun(func(params parameter.Parameters) (i []map[string]interface{}, i2 int) {
+		SetGetDataFunc(func(params parameter.Parameters) (i []map[string]interface{}, i2 int) {
 			return []map[string]interface{}{models.Site().SetConn(s.conn).AllToMapInterface()}, 1
 		}))
 
@@ -1330,8 +1330,8 @@ func (s *SystemTable) GetSiteTable(ctx *context.Context) (siteTable Table) {
 		values["login_logo"][0] = escape(values.Get("login_logo"))
 
 		var err error
-		if s.cfg.UpdateProcessFn != nil {
-			values, err = s.cfg.UpdateProcessFn(values)
+		if s.cfg.UpdateProcessFunc != nil {
+			values, err = s.cfg.UpdateProcessFunc(values)
 			if err != nil {
 				return err
 			}
@@ -1460,10 +1460,10 @@ func (s *SystemTable) GetGenerateForm(ctx *context.Context) (generateTool Table)
 			{Text: "time", Value: "time"},
 			{Text: "log", Value: "log"},
 			{Text: "fmt", Value: "fmt"},
-			{Text: "github.com/qtoad/mygo-admin/modules/db/dialect", Value: "github.com/qtoad/mygo-admin/modules/db/dialect"},
-			{Text: "github.com/qtoad/mygo-admin/modules/db", Value: "github.com/qtoad/mygo-admin/modules/db"},
-			{Text: "github.com/qtoad/mygo-admin/modules/language", Value: "github.com/qtoad/mygo-admin/modules/language"},
-			{Text: "github.com/qtoad/mygo-admin/modules/logger", Value: "github.com/qtoad/mygo-admin/modules/logger"},
+			{Text: "github.com/qtoad/myxgo-admin/modules/db/dialect", Value: "github.com/qtoad/myxgo-admin/modules/db/dialect"},
+			{Text: "github.com/qtoad/myxgo-admin/modules/db", Value: "github.com/qtoad/myxgo-admin/modules/db"},
+			{Text: "github.com/qtoad/myxgo-admin/modules/language", Value: "github.com/qtoad/myxgo-admin/modules/language"},
+			{Text: "github.com/qtoad/myxgo-admin/modules/logger", Value: "github.com/qtoad/myxgo-admin/modules/logger"},
 		}).
 		FieldDefault("").
 		FieldOptionExt(map[string]interface{}{
@@ -1735,11 +1735,11 @@ func (s *SystemTable) GetGenerateForm(ctx *context.Context) (generateTool Table)
 		formFields := make(tools.Fields, len(values["field_head_form"]))
 
 		for i := 0; i < len(values["field_head_form"]); i++ {
-			extraFun := ""
+			extraFunc := ""
 			if values["field_name_form"][i] == `created_at` {
-				extraFun += `.FieldNowWhenInsert()`
+				extraFunc += `.FieldNowWhenInsert()`
 			} else if values["field_name_form"][i] == `updated_at` {
-				extraFun += `.FieldNowWhenUpdate()`
+				extraFunc += `.FieldNowWhenUpdate()`
 			} else if values["field_default"][i] != "" && !strings.Contains(values["field_default"][i], `"`) {
 				values["field_default"][i] = `"` + values["field_default"][i] + `"`
 			}
@@ -1754,7 +1754,7 @@ func (s *SystemTable) GetGenerateForm(ctx *context.Context) (generateTool Table)
 				FormHide:   values["field_display"][i] == "1",
 				CreateHide: values["field_display"][i] == "2",
 				EditHide:   values["field_display"][i] == "3",
-				ExtraFun:   extraFun,
+				ExtraFunc:  extraFunc,
 			}
 		}
 

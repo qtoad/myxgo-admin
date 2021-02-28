@@ -3,18 +3,18 @@ package example
 import (
 	"html/template"
 
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/modules/auth"
-	"github.com/qtoad/mygo-admin/modules/page"
-	template2 "github.com/qtoad/mygo-admin/template"
-	"github.com/qtoad/mygo-admin/template/chartjs"
-	"github.com/qtoad/mygo-admin/template/types"
-	"github.com/qtoad/mygo-admin/themes/adminlte/components/chart_legend"
-	"github.com/qtoad/mygo-admin/themes/adminlte/components/description"
-	"github.com/qtoad/mygo-admin/themes/adminlte/components/infobox"
-	"github.com/qtoad/mygo-admin/themes/adminlte/components/productlist"
-	"github.com/qtoad/mygo-admin/themes/adminlte/components/progress_group"
-	"github.com/qtoad/mygo-admin/themes/adminlte/components/smallbox"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/modules/auth"
+	"github.com/qtoad/myxgo-admin/modules/page"
+	template2 "github.com/qtoad/myxgo-admin/template"
+	"github.com/qtoad/myxgo-admin/template/chartjs"
+	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/themes/adminlte/components/chart_legend"
+	"github.com/qtoad/myxgo-admin/themes/adminlte/components/description"
+	"github.com/qtoad/myxgo-admin/themes/adminlte/components/infobox"
+	"github.com/qtoad/myxgo-admin/themes/adminlte/components/productlist"
+	"github.com/qtoad/myxgo-admin/themes/adminlte/components/progress_group"
+	"github.com/qtoad/myxgo-admin/themes/adminlte/components/smallbox"
 )
 
 func (e *Example) TestHandler(ctx *context.Context) {

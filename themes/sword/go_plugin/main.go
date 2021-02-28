@@ -4,11 +4,11 @@ import (
 	"html/template"
 	"strings"
 
-	"github.com/qtoad/mygo-admin/modules/language"
-	"github.com/qtoad/mygo-admin/template/components"
-	"github.com/qtoad/mygo-admin/template/types"
-	"github.com/qtoad/mygo-admin/themes/sword"
-	"github.com/qtoad/mygo-admin/themes/sword/resource"
+	"github.com/qtoad/myxgo-admin/modules/language"
+	"github.com/qtoad/myxgo-admin/template/components"
+	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/themes/sword"
+	"github.com/qtoad/myxgo-admin/themes/sword/resource"
 )
 
 type Theme struct {
@@ -94,7 +94,7 @@ func (Theme) GetTemplate(isPjax bool) (tmpler *template.Template, name string) {
 
 func (Theme) GetAsset(path string) ([]byte, error) {
 	path = "resource" + path
-	return resource.Asset(path)
+	return resource.AssetPaths(path), nil
 }
 
 func (Theme) GetAssetList() []string {

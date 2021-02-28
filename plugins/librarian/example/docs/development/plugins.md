@@ -25,9 +25,9 @@ type Plugin interface {
 package example
 
 import (
-	c "github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/modules/service"
-	"github.com/qtoad/mygo-admin/plugins"
+	c "github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/service"
+	"github.com/qtoad/myxgo-admin/plugins"
 )
 
 type Example struct {
@@ -59,5 +59,5 @@ func (e *Example) initRouter(prefix, srv service.List) {
 
 更多源码：<br>
 
-- [开发一个源码插件](https://github.com/qtoad/mygo-admin/blob/master/plugins/example/example.go)
-- [开发一个二进制插件](https://github.com/qtoad/mygo-admin/blob/master/plugins/example/go_plugin/main.go)
+- [开发一个源码插件](https://github.com/qtoad/myxgo-admin/blob/master/plugins/example/example.go)
+- [开发一个二进制插件](https://github.com/qtoad/myxgo-admin/blob/master/plugins/example/go_plugin/main.go)

@@ -12,8 +12,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/qtoad/mygo-admin/modules/db/dialect"
-	"github.com/qtoad/mygo-admin/modules/logger"
+	"github.com/qtoad/myxgo-admin/modules/db/dialect"
+	"github.com/qtoad/myxgo-admin/modules/logger"
 )
 
 // SQL wraps the Connection and driver dialect methods.

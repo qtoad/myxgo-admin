@@ -3,8 +3,8 @@ package tests
 import (
 	"testing"
 
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/tests/frameworks/gin"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/tests/frameworks/gin"
 )
 
 func TestBlackBoxTestSuitOfBuiltInTables(t *testing.T) {

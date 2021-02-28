@@ -5,18 +5,18 @@ import (
 	"os"
 	"os/signal"
 
-	_ "github.com/qtoad/mygo-admin/adapter/echo"
-	_ "github.com/qtoad/mygo-admin/modules/db/drivers/mysql"
-	_ "github.com/qtoad/mygo-admin/themes/adminlte"
+	_ "github.com/qtoad/myxgo-admin/adapter/echo"
+	_ "github.com/qtoad/myxgo-admin/modules/db/drivers/mysql"
+	_ "github.com/qtoad/myxgo-admin/themes/adminlte"
 
 	"github.com/labstack/echo/v4"
-	"github.com/qtoad/mygo-admin/engine"
-	"github.com/qtoad/mygo-admin/examples/datamodel"
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/modules/language"
-	"github.com/qtoad/mygo-admin/plugins/example"
-	"github.com/qtoad/mygo-admin/template"
-	"github.com/qtoad/mygo-admin/template/chartjs"
+	"github.com/qtoad/myxgo-admin/engine"
+	"github.com/qtoad/myxgo-admin/examples/datamodel"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/language"
+	"github.com/qtoad/myxgo-admin/plugins/example"
+	"github.com/qtoad/myxgo-admin/template"
+	"github.com/qtoad/myxgo-admin/template/chartjs"
 )
 
 func main() {

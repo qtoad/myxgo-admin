@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/qtoad/mygo-admin/modules/db"
+	"github.com/qtoad/myxgo-admin/modules/db"
 )
 
 // PermissionModel is permission model structure.

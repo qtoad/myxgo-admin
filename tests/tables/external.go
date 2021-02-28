@@ -1,11 +1,11 @@
 package tables
 
 import (
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/modules/db"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/parameter"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/table"
-	"github.com/qtoad/mygo-admin/template/types/form"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/modules/db"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/parameter"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/table"
+	"github.com/qtoad/myxgo-admin/template/types/form"
 )
 
 // GetExternalTable return the model from external data source.
@@ -20,7 +20,7 @@ func GetExternalTable(ctx *context.Context) (externalTable table.Table) {
 	info.SetTable("external").
 		SetTitle("Externals").
 		SetDescription("Externals").
-		SetGetDataFn(func(param parameter.Parameters) ([]map[string]interface{}, int) {
+		SetGetDataFunc(func(param parameter.Parameters) ([]map[string]interface{}, int) {
 			return []map[string]interface{}{
 				{
 					"id":    10,
@@ -49,7 +49,7 @@ func GetExternalTable(ctx *context.Context) (externalTable table.Table) {
 	detail.SetTable("external").
 		SetTitle("Externals").
 		SetDescription("Externals").
-		SetGetDataFn(func(param parameter.Parameters) ([]map[string]interface{}, int) {
+		SetGetDataFunc(func(param parameter.Parameters) ([]map[string]interface{}, int) {
 			return []map[string]interface{}{
 				{
 					"id":    10,

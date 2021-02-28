@@ -4,9 +4,9 @@ import (
 	"github.com/AlecAivazis/survey/v2"
 	"strings"
 
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/modules/db"
-	"github.com/qtoad/mygo-plusplus/ini"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/db"
+	"github.com/qtoad/myxgo-plusplus/ini"
 )
 
 type dbInfo struct {

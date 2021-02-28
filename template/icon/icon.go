@@ -3,7 +3,7 @@ package icon
 import (
 	"html/template"
 
-	"github.com/qtoad/mygo-plusplus/html"
+	"github.com/qtoad/myxgo-plusplus/html"
 )
 
 func Icon(class string, num ...int) template.HTML {

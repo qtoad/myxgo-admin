@@ -81,7 +81,7 @@ return NProgress;});!function(e){e(["jquery"],function(e){return function(){func
 * Copyright 2012, Chris Wanstrath
 * Released under the MIT License
 * https://github.com/defunkt/jquery-pjax
-*/(function($){function fnPjax(selector,container,options){var context=this
+*/(function($){function funcPjax(selector,container,options){var context=this
 return this.on('click.pjax',selector,function(event){var opts=$.extend({},optionsFor(container,options))
 if(!opts.container)
 opts.container=$(this).attr('data-pjax')||context

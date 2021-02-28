@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"html/template"
 
-	"github.com/qtoad/mygo-admin/modules/util"
-	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/modules/util"
+	"github.com/qtoad/myxgo-admin/template/types"
 )
 
 type TreeViewAttribute struct {

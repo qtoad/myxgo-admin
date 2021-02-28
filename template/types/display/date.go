@@ -4,11 +4,11 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/template/types"
 )
 
 type Date struct {
-	types.BaseDisplayFnGenerator
+	types.BaseDisplayFuncGenerator
 }
 
 func init() {

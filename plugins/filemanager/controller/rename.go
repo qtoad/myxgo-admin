@@ -5,9 +5,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/plugins/filemanager/guard"
-	"github.com/qtoad/mygo-admin/plugins/filemanager/modules/language"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/plugins/filemanager/guard"
+	"github.com/qtoad/myxgo-admin/plugins/filemanager/modules/language"
 )
 
 func (h *Handler) Rename(ctx *context.Context) {

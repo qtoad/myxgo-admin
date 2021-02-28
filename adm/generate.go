@@ -12,10 +12,10 @@ import (
 	"github.com/AlecAivazis/survey/v2"
 	"github.com/AlecAivazis/survey/v2/core"
 	"github.com/mgutz/ansi"
-	"github.com/qtoad/mygo-admin/modules/db"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/tools"
-	"github.com/qtoad/mygo-plusplus/ini"
+	"github.com/qtoad/myxgo-admin/modules/db"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/tools"
+	"github.com/qtoad/myxgo-plusplus/ini"
 	"github.com/schollz/progressbar"
 )
 

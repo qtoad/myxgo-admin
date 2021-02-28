@@ -5,12 +5,12 @@ import (
 	"testing"
 
 	"github.com/gavv/httpexpect"
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/tests"
-	"github.com/qtoad/mygo-admin/tests/common"
-	"github.com/qtoad/mygo-admin/tests/frameworks/gin"
-	"github.com/qtoad/mygo-admin/tests/tables"
-	"github.com/qtoad/mygo-admin/tests/web"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/tests"
+	"github.com/qtoad/myxgo-admin/tests/common"
+	"github.com/qtoad/myxgo-admin/tests/frameworks/gin"
+	"github.com/qtoad/myxgo-admin/tests/tables"
+	"github.com/qtoad/myxgo-admin/tests/web"
 )
 
 // Black box testing

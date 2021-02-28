@@ -3,7 +3,7 @@ package errors
 import (
 	"errors"
 
-	"github.com/qtoad/mygo-admin/plugins/filemanager/modules/language"
+	"github.com/qtoad/myxgo-admin/plugins/filemanager/modules/language"
 )
 
 var (

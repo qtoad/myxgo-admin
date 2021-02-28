@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/gavv/httpexpect"
-	"github.com/qtoad/mygo-admin/tests/common"
+	"github.com/qtoad/myxgo-admin/tests/common"
 )
 
 func TestGin(t *testing.T) {

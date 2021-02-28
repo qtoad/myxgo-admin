@@ -4,10 +4,10 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/qtoad/mygo-admin/modules/auth"
-	"github.com/qtoad/mygo-admin/modules/db"
-	"github.com/qtoad/mygo-admin/modules/db/dialect"
-	"github.com/qtoad/mygo-plusplus/ini"
+	"github.com/qtoad/myxgo-admin/modules/auth"
+	"github.com/qtoad/myxgo-admin/modules/db"
+	"github.com/qtoad/myxgo-admin/modules/db/dialect"
+	"github.com/qtoad/myxgo-plusplus/ini"
 )
 
 func addUser(cfgFile string) {

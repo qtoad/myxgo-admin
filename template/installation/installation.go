@@ -6,8 +6,8 @@ import (
 	"html/template"
 	"strings"
 
-	"github.com/qtoad/mygo-admin/modules/language"
-	"github.com/qtoad/mygo-admin/modules/logger"
+	"github.com/qtoad/myxgo-admin/modules/language"
+	"github.com/qtoad/myxgo-admin/modules/logger"
 )
 
 type Installation struct {

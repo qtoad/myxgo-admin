@@ -3,11 +3,11 @@ package display
 import (
 	"html/template"
 
-	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/template/types"
 )
 
 type Downloadable struct {
-	types.BaseDisplayFnGenerator
+	types.BaseDisplayFuncGenerator
 }
 
 func init() {

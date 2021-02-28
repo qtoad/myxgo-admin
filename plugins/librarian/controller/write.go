@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"github.com/qtoad/mygo-admin/context"
+	"github.com/qtoad/myxgo-admin/context"
 )
 
 func (h *Handler) Write(ctx *context.Context) {

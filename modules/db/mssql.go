@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/config"
 )
 
 // Mssql is a Connection of mssql.

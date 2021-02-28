@@ -3,9 +3,9 @@ package card
 import (
 	"html/template"
 
-	"github.com/qtoad/mygo-admin/modules/util"
-	adminTemplate "github.com/qtoad/mygo-admin/template"
-	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/modules/util"
+	adminTemplate "github.com/qtoad/myxgo-admin/template"
+	"github.com/qtoad/myxgo-admin/template/types"
 )
 
 type Card struct {

@@ -194,7 +194,7 @@ formList.AddField("fruit", "fruit", db.Int, form.SelectBox).
 
 ```go
 
-import "github.com/qtoad/mygo-admin/template/types/selection"
+import "github.com/qtoad/myxgo-admin/template/types/selection"
 
 formList.AddField("City", "city", db.Int, form.SelectSingle).        
         // 第一个参数为 ajax 路由

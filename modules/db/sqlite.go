@@ -8,7 +8,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/config"
 )
 
 // Sqlite is a Connection of sqlite.

@@ -6,23 +6,23 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/qtoad/mygo-admin/modules/logger"
+	"github.com/qtoad/myxgo-admin/modules/logger"
 
-	"github.com/qtoad/mygo-admin/template"
+	"github.com/qtoad/myxgo-admin/template"
 
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/response"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/response"
 
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/modules/auth"
-	"github.com/qtoad/mygo-admin/modules/file"
-	"github.com/qtoad/mygo-admin/modules/language"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/constant"
-	form2 "github.com/qtoad/mygo-admin/plugins/admin/modules/form"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/guard"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/parameter"
-	"github.com/qtoad/mygo-admin/template/types"
-	"github.com/qtoad/mygo-admin/template/types/form"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/modules/auth"
+	"github.com/qtoad/myxgo-admin/modules/file"
+	"github.com/qtoad/myxgo-admin/modules/language"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/constant"
+	form2 "github.com/qtoad/myxgo-admin/plugins/admin/modules/form"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/guard"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/parameter"
+	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/template/types/form"
 )
 
 // ShowForm show form page.

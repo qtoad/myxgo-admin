@@ -3,12 +3,12 @@ package display
 import (
 	"strconv"
 
-	"github.com/qtoad/mygo-admin/modules/util"
-	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/modules/util"
+	"github.com/qtoad/myxgo-admin/template/types"
 )
 
 type FileSize struct {
-	types.BaseDisplayFnGenerator
+	types.BaseDisplayFuncGenerator
 }
 
 func init() {

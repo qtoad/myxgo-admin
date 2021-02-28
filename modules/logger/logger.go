@@ -11,8 +11,8 @@ import (
 
 	"github.com/mgutz/ansi"
 	"github.com/natefinch/lumberjack"
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/modules/util"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/modules/util"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )

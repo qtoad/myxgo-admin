@@ -3,7 +3,7 @@ package description
 import (
 	"html/template"
 
-	adminTemplate "github.com/qtoad/mygo-admin/template"
+	adminTemplate "github.com/qtoad/myxgo-admin/template"
 )
 
 type Description struct {

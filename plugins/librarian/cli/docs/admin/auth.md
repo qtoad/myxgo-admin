@@ -8,7 +8,7 @@
 ```go
 import (
     ...
-    "github.com/qtoad/mygo-admin/engine"
+    "github.com/qtoad/myxgo-admin/engine"
     ...
 )
 
@@ -25,7 +25,7 @@ func main() {
     }
 
     if err := eng.AddConfig(cfg).
-        // 超级管理员访问，数据模型文件逻辑可以参考官方：https://github.com/qtoad/mygo-admin/blob/master/plugins/admin/modules/table/generators.go#L40
+        // 超级管理员访问，数据模型文件逻辑可以参考官方：https://github.com/qtoad/myxgo-admin/blob/master/plugins/admin/modules/table/generators.go#L40
         AddGenerator("manager", GetGoAdminSuperManager).
         // 普通用户访问
         AddGenerator("normal_manager", GetGoAdminSuperNormalManager).

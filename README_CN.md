@@ -13,7 +13,7 @@
   <a href="https://t.me/joinchat/NlyH6Bch2QARZkArithKvg" rel="nofollow"><img alt="telegram" src="https://img.shields.io/badge/chat%20on-telegram-blue" style="max-width:100%;"></a>
   <a href="https://shang.qq.com/wpa/qunwpa?idkey=ab18729bba609c220f31516a4eb9fce27f582458bd9a865b46523adb5632b873"><img alt="qq群" src="https://img.shields.io/badge/QQ-874825430-yellow.svg"></a>
   <a href="https://godoc.org/github.com/GoAdminGroup/go-admin" rel="nofollow"><img src="https://camo.githubusercontent.com/a9a286d43bdfff9fb41b88b25b35ea8edd2634fc/68747470733a2f2f676f646f632e6f72672f6769746875622e636f6d2f646572656b7061726b65722f64656c76653f7374617475732e737667" alt="GoDoc" data-canonical-src="https://godoc.org/github.com/derekparker/delve?status.svg" style="max-width:100%;"></a>
-  <a href="https://raw.githubusercontent.com/qtoad/mygo-admin/master/LICENSE" rel="nofollow"><img src="https://img.shields.io/badge/license-Apache2.0-blue.svg" alt="license" data-canonical-src="https://img.shields.io/badge/license-Apache2.0-blue.svg" style="max-width:100%;"></a>
+  <a href="https://raw.githubusercontent.com/qtoad/myxgo-admin/master/LICENSE" rel="nofollow"><img src="https://img.shields.io/badge/license-Apache2.0-blue.svg" alt="license" data-canonical-src="https://img.shields.io/badge/license-Apache2.0-blue.svg" style="max-width:100%;"></a>
 </p>
 <p align="center">
     由<a href="https://github.com/z-song/laravel-admin" target="_blank">laravel-admin</a>启发
@@ -48,7 +48,7 @@ GoAdmin+vue 例子： [https://github.com/GoAdminGroup/goadmin-vue-example](http
 
 ## 谁在使用GoAdmin
 
-[评论这个issue告诉我们](https://github.com/qtoad/mygo-admin/issues/71).
+[评论这个issue告诉我们](https://github.com/qtoad/myxgo-admin/issues/71).
 
 ## 使用
 
@@ -56,7 +56,7 @@ GoAdmin+vue 例子： [https://github.com/GoAdminGroup/goadmin-vue-example](http
 
 ```shell
 $ mkdir new_project && cd new_project
-$ go install github.com/qtoad/mygo-admin/adm
+$ go install github.com/qtoad/myxgo-admin/adm
 $ adm init -l cn
 ```
 
@@ -64,7 +64,7 @@ $ adm init -l cn
 
 ```shell
 $ mkdir new_project && cd new_project
-$ go install github.com/qtoad/mygo-admin/adm
+$ go install github.com/qtoad/myxgo-admin/adm
 $ adm init web -l cn
 ```
 
@@ -73,10 +73,10 @@ $ adm init web -l cn
 
 ### 第一步：导入 sql
 
-- [mysql](https://raw.githubusercontent.com/qtoad/mygo-admin/master/data/admin.sql)
-- [mssql](https://raw.githubusercontent.com/qtoad/mygo-admin/master/data/admin.mssql)
-- [postgresql](https://raw.githubusercontent.com/qtoad/mygo-admin/master/data/admin.pgsql)
-- [sqlite](https://raw.githubusercontent.com/qtoad/mygo-admin/master/data/admin.db)
+- [mysql](https://raw.githubusercontent.com/qtoad/myxgo-admin/master/data/admin.sql)
+- [mssql](https://raw.githubusercontent.com/qtoad/myxgo-admin/master/data/admin.mssql)
+- [postgresql](https://raw.githubusercontent.com/qtoad/myxgo-admin/master/data/admin.pgsql)
+- [sqlite](https://raw.githubusercontent.com/qtoad/myxgo-admin/master/data/admin.db)
 
 ### 第二步：创建 main.go
 
@@ -88,17 +88,17 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	_ "github.com/qtoad/mygo-admin/adapter/gin"
-	_ "github.com/qtoad/mygo-admin/modules/db/drivers/mysql"
-	"github.com/qtoad/mygo-admin/engine"
-	"github.com/qtoad/mygo-admin/plugins/admin"
+	_ "github.com/qtoad/myxgo-admin/adapter/gin"
+	_ "github.com/qtoad/myxgo-admin/modules/db/drivers/mysql"
+	"github.com/qtoad/myxgo-admin/engine"
+	"github.com/qtoad/myxgo-admin/plugins/admin"
 	"github.com/GoAdminGroup/themes/adminlte"
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/template"
-    	"github.com/qtoad/mygo-admin/template/chartjs"
-    	"github.com/qtoad/mygo-admin/template/types"
-	"github.com/qtoad/mygo-admin/examples/datamodel"
-	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/template"
+    	"github.com/qtoad/myxgo-admin/template/chartjs"
+    	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/examples/datamodel"
+	"github.com/qtoad/myxgo-admin/modules/language"
 )
 
 func main() {
@@ -159,7 +159,7 @@ func main() {
 </p>
 </details>
 
-更多框架的例子: [https://github.com/qtoad/mygo-admin/tree/master/examples](https://github.com/qtoad/mygo-admin/tree/master/examples)
+更多框架的例子: [https://github.com/qtoad/myxgo-admin/tree/master/examples](https://github.com/qtoad/myxgo-admin/tree/master/examples)
 
 ### 第三步：运行
 
@@ -183,7 +183,7 @@ GO111MODULE=on go run main.go
 
 <strong>QQ群</strong>：[874825430](https://jq.qq.com/?_wv=1027&k=CnLiDoT9)，记得备注加群来意
 
-这里是[开发计划](https://github.com/qtoad/mygo-admin/projects)
+这里是[开发计划](https://github.com/qtoad/myxgo-admin/projects)
 
 <strong>[点击这里加微信群](http://quick.go-admin.cn/resource/wechat_qrcode.jpg)</strong>
 

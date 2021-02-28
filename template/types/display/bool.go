@@ -3,13 +3,13 @@ package display
 import (
 	"strings"
 
-	"github.com/qtoad/mygo-admin/template/icon"
-	"github.com/qtoad/mygo-admin/template/types"
-	"github.com/qtoad/mygo-plusplus/html"
+	"github.com/qtoad/myxgo-admin/template/icon"
+	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-plusplus/html"
 )
 
 type Bool struct {
-	types.BaseDisplayFnGenerator
+	types.BaseDisplayFuncGenerator
 }
 
 func init() {

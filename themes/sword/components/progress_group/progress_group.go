@@ -4,7 +4,7 @@ import (
 	"html/template"
 	"strings"
 
-	adminTemplate "github.com/qtoad/mygo-admin/template"
+	adminTemplate "github.com/qtoad/myxgo-admin/template"
 )
 
 type ProgressGroup struct {

@@ -22,9 +22,9 @@ type Panel struct {
 package datamodel
 
 import (
-	"github.com/qtoad/mygo-admin/modules/config"
-	template2 "github.com/qtoad/mygo-admin/template"
-	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	template2 "github.com/qtoad/myxgo-admin/template"
+	"github.com/qtoad/myxgo-admin/template/types"
 	"html/template"
 )
 

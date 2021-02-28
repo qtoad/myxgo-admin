@@ -5,13 +5,13 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/modules/db"
-	"github.com/qtoad/mygo-admin/modules/service"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/form"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/paginator"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/parameter"
-	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/modules/db"
+	"github.com/qtoad/myxgo-admin/modules/service"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/form"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/paginator"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/parameter"
+	"github.com/qtoad/myxgo-admin/template/types"
 )
 
 type Generator func(ctx *context.Context) Table
@@ -31,8 +31,8 @@ func (g GeneratorList) Combine(list GeneratorList) GeneratorList {
 	return g
 }
 
-func (g GeneratorList) CombineAll(gens []GeneratorList) GeneratorList {
-	for _, list := range gens {
+func (g GeneratorList) CombineAll(genList []GeneratorList) GeneratorList {
+	for _, list := range genList {
 		for key, gen := range list {
 			if _, ok := g[key]; !ok {
 				g[key] = gen

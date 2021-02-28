@@ -8,8 +8,8 @@ import (
 	"testing"
 
 	"github.com/magiconair/properties/assert"
-	"github.com/qtoad/mygo-admin/modules/config"
-	_ "github.com/qtoad/mygo-admin/modules/db/drivers/mysql"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	_ "github.com/qtoad/myxgo-admin/modules/db/drivers/mysql"
 )
 
 const (

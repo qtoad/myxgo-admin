@@ -4,11 +4,11 @@ import (
 	"strings"
 
 	"github.com/gobuffalo/packr/v2"
-	adminTemplate "github.com/qtoad/mygo-admin/template"
-	"github.com/qtoad/mygo-admin/template/components"
-	"github.com/qtoad/mygo-admin/template/types"
-	"github.com/qtoad/mygo-admin/themes/common"
-	"github.com/qtoad/mygo-admin/themes/sword/resource"
+	adminTemplate "github.com/qtoad/myxgo-admin/template"
+	"github.com/qtoad/myxgo-admin/template/components"
+	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/themes/common"
+	"github.com/qtoad/myxgo-admin/themes/sword/resource"
 )
 
 type Theme struct {

@@ -3,9 +3,9 @@ package guard
 import (
 	"strings"
 
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/modules/errors"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/table"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/modules/errors"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/table"
 )
 
 type ExportParam struct {

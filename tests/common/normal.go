@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gavv/httpexpect"
-	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/config"
 )
 
 func normalTest(e *httpexpect.Expect, sesID *http.Cookie) {

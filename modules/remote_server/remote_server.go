@@ -2,12 +2,12 @@ package remote_server
 
 import (
 	"encoding/json"
-	"github.com/qtoad/mygo-admin/version"
+	"github.com/qtoad/myxgo-admin/version"
 	"io/ioutil"
 	"net/http"
 	"strings"
 
-	"github.com/qtoad/mygo-admin/modules/logger"
+	"github.com/qtoad/myxgo-admin/modules/logger"
 )
 
 const (

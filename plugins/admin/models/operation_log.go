@@ -1,8 +1,8 @@
 package models
 
 import (
-	"github.com/qtoad/mygo-admin/modules/db"
-	"github.com/qtoad/mygo-admin/modules/db/dialect"
+	"github.com/qtoad/myxgo-admin/modules/db"
+	"github.com/qtoad/myxgo-admin/modules/db/dialect"
 )
 
 // OperationLogModel is operation log model structure.

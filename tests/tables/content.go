@@ -3,17 +3,17 @@ package tables
 import (
 	"html/template"
 
-	"github.com/qtoad/mygo-admin/context"
-	tmpl "github.com/qtoad/mygo-admin/template"
-	"github.com/qtoad/mygo-admin/template/chartjs"
-	"github.com/qtoad/mygo-admin/template/icon"
-	"github.com/qtoad/mygo-admin/template/types"
-	"github.com/qtoad/mygo-admin/themes/adminlte/components/chart_legend"
-	"github.com/qtoad/mygo-admin/themes/adminlte/components/description"
-	"github.com/qtoad/mygo-admin/themes/adminlte/components/infobox"
-	"github.com/qtoad/mygo-admin/themes/adminlte/components/productlist"
-	"github.com/qtoad/mygo-admin/themes/adminlte/components/progress_group"
-	"github.com/qtoad/mygo-admin/themes/adminlte/components/smallbox"
+	"github.com/qtoad/myxgo-admin/context"
+	tmpl "github.com/qtoad/myxgo-admin/template"
+	"github.com/qtoad/myxgo-admin/template/chartjs"
+	"github.com/qtoad/myxgo-admin/template/icon"
+	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/themes/adminlte/components/chart_legend"
+	"github.com/qtoad/myxgo-admin/themes/adminlte/components/description"
+	"github.com/qtoad/myxgo-admin/themes/adminlte/components/infobox"
+	"github.com/qtoad/myxgo-admin/themes/adminlte/components/productlist"
+	"github.com/qtoad/myxgo-admin/themes/adminlte/components/progress_group"
+	"github.com/qtoad/myxgo-admin/themes/adminlte/components/smallbox"
 )
 
 // GetContent return the content of index page.

@@ -9,7 +9,7 @@ GoAdmin在构建中，生成了一些模块，如：数据库模块，用户认�
 
 import (
     ...
-    "github.com/qtoad/mygo-admin/engine"
+    "github.com/qtoad/myxgo-admin/engine"
     ...
 )
 
@@ -90,8 +90,8 @@ func SetConn(conn db.Connection) {
 
 import (
     ...
-    "github.com/qtoad/mygo-admin/modules/db"
-    "github.com/qtoad/mygo-admin/modules/db/dialect"
+    "github.com/qtoad/myxgo-admin/modules/db"
+    "github.com/qtoad/myxgo-admin/modules/db/dialect"
     ...
 )
 
@@ -202,8 +202,8 @@ func initORM() {
 
 import (
     ...
-    adapter "github.com/qtoad/mygo-admin/adapter/gin"
-    "github.com/qtoad/mygo-admin/engine"
+    adapter "github.com/qtoad/myxgo-admin/adapter/gin"
+    "github.com/qtoad/myxgo-admin/engine"
     ...
 )
 
@@ -247,8 +247,8 @@ func main() {
 
 import (
     ...
-    "github.com/qtoad/mygo-admin/modules/auth"
-    "github.com/qtoad/mygo-admin/plugins/admin/models"
+    "github.com/qtoad/myxgo-admin/modules/auth"
+    "github.com/qtoad/myxgo-admin/plugins/admin/models"
     ...
 )
 

@@ -5,9 +5,9 @@ import (
 	"net/http"
 
 	"github.com/gavv/httpexpect"
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/constant"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/form"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/constant"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/form"
 )
 
 func roleTest(e *httpexpect.Expect, sesID *http.Cookie) {

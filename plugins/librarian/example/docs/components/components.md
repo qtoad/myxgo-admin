@@ -22,7 +22,7 @@
 ```golang
 import (
     ...
-    "github.com/qtoad/mygo-admin/template"
+    "github.com/qtoad/myxgo-admin/template"
     ...
 )
 

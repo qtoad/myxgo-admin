@@ -3,9 +3,9 @@ package action
 import (
 	"html/template"
 
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/modules/constant"
-	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/modules/constant"
+	"github.com/qtoad/myxgo-admin/template/types"
 )
 
 type FileUploadAction struct {

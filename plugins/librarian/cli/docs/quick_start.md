@@ -12,7 +12,7 @@ GoAdmin通过各种适配器使得你在各个web框架中使用都十分的方�
 - [chi](https://github.com/go-chi/chi)
 - [gf](https://github.com/gogf/gf)
 
-你可以选择你拿手的或者业务项目正在用的框架开始，如果上述没有你喜欢的框架，欢迎给我们提[issue](https://github.com/qtoad/mygo-admin/issues/new?assignees=&labels=&template=proposal.md&title=%5BProposal%5D)！
+你可以选择你拿手的或者业务项目正在用的框架开始，如果上述没有你喜欢的框架，欢迎给我们提[issue](https://github.com/qtoad/myxgo-admin/issues/new?assignees=&labels=&template=proposal.md&title=%5BProposal%5D)！
 
 下面以gin这个框架为例子，演示搭建过程。
 
@@ -24,14 +24,14 @@ GoAdmin通过各种适配器使得你在各个web框架中使用都十分的方�
 package main
 
 import (
-	_ "github.com/qtoad/mygo-admin/adapter/gin" // 引入适配器，必须引入，如若不引入，则需要自己定义
+	_ "github.com/qtoad/myxgo-admin/adapter/gin" // 引入适配器，必须引入，如若不引入，则需要自己定义
 	_ "github.com/GoAdminGroup/themes/adminlte" // 引入主题，必须引入，不然报错
-	_ "github.com/qtoad/mygo-admin/modules/db/drivers/mysql" // 引入对应数据库引擎
+	_ "github.com/qtoad/myxgo-admin/modules/db/drivers/mysql" // 引入对应数据库引擎
 
-	"github.com/qtoad/mygo-admin/engine"
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/modules/language"
-	"github.com/qtoad/mygo-admin/plugins/admin"
+	"github.com/qtoad/myxgo-admin/engine"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/language"
+	"github.com/qtoad/myxgo-admin/plugins/admin"
 	"github.com/gin-gonic/gin"
 )
 
@@ -93,7 +93,7 @@ func main() {
 
 - [vendor_v1.2.9.zip](http://file.go-admin.cn/go_admin/vendor/v1_2_9/vendor.zip)
 
-其他框架的例子可以参考：[https://github.com/qtoad/mygo-admin/tree/master/examples](https://github.com/qtoad/mygo-admin/tree/master/examples)
+其他框架的例子可以参考：[https://github.com/qtoad/myxgo-admin/tree/master/examples](https://github.com/qtoad/myxgo-admin/tree/master/examples)
 
 ## 添加自己的业务表进行管理
 
@@ -108,7 +108,7 @@ func main() {
 
 ## 全局配置项说明
 
-[https://github.com/qtoad/mygo-admin/blob/master/modules/config/config.go](https://github.com/qtoad/mygo-admin/blob/master/modules/config/config.go)
+[https://github.com/qtoad/myxgo-admin/blob/master/modules/config/config.go](https://github.com/qtoad/myxgo-admin/blob/master/modules/config/config.go)
 
 ```go
 package config

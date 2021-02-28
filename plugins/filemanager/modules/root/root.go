@@ -1,8 +1,8 @@
 package root
 
 import (
-	"github.com/qtoad/mygo-admin/context"
-	errors "github.com/qtoad/mygo-admin/plugins/filemanager/modules/error"
+	"github.com/qtoad/myxgo-admin/context"
+	errors "github.com/qtoad/myxgo-admin/plugins/filemanager/modules/error"
 )
 
 type Root struct {

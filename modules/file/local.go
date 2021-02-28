@@ -7,7 +7,7 @@ package file
 import (
 	"mime/multipart"
 
-	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/config"
 )
 
 // LocalFileUploader is an Uploader of local file engine.

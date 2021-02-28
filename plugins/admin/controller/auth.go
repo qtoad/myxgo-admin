@@ -2,21 +2,21 @@ package controller
 
 import (
 	"bytes"
-	"github.com/qtoad/mygo-admin/version"
+	"github.com/qtoad/myxgo-admin/version"
 	template2 "html/template"
 	"net/http"
 	"net/url"
 
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/modules/auth"
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/modules/db"
-	"github.com/qtoad/mygo-admin/modules/logger"
-	"github.com/qtoad/mygo-admin/plugins/admin/models"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/captcha"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/response"
-	"github.com/qtoad/mygo-admin/template"
-	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/modules/auth"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/db"
+	"github.com/qtoad/myxgo-admin/modules/logger"
+	"github.com/qtoad/myxgo-admin/plugins/admin/models"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/captcha"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/response"
+	"github.com/qtoad/myxgo-admin/template"
+	"github.com/qtoad/myxgo-admin/template/types"
 )
 
 // Auth check the input password and username for authentication.

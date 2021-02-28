@@ -64,7 +64,7 @@ package main
 
 import (
     ...
-    "github.com/qtoad/mygo-admin/modules/file"
+    "github.com/qtoad/myxgo-admin/modules/file"
     ...
 )
 

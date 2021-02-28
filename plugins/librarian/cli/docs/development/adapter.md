@@ -6,8 +6,8 @@
 package adapter
 
 import (
-	"github.com/qtoad/mygo-admin/plugins"
-	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/plugins"
+	"github.com/qtoad/myxgo-admin/template/types"
 )
 
 type WebFrameWork interface {
@@ -52,4 +52,4 @@ type WebFrameWork interface {
 }
 ```
 
-更多请参考：[https://github.com/qtoad/mygo-admin/tree/master/adapter](https://github.com/qtoad/mygo-admin/tree/master/adapter)
+更多请参考：[https://github.com/qtoad/myxgo-admin/tree/master/adapter](https://github.com/qtoad/myxgo-admin/tree/master/adapter)

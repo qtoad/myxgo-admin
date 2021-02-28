@@ -70,7 +70,7 @@ func GetUserTable(ctx *context.Context) (userTable table.Table) {
 
 import (
     ...
-    "github.com/qtoad/mygo-admin/template/types/form"  
+    "github.com/qtoad/myxgo-admin/template/types/form"  
     ...
 )
 
@@ -170,7 +170,7 @@ formList.SetPostValidator(func(values form2.Values) error {
 
 ```go
 formList.AddField("链接", "url", db.Varchar, form.Text).
-		FieldPostFilterFn(func(value types.PostFieldModel) interface{} {
+		FieldPostFilterFunc(func(value types.PostFieldModel) interface{} {
 			return "http://xxxx.com/" + value.Get("url")
 		})
 ```
@@ -179,7 +179,7 @@ formList.AddField("链接", "url", db.Varchar, form.Text).
 
 ```go
 formList.AddField("avatar", "avatar", db.Varchar, form.Text).
-		FieldPostFilterFn(func(value types.PostFieldModel) interface{} {
+		FieldPostFilterFunc(func(value types.PostFieldModel) interface{} {
 			if value.Value == "" {
         return sql.NullString{}
       }

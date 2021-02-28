@@ -2,26 +2,26 @@ package filemanager
 
 import (
 	"encoding/json"
-	"github.com/qtoad/mygo-admin/modules/util"
+	"github.com/qtoad/myxgo-admin/modules/util"
 	"strings"
 
-	"github.com/qtoad/mygo-admin/modules/db/dialect"
-	"github.com/qtoad/mygo-admin/modules/logger"
-	"github.com/qtoad/mygo-admin/modules/menu"
-	form2 "github.com/qtoad/mygo-admin/plugins/admin/modules/form"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/parameter"
-	"github.com/qtoad/mygo-admin/template/icon"
+	"github.com/qtoad/myxgo-admin/modules/db/dialect"
+	"github.com/qtoad/myxgo-admin/modules/logger"
+	"github.com/qtoad/myxgo-admin/modules/menu"
+	form2 "github.com/qtoad/myxgo-admin/plugins/admin/modules/form"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/parameter"
+	"github.com/qtoad/myxgo-admin/template/icon"
 
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/modules/db"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/table"
-	errors "github.com/qtoad/mygo-admin/plugins/filemanager/modules/error"
-	language2 "github.com/qtoad/mygo-admin/plugins/filemanager/modules/language"
-	"github.com/qtoad/mygo-admin/plugins/filemanager/modules/permission"
-	"github.com/qtoad/mygo-admin/plugins/filemanager/modules/root"
-	"github.com/qtoad/mygo-admin/template/types"
-	"github.com/qtoad/mygo-admin/template/types/form"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/db"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/table"
+	errors "github.com/qtoad/myxgo-admin/plugins/filemanager/modules/error"
+	language2 "github.com/qtoad/myxgo-admin/plugins/filemanager/modules/language"
+	"github.com/qtoad/myxgo-admin/plugins/filemanager/modules/permission"
+	"github.com/qtoad/myxgo-admin/plugins/filemanager/modules/root"
+	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/template/types/form"
 )
 
 func (f *FileManager) GetSettingPage() table.Generator {

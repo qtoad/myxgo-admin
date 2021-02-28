@@ -7,7 +7,7 @@ package template
 import (
 	"bytes"
 	"errors"
-	"github.com/qtoad/mygo-admin/version"
+	"github.com/qtoad/myxgo-admin/version"
 	"html/template"
 	"path"
 	"plugin"
@@ -15,15 +15,15 @@ import (
 	"strings"
 	"sync"
 
-	c "github.com/qtoad/mygo-admin/modules/config"
-	errors2 "github.com/qtoad/mygo-admin/modules/errors"
-	"github.com/qtoad/mygo-admin/modules/language"
-	"github.com/qtoad/mygo-admin/modules/logger"
-	"github.com/qtoad/mygo-admin/modules/menu"
-	"github.com/qtoad/mygo-admin/modules/util"
-	"github.com/qtoad/mygo-admin/plugins/admin/models"
-	"github.com/qtoad/mygo-admin/template/login"
-	"github.com/qtoad/mygo-admin/template/types"
+	c "github.com/qtoad/myxgo-admin/modules/config"
+	errors2 "github.com/qtoad/myxgo-admin/modules/errors"
+	"github.com/qtoad/myxgo-admin/modules/language"
+	"github.com/qtoad/myxgo-admin/modules/logger"
+	"github.com/qtoad/myxgo-admin/modules/menu"
+	"github.com/qtoad/myxgo-admin/modules/util"
+	"github.com/qtoad/myxgo-admin/plugins/admin/models"
+	"github.com/qtoad/myxgo-admin/template/login"
+	"github.com/qtoad/myxgo-admin/template/types"
 )
 
 // Template is the interface which contains methods of ui components.
@@ -192,18 +192,18 @@ func VersionCompare(toCompare string, versions []string) bool {
 	return false
 }
 
-func GetPageContentFromPageType(title, desc, msg string, pt PageType) (template.HTML, template.HTML, template.HTML) {
+func GetPageContentFromPageType(title, desc, msg string, pageType PageType) (template.HTML, template.HTML, template.HTML) {
 	if c.GetDebug() {
 		return template.HTML(title), template.HTML(desc), Default().Alert().SetTitle(errors2.MsgWithIcon).Warning(msg)
 	}
 
-	if pt == Missing404Page {
+	if pageType == Missing404Page {
 		if c.GetCustom404HTML() != template.HTML("") {
 			return "", "", c.GetCustom404HTML()
 		} else {
 			return "", "", Default().Get404HTML()
 		}
-	} else if pt == NoPermission403Page {
+	} else if pageType == NoPermission403Page {
 		if c.GetCustom404HTML() != template.HTML("") {
 			return "", "", c.GetCustom403HTML()
 		} else {
@@ -265,8 +265,8 @@ type Component interface {
 	// {{.UrlPrefix}}/assets/login/css/bootstrap.min.css => login/css/bootstrap.min.css
 	//
 	// See:
-	// https://github.com/qtoad/mygo-admin/blob/master/template/login/theme1.tmpl#L32
-	// https://github.com/qtoad/mygo-admin/blob/master/template/login/list.go
+	// https://github.com/qtoad/myxgo-admin/blob/master/template/login/theme1.tmpl#L32
+	// https://github.com/qtoad/myxgo-admin/blob/master/template/login/list.go
 	GetAssetList() []string
 
 	// GetAsset return the asset content according to the corresponding url suffix.

@@ -4,11 +4,11 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/modules/db"
-	"github.com/qtoad/mygo-admin/plugins/librarian/modules/constant"
-	"github.com/qtoad/mygo-admin/plugins/librarian/modules/root"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/db"
+	"github.com/qtoad/myxgo-admin/plugins/librarian/modules/constant"
+	"github.com/qtoad/myxgo-admin/plugins/librarian/modules/root"
 )
 
 type Guardian struct {

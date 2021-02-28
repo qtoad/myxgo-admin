@@ -8,7 +8,7 @@ import (
 	"html/template"
 	"strings"
 
-	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/config"
 	"golang.org/x/text/language"
 )
 

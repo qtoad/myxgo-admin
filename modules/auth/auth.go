@@ -7,14 +7,14 @@ package auth
 import (
 	"sync"
 
-	"github.com/qtoad/mygo-admin/modules/db/dialect"
-	"github.com/qtoad/mygo-admin/modules/logger"
+	"github.com/qtoad/myxgo-admin/modules/db/dialect"
+	"github.com/qtoad/myxgo-admin/modules/logger"
 
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/modules/db"
-	"github.com/qtoad/mygo-admin/modules/service"
-	"github.com/qtoad/mygo-admin/plugins/admin/models"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/modules/db"
+	"github.com/qtoad/myxgo-admin/modules/service"
+	"github.com/qtoad/myxgo-admin/plugins/admin/models"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules"
 	"golang.org/x/crypto/bcrypt"
 )
 

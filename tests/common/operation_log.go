@@ -5,8 +5,8 @@ import (
 	"net/http"
 
 	"github.com/gavv/httpexpect"
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/language"
 )
 
 func operationLogTest(e *httpexpect.Expect, sesID *http.Cookie) {

@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/qtoad/mygo-admin/version"
+	"github.com/qtoad/myxgo-admin/version"
 	"html/template"
 	"log"
 	"net"
@@ -14,9 +14,9 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/modules/db"
-	"github.com/qtoad/mygo-admin/modules/util"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/db"
+	"github.com/qtoad/myxgo-admin/modules/util"
 )
 
 func buildProjectWeb(port string) {

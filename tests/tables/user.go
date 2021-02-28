@@ -4,16 +4,16 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/modules/db"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/table"
-	"github.com/qtoad/mygo-admin/template/icon"
-	"github.com/qtoad/mygo-admin/template/types"
-	"github.com/qtoad/mygo-admin/template/types/action"
-	"github.com/qtoad/mygo-admin/template/types/form"
-	selection "github.com/qtoad/mygo-admin/template/types/selection"
-	editType "github.com/qtoad/mygo-admin/template/types/table"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/db"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/table"
+	"github.com/qtoad/myxgo-admin/template/icon"
+	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/template/types/action"
+	"github.com/qtoad/myxgo-admin/template/types/form"
+	selection "github.com/qtoad/myxgo-admin/template/types/selection"
+	editType "github.com/qtoad/myxgo-admin/template/types/table"
 )
 
 // GetUserTable return the model of table user.
@@ -214,7 +214,7 @@ func GetUserTable(ctx *context.Context) (userTable table.Table) {
 		FieldDisplay(func(value types.FieldModel) interface{} {
 			return strings.Split(value.Value, ",")
 		}).
-		FieldPostFilterFn(func(value types.PostFieldModel) interface{} {
+		FieldPostFilterFunc(func(value types.PostFieldModel) interface{} {
 			return strings.Join(value.Value, ",")
 		})
 	formList.AddField("Work Experience", "experience", db.Tinyint, form.SelectSingle).

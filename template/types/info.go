@@ -9,18 +9,18 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/config"
 
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/modules/db"
-	"github.com/qtoad/mygo-admin/modules/errors"
-	"github.com/qtoad/mygo-admin/modules/language"
-	"github.com/qtoad/mygo-admin/modules/logger"
-	"github.com/qtoad/mygo-admin/modules/util"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/parameter"
-	"github.com/qtoad/mygo-admin/template/types/form"
-	"github.com/qtoad/mygo-admin/template/types/table"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/modules/db"
+	"github.com/qtoad/myxgo-admin/modules/errors"
+	"github.com/qtoad/myxgo-admin/modules/language"
+	"github.com/qtoad/myxgo-admin/modules/logger"
+	"github.com/qtoad/myxgo-admin/modules/util"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/parameter"
+	"github.com/qtoad/myxgo-admin/template/types/form"
+	"github.com/qtoad/myxgo-admin/template/types/table"
 )
 
 // FieldModel is the single query result.
@@ -136,8 +136,8 @@ func (r FieldModelValue) First() string {
 // FieldDisplay is filter function of data.
 type FieldFilterFunc func(value FieldModel) interface{}
 
-// PostFieldFilterFn is filter function of data.
-type PostFieldFilterFn func(value PostFieldModel) interface{}
+// PostFieldFilterFunc is filter function of data.
+type PostFieldFilterFunc func(value PostFieldModel) interface{}
 
 // Field is the table field.
 type Field struct {
@@ -166,8 +166,8 @@ type Field struct {
 	FieldDisplay
 }
 
-type QueryFilterFn func(param parameter.Parameters, conn db.Connection) (ids []string, stopQuery bool)
-type UpdateParametersFn func(param *parameter.Parameters)
+type QueryFilterFunc func(param parameter.Parameters, conn db.Connection) (ids []string, stopQuery bool)
+type UpdateParametersFunc func(param *parameter.Parameters)
 
 type FilterFormField struct {
 	Type        form.Type
@@ -183,7 +183,7 @@ type FilterFormField struct {
 	Placeholder string
 	HelpMsg     template.HTML
 	NoIcon      bool
-	ProcessFn   func(string) string
+	ProcessFunc func(string) string
 }
 
 func (f Field) GetFilterFormFields(params parameter.Parameters, headField string, sql ...*db.SQL) []FormField {
@@ -414,8 +414,8 @@ func (f FieldList) GetFieldFilterProcessValue(key, value, keyIndex string) strin
 		index, _ = strconv.Atoi(keyIndex)
 	}
 	if field.FilterFormFields != nil && len(field.FilterFormFields) > index {
-		if field.FilterFormFields[index].ProcessFn != nil {
-			value = field.FilterFormFields[index].ProcessFn(value)
+		if field.FilterFormFields[index].ProcessFunc != nil {
+			value = field.FilterFormFields[index].ProcessFunc(value)
 		}
 	}
 	return value
@@ -525,10 +525,10 @@ func (t TabHeaders) Add(header string) TabHeaders {
 	return append(t, header)
 }
 
-type GetDataFn func(param parameter.Parameters) ([]map[string]interface{}, int)
+type GetDataFunc func(param parameter.Parameters) ([]map[string]interface{}, int)
 
-type DeleteFn func(ids []string) error
-type DeleteFnWithRes func(ids []string, res error) error
+type DeleteFunc func(ids []string) error
+type DeleteFuncWithRes func(ids []string, res error) error
 
 type Sort uint8
 
@@ -542,7 +542,7 @@ type primaryKey struct {
 	Name string
 }
 
-type ExportProcessFn func(param parameter.Parameters) (PanelInfo, error)
+type ExportProcessFunc func(param parameter.Parameters) (PanelInfo, error)
 
 // InfoPanel
 type InfoPanel struct {
@@ -563,8 +563,8 @@ type InfoPanel struct {
 	PageSizeList    []int
 	DefaultPageSize int
 
-	ExportType      int
-	ExportProcessFn ExportProcessFn
+	ExportType        int
+	ExportProcessFunc ExportProcessFunc
 
 	primaryKey primaryKey
 
@@ -592,13 +592,13 @@ type InfoPanel struct {
 
 	TableLayout string
 
-	DeleteHook  DeleteFn
-	PreDeleteFn DeleteFn
-	DeleteFn    DeleteFn
+	DeleteHook    DeleteFunc
+	PreDeleteFunc DeleteFunc
+	DeleteFunc    DeleteFunc
 
-	DeleteHookWithRes DeleteFnWithRes
+	DeleteHookWithRes DeleteFuncWithRes
 
-	GetDataFn GetDataFn
+	GetDataFunc GetDataFunc
 
 	processChains DisplayProcessFuncChains
 
@@ -607,8 +607,8 @@ type InfoPanel struct {
 
 	DisplayGeneratorRecords map[string]struct{}
 
-	QueryFilterFn       QueryFilterFn
-	UpdateParametersFns []UpdateParametersFn
+	QueryFilterFunc       QueryFilterFunc
+	UpdateParametersFuncs []UpdateParametersFunc
 
 	Wrapper ContentWrapper
 
@@ -945,28 +945,28 @@ func (i *InfoPanel) AddXssJsFilter() *InfoPanel {
 	return i
 }
 
-func (i *InfoPanel) SetExportProcessFn(fn ExportProcessFn) *InfoPanel {
-	i.ExportProcessFn = fn
+func (i *InfoPanel) SetExportProcessFunc(fn ExportProcessFunc) *InfoPanel {
+	i.ExportProcessFunc = fn
 	return i
 }
 
-func (i *InfoPanel) SetDeleteHook(fn DeleteFn) *InfoPanel {
+func (i *InfoPanel) SetDeleteHook(fn DeleteFunc) *InfoPanel {
 	i.DeleteHook = fn
 	return i
 }
 
-func (i *InfoPanel) SetDeleteHookWithRes(fn DeleteFnWithRes) *InfoPanel {
+func (i *InfoPanel) SetDeleteHookWithRes(fn DeleteFuncWithRes) *InfoPanel {
 	i.DeleteHookWithRes = fn
 	return i
 }
 
-func (i *InfoPanel) SetQueryFilterFn(fn QueryFilterFn) *InfoPanel {
-	i.QueryFilterFn = fn
+func (i *InfoPanel) SetQueryFilterFunc(fn QueryFilterFunc) *InfoPanel {
+	i.QueryFilterFunc = fn
 	return i
 }
 
-func (i *InfoPanel) AddUpdateParametersFn(fn UpdateParametersFn) *InfoPanel {
-	i.UpdateParametersFns = append(i.UpdateParametersFns, fn)
+func (i *InfoPanel) AddUpdateParametersFunc(fn UpdateParametersFunc) *InfoPanel {
+	i.UpdateParametersFuncs = append(i.UpdateParametersFuncs, fn)
 	return i
 }
 
@@ -975,18 +975,18 @@ func (i *InfoPanel) SetWrapper(wrapper ContentWrapper) *InfoPanel {
 	return i
 }
 
-func (i *InfoPanel) SetPreDeleteFn(fn DeleteFn) *InfoPanel {
-	i.PreDeleteFn = fn
+func (i *InfoPanel) SetPreDeleteFunc(fn DeleteFunc) *InfoPanel {
+	i.PreDeleteFunc = fn
 	return i
 }
 
-func (i *InfoPanel) SetDeleteFn(fn DeleteFn) *InfoPanel {
-	i.DeleteFn = fn
+func (i *InfoPanel) SetDeleteFunc(fn DeleteFunc) *InfoPanel {
+	i.DeleteFunc = fn
 	return i
 }
 
-func (i *InfoPanel) SetGetDataFn(fn GetDataFn) *InfoPanel {
-	i.GetDataFn = fn
+func (i *InfoPanel) SetGetDataFunc(fn GetDataFunc) *InfoPanel {
+	i.GetDataFunc = fn
 	return i
 }
 
@@ -1000,7 +1000,7 @@ func (i *InfoPanel) SetTableFixed() *InfoPanel {
 	return i
 }
 
-func (i *InfoPanel) AddColumn(head string, fun FieldFilterFn) *InfoPanel {
+func (i *InfoPanel) AddColumn(head string, filter FieldFilterFunc) *InfoPanel {
 	i.FieldList = append(i.FieldList, Field{
 		Head:     head,
 		Field:    head,
@@ -1009,7 +1009,7 @@ func (i *InfoPanel) AddColumn(head string, fun FieldFilterFn) *InfoPanel {
 		EditAble: false,
 		EditType: table.Text,
 		FieldDisplay: FieldDisplay{
-			Display:              fun,
+			Display:              filter,
 			DisplayProcessChains: chooseDisplayProcessChains(i.processChains),
 		},
 	})
@@ -1080,14 +1080,14 @@ func (i *InfoPanel) AddField(head, field string, typeName db.FieldType) *InfoPan
 	return i
 }
 
-func (i *InfoPanel) AddFilter(head, field string, typeName db.FieldType, fn UpdateParametersFn, filterType ...FilterType) *InfoPanel {
-	return i.AddField(head, field, typeName).FieldHide().FieldFilterable(filterType...).AddUpdateParametersFn(fn)
+func (i *InfoPanel) AddFilter(head, field string, typeName db.FieldType, updateParameterFunc UpdateParametersFunc, filterType ...FilterType) *InfoPanel {
+	return i.AddField(head, field, typeName).FieldHide().FieldFilterable(filterType...).AddUpdateParametersFunc(updateParameterFunc)
 }
 
 // Field attribute setting functions
 // ====================================================
 
-func (i *InfoPanel) FieldDisplay(filter FieldFilterFn) *InfoPanel {
+func (i *InfoPanel) FieldDisplay(filter FieldFilterFunc) *InfoPanel {
 	i.FieldList[i.curFieldListIndex].Display = filter
 	return i
 }
@@ -1098,37 +1098,37 @@ type FieldLabelParam struct {
 }
 
 func (i *InfoPanel) FieldLabel(args ...FieldLabelParam) *InfoPanel {
-	i.addDisplayChains(displayFnGens["label"].Get(args))
+	i.addDisplayChains(displayFuncGens["label"].Get(args))
 	return i
 }
 
 func (i *InfoPanel) FieldImage(width, height string, prefix ...string) *InfoPanel {
-	i.addDisplayChains(displayFnGens["image"].Get(width, height, prefix))
+	i.addDisplayChains(displayFuncGens["image"].Get(width, height, prefix))
 	return i
 }
 
 func (i *InfoPanel) FieldBool(flags ...string) *InfoPanel {
-	i.addDisplayChains(displayFnGens["bool"].Get(flags))
+	i.addDisplayChains(displayFuncGens["bool"].Get(flags))
 	return i
 }
 
 func (i *InfoPanel) FieldLink(src string, openInNewTab ...bool) *InfoPanel {
-	i.addDisplayChains(displayFnGens["link"].Get(src, openInNewTab))
+	i.addDisplayChains(displayFuncGens["link"].Get(src, openInNewTab))
 	return i
 }
 
 func (i *InfoPanel) FieldFileSize() *InfoPanel {
-	i.addDisplayChains(displayFnGens["filesize"].Get())
+	i.addDisplayChains(displayFuncGens["filesize"].Get())
 	return i
 }
 
 func (i *InfoPanel) FieldDate(format string) *InfoPanel {
-	i.addDisplayChains(displayFnGens["date"].Get())
+	i.addDisplayChains(displayFuncGens["date"].Get())
 	return i
 }
 
 func (i *InfoPanel) FieldIcon(icons map[string]string, defaultIcon string) *InfoPanel {
-	i.addDisplayChains(displayFnGens["link"].Get(icons, defaultIcon))
+	i.addDisplayChains(displayFuncGens["link"].Get(icons, defaultIcon))
 	return i
 }
 
@@ -1142,7 +1142,7 @@ const (
 )
 
 func (i *InfoPanel) FieldDot(icons map[string]FieldDotColor, defaultDot FieldDotColor) *InfoPanel {
-	i.addDisplayChains(displayFnGens["dot"].Get(icons, defaultDot))
+	i.addDisplayChains(displayFuncGens["dot"].Get(icons, defaultDot))
 	return i
 }
 
@@ -1153,24 +1153,24 @@ type FieldProgressBarData struct {
 }
 
 func (i *InfoPanel) FieldProgressBar(data ...FieldProgressBarData) *InfoPanel {
-	i.addDisplayChains(displayFnGens["progressbar"].Get(data))
+	i.addDisplayChains(displayFuncGens["progressbar"].Get(data))
 	return i
 }
 
 func (i *InfoPanel) FieldLoading(data []string) *InfoPanel {
-	i.addDisplayChains(displayFnGens["loading"].Get(data))
+	i.addDisplayChains(displayFuncGens["loading"].Get(data))
 	return i
 }
 
 func (i *InfoPanel) FieldDownLoadable(prefix ...string) *InfoPanel {
-	i.addDisplayChains(displayFnGens["downloadable"].Get(prefix))
+	i.addDisplayChains(displayFuncGens["downloadable"].Get(prefix))
 	return i
 }
 
 func (i *InfoPanel) FieldCopyable(prefix ...string) *InfoPanel {
-	i.addDisplayChains(displayFnGens["copyable"].Get(prefix))
+	i.addDisplayChains(displayFuncGens["copyable"].Get(prefix))
 	if _, ok := i.DisplayGeneratorRecords["copyable"]; !ok {
-		i.addFooterHTML(`<script>` + displayFnGens["copyable"].JS() + `</script>`)
+		i.addFooterHTML(`<script>` + displayFuncGens["copyable"].JS() + `</script>`)
 		i.DisplayGeneratorRecords["copyable"] = struct{}{}
 	}
 	return i
@@ -1179,14 +1179,14 @@ func (i *InfoPanel) FieldCopyable(prefix ...string) *InfoPanel {
 type FieldGetImgArrFn func(value string) []string
 
 func (i *InfoPanel) FieldCarousel(fn FieldGetImgArrFn, size ...int) *InfoPanel {
-	i.addDisplayChains(displayFnGens["carousel"].Get(fn, size))
+	i.addDisplayChains(displayFuncGens["carousel"].Get(fn, size))
 	return i
 }
 
 func (i *InfoPanel) FieldQrcode() *InfoPanel {
-	i.addDisplayChains(displayFnGens["qrcode"].Get())
+	i.addDisplayChains(displayFuncGens["qrcode"].Get())
 	if _, ok := i.DisplayGeneratorRecords["qrcode"]; !ok {
-		i.addFooterHTML(`<script>` + displayFnGens["qrcode"].JS() + `</script>`)
+		i.addFooterHTML(`<script>` + displayFuncGens["qrcode"].JS() + `</script>`)
 		i.DisplayGeneratorRecords["qrcode"] = struct{}{}
 	}
 	return i
@@ -1300,7 +1300,7 @@ func (i *InfoPanel) FieldFilterable(filterType ...FilterType) *InfoPanel {
 		ff.HelpMsg = filter.HelpMsg
 		ff.NoIcon = filter.NoIcon
 		ff.Style = filter.Style
-		ff.ProcessFn = filter.Process
+		ff.ProcessFunc = filter.Process
 		ff.Placeholder = modules.AorB(filter.Placeholder == "", language.Get("input")+" "+ff.Head, filter.Placeholder)
 		ff.Options = filter.Options
 		if len(filter.OptionExt) > 0 {
@@ -1319,22 +1319,22 @@ func (i *InfoPanel) FieldFilterOptions(options FieldOptions) *InfoPanel {
 	return i
 }
 
-func (i *InfoPanel) FieldFilterOptionsFromTable(table, textFieldName, valueFieldName string, process ...OptionTableQueryProcessFn) *InfoPanel {
-	var fn OptionTableQueryProcessFn
+func (i *InfoPanel) FieldFilterOptionsFromTable(table, textFieldName, valueFieldName string, process ...OptionTableQueryProcessFunc) *InfoPanel {
+	var fn OptionTableQueryProcessFunc
 	if len(process) > 0 {
 		fn = process[0]
 	}
 	i.FieldList[i.curFieldListIndex].FilterFormFields[0].OptionTable = OptionTable{
-		Table:          table,
-		TextField:      textFieldName,
-		ValueField:     valueFieldName,
-		QueryProcessFn: fn,
+		Table:            table,
+		TextField:        textFieldName,
+		ValueField:       valueFieldName,
+		QueryProcessFunc: fn,
 	}
 	return i
 }
 
 func (i *InfoPanel) FieldFilterProcess(process func(string) string) *InfoPanel {
-	i.FieldList[i.curFieldListIndex].FilterFormFields[0].ProcessFn = process
+	i.FieldList[i.curFieldListIndex].FilterFormFields[0].ProcessFunc = process
 	return i
 }
 
@@ -1658,11 +1658,11 @@ func (i *InfoPanel) addActionButton(btn Button) *InfoPanel {
 }
 
 func (i *InfoPanel) isFromJSON() bool {
-	return i.GetDataFn != nil
+	return i.GetDataFunc != nil
 }
 
-func (i *InfoPanel) addDisplayChains(fn FieldFilterFn) *InfoPanel {
+func (i *InfoPanel) addDisplayChains(filter FieldFilterFunc) *InfoPanel {
 	i.FieldList[i.curFieldListIndex].DisplayProcessChains =
-		i.FieldList[i.curFieldListIndex].DisplayProcessChains.Add(fn)
+		i.FieldList[i.curFieldListIndex].DisplayProcessChains.Add(filter)
 	return i
 }

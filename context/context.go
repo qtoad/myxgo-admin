@@ -20,7 +20,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/qtoad/mygo-admin/modules/constant"
+	"github.com/qtoad/myxgo-admin/modules/constant"
 )
 
 const abortIndex int8 = math.MaxInt8 / 2

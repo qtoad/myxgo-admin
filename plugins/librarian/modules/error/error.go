@@ -3,7 +3,7 @@ package errors
 import (
 	"errors"
 
-	"github.com/qtoad/mygo-admin/plugins/librarian/modules/language"
+	"github.com/qtoad/myxgo-admin/plugins/librarian/modules/language"
 )
 
 var (

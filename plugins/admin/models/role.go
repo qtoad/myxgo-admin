@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/qtoad/mygo-admin/modules/db"
-	"github.com/qtoad/mygo-admin/modules/db/dialect"
+	"github.com/qtoad/myxgo-admin/modules/db"
+	"github.com/qtoad/myxgo-admin/modules/db/dialect"
 )
 
 // RoleModel is role model structure.

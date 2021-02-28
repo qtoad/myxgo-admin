@@ -6,17 +6,17 @@ import (
 	"os"
 	"testing"
 
-	_ "github.com/qtoad/mygo-admin/adapter/gin"
-	_ "github.com/qtoad/mygo-admin/modules/db/drivers/mysql"
-	_ "github.com/qtoad/mygo-admin/themes/adminlte"
+	_ "github.com/qtoad/myxgo-admin/adapter/gin"
+	_ "github.com/qtoad/myxgo-admin/modules/db/drivers/mysql"
+	_ "github.com/qtoad/myxgo-admin/themes/adminlte"
 
 	"github.com/gin-gonic/gin"
-	"github.com/qtoad/mygo-admin/engine"
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/plugins/admin"
-	"github.com/qtoad/mygo-admin/template"
-	"github.com/qtoad/mygo-admin/template/chartjs"
-	"github.com/qtoad/mygo-admin/tests/tables"
+	"github.com/qtoad/myxgo-admin/engine"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/plugins/admin"
+	"github.com/qtoad/myxgo-admin/template"
+	"github.com/qtoad/myxgo-admin/template/chartjs"
+	"github.com/qtoad/myxgo-admin/tests/tables"
 )
 
 const (

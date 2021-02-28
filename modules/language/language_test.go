@@ -4,7 +4,7 @@ import (
 	"html/template"
 	"testing"
 
-	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/config"
 	"github.com/stretchr/testify/assert"
 )
 

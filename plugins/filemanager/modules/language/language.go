@@ -3,7 +3,7 @@ package language
 import (
 	"html/template"
 
-	"github.com/qtoad/mygo-admin/modules/language"
+	"github.com/qtoad/myxgo-admin/modules/language"
 )
 
 func Get(key string) string {

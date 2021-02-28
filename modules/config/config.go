@@ -7,11 +7,11 @@ package config
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/qtoad/mygo-admin/modules/logger"
-	"github.com/qtoad/mygo-admin/modules/util"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/form"
-	"github.com/qtoad/mygo-plusplus/ini"
-	"github.com/qtoad/mygo-plusplus/yaml"
+	"github.com/qtoad/myxgo-admin/modules/logger"
+	"github.com/qtoad/myxgo-admin/modules/util"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/form"
+	"github.com/qtoad/myxgo-plusplus/ini"
+	"github.com/qtoad/myxgo-plusplus/yaml"
 	"html/template"
 	"io/ioutil"
 	"path/filepath"
@@ -371,7 +371,7 @@ type Config struct {
 	Custom500HTML template.HTML `json:"custom_500_html,omitempty" yaml:"custom_500_html,omitempty" ini:"custom_500_html,omitempty"`
 
 	// Update Process Function
-	UpdateProcessFn UpdateConfigProcessFunc `json:"-" yaml:"-" ini:"-"`
+	UpdateProcessFunc UpdateConfigProcessFunc `json:"-" yaml:"-" ini:"-"`
 
 	// Favicon string `json:"favicon,omitempty" yaml:"favicon,omitempty" ini:"favicon,omitempty"`
 
@@ -573,8 +573,8 @@ func (c *Config) AssertPrefix() string {
 	return c.prefix
 }
 
-func (c *Config) AddUpdateProcessFn(fn UpdateConfigProcessFunc) *Config {
-	c.UpdateProcessFn = fn
+func (c *Config) AddUpdateProcessFunc(fn UpdateConfigProcessFunc) *Config {
+	c.UpdateProcessFunc = fn
 	return c
 }
 

@@ -3,8 +3,8 @@ package components
 import (
 	"html/template"
 
-	"github.com/qtoad/mygo-admin/plugins/admin/modules"
-	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules"
+	"github.com/qtoad/myxgo-admin/template/types"
 )
 
 type ImgAttribute struct {

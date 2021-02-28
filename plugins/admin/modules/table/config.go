@@ -1,7 +1,7 @@
 package table
 
 import (
-	"github.com/qtoad/mygo-admin/modules/db"
+	"github.com/qtoad/myxgo-admin/modules/db"
 )
 
 type Config struct {
@@ -14,7 +14,7 @@ type Config struct {
 	Exportable     bool
 	PrimaryKey     PrimaryKey
 	SourceURL      string
-	GetDataFun     GetDataFunc
+	GetDataFunc    GetDataFunc
 	OnlyInfo       bool
 	OnlyNewForm    bool
 	OnlyUpdateForm bool
@@ -62,8 +62,8 @@ func (config Config) SetSourceURL(url string) Config {
 	return config
 }
 
-func (config Config) SetGetDataFun(fun GetDataFunc) Config {
-	config.GetDataFun = fun
+func (config Config) SetGetDataFunc(fun GetDataFunc) Config {
+	config.GetDataFunc = fun
 	return config
 }
 

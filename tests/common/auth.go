@@ -5,8 +5,8 @@ import (
 	"net/http"
 
 	"github.com/gavv/httpexpect"
-	"github.com/qtoad/mygo-admin/modules/auth"
-	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/auth"
+	"github.com/qtoad/myxgo-admin/modules/config"
 )
 
 func authTest(e *httpexpect.Expect) *http.Cookie {

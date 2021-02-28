@@ -3,9 +3,9 @@ package guard
 import (
 	"path/filepath"
 
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/modules/util"
-	errors "github.com/qtoad/mygo-admin/plugins/filemanager/modules/error"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/modules/util"
+	errors "github.com/qtoad/myxgo-admin/plugins/filemanager/modules/error"
 )
 
 type MoveParam struct {

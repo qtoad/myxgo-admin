@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/modules/service"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/service"
 )
 
 const (

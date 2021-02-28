@@ -3,7 +3,7 @@ package models
 import (
 	"database/sql"
 
-	"github.com/qtoad/mygo-admin/modules/db"
+	"github.com/qtoad/myxgo-admin/modules/db"
 )
 
 // Base is base model structure.

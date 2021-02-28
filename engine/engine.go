@@ -9,34 +9,34 @@ import (
 	"encoding/json"
 	errors2 "errors"
 	"fmt"
-	"github.com/qtoad/mygo-admin/version"
+	"github.com/qtoad/myxgo-admin/version"
 	template2 "html/template"
 	"net/http"
 	"runtime/debug"
 	"strings"
 	"sync"
 
-	"github.com/qtoad/mygo-admin/modules/language"
-	"github.com/qtoad/mygo-admin/template/icon"
-	"github.com/qtoad/mygo-admin/template/types/action"
+	"github.com/qtoad/myxgo-admin/modules/language"
+	"github.com/qtoad/myxgo-admin/template/icon"
+	"github.com/qtoad/myxgo-admin/template/types/action"
 
-	"github.com/qtoad/mygo-admin/adapter"
-	"github.com/qtoad/mygo-admin/context"
-	"github.com/qtoad/mygo-admin/modules/auth"
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/modules/db"
-	"github.com/qtoad/mygo-admin/modules/errors"
-	"github.com/qtoad/mygo-admin/modules/logger"
-	"github.com/qtoad/mygo-admin/modules/menu"
-	"github.com/qtoad/mygo-admin/modules/service"
-	"github.com/qtoad/mygo-admin/modules/ui"
-	"github.com/qtoad/mygo-admin/plugins"
-	"github.com/qtoad/mygo-admin/plugins/admin"
-	"github.com/qtoad/mygo-admin/plugins/admin/models"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/response"
-	"github.com/qtoad/mygo-admin/plugins/admin/modules/table"
-	"github.com/qtoad/mygo-admin/template"
-	"github.com/qtoad/mygo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/adapter"
+	"github.com/qtoad/myxgo-admin/context"
+	"github.com/qtoad/myxgo-admin/modules/auth"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/db"
+	"github.com/qtoad/myxgo-admin/modules/errors"
+	"github.com/qtoad/myxgo-admin/modules/logger"
+	"github.com/qtoad/myxgo-admin/modules/menu"
+	"github.com/qtoad/myxgo-admin/modules/service"
+	"github.com/qtoad/myxgo-admin/modules/ui"
+	"github.com/qtoad/myxgo-admin/plugins"
+	"github.com/qtoad/myxgo-admin/plugins/admin"
+	"github.com/qtoad/myxgo-admin/plugins/admin/models"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/response"
+	"github.com/qtoad/myxgo-admin/plugins/admin/modules/table"
+	"github.com/qtoad/myxgo-admin/template"
+	"github.com/qtoad/myxgo-admin/template/types"
 )
 
 // Engine is the core component of goAdmin. It has two attributes.
@@ -494,7 +494,7 @@ func (eng *Engine) Content(ctx interface{}, panel types.GetPanelFunc) {
 	if eng.Adapter == nil {
 		emptyAdapterPanic()
 	}
-	eng.Adapter.Content(ctx, panel, eng.AdminPlugin().GetAddOperationFn(), *eng.NavButtons...)
+	eng.Adapter.Content(ctx, panel, eng.AdminPlugin().GetAddOperationFunc(), *eng.NavButtons...)
 }
 
 // Content call the Content method of defaultAdapter.
@@ -503,7 +503,7 @@ func Content(ctx interface{}, panel types.GetPanelFunc) {
 	if defaultAdapter == nil {
 		emptyAdapterPanic()
 	}
-	defaultAdapter.Content(ctx, panel, engine.AdminPlugin().GetAddOperationFn(), *navButtons...)
+	defaultAdapter.Content(ctx, panel, engine.AdminPlugin().GetAddOperationFunc(), *navButtons...)
 }
 
 // Data inject the route and corresponding handler to the web framework.
@@ -524,7 +524,7 @@ func (eng *Engine) HTML(method, url string, getPanelInfoFunc types.GetPanelInfoF
 			panel = template.WarningPanel(err.Error())
 		}
 
-		eng.AdminPlugin().GetAddOperationFn()(panel.Callbacks...)
+		eng.AdminPlugin().GetAddOperationFunc()(panel.Callbacks...)
 
 		var (
 			tmpl, tmplName = template.Default().GetTemplate(ctx.IsPjax())

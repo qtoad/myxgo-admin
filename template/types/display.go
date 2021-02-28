@@ -6,8 +6,8 @@ import (
 	"html/template"
 	"strings"
 
-	"github.com/qtoad/mygo-admin/modules/config"
-	"github.com/qtoad/mygo-admin/template/types/form"
+	"github.com/qtoad/myxgo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/template/types/form"
 )
 
 type DisplayFnGenerator interface {
@@ -16,18 +16,18 @@ type DisplayFnGenerator interface {
 	HTML() template.HTML
 }
 
-type BaseDisplayFnGenerator struct{}
+type BaseDisplayFuncGenerator struct{}
 
-func (base *BaseDisplayFnGenerator) JS() template.HTML   { return "" }
-func (base *BaseDisplayFnGenerator) HTML() template.HTML { return "" }
+func (base *BaseDisplayFuncGenerator) JS() template.HTML   { return "" }
+func (base *BaseDisplayFuncGenerator) HTML() template.HTML { return "" }
 
-var displayFnGens = make(map[string]DisplayFnGenerator)
+var displayFuncGens = make(map[string]DisplayFnGenerator)
 
 func RegisterDisplayFnGenerator(key string, gen DisplayFnGenerator) {
-	if _, ok := displayFnGens[key]; ok {
+	if _, ok := displayFuncGens[key]; ok {
 		panic("display function generator has been registered")
 	}
-	displayFnGens[key] = gen
+	displayFuncGens[key] = gen
 }
 
 type FieldDisplay struct {
@@ -201,8 +201,8 @@ func (d DisplayProcessFuncChains) Valid() bool {
 	return len(d) > 0
 }
 
-func (d DisplayProcessFuncChains) Add(f FieldFilterFunc) DisplayProcessFuncChains {
-	return append(d, f)
+func (d DisplayProcessFuncChains) Add(filter FieldFilterFunc) DisplayProcessFuncChains {
+	return append(d, filter)
 }
 
 func (d DisplayProcessFuncChains) Append(f DisplayProcessFuncChains) DisplayProcessFuncChains {

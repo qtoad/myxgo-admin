@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/qtoad/mygo-admin/modules/config"
+	"github.com/qtoad/myxgo-admin/modules/config"
 )
 
 // Postgresql is a Connection of postgresql.

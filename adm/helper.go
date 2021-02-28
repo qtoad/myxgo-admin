@@ -3,14 +3,14 @@ package main
 import (
 	"errors"
 	"fmt"
-	"github.com/qtoad/mygo-admin/version"
+	"github.com/qtoad/myxgo-admin/version"
 	"io/ioutil"
 	"net/http"
 	"strings"
 	"time"
 
 	"github.com/mgutz/ansi"
-	"github.com/qtoad/mygo-admin/modules/util"
+	"github.com/qtoad/myxgo-admin/modules/util"
 )
 
 func cliInfo() {
