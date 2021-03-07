@@ -16,7 +16,6 @@ import (
 	"github.com/qtoad/myxgo-admin/modules/logger"
 	"github.com/qtoad/myxgo-admin/modules/menu"
 	"github.com/qtoad/myxgo-admin/modules/service"
-	"github.com/qtoad/myxgo-admin/modules/util"
 	"github.com/qtoad/myxgo-admin/plugins"
 	form2 "github.com/qtoad/myxgo-admin/plugins/admin/modules/form"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/parameter"
@@ -30,7 +29,8 @@ import (
 	"github.com/qtoad/myxgo-admin/template/icon"
 	"github.com/qtoad/myxgo-admin/template/types"
 	"github.com/qtoad/myxgo-admin/template/types/form"
-	"github.com/qtoad/myxgo-plusplus/yaml"
+	"github.com/qtoad/myxgo-admin/util"
+	"github.com/qtoad/myxgo-plusplus/yaml.v2"
 )
 
 type Librarian struct {
@@ -455,7 +455,7 @@ func (l *Librarian) GetSettingPage() table.Generator {
 			message1 = "update"
 			message2 = "setting"
 
-			cfg = cfg.SetOnlyUpdateForm().SetGetDataFun(func(params parameter.Parameters) ([]map[string]interface{}, int) {
+			cfg = cfg.SetOnlyUpdateForm().SetGetDataFn(func(params parameter.Parameters) ([]map[string]interface{}, int) {
 
 				var m = make([]map[string]interface{}, 1)
 

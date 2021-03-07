@@ -8,8 +8,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/qtoad/myxgo-admin/modules/logger"
-	"github.com/qtoad/myxgo-admin/modules/util"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/form"
+	"github.com/qtoad/myxgo-admin/util"
 	"github.com/qtoad/myxgo-plusplus/ini.v1"
 	"github.com/qtoad/myxgo-plusplus/yaml.v2"
 	"html/template"
@@ -438,15 +438,15 @@ type URLFormat struct {
 }
 
 func (f URLFormat) SetDefault() URLFormat {
-	f.Detail = util.SetDefault(f.Detail, "", "/info/:__prefix/detail")
-	f.ShowEdit = util.SetDefault(f.ShowEdit, "", "/info/:__prefix/edit")
-	f.ShowCreate = util.SetDefault(f.ShowCreate, "", "/info/:__prefix/new")
-	f.Edit = util.SetDefault(f.Edit, "", "/edit/:__prefix")
-	f.Create = util.SetDefault(f.Create, "", "/new/:__prefix")
-	f.Delete = util.SetDefault(f.Delete, "", "/delete/:__prefix")
-	f.Export = util.SetDefault(f.Export, "", "/export/:__prefix")
-	f.Info = util.SetDefault(f.Info, "", "/info/:__prefix")
-	f.Update = util.SetDefault(f.Update, "", "/update/:__prefix")
+	f.Detail = util.SetDefault(f.Detail, "/info/:__prefix/detail")
+	f.ShowEdit = util.SetDefault(f.ShowEdit, "/info/:__prefix/edit")
+	f.ShowCreate = util.SetDefault(f.ShowCreate, "/info/:__prefix/new")
+	f.Edit = util.SetDefault(f.Edit, "/edit/:__prefix")
+	f.Create = util.SetDefault(f.Create, "/new/:__prefix")
+	f.Delete = util.SetDefault(f.Delete, "/delete/:__prefix")
+	f.Export = util.SetDefault(f.Export, "/export/:__prefix")
+	f.Info = util.SetDefault(f.Info, "/info/:__prefix")
+	f.Update = util.SetDefault(f.Update, "/update/:__prefix")
 	return f
 }
 
@@ -735,9 +735,9 @@ func (c *Config) Update(m map[string]string) error {
 			}
 			if mv, ok := m[keyName]; ok {
 				if keyName == "info_log" || keyName == "error_log" || keyName == "access_log" {
-					v.Set(reflect.ValueOf(util.SetDefault(mv, v.String(), v.String())))
+					v.Set(reflect.ValueOf(util.SetDefault(mv, v.String())))
 				} else if keyName == "app_id" {
-					v.Set(reflect.ValueOf(util.SetDefault(mv, "", v.String())))
+					v.Set(reflect.ValueOf(util.SetDefault(mv, v.String())))
 				} else if keyName == "color_scheme" {
 					if m["theme"] == "adminlte" {
 						v.Set(reflect.ValueOf(mv))
@@ -880,26 +880,26 @@ func ReadFromINI(path string) Config {
 }
 
 func SetDefault(cfg *Config) *Config {
-	cfg.Title = util.SetDefault(cfg.Title, "", "GoAdmin")
-	cfg.LoginTitle = util.SetDefault(cfg.LoginTitle, "", "GoAdmin")
-	cfg.Logo = template.HTML(util.SetDefault(string(cfg.Logo), "", "<b>Go</b>Admin"))
-	cfg.MiniLogo = template.HTML(util.SetDefault(string(cfg.MiniLogo), "", "<b>G</b>A"))
-	cfg.Theme = util.SetDefault(cfg.Theme, "", "adminlte")
-	cfg.IndexUrl = util.SetDefault(cfg.IndexUrl, "", "/info/manager")
-	cfg.LoginUrl = util.SetDefault(cfg.LoginUrl, "", "/login")
-	cfg.AuthUserTable = util.SetDefault(cfg.AuthUserTable, "", "goadmin_users")
+	cfg.Title = util.SetDefault(cfg.Title, "GoAdmin")
+	cfg.LoginTitle = util.SetDefault(cfg.LoginTitle, "GoAdmin")
+	cfg.Logo = template.HTML(util.SetDefault(string(cfg.Logo), "<b>Go</b>Admin"))
+	cfg.MiniLogo = template.HTML(util.SetDefault(string(cfg.MiniLogo), "<b>G</b>A"))
+	cfg.Theme = util.SetDefault(cfg.Theme, "adminlte")
+	cfg.IndexUrl = util.SetDefault(cfg.IndexUrl, "/info/manager")
+	cfg.LoginUrl = util.SetDefault(cfg.LoginUrl, "/login")
+	cfg.AuthUserTable = util.SetDefault(cfg.AuthUserTable, "goadmin_users")
 	if cfg.Theme == "adminlte" {
-		cfg.ColorScheme = util.SetDefault(cfg.ColorScheme, "", "skin-black")
+		cfg.ColorScheme = util.SetDefault(cfg.ColorScheme, "skin-black")
 	}
-	cfg.AssetRootPath = util.SetDefault(cfg.AssetRootPath, "", "./public/")
+	cfg.AssetRootPath = util.SetDefault(cfg.AssetRootPath, "./public/")
 	cfg.AssetRootPath = filepath.ToSlash(cfg.AssetRootPath)
-	cfg.FileUploadEngine.Name = util.SetDefault(cfg.FileUploadEngine.Name, "", "local")
-	cfg.Env = util.SetDefault(cfg.Env, "", EnvProd)
+	cfg.FileUploadEngine.Name = util.SetDefault(cfg.FileUploadEngine.Name, "local")
+	cfg.Env = util.SetDefault(cfg.Env, EnvProd)
 	if cfg.SessionLifeTime == 0 {
 		// default two hours
 		cfg.SessionLifeTime = 7200
 	}
-	cfg.AppID = util.Uuid(12)
+	cfg.AppID = util.NewUuid2(12)
 	if cfg.UrlPrefix == "" {
 		cfg.prefix = "/"
 	} else if cfg.UrlPrefix[0] != '/' {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/qtoad/myxgo-admin/context"
 	"github.com/qtoad/myxgo-admin/modules/config"
-	"github.com/qtoad/myxgo-admin/modules/util"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/paginator"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/parameter"
 	"github.com/qtoad/myxgo-admin/plugins/filemanager/models"
@@ -21,6 +20,7 @@ import (
 	"github.com/qtoad/myxgo-admin/template/icon"
 	"github.com/qtoad/myxgo-admin/template/types"
 	"github.com/qtoad/myxgo-admin/template/types/action"
+	"github.com/qtoad/myxgo-admin/util"
 	"github.com/qtoad/myxgo-plusplus/html"
 )
 

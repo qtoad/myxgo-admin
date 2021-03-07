@@ -12,8 +12,8 @@ import (
 	"github.com/qtoad/myxgo-admin/modules/db"
 	"github.com/qtoad/myxgo-admin/modules/db/dialect"
 	"github.com/qtoad/myxgo-admin/modules/logger"
-	"github.com/qtoad/myxgo-admin/modules/util"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/constant"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 // UserModel is user model structure.

@@ -5,7 +5,7 @@ import (
 	"strconv"
 
 	"github.com/qtoad/myxgo-admin/modules/language"
-	"github.com/qtoad/myxgo-admin/modules/util"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 type DefaultSelection struct {
@@ -16,7 +16,7 @@ type DefaultSelection struct {
 }
 
 func btnUUID() string {
-	return "info-btn-" + util.Uuid(10)
+	return "info-btn-" + util.NewUuid2(10)
 }
 
 func GetDefaultSelection(placeholder string, options FieldOptions, action Action, widths ...int) *DefaultSelection {

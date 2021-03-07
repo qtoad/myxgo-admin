@@ -21,12 +21,12 @@ import (
 	"github.com/qtoad/myxgo-admin/modules/auth"
 	"github.com/qtoad/myxgo-admin/modules/language"
 	"github.com/qtoad/myxgo-admin/modules/remote_server"
-	"github.com/qtoad/myxgo-admin/modules/util"
 	"github.com/qtoad/myxgo-admin/plugins"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/guard"
 	template2 "github.com/qtoad/myxgo-admin/template"
 	"github.com/qtoad/myxgo-admin/template/types"
 	"github.com/qtoad/myxgo-admin/template/types/form"
+	"github.com/qtoad/myxgo-admin/util"
 	"github.com/qtoad/myxgo-plusplus/html"
 )
 
@@ -371,7 +371,7 @@ func (h *Handler) PluginDownload(ctx *context.Context) {
 		}
 	}
 
-	tempFile := "./temp-" + util.Uuid(10) + ".zip"
+	tempFile := "./temp-" + util.NewUuid2(10) + ".zip"
 
 	err := util.DownloadTo(downloadURL, tempFile)
 

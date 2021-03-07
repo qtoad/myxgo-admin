@@ -15,8 +15,8 @@ import (
 	"github.com/qtoad/myxgo-admin/context"
 	"github.com/qtoad/myxgo-admin/modules/config"
 	"github.com/qtoad/myxgo-admin/modules/menu"
-	"github.com/qtoad/myxgo-admin/modules/util"
 	"github.com/qtoad/myxgo-admin/plugins/admin/models"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 // Attribute is the component interface of template. Every component of

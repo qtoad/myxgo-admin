@@ -5,13 +5,12 @@
 package file
 
 import (
+	"github.com/qtoad/myxgo-admin/util"
 	"io"
 	"mime/multipart"
 	"os"
 	"path"
 	"sync"
-
-	"github.com/qtoad/myxgo-admin/plugins/admin/modules"
 )
 
 // Uploader is a file uploader which contains the method Upload.
@@ -64,7 +63,7 @@ func Upload(uploadFn UploadFn, form *multipart.Form) error {
 	for k := range form.File {
 		for _, fileObj := range form.File[k] {
 			suffix = path.Ext(fileObj.Filename)
-			filename = modules.Uuid() + suffix
+			filename = util.NewUuid() + suffix
 
 			pathStr, err := uploadFn(fileObj, filename)
 

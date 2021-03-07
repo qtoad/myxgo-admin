@@ -5,10 +5,10 @@
 package types
 
 import (
+	"github.com/qtoad/myxgo-admin/util"
 	"html/template"
 
 	"github.com/qtoad/myxgo-admin/modules/menu"
-	"github.com/qtoad/myxgo-admin/plugins/admin/modules"
 	"github.com/qtoad/myxgo-admin/template/types/form"
 )
 
@@ -241,7 +241,7 @@ func (t Thead) GroupBy(group [][]string) []Thead {
 		var newThead = make(Thead, 0)
 
 		for _, info := range t {
-			if modules.InArray(value, info.Field) {
+			if util.InArray(value, info.Field) {
 				newThead = append(newThead, info)
 			}
 		}

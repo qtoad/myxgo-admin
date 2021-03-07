@@ -4,9 +4,9 @@ import (
 	"github.com/qtoad/myxgo-admin/context"
 	"github.com/qtoad/myxgo-admin/modules/auth"
 	"github.com/qtoad/myxgo-admin/modules/config"
-	"github.com/qtoad/myxgo-admin/modules/util"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/response"
 	"github.com/qtoad/myxgo-admin/template"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 // initRouter initialize the router and return the context.

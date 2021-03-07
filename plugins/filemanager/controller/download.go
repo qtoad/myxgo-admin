@@ -6,9 +6,9 @@ import (
 	"strings"
 
 	"github.com/qtoad/myxgo-admin/context"
-	"github.com/qtoad/myxgo-admin/modules/util"
 	"github.com/qtoad/myxgo-admin/plugins/filemanager/models"
 	errors "github.com/qtoad/myxgo-admin/plugins/filemanager/modules/error"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 func (h *Handler) Download(ctx *context.Context) {

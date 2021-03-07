@@ -6,6 +6,7 @@ package auth
 
 import (
 	"encoding/json"
+	"github.com/qtoad/myxgo-admin/util"
 	"net/http"
 	"strconv"
 	"time"
@@ -15,7 +16,6 @@ import (
 	"github.com/qtoad/myxgo-admin/modules/db"
 	"github.com/qtoad/myxgo-admin/modules/db/dialect"
 	"github.com/qtoad/myxgo-admin/modules/logger"
-	"github.com/qtoad/myxgo-admin/plugins/admin/modules"
 )
 
 const DefaultCookieKey = "go_admin_session"
@@ -111,7 +111,7 @@ func (ses *Session) StartCtx(ctx *context.Context) (*Session, error) {
 			ses.Values = valueFromDriver
 		}
 	} else {
-		ses.Sid = modules.Uuid()
+		ses.Sid = util.NewUuid()
 	}
 	ses.Context = ctx
 	return ses, nil

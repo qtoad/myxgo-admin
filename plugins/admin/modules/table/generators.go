@@ -20,7 +20,6 @@ import (
 	"github.com/qtoad/myxgo-admin/modules/language"
 	"github.com/qtoad/myxgo-admin/modules/logger"
 	"github.com/qtoad/myxgo-admin/modules/ui"
-	"github.com/qtoad/myxgo-admin/modules/util"
 	"github.com/qtoad/myxgo-admin/plugins/admin/models"
 	form2 "github.com/qtoad/myxgo-admin/plugins/admin/modules/form"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/parameter"
@@ -30,6 +29,7 @@ import (
 	"github.com/qtoad/myxgo-admin/template/types/action"
 	"github.com/qtoad/myxgo-admin/template/types/form"
 	selection "github.com/qtoad/myxgo-admin/template/types/selection"
+	"github.com/qtoad/myxgo-admin/util"
 	"github.com/qtoad/myxgo-plusplus/html"
 	"golang.org/x/crypto/bcrypt"
 )

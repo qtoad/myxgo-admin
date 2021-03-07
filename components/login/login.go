@@ -11,11 +11,11 @@ import (
 	"github.com/dchest/captcha"
 	"github.com/qtoad/myxgo-admin/components/login/theme1"
 	"github.com/qtoad/myxgo-admin/modules/logger"
-	"github.com/qtoad/myxgo-admin/modules/util"
 	captcha2 "github.com/qtoad/myxgo-admin/plugins/admin/modules/captcha"
 	template2 "github.com/qtoad/myxgo-admin/template"
 	"github.com/qtoad/myxgo-admin/template/login"
 	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 var themes = map[string]Theme{
@@ -91,7 +91,7 @@ func byteToStr(b []byte) string {
 func (l *Login) GetTemplate() (*template.Template, string) {
 
 	if l.CaptchaDigits != 0 {
-		id := util.Uuid(10)
+		id := util.NewUuid2(10)
 		digitByte := captcha.RandomDigits(l.CaptchaDigits)
 		captchaData[id] = CaptchaDataItem{
 			Data: byteToStr(digitByte),
@@ -117,7 +117,7 @@ func (l *Login) GetTemplate() (*template.Template, string) {
 	}
 
 	tmpl, err := template.New("login").
-		Funcs(login.DefaultFuncMap).
+		Funcs(login.DefaultFnMap).
 		Parse(buf.String())
 
 	if err != nil {

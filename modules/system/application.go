@@ -7,7 +7,7 @@ import (
 
 	"github.com/qtoad/myxgo-admin/modules/config"
 	"github.com/qtoad/myxgo-admin/modules/language"
-	"github.com/qtoad/myxgo-admin/modules/util"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 var (

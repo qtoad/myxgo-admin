@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"crypto/md5"
 	"fmt"
+	"github.com/qtoad/myxgo-admin/util"
 	template2 "html/template"
 	"mime"
 	"net/http"
@@ -18,7 +19,6 @@ import (
 	"github.com/qtoad/myxgo-admin/modules/errors"
 	"github.com/qtoad/myxgo-admin/modules/language"
 	"github.com/qtoad/myxgo-admin/modules/logger"
-	"github.com/qtoad/myxgo-admin/plugins/admin/modules"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/constant"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/form"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/guard"
@@ -76,11 +76,11 @@ func (h *Handler) showTableData(ctx *context.Context, prefix string, params para
 	var (
 		paramStr = params.DeleteIsAll().GetRouteParamStr()
 
-		editUrl   = modules.AorEmpty(!panel.GetInfo().IsHideEditButton, h.routePathWithPrefix(urlNamePrefix+"show_edit", prefix)+paramStr)
-		newUrl    = modules.AorEmpty(!panel.GetInfo().IsHideNewButton, h.routePathWithPrefix(urlNamePrefix+"show_new", prefix)+paramStr)
-		deleteUrl = modules.AorEmpty(!panel.GetInfo().IsHideDeleteButton, h.routePathWithPrefix(urlNamePrefix+"delete", prefix)+paramStr)
-		exportUrl = modules.AorEmpty(!panel.GetInfo().IsHideExportButton, h.routePathWithPrefix(urlNamePrefix+"export", prefix)+paramStr)
-		detailUrl = modules.AorEmpty(!panel.GetInfo().IsHideDetailButton, h.routePathWithPrefix(urlNamePrefix+"detail", prefix)+paramStr)
+		editUrl   = util.AorEmpty(!panel.GetInfo().IsHideEditButton, h.routePathWithPrefix(urlNamePrefix+"show_edit", prefix)+paramStr)
+		newUrl    = util.AorEmpty(!panel.GetInfo().IsHideNewButton, h.routePathWithPrefix(urlNamePrefix+"show_new", prefix)+paramStr)
+		deleteUrl = util.AorEmpty(!panel.GetInfo().IsHideDeleteButton, h.routePathWithPrefix(urlNamePrefix+"delete", prefix)+paramStr)
+		exportUrl = util.AorEmpty(!panel.GetInfo().IsHideExportButton, h.routePathWithPrefix(urlNamePrefix+"export", prefix)+paramStr)
+		detailUrl = util.AorEmpty(!panel.GetInfo().IsHideDetailButton, h.routePathWithPrefix(urlNamePrefix+"detail", prefix)+paramStr)
 
 		infoUrl   = h.routePathWithPrefix(urlNamePrefix+"info", prefix)
 		updateUrl = h.routePathWithPrefix(urlNamePrefix+"update", prefix) + paramStr
@@ -290,7 +290,7 @@ func (h *Handler) showTable(ctx *context.Context, prefix string, params paramete
 	return h.Execute(ctx, user, types.Panel{
 		Content:         content,
 		Description:     template2.HTML(panelInfo.Description),
-		Title:           modules.AorBHTML(isNotIframe, template2.HTML(panelInfo.Title), ""),
+		Title:           util.AorBHTML(isNotIframe, template2.HTML(panelInfo.Title), ""),
 		MiniSidebar:     info.HideSideBar,
 		AutoRefresh:     autoRefresh,
 		RefreshInterval: interval,

@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/qtoad/myxgo-admin/modules/util"
+	"github.com/qtoad/myxgo-admin/util"
 
 	"github.com/stretchr/testify/assert"
 )

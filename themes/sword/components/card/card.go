@@ -3,9 +3,9 @@ package card
 import (
 	"html/template"
 
-	"github.com/qtoad/myxgo-admin/modules/util"
 	adminTemplate "github.com/qtoad/myxgo-admin/template"
 	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 type Card struct {
@@ -25,7 +25,7 @@ type Card struct {
 }
 
 func New() Card {
-	UUID := util.Uuid(10)
+	UUID := util.NewUuid2(10)
 	return Card{
 		BaseComponent: &adminTemplate.BaseComponent{
 			Name:     "card",

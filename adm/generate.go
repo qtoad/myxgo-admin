@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"github.com/qtoad/myxgo-admin/util"
 	"os"
 	"os/exec"
 	"runtime"
@@ -13,9 +14,8 @@ import (
 	"github.com/AlecAivazis/survey/v2/core"
 	"github.com/mgutz/ansi"
 	"github.com/qtoad/myxgo-admin/modules/db"
-	"github.com/qtoad/myxgo-admin/plugins/admin/modules"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/tools"
-	"github.com/qtoad/myxgo-plusplus/ini"
+	"github.com/qtoad/myxgo-plusplus/ini.v1"
 	"github.com/schollz/progressbar"
 )
 
@@ -103,7 +103,7 @@ func generating(cfgFile, connName string) {
 		if len(chooseTables) == 0 {
 			panic(newError("no table is selected"))
 		}
-		if modules.InArray(chooseTables, "["+getWord("select all")+"]") {
+		if util.InArray(chooseTables, "["+getWord("select all")+"]") {
 			chooseTables = tables[1:]
 		}
 	}

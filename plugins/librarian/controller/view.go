@@ -6,10 +6,10 @@ import (
 	"github.com/qtoad/myxgo-admin/template"
 
 	"github.com/qtoad/myxgo-admin/context"
-	"github.com/qtoad/myxgo-admin/modules/util"
 	"github.com/qtoad/myxgo-admin/plugins/librarian/guard"
 	"github.com/qtoad/myxgo-admin/plugins/librarian/modules/theme"
 	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 func (h *Handler) View(ctx *context.Context) {

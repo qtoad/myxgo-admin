@@ -6,8 +6,8 @@ import (
 
 	"github.com/qtoad/myxgo-admin/context"
 	"github.com/qtoad/myxgo-admin/modules/config"
-	"github.com/qtoad/myxgo-admin/modules/util"
 	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 type AjaxData map[string]interface{}

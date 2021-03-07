@@ -1,9 +1,9 @@
 package components
 
 import (
+	"github.com/qtoad/myxgo-admin/util"
 	"html/template"
 
-	"github.com/qtoad/myxgo-admin/plugins/admin/modules"
 	"github.com/qtoad/myxgo-admin/template/types"
 )
 
@@ -29,7 +29,7 @@ func (compo *ImgAttribute) SetHeight(value string) types.ImgAttribute {
 
 func (compo *ImgAttribute) WithModal() types.ImgAttribute {
 	compo.HasModal = true
-	compo.Uuid = modules.Uuid()
+	compo.Uuid = util.NewUuid()
 	return compo
 }
 

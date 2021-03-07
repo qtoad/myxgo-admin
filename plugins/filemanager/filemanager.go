@@ -8,7 +8,6 @@ import (
 	"github.com/qtoad/myxgo-admin/modules/db"
 	"github.com/qtoad/myxgo-admin/modules/language"
 	"github.com/qtoad/myxgo-admin/modules/service"
-	"github.com/qtoad/myxgo-admin/modules/util"
 	"github.com/qtoad/myxgo-admin/plugins"
 	"github.com/qtoad/myxgo-admin/plugins/filemanager/controller"
 	"github.com/qtoad/myxgo-admin/plugins/filemanager/guard"
@@ -16,6 +15,7 @@ import (
 	language2 "github.com/qtoad/myxgo-admin/plugins/filemanager/modules/language"
 	"github.com/qtoad/myxgo-admin/plugins/filemanager/modules/permission"
 	"github.com/qtoad/myxgo-admin/plugins/filemanager/modules/root"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 type FileManager struct {

@@ -3,7 +3,7 @@ package models
 import (
 	"database/sql"
 
-	"github.com/qtoad/myxgo-admin/modules/util"
+	"github.com/qtoad/myxgo-admin/util"
 
 	"github.com/qtoad/myxgo-admin/modules/collection"
 	"github.com/qtoad/myxgo-admin/modules/db"

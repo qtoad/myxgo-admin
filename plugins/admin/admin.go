@@ -4,7 +4,6 @@ import (
 	"github.com/qtoad/myxgo-admin/context"
 	"github.com/qtoad/myxgo-admin/modules/config"
 	"github.com/qtoad/myxgo-admin/modules/service"
-	"github.com/qtoad/myxgo-admin/modules/util"
 	"github.com/qtoad/myxgo-admin/plugins"
 	"github.com/qtoad/myxgo-admin/plugins/admin/controller"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/guard"
@@ -12,6 +11,7 @@ import (
 	"github.com/qtoad/myxgo-admin/template/types"
 	"github.com/qtoad/myxgo-admin/template/types/action"
 	_ "github.com/qtoad/myxgo-admin/template/types/display"
+	"github.com/qtoad/myxgo-admin/util"
 	"github.com/qtoad/myxgo-admin/version"
 )
 

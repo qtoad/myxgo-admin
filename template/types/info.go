@@ -16,11 +16,10 @@ import (
 	"github.com/qtoad/myxgo-admin/modules/errors"
 	"github.com/qtoad/myxgo-admin/modules/language"
 	"github.com/qtoad/myxgo-admin/modules/logger"
-	"github.com/qtoad/myxgo-admin/modules/util"
-	"github.com/qtoad/myxgo-admin/plugins/admin/modules"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/parameter"
 	"github.com/qtoad/myxgo-admin/template/types/form"
 	"github.com/qtoad/myxgo-admin/template/types/table"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 // FieldModel is the single query result.
@@ -87,7 +86,7 @@ func (i InfoList) GroupBy(groups TabGroups) []InfoList {
 		for index, info := range i {
 			var newRow = make(map[string]InfoItem)
 			for mk, m := range info {
-				if modules.InArray(value, mk) {
+				if util.InArray(value, mk) {
 					newRow[mk] = m
 				}
 			}
@@ -309,9 +308,9 @@ func (f FieldList) GetTheadAndFilterForm(info TableInfo, params parameter.Parame
 		tableName  = info.Delimiter + info.Table + info.Delimiter2
 	)
 	for _, field := range f {
-		if field.Field != info.PrimaryKey && modules.InArray(columns, field.Field) &&
+		if field.Field != info.PrimaryKey && util.InArray(columns, field.Field) &&
 			!field.Joins.Valid() {
-			fields += tableName + "." + modules.FilterField(field.Field, info.Delimiter, info.Delimiter2) + ","
+			fields += tableName + "." + util.FilterField(field.Field, info.Delimiter, info.Delimiter2) + ","
 		}
 
 		headField := field.Field
@@ -319,16 +318,16 @@ func (f FieldList) GetTheadAndFilterForm(info TableInfo, params parameter.Parame
 		if field.Joins.Valid() {
 			headField = field.Joins.Last().GetTableName() + parameter.FilterParamJoinInfix + field.Field
 			joinFields += db.GetAggregationExpression(info.Driver, field.Joins.Last().GetTableName(info.Delimiter, info.Delimiter2)+"."+
-				modules.FilterField(field.Field, info.Delimiter, info.Delimiter2), headField, JoinFieldValueDelimiter) + ","
+				util.FilterField(field.Field, info.Delimiter, info.Delimiter2), headField, JoinFieldValueDelimiter) + ","
 			for _, join := range field.Joins {
-				if !modules.InArray(joinTables, join.GetTableName(info.Delimiter, info.Delimiter2)) {
+				if !util.InArray(joinTables, join.GetTableName(info.Delimiter, info.Delimiter2)) {
 					joinTables = append(joinTables, join.GetTableName(info.Delimiter, info.Delimiter2))
 					if join.BaseTable == "" {
 						join.BaseTable = info.Table
 					}
-					joins += " left join " + modules.FilterField(join.Table, info.Delimiter, info.Delimiter2) + " " + join.TableAlias + " on " +
-						join.GetTableName(info.Delimiter, info.Delimiter2) + "." + modules.FilterField(join.JoinField, info.Delimiter, info.Delimiter2) + " = " +
-						modules.Delimiter(info.Delimiter, info.Delimiter2, join.BaseTable) + "." + modules.FilterField(join.Field, info.Delimiter, info.Delimiter2)
+					joins += " left join " + util.FilterField(join.Table, info.Delimiter, info.Delimiter2) + " " + join.TableAlias + " on " +
+						join.GetTableName(info.Delimiter, info.Delimiter2) + "." + util.FilterField(join.JoinField, info.Delimiter, info.Delimiter2) + " = " +
+						util.Delimiter(info.Delimiter, info.Delimiter2, join.BaseTable) + "." + util.FilterField(join.Field, info.Delimiter, info.Delimiter2)
 				}
 			}
 		}
@@ -348,7 +347,7 @@ func (f FieldList) GetTheadAndFilterForm(info TableInfo, params parameter.Parame
 			Head:       field.Head,
 			Sortable:   field.Sortable,
 			Field:      headField,
-			Hide:       !modules.InArrayWithoutEmpty(params.Columns, headField),
+			Hide:       !util.InArrayWithoutEmpty(params.Columns, headField),
 			Editable:   field.EditAble,
 			EditType:   field.EditType.String(),
 			EditOption: field.EditOptions,
@@ -367,9 +366,9 @@ func (f FieldList) GetThead(info TableInfo, params parameter.Parameters, columns
 		joinTables = make([]string, 0)
 	)
 	for _, field := range f {
-		if field.Field != info.PrimaryKey && modules.InArray(columns, field.Field) &&
+		if field.Field != info.PrimaryKey && util.InArray(columns, field.Field) &&
 			!field.Joins.Valid() {
-			fields += info.Table + "." + modules.FilterField(field.Field, info.Delimiter, info.Delimiter2) + ","
+			fields += info.Table + "." + util.FilterField(field.Field, info.Delimiter, info.Delimiter2) + ","
 		}
 
 		headField := field.Field
@@ -377,14 +376,14 @@ func (f FieldList) GetThead(info TableInfo, params parameter.Parameters, columns
 		if field.Joins.Valid() {
 			headField = field.Joins.Last().GetTableName(info.Delimiter, info.Delimiter2) + parameter.FilterParamJoinInfix + field.Field
 			for _, join := range field.Joins {
-				if !modules.InArray(joinTables, join.GetTableName(info.Delimiter, info.Delimiter2)) {
+				if !util.InArray(joinTables, join.GetTableName(info.Delimiter, info.Delimiter2)) {
 					joinTables = append(joinTables, join.GetTableName(info.Delimiter, info.Delimiter2))
 					if join.BaseTable == "" {
 						join.BaseTable = info.Table
 					}
-					joins += " left join " + modules.FilterField(join.Table, info.Delimiter, info.Delimiter2) + " " + join.TableAlias + " on " +
-						join.GetTableName(info.Delimiter, info.Delimiter2) + "." + modules.FilterField(join.JoinField, info.Delimiter, info.Delimiter2) + " = " +
-						modules.Delimiter(info.Delimiter, info.Delimiter2, join.BaseTable) + "." + modules.FilterField(join.Field, info.Delimiter, info.Delimiter2)
+					joins += " left join " + util.FilterField(join.Table, info.Delimiter, info.Delimiter2) + " " + join.TableAlias + " on " +
+						join.GetTableName(info.Delimiter, info.Delimiter2) + "." + util.FilterField(join.JoinField, info.Delimiter, info.Delimiter2) + " = " +
+						util.Delimiter(info.Delimiter, info.Delimiter2, join.BaseTable) + "." + util.FilterField(join.Field, info.Delimiter, info.Delimiter2)
 				}
 			}
 		}
@@ -396,7 +395,7 @@ func (f FieldList) GetThead(info TableInfo, params parameter.Parameters, columns
 			Head:       field.Head,
 			Sortable:   field.Sortable,
 			Field:      headField,
-			Hide:       !modules.InArrayWithoutEmpty(params.Columns, headField),
+			Hide:       !util.InArrayWithoutEmpty(params.Columns, headField),
 			Editable:   field.EditAble,
 			EditType:   field.EditType.String(),
 			EditOption: field.EditOptions,
@@ -502,7 +501,7 @@ func (j Join) GetTableName(delimiter ...string) string {
 	return j.Table
 }
 
-var JoinFieldValueDelimiter = util.Uuid(8)
+var JoinFieldValueDelimiter = util.NewUuid2(8)
 
 type TabGroups [][]string
 
@@ -649,12 +648,12 @@ func (whs Wheres) Statement(wheres, delimiter, delimiter2 string, whereArgs []in
 			whField = whFieldArr[0]
 		}
 
-		if modules.InArray(existKeys, whField) {
+		if util.InArray(existKeys, whField) {
 			continue
 		}
 
 		// TODO: support like operation and join table
-		if modules.InArray(columns, whField) {
+		if util.InArray(columns, whField) {
 
 			joinMark := ""
 			if k != len(whs)-1 {
@@ -662,9 +661,9 @@ func (whs Wheres) Statement(wheres, delimiter, delimiter2 string, whereArgs []in
 			}
 
 			if whTable != "" {
-				pwheres += whTable + "." + modules.FilterField(whField, delimiter, delimiter2) + " " + wh.Operator + " ? " + joinMark + " "
+				pwheres += whTable + "." + util.FilterField(whField, delimiter, delimiter2) + " " + wh.Operator + " ? " + joinMark + " "
 			} else {
-				pwheres += modules.FilterField(whField, delimiter, delimiter2) + " " + wh.Operator + " ? " + joinMark + " "
+				pwheres += util.FilterField(whField, delimiter, delimiter2) + " " + wh.Operator + " ? " + joinMark + " "
 			}
 			whereArgs = append(whereArgs, wh.Arg)
 		}
@@ -1060,6 +1059,10 @@ func (i *InfoPanel) AddFieldWithTranslation(ctx *context.Context, head, field st
 	return i.AddField(language.GetWithLang(head, ctx.Lang()), field, typeName)
 }
 
+func (i *InfoPanel) AddVarcharField(head, field string, typeName db.FieldType) *InfoPanel {
+	return i.AddField(head, field, db.Varchar)
+}
+
 func (i *InfoPanel) AddField(head, field string, typeName db.FieldType) *InfoPanel {
 	i.FieldList = append(i.FieldList, Field{
 		Head:     head,
@@ -1292,7 +1295,7 @@ func (i *InfoPanel) FieldFilterable(filterType ...FilterType) *InfoPanel {
 		} else {
 			ff.Type = filter.FormType
 		}
-		ff.Head = modules.AorB(!filter.NoHead && filter.Head == "",
+		ff.Head = util.AorB(!filter.NoHead && filter.Head == "",
 			i.FieldList[i.curFieldListIndex].Head, filter.Head)
 		ff.Width = filter.Width
 		ff.HeadWidth = filter.HeadWidth
@@ -1301,7 +1304,7 @@ func (i *InfoPanel) FieldFilterable(filterType ...FilterType) *InfoPanel {
 		ff.NoIcon = filter.NoIcon
 		ff.Style = filter.Style
 		ff.ProcessFn = filter.Process
-		ff.Placeholder = modules.AorB(filter.Placeholder == "", language.Get("input")+" "+ff.Head, filter.Placeholder)
+		ff.Placeholder = util.AorB(filter.Placeholder == "", language.Get("input")+" "+ff.Head, filter.Placeholder)
 		ff.Options = filter.Options
 		if len(filter.OptionExt) > 0 {
 			s, _ := json.Marshal(filter.OptionExt)

@@ -1,11 +1,11 @@
 package parameter
 
 import (
+	"github.com/qtoad/myxgo-admin/util"
 	"net/url"
 	"strconv"
 	"strings"
 
-	"github.com/qtoad/myxgo-admin/plugins/admin/modules"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/constant"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/form"
 )
@@ -95,7 +95,7 @@ func GetParam(u *url.URL, defaultPageSize int, p ...string) Parameters {
 	fields := make(map[string][]string)
 
 	for key, value := range values {
-		if !modules.InArray(keys, key) && len(value) > 0 && value[0] != "" {
+		if !util.InArray(keys, key) && len(value) > 0 && value[0] != "" {
 			if key == SortType {
 				if value[0] != sortTypeDesc && value[0] != sortTypeAsc {
 					fields[key] = []string{sortTypeDesc}
@@ -381,7 +381,7 @@ func (param Parameters) Statement(wheres, table, delimiter, delimiter2 string, w
 
 		if keyIndexSuffix != "" {
 			multiKey[key] = 0
-		} else if _, exist := multiKey[key]; !exist && modules.InArray(existKeys, key) {
+		} else if _, exist := multiKey[key]; !exist && util.InArray(existKeys, key) {
 			continue
 		}
 
@@ -408,9 +408,9 @@ func (param Parameters) Statement(wheres, table, delimiter, delimiter2 string, w
 				for range value {
 					qmark += "?,"
 				}
-				wheres += keys[0] + "." + modules.FilterField(keys[1], delimiter, delimiter2) + " " + op + " (" + qmark[:len(qmark)-1] + ") and "
+				wheres += keys[0] + "." + util.FilterField(keys[1], delimiter, delimiter2) + " " + op + " (" + qmark[:len(qmark)-1] + ") and "
 			} else {
-				wheres += keys[0] + "." + modules.FilterField(keys[1], delimiter, delimiter2) + " " + op + " ? and "
+				wheres += keys[0] + "." + util.FilterField(keys[1], delimiter, delimiter2) + " " + op + " ? and "
 			}
 			if op == "like" && !strings.Contains(val, "%") {
 				whereArgs = append(whereArgs, "%"+val+"%")
@@ -420,15 +420,15 @@ func (param Parameters) Statement(wheres, table, delimiter, delimiter2 string, w
 				}
 			}
 		} else {
-			if modules.InArray(columns, key) {
+			if util.InArray(columns, key) {
 				if op == "in" {
 					qmark := ""
 					for range value {
 						qmark += "?,"
 					}
-					wheres += table + "." + modules.FilterField(key, delimiter, delimiter2) + " " + op + " (" + qmark[:len(qmark)-1] + ") and "
+					wheres += table + "." + util.FilterField(key, delimiter, delimiter2) + " " + op + " (" + qmark[:len(qmark)-1] + ") and "
 				} else {
-					wheres += table + "." + modules.FilterField(key, delimiter, delimiter2) + " " + op + " ? and "
+					wheres += table + "." + util.FilterField(key, delimiter, delimiter2) + " " + op + " ? and "
 				}
 				if op == "like" && !strings.Contains(value[0], "%") {
 					whereArgs = append(whereArgs, "%"+filterProcess(key, value[0], keyIndexSuffix)+"%")
@@ -462,9 +462,9 @@ func (param Parameters) Statement(wheres, table, delimiter, delimiter2 string, w
 		for _, column := range columns {
 			keys := strings.Split(column, FilterParamJoinInfix)
 			if len(keys) > 1 {
-				wheres += keys[0] + "." + modules.FilterField(keys[1], delimiter, delimiter2) + " " + op + " ? or "
+				wheres += keys[0] + "." + util.FilterField(keys[1], delimiter, delimiter2) + " " + op + " ? or "
 			} else {
-				wheres += modules.FilterField(column, delimiter, delimiter2) + " " + op + " ? or "
+				wheres += util.FilterField(column, delimiter, delimiter2) + " " + op + " ? or "
 			}
 			whereArgs = append(whereArgs, value)
 		}

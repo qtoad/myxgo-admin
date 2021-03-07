@@ -8,9 +8,9 @@ import (
 	"path/filepath"
 
 	"github.com/qtoad/myxgo-admin/context"
-	"github.com/qtoad/myxgo-admin/modules/util"
 	"github.com/qtoad/myxgo-admin/plugins/filemanager/guard"
 	"github.com/qtoad/myxgo-admin/plugins/filemanager/modules/language"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 func (h *Handler) Move(ctx *context.Context) {

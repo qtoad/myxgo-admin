@@ -16,7 +16,7 @@ import (
 
 	"github.com/qtoad/myxgo-admin/modules/config"
 	"github.com/qtoad/myxgo-admin/modules/db"
-	"github.com/qtoad/myxgo-admin/modules/util"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 func buildProjectWeb(port string) {
@@ -70,7 +70,7 @@ func buildProjectWeb(port string) {
 			if lang == "en" {
 				curLang = "web.english"
 			}
-			tk := util.Uuid(25)
+			tk := util.NewUuid2(25)
 			tokens = append(tokens, tk)
 			err = t.Execute(w, InstallationPage{
 				Version:       version.Version(),

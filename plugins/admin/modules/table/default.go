@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/qtoad/myxgo-admin/util"
 	"html/template"
 	"io/ioutil"
 	"net/http"
@@ -18,7 +19,6 @@ import (
 	errs "github.com/qtoad/myxgo-admin/modules/errors"
 	"github.com/qtoad/myxgo-admin/modules/language"
 	"github.com/qtoad/myxgo-admin/modules/logger"
-	"github.com/qtoad/myxgo-admin/plugins/admin/modules"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/constant"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/form"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/paginator"
@@ -289,7 +289,7 @@ func (tb *DefaultTable) getTempModelData(res map[string]interface{}, params para
 		if field.Hide {
 			continue
 		}
-		if !modules.InArrayWithoutEmpty(params.Columns, headField) {
+		if !util.InArrayWithoutEmpty(params.Columns, headField) {
 			continue
 		}
 
@@ -303,7 +303,7 @@ func (tb *DefaultTable) getTempModelData(res map[string]interface{}, params para
 
 		// TODO: ToDisplay some same logic execute repeatedly, it can be improved.
 		var value interface{}
-		if len(columns) == 0 || modules.InArray(columns, headField) || field.Joins.Valid() {
+		if len(columns) == 0 || util.InArray(columns, headField) || field.Joins.Valid() {
 			value = field.ToDisplay(types.FieldModel{
 				ID:    primaryKeyValue.String(),
 				Value: combineValue,
@@ -376,7 +376,7 @@ func (tb *DefaultTable) getTempModelData(res map[string]interface{}, params para
 func (tb *DefaultTable) getAllDataFromDatabase(params parameter.Parameters) (PanelInfo, error) {
 	var (
 		connection     = tb.db()
-		queryStatement = "select %s from %s %s %s %s order by " + modules.Delimiter(connection.GetDelimiter(), connection.GetDelimiter2(), "%s") + " %s"
+		queryStatement = "select %s from %s %s %s %s order by " + util.Delimiter(connection.GetDelimiter(), connection.GetDelimiter2(), "%s") + " %s"
 	)
 
 	columns, _ := tb.getColumns(tb.Info.Table)
@@ -389,11 +389,11 @@ func (tb *DefaultTable) getAllDataFromDatabase(params parameter.Parameters) (Pan
 		PrimaryKey: tb.PrimaryKey.Name,
 	}, params, columns)
 
-	fields += tb.Info.Table + "." + modules.FilterField(tb.PrimaryKey.Name, connection.GetDelimiter(), connection.GetDelimiter2())
+	fields += tb.Info.Table + "." + util.FilterField(tb.PrimaryKey.Name, connection.GetDelimiter(), connection.GetDelimiter2())
 
 	groupBy := ""
 	if joins != "" {
-		groupBy = " GROUP BY " + tb.Info.Table + "." + modules.Delimiter(connection.GetDelimiter(), connection.GetDelimiter2(), tb.PrimaryKey.Name)
+		groupBy = " GROUP BY " + tb.Info.Table + "." + util.Delimiter(connection.GetDelimiter(), connection.GetDelimiter2(), tb.PrimaryKey.Name)
 	}
 
 	var (
@@ -411,7 +411,7 @@ func (tb *DefaultTable) getAllDataFromDatabase(params parameter.Parameters) (Pan
 		wheres = " where " + wheres
 	}
 
-	if !modules.InArray(columns, params.SortField) {
+	if !util.InArray(columns, params.SortField) {
 		params.SortField = tb.PrimaryKey.Name
 	}
 
@@ -446,12 +446,12 @@ func (tb *DefaultTable) getDataFromDatabase(params parameter.Parameters) (PanelI
 		connection     = tb.db()
 		delimiter      = connection.GetDelimiter()
 		delimiter2     = connection.GetDelimiter2()
-		placeholder    = modules.Delimiter(delimiter, delimiter2, "%s")
+		placeholder    = util.Delimiter(delimiter, delimiter2, "%s")
 		queryStatement string
 		countStatement string
 		ids            = params.PKs()
-		table          = modules.Delimiter(delimiter, delimiter2, tb.Info.Table)
-		pk             = table + "." + modules.Delimiter(delimiter, delimiter2, tb.PrimaryKey.Name)
+		table          = util.Delimiter(delimiter, delimiter2, tb.Info.Table)
+		pk             = table + "." + util.Delimiter(delimiter, delimiter2, tb.PrimaryKey.Name)
 	)
 
 	beginTime := time.Now()
@@ -494,7 +494,7 @@ func (tb *DefaultTable) getDataFromDatabase(params parameter.Parameters) (PanelI
 		if connection.Name() == db.DriverMssql {
 			for _, field := range tb.Info.FieldList {
 				if field.TypeName == db.Text || field.TypeName == db.Longtext {
-					f := modules.Delimiter(connection.GetDelimiter(), connection.GetDelimiter2(), field.Field)
+					f := util.Delimiter(connection.GetDelimiter(), connection.GetDelimiter2(), field.Field)
 					headField := table + "." + f
 					allFields = strings.ReplaceAll(allFields, headField, "CAST("+headField+" AS NVARCHAR(MAX)) as "+f)
 					groupFields = strings.ReplaceAll(groupFields, headField, "CAST("+headField+" AS NVARCHAR(MAX))")
@@ -503,7 +503,7 @@ func (tb *DefaultTable) getDataFromDatabase(params parameter.Parameters) (PanelI
 		}
 	}
 
-	if !modules.InArray(columns, params.SortField) {
+	if !util.InArray(columns, params.SortField) {
 		params.SortField = tb.PrimaryKey.Name
 	}
 
@@ -654,31 +654,31 @@ func (tb *DefaultTable) GetDataWithId(params parameter.Parameters) (FormInfo, er
 			connection     = tb.db()
 			delimiter      = connection.GetDelimiter()
 			delimiter2     = connection.GetDelimiter2()
-			tableName      = modules.Delimiter(delimiter, delimiter2, tb.GetForm().Table)
-			pk             = tableName + "." + modules.Delimiter(delimiter, delimiter2, tb.PrimaryKey.Name)
+			tableName      = util.Delimiter(delimiter, delimiter2, tb.GetForm().Table)
+			pk             = tableName + "." + util.Delimiter(delimiter, delimiter2, tb.PrimaryKey.Name)
 			queryStatement = "select %s from %s %s where " + pk + " = ? %s "
 		)
 
 		for i := 0; i < len(tb.Form.FieldList); i++ {
 
-			if tb.Form.FieldList[i].Field != pk && modules.InArray(columns, tb.Form.FieldList[i].Field) &&
+			if tb.Form.FieldList[i].Field != pk && util.InArray(columns, tb.Form.FieldList[i].Field) &&
 				!tb.Form.FieldList[i].Joins.Valid() {
-				fields += tableName + "." + modules.FilterField(tb.Form.FieldList[i].Field, delimiter, delimiter2) + ","
+				fields += tableName + "." + util.FilterField(tb.Form.FieldList[i].Field, delimiter, delimiter2) + ","
 			}
 
 			if tb.Form.FieldList[i].Joins.Valid() {
 				headField := tb.Form.FieldList[i].Joins.Last().GetTableName() + parameter.FilterParamJoinInfix + tb.Form.FieldList[i].Field
 				joinFields += db.GetAggregationExpression(connection.Name(), tb.Form.FieldList[i].Joins.Last().GetTableName(delimiter, delimiter2)+"."+
-					modules.FilterField(tb.Form.FieldList[i].Field, delimiter, delimiter2), headField, types.JoinFieldValueDelimiter) + ","
+					util.FilterField(tb.Form.FieldList[i].Field, delimiter, delimiter2), headField, types.JoinFieldValueDelimiter) + ","
 				for _, join := range tb.Form.FieldList[i].Joins {
-					if !modules.InArray(joinTables, join.GetTableName(delimiter, delimiter2)) {
+					if !util.InArray(joinTables, join.GetTableName(delimiter, delimiter2)) {
 						joinTables = append(joinTables, join.GetTableName(delimiter, delimiter2))
 						if join.BaseTable == "" {
 							join.BaseTable = tableName
 						}
-						joins += " left join " + modules.FilterField(join.Table, delimiter, delimiter2) + " " + join.TableAlias + " on " +
-							join.GetTableName(delimiter, delimiter2) + "." + modules.FilterField(join.JoinField, delimiter, delimiter2) + " = " +
-							join.BaseTable + "." + modules.FilterField(join.Field, delimiter, delimiter2)
+						joins += " left join " + util.FilterField(join.Table, delimiter, delimiter2) + " " + join.TableAlias + " on " +
+							join.GetTableName(delimiter, delimiter2) + "." + util.FilterField(join.JoinField, delimiter, delimiter2) + " = " +
+							join.BaseTable + "." + util.FilterField(join.Field, delimiter, delimiter2)
 					}
 				}
 			}
@@ -692,7 +692,7 @@ func (tb *DefaultTable) GetDataWithId(params parameter.Parameters) (FormInfo, er
 			if connection.Name() == db.DriverMssql {
 				for i := 0; i < len(tb.Form.FieldList); i++ {
 					if tb.Form.FieldList[i].TypeName == db.Text || tb.Form.FieldList[i].TypeName == db.Longtext {
-						f := modules.Delimiter(connection.GetDelimiter(), connection.GetDelimiter2(), tb.Form.FieldList[i].Field)
+						f := util.Delimiter(connection.GetDelimiter(), connection.GetDelimiter2(), tb.Form.FieldList[i].Field)
 						headField := tb.Info.Table + "." + f
 						fields = strings.ReplaceAll(fields, headField, "CAST("+headField+" AS NVARCHAR(MAX)) as "+f)
 						groupFields = strings.ReplaceAll(groupFields, headField, "CAST("+headField+" AS NVARCHAR(MAX))")
@@ -914,15 +914,15 @@ func (tb *DefaultTable) getInjectValueFromFormValue(dataList form.Values, typ ty
 
 	for k, v := range dataList {
 		k = strings.ReplaceAll(k, "[]", "")
-		if !modules.InArray(exceptString, k) {
-			if modules.InArray(columns, k) {
+		if !util.InArray(exceptString, k) {
+			if util.InArray(columns, k) {
 				field := tb.Form.FieldList.FindByFieldName(k)
 				delimiter := ","
 				if field != nil {
 					fn = field.PostFilterFn
-					delimiter = modules.SetDefault(field.DefaultOptionDelimiter, ",")
+					delimiter = util.SetDefault(field.DefaultOptionDelimiter, ",")
 				}
-				vv := modules.RemoveBlankFromArray(v)
+				vv := util.RemoveBlankFromArray(v)
 				if fn != nil {
 					value[k] = fn(types.PostFieldModel{
 						ID:       dataList.Get(tb.PrimaryKey.Name),
@@ -944,7 +944,7 @@ func (tb *DefaultTable) getInjectValueFromFormValue(dataList form.Values, typ ty
 				if field != nil && field.PostFilterFn != nil {
 					field.PostFilterFn(types.PostFieldModel{
 						ID:       dataList.Get(tb.PrimaryKey.Name),
-						Value:    modules.RemoveBlankFromArray(v),
+						Value:    util.RemoveBlankFromArray(v),
 						Row:      dataList.ToMap(),
 						PostType: typ,
 					})
@@ -964,12 +964,12 @@ func (tb *DefaultTable) PreProcessValue(dataList form.Values, typ types.PostType
 
 	for k, v := range dataList {
 		k = strings.ReplaceAll(k, "[]", "")
-		if !modules.InArray(exceptString, k) {
+		if !util.InArray(exceptString, k) {
 			field := tb.Form.FieldList.FindByFieldName(k)
 			if field != nil {
 				fn = field.PostFilterFn
 			}
-			vv := modules.RemoveBlankFromArray(v)
+			vv := util.RemoveBlankFromArray(v)
 			if fn != nil {
 				dataList.Add(k, fmt.Sprintf("%s", fn(types.PostFieldModel{
 					ID:       dataList.Get(tb.PrimaryKey.Name),

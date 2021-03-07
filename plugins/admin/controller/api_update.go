@@ -1,12 +1,12 @@
 package controller
 
 import (
+	"github.com/qtoad/myxgo-admin/util"
 	"net/url"
 
 	"github.com/qtoad/myxgo-admin/context"
 	"github.com/qtoad/myxgo-admin/modules/auth"
 	"github.com/qtoad/myxgo-admin/modules/file"
-	"github.com/qtoad/myxgo-admin/plugins/admin/modules"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/constant"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/guard"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/response"
@@ -52,7 +52,7 @@ func (h *Handler) ApiUpdateForm(ctx *context.Context) {
 
 	paramStr := param.GetRouteParamStr()
 
-	newUrl := modules.AorEmpty(panel.GetCanAdd(), h.routePathWithPrefix("api_show_new", prefix)+paramStr)
+	newUrl := util.AorEmpty(panel.GetCanAdd(), h.routePathWithPrefix("api_show_new", prefix)+paramStr)
 	footerKind := "edit"
 	if newUrl == "" || !user.CheckPermissionByUrlMethod(newUrl, h.route("api_show_new").Method(), url.Values{}) {
 		footerKind = "edit_only"

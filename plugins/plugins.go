@@ -26,11 +26,11 @@ import (
 	"github.com/qtoad/myxgo-admin/modules/remote_server"
 	"github.com/qtoad/myxgo-admin/modules/service"
 	"github.com/qtoad/myxgo-admin/modules/ui"
-	"github.com/qtoad/myxgo-admin/modules/util"
 	"github.com/qtoad/myxgo-admin/plugins/admin/models"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/table"
 	"github.com/qtoad/myxgo-admin/template"
 	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 // Plugin as one of the key components of goAdmin has three

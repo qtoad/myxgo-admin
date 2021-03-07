@@ -2,6 +2,7 @@ package controller
 
 import (
 	"fmt"
+	"github.com/qtoad/myxgo-admin/util"
 	template2 "html/template"
 	"net/http"
 	"net/url"
@@ -16,7 +17,6 @@ import (
 	"github.com/qtoad/myxgo-admin/modules/auth"
 	"github.com/qtoad/myxgo-admin/modules/file"
 	"github.com/qtoad/myxgo-admin/modules/language"
-	"github.com/qtoad/myxgo-admin/plugins/admin/modules"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/constant"
 	form2 "github.com/qtoad/myxgo-admin/plugins/admin/modules/form"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/guard"
@@ -50,7 +50,7 @@ func (h *Handler) showForm(ctx *context.Context, alert template2.HTML, prefix st
 	var (
 		user       = auth.Auth(ctx)
 		paramStr   = param.GetRouteParamStr()
-		newUrl     = modules.AorEmpty(panel.GetCanAdd(), h.routePathWithPrefix("show_new", prefix)+paramStr)
+		newUrl     = util.AorEmpty(panel.GetCanAdd(), h.routePathWithPrefix("show_new", prefix)+paramStr)
 		footerKind = "edit"
 	)
 
@@ -127,7 +127,7 @@ func (h *Handler) showForm(ctx *context.Context, alert template2.HTML, prefix st
 	h.HTML(ctx, user, types.Panel{
 		Content:     alert + content,
 		Description: template2.HTML(formInfo.Description),
-		Title:       modules.AorBHTML(isNotIframe, template2.HTML(formInfo.Title), ""),
+		Title:       util.AorBHTML(isNotIframe, template2.HTML(formInfo.Title), ""),
 		MiniSidebar: f.HideSideBar,
 	}, template.ExecuteOptions{Animation: alert == "" || ((len(animation) > 0) && animation[0]), NoCompress: f.NoCompress})
 

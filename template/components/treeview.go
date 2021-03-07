@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"html/template"
 
-	"github.com/qtoad/myxgo-admin/modules/util"
 	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 type TreeViewAttribute struct {
@@ -34,7 +34,7 @@ func (compo *TreeViewAttribute) SetUrlPrefix(value string) types.TreeViewAttribu
 
 func (compo *TreeViewAttribute) GetContent() template.HTML {
 	if compo.ID == "" {
-		compo.ID = util.Uuid(10)
+		compo.ID = util.NewUuid2(10)
 	}
 	b, _ := json.Marshal(compo.Tree)
 	compo.TreeJSON = template.JS(b)

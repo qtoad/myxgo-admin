@@ -2,11 +2,11 @@ package controller
 
 import (
 	"fmt"
+	"github.com/qtoad/myxgo-admin/util"
 
 	"github.com/qtoad/myxgo-admin/context"
 	"github.com/qtoad/myxgo-admin/modules/auth"
 	"github.com/qtoad/myxgo-admin/modules/language"
-	"github.com/qtoad/myxgo-admin/plugins/admin/modules"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/constant"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/parameter"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/response"
@@ -54,9 +54,9 @@ func (h *Handler) ApiDetail(ctx *context.Context) {
 
 	paramStr := param.DeleteDetailPk().GetRouteParamStr()
 
-	editUrl := modules.AorEmpty(!panel.GetInfo().IsHideEditButton, h.routePathWithPrefix("show_edit", prefix)+paramStr+
+	editUrl := util.AorEmpty(!panel.GetInfo().IsHideEditButton, h.routePathWithPrefix("show_edit", prefix)+paramStr+
 		"&"+constant.EditPKKey+"="+ctx.Query(constant.DetailPKKey))
-	deleteUrl := modules.AorEmpty(!panel.GetInfo().IsHideDeleteButton, h.routePathWithPrefix("delete", prefix)+paramStr)
+	deleteUrl := util.AorEmpty(!panel.GetInfo().IsHideDeleteButton, h.routePathWithPrefix("delete", prefix)+paramStr)
 	infoUrl := h.routePathWithPrefix("info", prefix) + paramStr
 
 	editUrl = user.GetCheckPermissionByUrlMethod(editUrl, h.route("show_edit").Method())

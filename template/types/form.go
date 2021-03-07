@@ -19,10 +19,9 @@ import (
 	"github.com/qtoad/myxgo-admin/modules/file"
 	"github.com/qtoad/myxgo-admin/modules/language"
 	"github.com/qtoad/myxgo-admin/modules/logger"
-	"github.com/qtoad/myxgo-admin/modules/util"
-	"github.com/qtoad/myxgo-admin/plugins/admin/modules"
 	"github.com/qtoad/myxgo-admin/plugins/admin/modules/form"
 	form2 "github.com/qtoad/myxgo-admin/template/types/form"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 type FieldOption struct {
@@ -184,7 +183,7 @@ type FormField struct {
 
 func (f *FormField) GetRawValue(columns []string, v interface{}) string {
 	isJSON := len(columns) == 0
-	return modules.AorB(isJSON || modules.InArray(columns, f.Field),
+	return util.AorB(isJSON || util.InArray(columns, f.Field),
 		db.GetValueFromFieldType(f.TypeName, v, isJSON).String(), "")
 }
 
@@ -474,6 +473,10 @@ func (f *FormPanel) AddFieldTr(ctx *context.Context, head, field string, filedTy
 func (f *FormPanel) AddFieldWithTranslation(ctx *context.Context, head, field string, filedType db.FieldType,
 	formType form2.Type) *FormPanel {
 	return f.AddField(language.GetWithLang(head, ctx.Lang()), field, filedType, formType)
+}
+
+func (f *FormPanel) AddVarcharField(head, field string, filedType db.FieldType, formType form2.Type) *FormPanel {
+	return f.AddField(head, field, db.Varchar, form2.Text)
 }
 
 func (f *FormPanel) AddField(head, field string, filedType db.FieldType, formType form2.Type) *FormPanel {
@@ -1323,11 +1326,11 @@ type AjaxData struct {
 func (f *FormPanel) EnableAjaxData(data AjaxData) *FormPanel {
 	f.Ajax = true
 	if f.AjaxSuccessJS == template.JS("") {
-		successMsg := modules.AorB(data.SuccessTitle != "", `"`+data.SuccessTitle+`"`, "data.msg")
-		errorMsg := modules.AorB(data.ErrorTitle != "", `"`+data.ErrorTitle+`"`, "data.msg")
-		jump := modules.AorB(data.SuccessJumpURL != "", `"`+data.SuccessJumpURL+`"`, "data.data.url")
-		text := modules.AorB(data.SuccessText != "", `text:"`+data.SuccessText+`",`, "")
-		wrongText := modules.AorB(data.ErrorText != "", `text:"`+data.ErrorText+`",`, "text:data.msg,")
+		successMsg := util.AorB(data.SuccessTitle != "", `"`+data.SuccessTitle+`"`, "data.msg")
+		errorMsg := util.AorB(data.ErrorTitle != "", `"`+data.ErrorTitle+`"`, "data.msg")
+		jump := util.AorB(data.SuccessJumpURL != "", `"`+data.SuccessJumpURL+`"`, "data.data.url")
+		text := util.AorB(data.SuccessText != "", `text:"`+data.SuccessText+`",`, "")
+		wrongText := util.AorB(data.ErrorText != "", `text:"`+data.ErrorText+`",`, "text:data.msg,")
 		jumpURL := ""
 		if !data.DisableJump {
 			if data.JumpInNewTab != "" {
@@ -1373,9 +1376,9 @@ func (f *FormPanel) EnableAjaxData(data AjaxData) *FormPanel {
 `)
 	}
 	if f.AjaxErrorJS == template.JS("") {
-		errorMsg := modules.AorB(data.ErrorTitle != "", `"`+data.ErrorTitle+`"`, "data.responseJSON.msg")
-		error2Msg := modules.AorB(data.ErrorTitle != "", `"`+data.ErrorTitle+`"`, "'"+language.Get("error")+"'")
-		wrongText := modules.AorB(data.ErrorText != "", `text:"`+data.ErrorText+`",`, "text:data.msg,")
+		errorMsg := util.AorB(data.ErrorTitle != "", `"`+data.ErrorTitle+`"`, "data.responseJSON.msg")
+		error2Msg := util.AorB(data.ErrorTitle != "", `"`+data.ErrorTitle+`"`, "'"+language.Get("error")+"'")
+		wrongText := util.AorB(data.ErrorText != "", `text:"`+data.ErrorText+`",`, "text:data.msg,")
 		f.AjaxErrorJS = template.JS(`
 	if (data.responseText !== "") {
 		if (data.responseJSON.data && data.responseJSON.data.token !== "") {

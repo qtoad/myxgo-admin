@@ -2,8 +2,8 @@ package guard
 
 import (
 	"github.com/qtoad/myxgo-admin/context"
-	"github.com/qtoad/myxgo-admin/modules/util"
 	errors "github.com/qtoad/myxgo-admin/plugins/filemanager/modules/error"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 type FilesParam struct {

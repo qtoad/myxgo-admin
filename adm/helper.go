@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"github.com/mgutz/ansi"
-	"github.com/qtoad/myxgo-admin/modules/util"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 func cliInfo() {

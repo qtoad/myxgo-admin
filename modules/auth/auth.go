@@ -5,6 +5,7 @@
 package auth
 
 import (
+	"github.com/qtoad/myxgo-admin/util"
 	"sync"
 
 	"github.com/qtoad/myxgo-admin/modules/db/dialect"
@@ -14,7 +15,6 @@ import (
 	"github.com/qtoad/myxgo-admin/modules/db"
 	"github.com/qtoad/myxgo-admin/modules/service"
 	"github.com/qtoad/myxgo-admin/plugins/admin/models"
-	"github.com/qtoad/myxgo-admin/plugins/admin/modules"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -121,7 +121,7 @@ func GetTokenService(s interface{}) *TokenService {
 func (s *TokenService) AddToken() string {
 	s.lock.Lock()
 	defer s.lock.Unlock()
-	tokenStr := modules.Uuid()
+	tokenStr := util.NewUuid()
 	s.tokens = append(s.tokens, tokenStr)
 	_, err := db.WithDriver(s.conn).Table("goadmin_session").Insert(dialect.H{
 		"sid":    tokenStr,

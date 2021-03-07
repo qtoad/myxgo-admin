@@ -2,7 +2,7 @@ package filemanager
 
 import (
 	"encoding/json"
-	"github.com/qtoad/myxgo-admin/modules/util"
+	"github.com/qtoad/myxgo-admin/util"
 	"strings"
 
 	"github.com/qtoad/myxgo-admin/modules/db/dialect"
@@ -39,7 +39,7 @@ func (f *FileManager) GetSettingPage() table.Generator {
 			message1 = "update"
 			message2 = "setting"
 
-			cfg = cfg.SetOnlyUpdateForm().SetGetDataFun(func(params parameter.Parameters) ([]map[string]interface{}, int) {
+			cfg = cfg.SetOnlyUpdateForm().SetGetDataFn(func(params parameter.Parameters) ([]map[string]interface{}, int) {
 
 				var m = make([]map[string]interface{}, 1)
 

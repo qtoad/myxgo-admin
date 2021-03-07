@@ -5,9 +5,9 @@ import (
 	"html/template"
 
 	"github.com/qtoad/myxgo-admin/modules/language"
-	"github.com/qtoad/myxgo-admin/modules/util"
 	"github.com/qtoad/myxgo-admin/template/icon"
 	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 type ButtonAttribute struct {
@@ -122,7 +122,7 @@ func (compo *ButtonAttribute) GetContent() template.HTML {
 	}
 
 	if compo.ID == "" {
-		compo.ID = util.Uuid(15) + "_btn"
+		compo.ID = util.NewUuid2(15) + "_btn"
 	}
 
 	return ComposeHtml(compo.TemplateList, compo.Separation, *compo, "button")

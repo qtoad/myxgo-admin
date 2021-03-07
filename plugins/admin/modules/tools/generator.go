@@ -14,8 +14,8 @@ import (
 	"github.com/qtoad/myxgo-admin/modules/language"
 
 	"github.com/qtoad/myxgo-admin/modules/db"
-	"github.com/qtoad/myxgo-admin/modules/util"
 	"github.com/qtoad/myxgo-admin/template/types/form"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 type Param struct {
@@ -152,10 +152,10 @@ func NewParam(cfg Config) *Param {
 		Output:                   cfg.Output,
 		ExtraImport:              cfg.ExtraImport,
 		ExtraCode:                cfg.ExtraCode,
-		TablePageTitle:           util.SetDefault(cfg.TableTitle, "", tt),
-		TableDescription:         util.SetDefault(cfg.TableDescription, "", tt),
-		FormTitle:                util.SetDefault(cfg.FormTitle, "", tt),
-		FormDescription:          util.SetDefault(cfg.FormDescription, "", tt),
+		TablePageTitle:           util.SetDefault(cfg.TableTitle, tt),
+		TableDescription:         util.SetDefault(cfg.TableDescription, tt),
+		FormTitle:                util.SetDefault(cfg.FormTitle, tt),
+		FormDescription:          util.SetDefault(cfg.FormDescription, tt),
 	}
 }
 
@@ -207,12 +207,12 @@ func NewParamWithFields(cfg Config, fields ...Fields) *Param {
 		Output:                   cfg.Output,
 		ExtraImport:              cfg.ExtraImport,
 		ExtraCode:                cfg.ExtraCode,
-		TablePageTitle:           util.SetDefault(cfg.TableTitle, "", tt),
-		TableDescription:         util.SetDefault(cfg.TableDescription, "", tt),
-		FormTitle:                util.SetDefault(cfg.FormTitle, "", tt),
-		FormDescription:          util.SetDefault(cfg.FormDescription, "", tt),
-		DetailTitle:              util.SetDefault(cfg.DetailTitle, "", tt),
-		DetailDescription:        util.SetDefault(cfg.DetailDescription, "", tt),
+		TablePageTitle:           util.SetDefault(cfg.TableTitle, tt),
+		TableDescription:         util.SetDefault(cfg.TableDescription, tt),
+		FormTitle:                util.SetDefault(cfg.FormTitle, tt),
+		FormDescription:          util.SetDefault(cfg.FormDescription, tt),
+		DetailTitle:              util.SetDefault(cfg.DetailTitle, tt),
+		DetailDescription:        util.SetDefault(cfg.DetailDescription, tt),
 	}
 }
 

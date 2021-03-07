@@ -1,10 +1,8 @@
-package modules
+package util
 
 import (
 	"html/template"
 	"strconv"
-
-	uuid "github.com/satori/go.uuid"
 )
 
 func InArray(arr []string, str string) bool {
@@ -44,10 +42,6 @@ func RemoveBlankFromArray(arr []string) []string {
 		}
 	}
 	return r
-}
-
-func Uuid() string {
-	return uuid.NewV4().String()
 }
 
 func SetDefault(source, def string) string {

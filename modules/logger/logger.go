@@ -12,7 +12,7 @@ import (
 	"github.com/mgutz/ansi"
 	"github.com/natefinch/lumberjack"
 	"github.com/qtoad/myxgo-admin/context"
-	"github.com/qtoad/myxgo-admin/modules/util"
+	"github.com/qtoad/myxgo-admin/util"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )
@@ -174,17 +174,17 @@ func (l *Logger) SetRotate(cfg RotateCfg) {
 }
 
 func (l *Logger) SetEncoder(cfg EncoderCfg) {
-	cfg.TimeKey = util.SetDefault(cfg.TimeKey, "", defaultEncoderCfg.TimeKey)
-	cfg.LevelKey = util.SetDefault(cfg.LevelKey, "", defaultEncoderCfg.LevelKey)
-	cfg.NameKey = util.SetDefault(cfg.NameKey, "", defaultEncoderCfg.NameKey)
-	cfg.CallerKey = util.SetDefault(cfg.CallerKey, "", defaultEncoderCfg.CallerKey)
-	cfg.MessageKey = util.SetDefault(cfg.MessageKey, "", defaultEncoderCfg.MessageKey)
-	cfg.StacktraceKey = util.SetDefault(cfg.StacktraceKey, "", defaultEncoderCfg.StacktraceKey)
-	cfg.Level = util.SetDefault(cfg.Level, "", defaultEncoderCfg.Level)
-	cfg.Time = util.SetDefault(cfg.Time, "", defaultEncoderCfg.Time)
-	cfg.Duration = util.SetDefault(cfg.Duration, "", defaultEncoderCfg.Duration)
-	cfg.Caller = util.SetDefault(cfg.Caller, "", defaultEncoderCfg.Caller)
-	cfg.Encoding = util.SetDefault(cfg.Encoding, "", defaultEncoderCfg.Encoding)
+	cfg.TimeKey = util.SetDefault(cfg.TimeKey, defaultEncoderCfg.TimeKey)
+	cfg.LevelKey = util.SetDefault(cfg.LevelKey, defaultEncoderCfg.LevelKey)
+	cfg.NameKey = util.SetDefault(cfg.NameKey, defaultEncoderCfg.NameKey)
+	cfg.CallerKey = util.SetDefault(cfg.CallerKey, defaultEncoderCfg.CallerKey)
+	cfg.MessageKey = util.SetDefault(cfg.MessageKey, defaultEncoderCfg.MessageKey)
+	cfg.StacktraceKey = util.SetDefault(cfg.StacktraceKey, defaultEncoderCfg.StacktraceKey)
+	cfg.Level = util.SetDefault(cfg.Level, defaultEncoderCfg.Level)
+	cfg.Time = util.SetDefault(cfg.Time, defaultEncoderCfg.Time)
+	cfg.Duration = util.SetDefault(cfg.Duration, defaultEncoderCfg.Duration)
+	cfg.Caller = util.SetDefault(cfg.Caller, defaultEncoderCfg.Caller)
+	cfg.Encoding = util.SetDefault(cfg.Encoding, defaultEncoderCfg.Encoding)
 	l.encoder = cfg
 }
 

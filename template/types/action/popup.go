@@ -10,10 +10,10 @@ import (
 	"github.com/qtoad/myxgo-admin/modules/config"
 	"github.com/qtoad/myxgo-admin/modules/constant"
 	"github.com/qtoad/myxgo-admin/modules/language"
-	"github.com/qtoad/myxgo-admin/modules/util"
 	template2 "github.com/qtoad/myxgo-admin/template"
 	"github.com/qtoad/myxgo-admin/template/icon"
 	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 type PopUpAction struct {
@@ -44,7 +44,7 @@ func PopUp(id, title string, handler types.Handler) *PopUpAction {
 		Method:   "post",
 		BtnTitle: "",
 		Data:     NewAjaxData(),
-		Id:       "info-popup-model-" + util.Uuid(10),
+		Id:       "info-popup-model-" + util.NewUuid2(10),
 		Handlers: context.Handlers{handler.Wrap()},
 		Event:    EventClick,
 	}
@@ -102,7 +102,7 @@ func PopUpWithIframe(id, title string, data IframeData, width, height string) *P
 	} else {
 		data.Src = data.Src + "?"
 	}
-	modalID := "info-popup-model-" + util.Uuid(10)
+	modalID := "info-popup-model-" + util.NewUuid2(10)
 	var handler types.Handler = func(ctx *context.Context) (success bool, msg string, res interface{}) {
 		param := ""
 		if data.AddParameterFn != nil {
@@ -151,7 +151,7 @@ func PopUpWithForm(data PopUpData, fn GetForm, url string) *PopUpAction {
 	if data.Id == "" {
 		panic("wrong popup action parameter, empty id")
 	}
-	modalID := "info-popup-model-" + util.Uuid(10)
+	modalID := "info-popup-model-" + util.NewUuid2(10)
 
 	var handler types.Handler = func(ctx *context.Context) (success bool, msg string, res interface{}) {
 		col1 := template2.Default().Col().GetContent()

@@ -7,10 +7,10 @@ import (
 
 	"github.com/qtoad/myxgo-admin/modules/config"
 	"github.com/qtoad/myxgo-admin/modules/language"
-	"github.com/qtoad/myxgo-admin/modules/util"
 	form2 "github.com/qtoad/myxgo-admin/plugins/admin/modules/form"
 	"github.com/qtoad/myxgo-admin/template/types"
 	"github.com/qtoad/myxgo-admin/template/types/form"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 type FormAttribute struct {
@@ -197,7 +197,7 @@ func (compo *FormAttribute) SetOperationFooter(value template.HTML) types.FormAt
 func (compo *FormAttribute) GetContent() template.HTML {
 	compo.CdnUrl = config.GetAssetUrl()
 	if compo.Id == "" {
-		compo.Id = util.Uuid(10)
+		compo.Id = util.NewUuid2(10)
 	}
 
 	if col := compo.Layout.Col(); col > 0 {

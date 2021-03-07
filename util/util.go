@@ -24,19 +24,6 @@ import (
 	"time"
 )
 
-func Uuid(length int64) string {
-	ele := []string{"1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "v", "k",
-		"l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "Cfg", "Driver", "E", "F", "G",
-		"H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}
-	ele, _ = Random(ele)
-	uuid := ""
-	var i int64
-	for i = 0; i < length; i++ {
-		uuid += ele[rand.Intn(59)]
-	}
-	return uuid
-}
-
 func Random(strings []string) ([]string, error) {
 	for i := len(strings) - 1; i > 0; i-- {
 		num := rand.Intn(i + 1)
@@ -78,15 +65,6 @@ func ReplaceNth(s, old, new string, n int) string {
 	return s
 }
 
-func InArray(arr []string, str string) bool {
-	for _, v := range arr {
-		if v == str {
-			return true
-		}
-	}
-	return false
-}
-
 func WrapURL(u string) string {
 	uarr := strings.Split(u, "?")
 	if len(uarr) < 2 {
@@ -106,6 +84,24 @@ func JSON(a interface{}) string {
 	}
 	b, _ := json.Marshal(a)
 	return string(b)
+}
+
+//获取source的子串,如果start小于0或者end大于source长度则返回""
+//start:开始index，从0开始，包括0
+//end:结束index，以end结束，但不包括end
+func substring(source string, start int, end int) string {
+	var r = []rune(source)
+	length := len(r)
+
+	if start < 0 || end > length || start > end {
+		return ""
+	}
+
+	if start == 0 && end == length {
+		return source
+	}
+
+	return string(r[start:end])
 }
 
 func ParseBool(s string) bool {
@@ -133,20 +129,6 @@ func PackageName(v interface{}) string {
 func ParseFloat32(f string) float32 {
 	s, _ := strconv.ParseFloat(f, 32)
 	return float32(s)
-}
-
-func SetDefault(value, condition, def string) string {
-	if value == condition {
-		return def
-	}
-	return value
-}
-
-func AorB(condition bool, a, b string) string {
-	if condition {
-		return a
-	}
-	return b
 }
 
 func IsJSON(str string) bool {

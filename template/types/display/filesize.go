@@ -3,8 +3,8 @@ package display
 import (
 	"strconv"
 
-	"github.com/qtoad/myxgo-admin/modules/util"
 	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 type FileSize struct {

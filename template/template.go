@@ -20,10 +20,10 @@ import (
 	"github.com/qtoad/myxgo-admin/modules/language"
 	"github.com/qtoad/myxgo-admin/modules/logger"
 	"github.com/qtoad/myxgo-admin/modules/menu"
-	"github.com/qtoad/myxgo-admin/modules/util"
 	"github.com/qtoad/myxgo-admin/plugins/admin/models"
 	"github.com/qtoad/myxgo-admin/template/login"
 	"github.com/qtoad/myxgo-admin/template/types"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 // Template is the interface which contains methods of ui components.

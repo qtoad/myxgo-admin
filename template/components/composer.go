@@ -6,8 +6,8 @@ import (
 
 	"github.com/qtoad/myxgo-admin/modules/config"
 	"github.com/qtoad/myxgo-admin/modules/logger"
-	"github.com/qtoad/myxgo-admin/modules/util"
 	template2 "github.com/qtoad/myxgo-admin/template"
+	"github.com/qtoad/myxgo-admin/util"
 )
 
 func ComposeHtml(temList map[string]string, separation bool, compo interface{}, templateName ...string) template.HTML {
